@@ -1,0 +1,17 @@
+{
+  "name": "fox-ui-wc",
+  "version": "1.0.0",
+  "description": "符合Web Component规范的前端组件库",
+  "main": "index.js",
+  "repository": "https://github.com/GuoJikun/fox-ui-wc.git",
+  "author": "guojikun <guojikun@y-open.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "docs:dev": "npx docsify serve docs",
+    "docs:start": "npx docsify start docs"
+  },
+  "devDependencies": {
+    "docsify-cli": "^4.4.1"
+  }
+}
