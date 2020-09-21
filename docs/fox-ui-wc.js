@@ -1,12 +1,18 @@
-import {
-  $_color_primary,
-  $_color_success,
-  $_color_warn,
-  $_color_error,
-  $_color_info,
-  $_border_base,
-  $_border_radius,
-} from "../utils/var.js";
+/* 公共颜色变量 */
+const $_color_primary = "#409EFF";
+const $_color_success = "#67C23A";
+const $_color_warn = "#E6A23C";
+const $_color_error = "#F56C6C";
+const $_color_info = "#909399";
+
+/****边框颜色 */
+const $_border_color_base = "#DCDFE6";
+
+/***圆角 */
+const $_border_radius = "4px";
+
+/*****button组件 */
+const $_border_base = `1px solid ${$_border_color_base}`;
 
 class Button extends HTMLElement {
   constructor() {

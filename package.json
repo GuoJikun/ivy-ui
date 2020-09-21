@@ -9,9 +9,11 @@
   "private": false,
   "scripts": {
     "docs:dev": "npx docsify serve docs",
-    "docs:start": "npx docsify start docs"
+    "docs:start": "npx docsify start docs",
+    "dev": "npx rollup --watch --config rollup.config.js"
   },
   "devDependencies": {
-    "docsify-cli": "^4.4.1"
+    "docsify-cli": "^4.4.1",
+    "rollup": "^2.28.1"
   }
 }
