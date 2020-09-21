@@ -5,4 +5,4 @@
 * **组件**
   - [Icon 图标](icon.md)
   - [Button 按钮](button.md)
-  - [Radio 单选框](radio.md)
+  - [Switch 开关](switch.md)
