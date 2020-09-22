@@ -14,5 +14,11 @@ export const $_border_color_base = "#DCDFE6";
 /***圆角 */
 export const $_border_radius = "4px";
 
-/*****button组件 */
+/*****阴影 */
+export const $_shadow_base = "0 1px 6px rgba(0,0,0, 0.2)";
+
+/*****边框 */
 export const $_border_base = `1px solid ${$_border_color_base}`;
+
+/*****button组件 */
+export const $_button_border_base = $_border_base;
