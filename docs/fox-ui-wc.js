@@ -18,12 +18,12 @@ const $_shadow_base = "0 1px 6px rgba(0,0,0, 0.2)";
 const $_border_base = `1px solid ${$_border_color_base}`;
 
 class Button extends HTMLElement {
-  constructor() {
-    super();
+    constructor() {
+        super();
 
-    const template = document.createElement("template");
+        const template = document.createElement("template");
 
-    template.innerHTML = `
+        template.innerHTML = `
             <style>
                 :host {
                     margin-left: 12px;
@@ -35,7 +35,7 @@ class Button extends HTMLElement {
                 }
 
 
-                .fox-button {
+                .ivy-button {
                     display: block;
                     overflow: hidden;
                     outline: none;
@@ -49,42 +49,42 @@ class Button extends HTMLElement {
                     cursor: pointer;
                 }
 
-                .fox-button:not([disabled]):hover,
-                .fox-button:not([disabled]):focus{
+                .ivy-button:not([disabled]):hover,
+                .ivy-button:not([disabled]):focus{
                     opacity: 0.8;
                 }
 
-                :host([disabled]) .fox-button {
+                :host([disabled]) .ivy-button {
                     opacity: 0.7;
                     cursor: not-allowed;
                 }
 
-                .fox-button-primary {
+                .ivy-button-primary {
                     border: 1px solid var(--color-primary, ${$_color_primary});
                     background-color: var(--color-primary, ${$_color_primary});
                     color: white;
                 }
-                .fox-button-success {
+                .ivy-button-success {
                     border: 1px solid var(--color-success, ${$_color_success});;
                     background-color: var(--color-success, ${$_color_success});;
                     color: white;
                 }
-                .fox-button-warn {
+                .ivy-button-warn {
                     border: 1px solid var(--color-warn, ${$_color_warn});;
                     background-color: var(--color-warn, ${$_color_warn});;
                     color: white;
                 }
-                .fox-button-danger {
+                .ivy-button-danger {
                     border: 1px solid var(--color-danger, ${$_color_error});;
                     background-color: var(--color-danger, ${$_color_error});;
                     color: white;
                 }
-                .fox-button-info {
+                .ivy-button-info {
                     border: 1px solid var(--color-info, ${$_color_info});;
                     background-color: var(--color-info, ${$_color_info});;
                     color: white;
                 }
-                #fox-loading {
+                #ivy-loading {
                     width: 1em;
                     height: 1em;
                     vertical-align: -0.15em;
@@ -100,118 +100,115 @@ class Button extends HTMLElement {
                 }
             </style>
             <svg aria-hidden="true" style="position: absolute; width: 0px; height: 0px; overflow: hidden;">
-                <symbol id="fox-icon-loading" viewBox="0 0 1024 1024">
+                <symbol id="ivy-icon-loading" viewBox="0 0 1024 1024">
                     <path
                         d="M512 64q14.016 0 23.008 8.992T544 96v192q0 14.016-8.992 23.008T512 320t-23.008-8.992T480 288V96q0-14.016 8.992-23.008T512 64z m0 640q14.016 0 23.008 8.992T544 736v192q0 14.016-8.992 23.008T512 960t-23.008-8.992T480 928v-192q0-14.016 8.992-23.008T512 704z m448-192q0 14.016-8.992 23.008T928 544h-192q-14.016 0-23.008-8.992T704 512t8.992-23.008T736 480h192q14.016 0 23.008 8.992T960 512z m-640 0q0 14.016-8.992 23.008T288 544H96q-14.016 0-23.008-8.992T64 512t8.992-23.008T96 480h192q14.016 0 23.008 8.992T320 512zM195.008 195.008q10.016-8.992 23.008-8.992t22.016 8.992l136 136q8.992 10.016 8.992 22.496t-9.504 22.016-22.016 9.504-22.496-8.992l-136-136q-8.992-8.992-8.992-22.016t8.992-23.008zM648 648q10.016-10.016 22.496-10.016t22.496 10.016l136 136q8.992 8.992 8.992 22.016t-9.504 22.496-22.496 9.504-22.016-8.992l-136-136q-10.016-10.016-10.016-22.496t10.016-22.496z m180.992-452.992q8.992 10.016 8.992 23.008t-8.992 22.016l-136 136q-10.016 8.992-22.496 8.992t-22.016-9.504-9.504-22.016 8.992-22.496l136-136q8.992-8.992 22.016-8.992t23.008 8.992zM376 648q10.016 10.016 10.016 22.496t-10.016 22.496l-136 136q-8.992 8.992-22.016 8.992t-22.496-9.504-9.504-22.496 8.992-22.016l136-136q10.016-10.016 22.496-10.016t22.496 10.016z"
                     ></path>
                 </symbol>
             </svg>
             
-            <button class="fox-button">
-                <svg view="0 0 1024 1024" class="fox-icon" xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" id="fox-loading">
-                    <use href="#fox-icon-loading"></use>
+            <button class="ivy-button">
+                <svg view="0 0 1024 1024" class="ivy-icon" xmlns="http://www.w3.org/2000/svg" version="1.1" aria-hidden="true" id="ivy-loading">
+                    <use href="#ivy-icon-loading"></use>
                 </svg>
-                <span class="fox-button-inner"><slot></slot></span>
+                <span class="ivy-button-inner"><slot></slot></span>
             </button>
         `;
 
-    this._shadowRoot = this.attachShadow({
-      mode: "open",
-    });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
+        this._shadowRoot = this.attachShadow({
+            mode: "open",
+        });
+        this._shadowRoot.appendChild(template.content.cloneNode(true));
 
-    this.$button = this._shadowRoot.querySelector("button");
-    this.$loading = this._shadowRoot.querySelector("#fox-loading");
-    this.$buttonInner = this._shadowRoot.querySelector(".fox-button-inner");
+        this.$button = this._shadowRoot.querySelector("button");
+        this.$loading = this._shadowRoot.querySelector("#ivy-loading");
+        this.$buttonInner = this._shadowRoot.querySelector(".ivy-button-inner");
 
-    this.addEventListener("click", (e) => {});
-  }
-  connectedCallback() {
-    if (this.type && this.$button) {
-      this.$button.setAttribute(
-        "class",
-        `${this.class} fox-button-${this.type}`
-      );
+        this.addEventListener("click", e => {});
     }
-  }
-
-  get type() {
-    return this.getAttribute("type");
-  }
-
-  set type(value) {
-    this.setAttribute("type", value);
-  }
-
-  get loading() {
-    return this.getAttribute("loading");
-  }
-
-  set loading(value) {
-    this.setAttribute("loading", value);
-  }
-
-  get round() {
-    return this.getAttribute("round");
-  }
-
-  set round(value) {
-    this.setAttribute("round", value);
-  }
-
-  get disabled() {
-    return this.getAttribute("disabled");
-  }
-
-  set disabled(value) {
-    this.setAttribute("disabled", value);
-  }
-
-  static get observedAttributes() {
-    return ["type", "round", "disabled", "loading"];
-  }
-
-  get class() {
-    return this.$button.classList;
-  }
-
-  attributeChangedCallback(name, oldVal, newVal) {
-    this.render(name);
-  }
-  render(name) {
-    if (name === "round") {
-      this.$button.style.borderRadius = "17px";
+    connectedCallback() {
+        if (this.type && this.$button) {
+            this.$button.setAttribute("class", `${this.class} ivy-button-${this.type}`);
+        }
     }
-    /* if (name === "disabled") {
+
+    get type() {
+        return this.getAttribute("type");
+    }
+
+    set type(value) {
+        this.setAttribute("type", value);
+    }
+
+    get loading() {
+        return this.getAttribute("loading");
+    }
+
+    set loading(value) {
+        this.setAttribute("loading", value);
+    }
+
+    get round() {
+        return this.getAttribute("round");
+    }
+
+    set round(value) {
+        this.setAttribute("round", value);
+    }
+
+    get disabled() {
+        return this.getAttribute("disabled");
+    }
+
+    set disabled(value) {
+        this.setAttribute("disabled", value);
+    }
+
+    static get observedAttributes() {
+        return ["type", "round", "disabled", "loading"];
+    }
+
+    get class() {
+        return this.$button.classList;
+    }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+        this.render(name);
+    }
+    render(name) {
+        if (name === "round") {
+            this.$button.style.borderRadius = "17px";
+        }
+        /* if (name === "disabled") {
             this.$button.style.cursor = "not-allowed";
             this.$button.style.opacity = "0.5";
         } */
-    if (name === "loading") {
-      this.$loading.style.display = "initial";
-      this.$buttonInner.style.marginLeft = "4px";
-      this.$button.style.cursor = "not-allowed";
-      this.$button.style.opacity = "0.5";
+        if (name === "loading") {
+            this.$loading.style.display = "initial";
+            this.$buttonInner.style.marginLeft = "4px";
+            this.$button.style.cursor = "not-allowed";
+            this.$button.style.opacity = "0.5";
+        }
     }
-  }
 }
-if (!customElements.get("fox-button")) {
-  customElements.define("fox-button", Button);
+if (!customElements.get("ivy-button")) {
+    customElements.define("ivy-button", Button);
 }
 
 class Switch extends HTMLElement {
-  constructor() {
-    super();
+    constructor() {
+        super();
 
-    const template = document.createElement("template");
+        const template = document.createElement("template");
 
-    template.innerHTML = `
+        template.innerHTML = `
             <style>
                 :host {
                     display: inline-flex;
                 }
 
 
-                .fox-switch {
+                .ivy-switch {
                     display: inline-block;
                     position: relative;
                     width: 40px;
@@ -221,7 +218,7 @@ class Switch extends HTMLElement {
                     transition: border-color .3s, background-color .3s;
                     cursor: pointer;
                 }
-                .fox-switch::after{
+                .ivy-switch::after{
                     content: '';
                     display: inline-block;
                     width: 1rem;
@@ -234,67 +231,67 @@ class Switch extends HTMLElement {
                     position: absolute;
                     left: 2px;
                 }
-                .fox-switch.is-checked{
+                .ivy-switch.is-checked{
                     background: var(--color-primary, ${$_color_primary});
                 }
-                .fox-switch.is-checked::after{
+                .ivy-switch.is-checked::after{
                     content: '';
                     position: absolute;
                     left: 55%;
                     top: 2px;
                 }
             </style>
-            <span class="fox-switch"></span>
+            <span class="ivy-switch"></span>
         `;
 
-    this._shadowRoot = this.attachShadow({
-      mode: "open",
-    });
-    this._shadowRoot.appendChild(template.content.cloneNode(true));
+        this._shadowRoot = this.attachShadow({
+            mode: "open",
+        });
+        this._shadowRoot.appendChild(template.content.cloneNode(true));
 
-    this.$switch = this._shadowRoot.querySelector(".fox-switch");
+        this.$switch = this._shadowRoot.querySelector(".ivy-switch");
 
-    this.addEventListener("click", (e) => {
-      this.$switch.classList.toggle("is-checked");
-    });
-  }
-
-  static get observedAttributes() {
-    return ["checked", "disabled"];
-  }
-
-  get checked() {
-    return this.getAttribute("checked");
-  }
-
-  set checked(value) {
-    this.setAttribute("checked", value);
-  }
-
-  get disabled() {
-    return this.getAttribute("disabled");
-  }
-
-  set disabled(value) {
-    this.setAttribute("disabled", value);
-  }
-
-  //   connectedCallback() {
-  //     console.log(this.checked, this.checked === "true");
-  //     if (this.$switch && (this.checked === "" || this.checked === "true")) {
-  //       console.log(this.$switch, "this.$switch");
-  //       this.$switch.classList.toggle("is-checked");
-  //     }
-  //   }
-
-  attributeChangedCallback(name, oldVal, newVal) {
-    if (name === "checked") {
-      this.$switch.classList.toggle("is-checked");
+        this.addEventListener("click", e => {
+            this.$switch.classList.toggle("is-checked");
+        });
     }
-  }
+
+    static get observedAttributes() {
+        return ["checked", "disabled"];
+    }
+
+    get checked() {
+        return this.getAttribute("checked");
+    }
+
+    set checked(value) {
+        this.setAttribute("checked", value);
+    }
+
+    get disabled() {
+        return this.getAttribute("disabled");
+    }
+
+    set disabled(value) {
+        this.setAttribute("disabled", value);
+    }
+
+    //   connectedCallback() {
+    //     console.log(this.checked, this.checked === "true");
+    //     if (this.$switch && (this.checked === "" || this.checked === "true")) {
+    //       console.log(this.$switch, "this.$switch");
+    //       this.$switch.classList.toggle("is-checked");
+    //     }
+    //   }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+        if (name === "checked") {
+            this.$switch.classList.toggle("is-checked");
+        }
+    }
 }
-if (!customElements.get("fox-switch")) {
-  customElements.define("fox-switch", Switch);
+if (!customElements.get("ivy-switch")) {
+    customElements.define("ivy-switch", Switch);
 }
 
 class Card extends HTMLElement {

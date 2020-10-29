@@ -2,7 +2,7 @@
 
 #### 常规用法
 
-<fox-button onclick="document.querySelector('#test').setAttribute('header','这是设置后的标题')">改变 card 标题</fox-button>
+<ivy-button onclick="document.querySelector('#test').setAttribute('header','这是设置后的标题')">改变 card 标题</ivy-button>
 
 <ins-card style="width: 300px;" header="123" id="test">
     <div>卡片</div>

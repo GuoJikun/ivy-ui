@@ -7,4 +7,4 @@
     <span slot="append">com</span>
 </ivy-input>
 
-<fox-button onclick="console.log(document.getElementById('input').value)">1234</fox-button>
+<ivy-button onclick="console.log(document.getElementById('input').value)">1234</ivy-button>

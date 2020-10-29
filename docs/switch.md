@@ -1,7 +1,7 @@
 ### Switch 开关
 
-<fox-switch></fox-switch>
+<ivy-switch></ivy-switch>
 
-<fox-switch checked></fox-switch>
+<ivy-switch checked></ivy-switch>
 
-<fox-switch checked="true"></fox-switch>
+<ivy-switch checked="true"></ivy-switch>
