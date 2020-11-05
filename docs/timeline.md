@@ -66,7 +66,7 @@
 
 通过设置`timelineItem`的`type`属性来设置小圆点的颜色。共五种：primary,success,warn,error,default(不用设置)
 <ivy-timeline>
-<ivy-timeline-item timestamp="2020-8-12" hide-timestamp type="primary">
+<ivy-timeline-item timestamp="2020-8-12" type="primary">
 本周美国大选公布结果
 </ivy-timeline-item>
 <ivy-timeline-item timestamp="2020-9-12" type="success">
@@ -98,21 +98,21 @@
 通过设置`timelineItem`的`show-timestamp`属性来显示和隐藏时间戳。
 
 <ivy-timeline>
-<ivy-timeline-item timestamp="2020-8-12" hide-timestamp>
-本周美国大选公布结果
-</ivy-timeline-item>
-<ivy-timeline-item timestamp="2020-9-12">
-本周美国大选公布结果
-</ivy-timeline-item>
-<ivy-timeline-item timestamp="2020-10-12">
-本周美国大选公布结果
-</ivy-timeline-item>
-<ivy-timeline-item timestamp="2020-11-12">
-本周美国大选公布结果
-</ivy-timeline-item>
-<ivy-timeline-item timestamp="2020-12-12">
-本周美国大选公布结果
-</ivy-timeline-item>
+    <ivy-timeline-item timestamp="2020-8-12" hide-timestamp>
+    本周美国大选公布结果
+    </ivy-timeline-item>
+    <ivy-timeline-item timestamp="2020-9-12">
+    本周美国大选公布结果
+    </ivy-timeline-item>
+    <ivy-timeline-item timestamp="2020-10-12">
+    本周美国大选公布结果
+    </ivy-timeline-item>
+    <ivy-timeline-item timestamp="2020-11-12">
+    本周美国大选公布结果
+    </ivy-timeline-item>
+    <ivy-timeline-item timestamp="2020-12-12">
+    本周美国大选公布结果
+    </ivy-timeline-item>
 </ivy-timeline>
 
 ```html
