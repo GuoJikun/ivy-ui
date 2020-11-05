@@ -95,7 +95,7 @@
 
 #### 隐藏时间戳
 
-通过设置`timelineItem`的`show-timestamp`属性来显示和隐藏时间戳。
+通过设置`timelineItem`的`hide-timestamp`属性来显示和隐藏时间戳。
 
 <ivy-timeline>
     <ivy-timeline-item timestamp="2020-8-12" hide-timestamp>

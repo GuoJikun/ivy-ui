@@ -10,3 +10,4 @@
     -   [Input 输入框](input.md)
     -   [Timeline 时间线](timeline.md)
     -   [Divider 分隔线](divider.md)
+    -   [Modal 对话框](modal.md)

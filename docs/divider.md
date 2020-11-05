@@ -67,7 +67,7 @@ Inc.
 
 #### 分割线的样式
 
-通过设置属性`type`设置分割线的样式;solid/dotted/dashed
+通过设置属性`type`设置分割线的样式；可选值：solid/dotted/dashed
 
 Steven Paul Jobs was an American entrepreneur and business magnate. He was the chairman, chief executive officer, and a co-founder of Apple Inc.
 <ivy-divider>分割线 default</ivy-divider>
