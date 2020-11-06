@@ -1,7 +1,16 @@
 {
   "name": "ivy-ui",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "符合Web Component规范的前端组件库",
+  "keywords": [
+    "ivy-ui",
+    "ivyui",
+    "web component",
+    "component",
+    "ivy",
+    "ui",
+    "uikit"
+  ],
   "main": "index.js",
   "repository": "https://github.com/GuoJikun/fox-ui-wc.git",
   "author": "guojikun <guojikun@y-open.com>",
@@ -10,7 +19,8 @@
   "scripts": {
     "docs:dev": "npx docsify serve docs",
     "docs:start": "npx docsify start docs",
-    "dev": "npx rollup --watch --config rollup.config.js"
+    "dev": "npx rollup --watch --config rollup.config.js",
+    "build": "npx rollup --config rollup.config.js"
   },
   "devDependencies": {
     "docsify-cli": "^4.4.1",
