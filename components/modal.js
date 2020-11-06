@@ -32,7 +32,7 @@ class Modal extends HTMLElement {
                     background-color: #ffffff;
                     border-radius: var(--border-radius, ${$_border_radius});
                     position: relative;
-                    transition: all 0.3s;
+                    animation: shows 0.3s forwards;
                 }
                 .ivy-modal-header {
                     padding: 12px 16px;
@@ -56,7 +56,7 @@ class Modal extends HTMLElement {
                     border-radius: 4px;
                     cursor: pointer;
                     background-color: #fff;
-                    transition: 0.1s;
+                    transition: all 0.1s;
                 }
                 .ivy-modal-button:hover {
                     color: #409eff;
@@ -107,6 +107,16 @@ class Modal extends HTMLElement {
                 .ivy-modal-close:hover::after {
                     background-color: #444;
                 }
+                @keyframes shows {
+                    0% {
+                        display: none;
+                        margin: 0 auto 0;
+                    }
+                    100% {
+                        display: block;
+                        margin: 14vh auto 0;
+                    }
+                }
             </style>
             <div class="ivy-mask"></div>
             <div class="ivy-modal">
@@ -126,23 +136,33 @@ class Modal extends HTMLElement {
             </div>
         `;
         this._shadowRoot = this.attachShadow({
-            mode: "open",
+            mode: "closed",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-modal");
         document.body.appendChild(this);
+        /**
+         * 自定义事件
+         */
+        const onclose = new CustomEvent("close", { bubbles: false, cancelable: true, composed: false });
+        const onCancel = new CustomEvent("cancel", { bubbles: false, cancelable: true, composed: false });
+        const onSure = new CustomEvent("sure", { bubbles: false, cancelable: true, composed: false });
 
         const closeBtn = this._shadowRoot.querySelector(".ivy-modal-close");
         const cancelBtn = this._shadowRoot.querySelector(".ivy-modal-button-cancel");
         const sureBtn = this._shadowRoot.querySelector(".ivy-modal-button-primary");
+
         closeBtn.addEventListener("click", () => {
+            this.dispatchEvent(onclose);
             this.removeAttribute("show");
-            this.dispatchEvent("close");
         });
         cancelBtn.addEventListener("click", () => {
+            this.dispatchEvent(onCancel);
             this.removeAttribute("show");
         });
         sureBtn.addEventListener("click", () => {
+            this.dispatchEvent(onSure);
+            console.log(onSure);
             this.removeAttribute("show");
         });
     }

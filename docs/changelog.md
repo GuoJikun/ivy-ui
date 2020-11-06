@@ -5,3 +5,4 @@
 -   [x] 添加 `switch` 组件
 -   [x] 添加 `timeline` 组件
 -   [x] 添加 `divider` 组件
+-   [x] 添加 `modal` 组件

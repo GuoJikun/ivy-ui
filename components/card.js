@@ -44,7 +44,6 @@ class Card extends HTMLElement {
 
         this.$el = this._shadowRoot.querySelector(".ins-card");
         this.$header = this._shadowRoot.querySelector(".ins-card-header").children[0];
-        console.log(this.$header);
     }
 
     static get observedAttributes() {
