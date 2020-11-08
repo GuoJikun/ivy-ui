@@ -3,17 +3,6 @@ import { iconfont } from "../icon.js";
 import { $_border_radius, $_color_primary, $_border_color_base } from "../utils/var";
 class Icon extends HTMLElement {
     constructor() {
-        const hideSvg = document.querySelector("#ivy-icon-hidden");
-        if (!hideSvg) {
-            const svg = document.createElement("svg");
-            svg.setAttribute("id", "ivy-icon-hidden");
-            svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-            svg.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
-            svg.setAttribute("hidden", "");
-            svg.setAttribute("aria-hidden", "true");
-            svg.innerHTML = iconfont;
-            document.body.appendChild(svg);
-        }
         super();
         const template = document.createElement("template");
         template.innerHTML = `
@@ -45,7 +34,10 @@ class Icon extends HTMLElement {
                     }
                 }
             </style>
-            <svg class="ivy-icon" aria-hidden="true" view="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="font-size: ${this.size}px;">
+            <svg aria-hidden="true" style="width: 0;height: 0;overflow:hidden;position: absolute;">
+                ${iconfont.replace(new RegExp(`(.+)(<symbol id=\"ivy-icon-${this.name}\" viewBox=\"0 0 1024 1024\"><path d=\"[^\"]+"\ +><\/path><\/symbol>)(.+)`,'g'), '$2')}
+            </svg>
+            <svg class="ivy-icon" style="font-size: ${this.size}px;color: ${this.color};">
                 <use xlink:href="#ivy-icon-${this.name}"></use>
             </svg>
         `;
@@ -54,16 +46,18 @@ class Icon extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-icon");
-        console.log(this.name);
     }
     static get observedAttributes() {
-        return ["size", "name"];
+        return ["size", "name","color"];
     }
     get size() {
         return this.getAttribute("size") || 14;
     }
     get name() {
         return this.getAttribute("name") || "";
+    }
+    get color() {
+        return this.getAttribute("color") || "";
     }
 
     set name(value) {
