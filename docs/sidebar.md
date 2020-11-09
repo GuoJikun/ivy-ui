@@ -9,3 +9,4 @@
     -   [Timeline 时间线](timeline.md)
     -   [Divider 分隔线](divider.md)
     -   [Modal 对话框](modal.md)
+    -   [Progress 进度条](progress.md)
