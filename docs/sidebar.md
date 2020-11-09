@@ -5,6 +5,7 @@
 *   **组件**
     -   [Icon 图标](icon.md)
     -   [Button 按钮](button.md)
+    -   [Grid 栅格](grid.md)
     -   [Card 卡片](card.md)
     -   [Timeline 时间线](timeline.md)
     -   [Divider 分隔线](divider.md)
