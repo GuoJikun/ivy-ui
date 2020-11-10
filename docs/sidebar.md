@@ -12,3 +12,4 @@
     -   [Progress 进度条](progress.md)
     -   [Modal 对话框](modal.md)
     -   [Drawer 抽屉](drawer.md)
+    -   [Switch 开关](switch.md)
