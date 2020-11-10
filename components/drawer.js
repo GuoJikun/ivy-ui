@@ -12,6 +12,9 @@ class Drawer extends HTMLElement {
                     left: 0;
                     top: 0;
                     z-index: 8000;
+                    width: 100%;
+                    height: 100%;
+                    display: none;
                 }
                 :host([show]){
                     display: block;
@@ -21,8 +24,8 @@ class Drawer extends HTMLElement {
                     left: 0;
                     top: 0;
                     z-index: -1;
-                    width: 100vw;
-                    height: 100vh;
+                    width: 100%;
+                    height: 100%;
                     background-color: rgba(55, 55, 55, 0.6);
                 }
                 .ivy-drawer {
@@ -31,51 +34,49 @@ class Drawer extends HTMLElement {
                     top: 0;
                     z-index: 1;
                     width: 500px;
-                    height: 100vh;
+                    height: 100%;
                     background-color: #ffffff;
+                    display: flex;
+                    flex-direction: column;
                 }
                 .ivy-drawer-header {
                     padding: 12px 16px;
                     border-bottom: 1px solid var(--border-color, ${$_border_color_base});
                 }
+                :host([hide-title]) .ivy-drawer-header {
+                    display: none;
+                }
                 .ivy-drawer-body {
                     padding: 16px;
-                }
-                .ivy-drawer-footer {
-                    padding: 12px 16px;
-                    border-top: 1px solid var(--border-color, ${$_border_color_base});
-                    text-align: right;
+                    flex: auto;
                 }
             </style>
             <div class="ivy-mask"></div>
             <div class="ivy-drawer">
-                <div class="ivy-drawer-header"><slot name="header"></slot></div>
+                <div class="ivy-drawer-header"><slot name="title">${this.title}</slot></div>
                 <div class="ivy-drawer-body"><slot></slot></div>
-                <div class="ivy-drawer-footer"><slot name="footer"></slot></div>
             </div>
         `;
         this._shadowRoot = this.attachShadow({
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
-        document.body.appendChild(this);
+        this.mask = this._shadowRoot.querySelector(".ivy-mask");
+        this.mask.addEventListener("click", () => {
+            console.log("s");
+            this.removeAttribute("show");
+        });
+        // document.body.appendChild(this);
     }
     static get observedAttributes() {
-        return ["span", "offset", "gutter"];
+        return ["title", "gutter"];
     }
 
-    get gutter() {
-        return this.getAttribute("gutter") || 0;
+    get title() {
+        return this.getAttribute("title") || "";
     }
 
-    connectedCallback() {
-        const gutter = this.gutter;
-        console.log(gutter);
-        const children = [...this.children];
-        children.map(cur => {
-            if (gutter !== null) cur.setAttribute("gutter", gutter);
-        });
-    }
+    connectedCallback() {}
 }
 
 if (!customElements.get("ivy-drawer")) {
