@@ -95,6 +95,8 @@ const $_shadow_base = "0 1px 6px rgba(0,0,0, 0.2)";
 /*****边框 */
 const $_border_base = `1px solid ${$_border_color_base}`;
 
+const $_mask_color = "rgba(55, 55, 55, 0.6)";
+
 class Button extends HTMLElement {
     constructor() {
         super();
@@ -940,6 +942,8 @@ class Drawer extends HTMLElement {
                     width: 100%;
                     height: 100%;
                     display: none;
+                    overflow: hidden;
+                    transition: all 0.3s;
                 }
                 :host([show]){
                     display: block;
@@ -951,18 +955,22 @@ class Drawer extends HTMLElement {
                     z-index: -1;
                     width: 100%;
                     height: 100%;
-                    background-color: rgba(55, 55, 55, 0.6);
+                    background-color: var(--mask-color, ${$_mask_color});
                 }
                 .ivy-drawer {
                     position: absolute;
                     right: 0;
                     top: 0;
                     z-index: 1;
-                    width: 500px;
                     height: 100%;
                     background-color: #ffffff;
                     display: flex;
                     flex-direction: column;
+                    transform: translateX(${this.width}px);
+                    transition: transform 0.3s;
+                }
+                :host([show]) .ivy-drawer {
+                    transform: translateX(0px);
                 }
                 .ivy-drawer-header {
                     padding: 12px 16px;
@@ -977,7 +985,7 @@ class Drawer extends HTMLElement {
                 }
             </style>
             <div class="ivy-mask"></div>
-            <div class="ivy-drawer">
+            <div class="ivy-drawer" style="width: ${this.width}px">
                 <div class="ivy-drawer-header"><slot name="title">${this.title}</slot></div>
                 <div class="ivy-drawer-body"><slot></slot></div>
             </div>
@@ -988,17 +996,22 @@ class Drawer extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.mask = this._shadowRoot.querySelector(".ivy-mask");
         this.mask.addEventListener("click", () => {
-            console.log("s");
-            this.removeAttribute("show");
+            if (this.maskClosable) this.removeAttribute("show");
         });
         // document.body.appendChild(this);
     }
     static get observedAttributes() {
-        return ["title", "gutter"];
+        return ["title", "width", "maskClosable"];
     }
 
     get title() {
         return this.getAttribute("title") || "";
+    }
+    get width() {
+        return this.getAttribute("width") || "500";
+    }
+    get maskClosable() {
+        return this.getAttribute("maskClosable") === "false" ? false : true;
     }
 
     connectedCallback() {}
