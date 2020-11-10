@@ -20,5 +20,7 @@ export const $_shadow_base = "0 1px 6px rgba(0,0,0, 0.2)";
 /*****边框 */
 export const $_border_base = `1px solid ${$_border_color_base}`;
 
+export const $_mask_color = "rgba(55, 55, 55, 0.6)";
+
 /*****button组件 */
 export const $_button_border_base = $_border_base;

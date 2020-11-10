@@ -4,13 +4,14 @@
 
 <ivy-icon name="download"></ivy-icon>
 <ivy-icon name="edit"></ivy-icon>
+
 ```html
-<ivy-icon name="download"></ivy-icon>
-<ivy-icon name="edit"></ivy-icon>
+<ivy-icon name="download"></ivy-icon> <ivy-icon name="edit"></ivy-icon>
 ```
 
 ### 旋转
-添加`spin`属性来使icon旋转
+
+添加`spin`属性来使 icon 旋转
 
 <ivy-icon name="loading" spin></ivy-icon>
 
@@ -19,6 +20,7 @@
 ```
 
 ### 大小
+
 添加`size`属性来设置大小
 
 <ivy-icon name="loading" size="12"></ivy-icon>
@@ -36,6 +38,7 @@
 ```
 
 ### 颜色
+
 添加`color`属性来设置颜色
 
 <ivy-icon name="loading"></ivy-icon>
@@ -52,7 +55,7 @@
 <ivy-icon name="loading" color="green"></ivy-icon>
 ```
 
-### 所有icon
+### 所有 icon
 
 <ivy-icon name="edit" size="20" style="margin: 10px;"></ivy-icon>
 <ivy-icon name="download" size="20" style="margin: 10px;"></ivy-icon>
