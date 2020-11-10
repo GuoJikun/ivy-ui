@@ -34,9 +34,6 @@ class Icon extends HTMLElement {
                 }
             </style>
             <svg aria-hidden="true" style="width: 0;height: 0;overflow:hidden;position: absolute;">
-<<<<<<< HEAD
-                ${iconfont.replace(new RegExp(`(.+)(<symbol id=\"ivy-icon-${this.name}\" viewBox=\"0 0 1024 1024\"><path d=\"[^\"]+"\ +><\/path><\/symbol>)(.+)`,'g'), '$2')}
-=======
                 ${iconfont.replace(
                     new RegExp(
                         `(.+)(<symbol id=\"ivy-icon-${this.name}\" viewBox=\"0 0 1024 1024\"><path d=\"[^\"]+"\ +><\/path><\/symbol>)(.+)`,
@@ -44,7 +41,6 @@ class Icon extends HTMLElement {
                     ),
                     "$2"
                 )}
->>>>>>> v0.3.0
             </svg>
             <svg class="ivy-icon" style="font-size: ${this.size}px;color: ${this.color};">
                 <use xlink:href="#ivy-icon-${this.name}"></use>
@@ -57,11 +53,7 @@ class Icon extends HTMLElement {
         this.root = this._shadowRoot.querySelector(".ivy-icon");
     }
     static get observedAttributes() {
-<<<<<<< HEAD
-        return ["size", "name","color"];
-=======
         return ["size", "name", "color"];
->>>>>>> v0.3.0
     }
     get size() {
         return this.getAttribute("size") || 14;
