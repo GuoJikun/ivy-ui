@@ -43,6 +43,12 @@ class Switch extends HTMLElement {
                     left: 55%;
                     top: 2px;
                 }
+                :host([disabled]) {
+                    opacity: 0.6;
+                }
+                :host([disabled]) .ivy-switch {
+                    cursor: not-allowed;
+                }
             </style>
             <span class="ivy-switch"></span>
         `;
@@ -54,9 +60,12 @@ class Switch extends HTMLElement {
 
         this.$switch = this._shadowRoot.querySelector(".ivy-switch");
 
-        const onChange = new Event("change", { bubbles: false, cancelable: true, composed: false });
+        const onChange = new CustomEvent("change", { bubbles: false, cancelable: true, composed: false });
 
         this.addEventListener("click", e => {
+            if (this.disabled !== null) {
+                return false;
+            }
             const checked = this.checked;
             if (checked === null) {
                 this.setAttribute("checked", "");
@@ -64,6 +73,10 @@ class Switch extends HTMLElement {
                 this.removeAttribute("checked");
             }
             this.dispatchEvent(onChange);
+            /* const timer = setTimeout(() => {
+                this.dispatchEvent(onChange);
+                clearTimeout(timer);
+            }, 300); */
         });
     }
 
