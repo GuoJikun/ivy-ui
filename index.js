@@ -6,5 +6,4 @@ import "./components/divider.js";
 import "./components/modal.js";
 import "./components/progress.js";
 import "./components/grid.js";
-import "./components/drawer.js";
 import "./components/switch.js";

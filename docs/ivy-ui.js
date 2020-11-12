@@ -96,8 +96,6 @@ const $_shadow_base = "0 1px 6px rgba(0,0,0, 0.2)";
 /*****边框 */
 const $_border_base = `1px solid ${$_border_color_base}`;
 
-const $_mask_color = "rgba(55, 55, 55, 0.6)";
-
 class Button extends HTMLElement {
     constructor() {
         super();
@@ -729,28 +727,21 @@ class Modal extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-modal");
         document.body.appendChild(this);
-        /**
-         * 自定义事件
-         */
-        const onclose = new CustomEvent("close", { bubbles: false, cancelable: true, composed: false });
-        const onCancel = new CustomEvent("cancel", { bubbles: false, cancelable: true, composed: false });
-        const onSure = new CustomEvent("sure", { bubbles: false, cancelable: true, composed: false });
 
         const closeBtn = this._shadowRoot.querySelector(".ivy-modal-close");
         const cancelBtn = this._shadowRoot.querySelector(".ivy-modal-button-cancel");
         const sureBtn = this._shadowRoot.querySelector(".ivy-modal-button-primary");
 
         closeBtn.addEventListener("click", () => {
-            this.dispatchEvent(onclose);
+            this.dispatchEvent(new Event("close", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
         cancelBtn.addEventListener("click", () => {
-            this.dispatchEvent(onCancel);
+            this.dispatchEvent(new Event("cancel", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
         sureBtn.addEventListener("click", () => {
-            this.dispatchEvent(onSure);
-            console.log(onSure);
+            this.dispatchEvent(new Event("sure", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
     }
@@ -928,100 +919,6 @@ if (!customElements.get("ivy-col")) {
     customElements.define("ivy-col", Col);
 }
 
-class Drawer extends HTMLElement {
-    constructor() {
-        super();
-        const template = document.createElement("template");
-
-        template.innerHTML = `
-            <style>
-                :host {
-                    position: fixed;
-                    left: 0;
-                    top: 0;
-                    z-index: 8000;
-                    width: 100%;
-                    height: 100%;
-                    display: none;
-                    overflow: hidden;
-                    transition: all 0.3s;
-                }
-                :host([show]){
-                    display: block;
-                }
-                .ivy-mask {
-                    position: absolute;
-                    left: 0;
-                    top: 0;
-                    z-index: -1;
-                    width: 100%;
-                    height: 100%;
-                    background-color: var(--mask-color, ${$_mask_color});
-                }
-                .ivy-drawer {
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                    z-index: 1;
-                    height: 100%;
-                    background-color: #ffffff;
-                    display: flex;
-                    flex-direction: column;
-                    transform: translateX(${this.width}px);
-                    transition: transform 0.3s;
-                }
-                :host([show]) .ivy-drawer {
-                    transform: translateX(0px);
-                }
-                .ivy-drawer-header {
-                    padding: 12px 16px;
-                    border-bottom: 1px solid var(--border-color, ${$_border_color_base});
-                }
-                :host([hide-title]) .ivy-drawer-header {
-                    display: none;
-                }
-                .ivy-drawer-body {
-                    padding: 16px;
-                    flex: auto;
-                }
-            </style>
-            <div class="ivy-mask"></div>
-            <div class="ivy-drawer" style="width: ${this.width}px">
-                <div class="ivy-drawer-header"><slot name="title">${this.title}</slot></div>
-                <div class="ivy-drawer-body"><slot></slot></div>
-            </div>
-        `;
-        this._shadowRoot = this.attachShadow({
-            mode: "open",
-        });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.mask = this._shadowRoot.querySelector(".ivy-mask");
-        this.mask.addEventListener("click", () => {
-            if (this.maskClosable) this.removeAttribute("show");
-        });
-        // document.body.appendChild(this);
-    }
-    static get observedAttributes() {
-        return ["title", "width", "maskClosable"];
-    }
-
-    get title() {
-        return this.getAttribute("title") || "";
-    }
-    get width() {
-        return this.getAttribute("width") || "500";
-    }
-    get maskClosable() {
-        return this.getAttribute("maskClosable") === "false" ? false : true;
-    }
-
-    connectedCallback() {}
-}
-
-if (!customElements.get("ivy-drawer")) {
-    customElements.define("ivy-drawer", Drawer);
-}
-
 class Switch extends HTMLElement {
     constructor() {
         super();
@@ -1072,7 +969,9 @@ class Switch extends HTMLElement {
                     cursor: not-allowed;
                 }
             </style>
-            <span class="ivy-switch"></span>
+            <label class="ivy-switch">
+                <input id="ivy-switch" type="checkbox" ${this.checked} ${this.disabled} hidden>
+            </label>
         `;
 
         this._shadowRoot = this.attachShadow({
@@ -1081,24 +980,19 @@ class Switch extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
 
         this.$switch = this._shadowRoot.querySelector(".ivy-switch");
+        this.input = this._shadowRoot.querySelector("#ivy-switch");
 
-        const onChange = new CustomEvent("change", { bubbles: false, cancelable: true, composed: false });
-
-        this.addEventListener("click", e => {
+        this.input.addEventListener("change", e => {
             if (this.disabled !== null) {
                 return false;
             }
-            const checked = this.checked;
-            if (checked === null) {
-                this.setAttribute("checked", "");
-            } else {
+            const checked = e.target.checked;
+            if (checked) {
                 this.removeAttribute("checked");
+            } else {
+                this.setAttribute("checked", "");
             }
-            this.dispatchEvent(onChange);
-            /* const timer = setTimeout(() => {
-                this.dispatchEvent(onChange);
-                clearTimeout(timer);
-            }, 300); */
+            this.dispatchEvent(new CustomEvent("change", { bubbles: false, cancelable: true, composed: false, detail: checked }));
         });
     }
 

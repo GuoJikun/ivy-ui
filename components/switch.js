@@ -50,7 +50,9 @@ class Switch extends HTMLElement {
                     cursor: not-allowed;
                 }
             </style>
-            <span class="ivy-switch"></span>
+            <label class="ivy-switch">
+                <input id="ivy-switch" type="checkbox" ${this.checked} ${this.disabled} hidden>
+            </label>
         `;
 
         this._shadowRoot = this.attachShadow({
@@ -59,24 +61,19 @@ class Switch extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
 
         this.$switch = this._shadowRoot.querySelector(".ivy-switch");
+        this.input = this._shadowRoot.querySelector("#ivy-switch");
 
-        const onChange = new CustomEvent("change", { bubbles: false, cancelable: true, composed: false });
-
-        this.addEventListener("click", e => {
+        this.input.addEventListener("change", e => {
             if (this.disabled !== null) {
                 return false;
             }
-            const checked = this.checked;
-            if (checked === null) {
-                this.setAttribute("checked", "");
-            } else {
+            const checked = e.target.checked;
+            if (checked) {
                 this.removeAttribute("checked");
+            } else {
+                this.setAttribute("checked", "");
             }
-            this.dispatchEvent(onChange);
-            /* const timer = setTimeout(() => {
-                this.dispatchEvent(onChange);
-                clearTimeout(timer);
-            }, 300); */
+            this.dispatchEvent(new CustomEvent("change", { bubbles: false, cancelable: true, composed: false, detail: checked }));
         });
     }
 
