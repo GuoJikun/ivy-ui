@@ -16,10 +16,33 @@
                 repo: "https://github.com/GuoJikun/ivy-ui-wc.git",
                 loadSidebar: "sidebar.md",
                 maxLevel: 2,
+                executeScript: true,
+                copyCode: {
+                    buttonText: {
+                        "/zh-cn/": "点击复制",
+                        "/ru/": "Скопировать в буфер обмена",
+                        "/de-de/": "Klicken Sie zum Kopieren",
+                        "/es/": "Haga clic para copiar",
+                        "/": "Copy",
+                    },
+                    errorText: {
+                        "/zh-cn/": "错误",
+                        "/ru/": "ошибка",
+                        "/": "Error",
+                    },
+                    successText: {
+                        "/zh-cn/": "复制",
+                        "/ru/": "Скопировано",
+                        "/de-de/": "Kopiert",
+                        "/es/": "Copiado",
+                        "/": "Copied",
+                    },
+                },
             };
         </script>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
         <script type="module" src="ivy-ui.js"></script>
     </body>
 </html>

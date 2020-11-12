@@ -141,28 +141,21 @@ class Modal extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-modal");
         document.body.appendChild(this);
-        /**
-         * 自定义事件
-         */
-        const onclose = new CustomEvent("close", { bubbles: false, cancelable: true, composed: false });
-        const onCancel = new CustomEvent("cancel", { bubbles: false, cancelable: true, composed: false });
-        const onSure = new CustomEvent("sure", { bubbles: false, cancelable: true, composed: false });
 
         const closeBtn = this._shadowRoot.querySelector(".ivy-modal-close");
         const cancelBtn = this._shadowRoot.querySelector(".ivy-modal-button-cancel");
         const sureBtn = this._shadowRoot.querySelector(".ivy-modal-button-primary");
 
         closeBtn.addEventListener("click", () => {
-            this.dispatchEvent(onclose);
+            this.dispatchEvent(new Event("close", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
         cancelBtn.addEventListener("click", () => {
-            this.dispatchEvent(onCancel);
+            this.dispatchEvent(new Event("cancel", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
         sureBtn.addEventListener("click", () => {
-            this.dispatchEvent(onSure);
-            console.log(onSure);
+            this.dispatchEvent(new Event("sure", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
     }
