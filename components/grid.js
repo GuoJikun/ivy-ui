@@ -27,7 +27,6 @@ class Row extends HTMLElement {
 
     connectedCallback() {
         const gutter = this.gutter;
-        console.log(gutter);
         const children = [...this.children];
         children.map(cur => {
             if (gutter !== null) cur.setAttribute("gutter", gutter);

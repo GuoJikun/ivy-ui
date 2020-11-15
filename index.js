@@ -7,3 +7,4 @@ import "./components/modal.js";
 import "./components/progress.js";
 import "./components/grid.js";
 import "./components/switch.js";
+import "./components/collapse.js";

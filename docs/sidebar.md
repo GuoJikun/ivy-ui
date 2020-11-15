@@ -13,3 +13,4 @@
     -   [Modal 对话框](modal.md)
     -   [Drawer 抽屉](drawer.md)
     -   [Switch 开关](switch.md)
+    -   [Collapse 折叠面板](collapse.md)

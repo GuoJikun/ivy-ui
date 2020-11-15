@@ -5,6 +5,8 @@ feat:
 -   [x] 添加 `Row` 组件
 -   [x] 添加 `Col` 组件
 -   [x] 添加 `Switch` 组件
+-   [x] 添加 `Collapse` 组件
+-   [x] 添加 `CollapseItem` 组件
 
 # v0.2.0
 

@@ -69,7 +69,10 @@ class Drawer extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.mask = this._shadowRoot.querySelector(".ivy-mask");
         this.mask.addEventListener("click", () => {
-            if (this.maskClosable) this.removeAttribute("show");
+            if (this.maskClosable) {
+                this.removeAttribute("show");
+                new Event("close", { detail: { eventType: "maskClose" } });
+            }
         });
         // document.body.appendChild(this);
     }
@@ -87,7 +90,9 @@ class Drawer extends HTMLElement {
         return this.getAttribute("maskClosable") === "false" ? false : true;
     }
 
-    connectedCallback() {}
+    connectedCallback() {
+        console.log(123);
+    }
 }
 
 if (!customElements.get("ivy-drawer")) {
