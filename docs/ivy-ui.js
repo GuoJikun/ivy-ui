@@ -1193,9 +1193,6 @@ class Drawer extends HTMLElement {
                     overflow: hidden;
                     transition: all 0.3s;
                 }
-                :host([show]){
-                    display: block;
-                }
                 .ivy-mask {
                     position: absolute;
                     left: 0;
@@ -1214,11 +1211,8 @@ class Drawer extends HTMLElement {
                     background-color: #ffffff;
                     display: flex;
                     flex-direction: column;
-                    transform: translateX(${this.width}px);
                     transition: transform 0.3s;
-                }
-                :host([show]) .ivy-drawer {
-                    transform: translateX(0px);
+                    transform: translateX(${this.width}px)
                 }
                 .ivy-drawer-header {
                     padding: 12px 16px;
@@ -1243,6 +1237,8 @@ class Drawer extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.mask = this._shadowRoot.querySelector(".ivy-mask");
+        this.wrap = this._shadowRoot.querySelector(".ivy-drawer");
+
         this.mask.addEventListener("click", () => {
             if (this.maskClosable) {
                 this.removeAttribute("show");
@@ -1252,7 +1248,7 @@ class Drawer extends HTMLElement {
         // document.body.appendChild(this);
     }
     static get observedAttributes() {
-        return ["title", "width", "maskClosable"];
+        return ["title", "width", "maskClosable", "show"];
     }
 
     get title() {
@@ -1264,9 +1260,32 @@ class Drawer extends HTMLElement {
     get maskClosable() {
         return this.getAttribute("maskClosable") === "false" ? false : true;
     }
+    get show() {
+        return this.getAttribute("show");
+    }
 
     connectedCallback() {
         console.log(123);
+    }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+        if (name === "show") {
+            if (newVal === null) {
+                this.wrap.style.transform = `translateX(${this.width}px)`;
+                this.style.opacity = `0`;
+                let timer = setTimeout(() => {
+                    this.style.display = "none";
+                    clearTimeout(timer);
+                    timer = undefined;
+                }, 300);
+            } else {
+                this.style.display = "block";
+                this.style.opacity = `1`;
+                setTimeout(() => {
+                    this.wrap.style.transform = `translateX(0)`;
+                }, 1);
+            }
+        }
     }
 }
 

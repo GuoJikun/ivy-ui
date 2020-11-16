@@ -18,11 +18,12 @@
 
 <ivy-icon name="loading" spin></ivy-icon>
 <ivy-icon name="refresh-right" spin></ivy-icon>
+<ivy-icon name="refresh" spin></ivy-icon>
 
 ```html
 <ivy-icon name="loading" spin></ivy-icon>
-
 <ivy-icon name="refresh-right" spin></ivy-icon>
+<ivy-icon name="refresh" spin></ivy-icon>
 ```
 
 ### 大小
