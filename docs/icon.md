@@ -4,9 +4,12 @@
 
 <ivy-icon name="download"></ivy-icon>
 <ivy-icon name="edit"></ivy-icon>
+<ivy-icon name="reading"></ivy-icon>
 
 ```html
-<ivy-icon name="download"></ivy-icon> <ivy-icon name="edit"></ivy-icon>
+<ivy-icon name="download"></ivy-icon>
+<ivy-icon name="edit"></ivy-icon>
+<ivy-icon name="reading"></ivy-icon>
 ```
 
 ### 旋转
@@ -14,9 +17,12 @@
 添加`spin`属性来使 icon 旋转
 
 <ivy-icon name="loading" spin></ivy-icon>
+<ivy-icon name="refresh-right" spin></ivy-icon>
 
 ```html
 <ivy-icon name="loading" spin></ivy-icon>
+
+<ivy-icon name="refresh-right" spin></ivy-icon>
 ```
 
 ### 大小
@@ -57,6 +63,7 @@
 
 ### 所有 icon
 
+<div id="icons">
 <ivy-icon name="edit" size="20" style="margin: 10px;"></ivy-icon>
 <ivy-icon name="download" size="20" style="margin: 10px;"></ivy-icon>
 <ivy-icon name="coin" size="20" style="margin: 10px;"></ivy-icon>
@@ -337,3 +344,32 @@
 <ivy-icon name="document-delete" size="20" style="margin: 10px;"></ivy-icon>
 <ivy-icon name="document-remove" size="20" style="margin: 10px;"></ivy-icon>
 <ivy-icon name="dish-" size="20" style="margin: 10px;"></ivy-icon>
+</div>
+
+<script>
+document.getElementById('icons').addEventListener('click', ev=>{
+    const target = ev.target;
+    const nodeName = target.nodeName;
+    const name = target.name;
+    const icon = `<ivy-icon name="${name}"></ivy-icon>`;
+    if(nodeName === 'IVY-ICON'){
+        if (window.navigator.clipboard) {
+            window.navigator.clipboard
+                .writeText(icon)
+                .then(
+                    () => {
+                        alert(`已复制到粘贴板：${icon}`);
+                    },
+                    () => {
+                        alert(`复制到粘贴板失败：${icon}`);
+                    }
+                )
+                .catch(e => {
+                    throw e;
+                });
+        }else{
+            alert('浏览器不支持，请切换到chrome浏览器')
+        }
+    }
+},false)
+</script>

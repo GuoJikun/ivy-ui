@@ -8,9 +8,9 @@ class Collapse extends HTMLElement {
                 :host {
                     border: 1px solid #dcdee2;
                     display: inline-block;
-                    
+                    border-radius: 2px;
+                    overflow: hidden;
                 }
-                
             </style>
             <slot></slot>
         `;
