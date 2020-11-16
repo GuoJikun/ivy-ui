@@ -65,7 +65,7 @@ class Drawer extends HTMLElement {
         this.wrap = this._shadowRoot.querySelector(".ivy-drawer");
 
         this.mask.addEventListener("click", () => {
-            if (this.maskClosable) {
+            if (this.maskClosable !== "false") {
                 this.removeAttribute("show");
                 new Event("close", { detail: { eventType: "maskClose" } });
             }
@@ -83,15 +83,17 @@ class Drawer extends HTMLElement {
         return this.getAttribute("width") || "500";
     }
     get maskClosable() {
-        return this.getAttribute("maskClosable") === "false" ? false : true;
+        return this.getAttribute("maskClosable");
     }
     get show() {
         return this.getAttribute("show");
     }
 
-    connectedCallback() {
-        console.log(123);
+    set maskClosable(value) {
+        this.setAttribute("maskClosable", value);
     }
+
+    connectedCallback() {}
 
     attributeChangedCallback(name, oldVal, newVal) {
         if (name === "show") {
