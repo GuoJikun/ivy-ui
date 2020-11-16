@@ -9,3 +9,4 @@ import "./components/grid.js";
 import "./components/switch.js";
 import "./components/collapse.js";
 import "./components/drawer.js";
+import "./components/message.js";
