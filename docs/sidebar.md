@@ -15,3 +15,4 @@
     -   [Switch 开关](switch.md)
     -   [Collapse 折叠面板](collapse.md)
     -   [Message 全局通知](message.md)
+    -   [Rate 评分](rate.md)

@@ -10,3 +10,4 @@ import "./components/switch.js";
 import "./components/collapse.js";
 import "./components/drawer.js";
 import "./components/message.js";
+import "./components/rate.js";

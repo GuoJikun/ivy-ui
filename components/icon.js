@@ -43,7 +43,7 @@ class Icon extends HTMLElement {
                 )}
             </svg>
             <svg class="ivy-icon" style="font-size: ${this.size}px;color: ${this.color};">
-                <use xlink:href="#ivy-icon-${this.name}"></use>
+                <use xlink:href="#ivy-icon-${this.name}" class="ivy-icon-inner"></use>
             </svg>
         `;
         this._shadowRoot = this.attachShadow({
@@ -51,6 +51,7 @@ class Icon extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-icon");
+        this.use = this._shadowRoot.querySelector(".ivy-icon-inner");
     }
     static get observedAttributes() {
         return ["size", "name", "color"];
@@ -68,8 +69,25 @@ class Icon extends HTMLElement {
     set name(value) {
         this.setAttribute("name", value);
     }
+    set color(value) {
+        this.setAttribute("color", value);
+    }
+    set size(value) {
+        this.setAttribute("size", value);
+    }
+
     connectedCallback() {}
-    attributeChangedCallback(name, oldVal, newVal) {}
+    attributeChangedCallback(name, oldVal, newVal) {
+        if (name === "color") {
+            this.root.style.color = newVal;
+        }
+        if (name === "name") {
+            this.use.setAttribute("xlink:href", `#ivy-icon-${newVal}`);
+        }
+        if (name === "size") {
+            this.root.style.fontSize = newVal;
+        }
+    }
 }
 
 if (!customElements.get("ivy-icon")) {

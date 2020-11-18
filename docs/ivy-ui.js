@@ -43,7 +43,7 @@ class Icon extends HTMLElement {
                 )}
             </svg>
             <svg class="ivy-icon" style="font-size: ${this.size}px;color: ${this.color};">
-                <use xlink:href="#ivy-icon-${this.name}"></use>
+                <use xlink:href="#ivy-icon-${this.name}" class="ivy-icon-inner"></use>
             </svg>
         `;
         this._shadowRoot = this.attachShadow({
@@ -51,6 +51,7 @@ class Icon extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-icon");
+        this.use = this._shadowRoot.querySelector(".ivy-icon-inner");
     }
     static get observedAttributes() {
         return ["size", "name", "color"];
@@ -68,8 +69,25 @@ class Icon extends HTMLElement {
     set name(value) {
         this.setAttribute("name", value);
     }
+    set color(value) {
+        this.setAttribute("color", value);
+    }
+    set size(value) {
+        this.setAttribute("size", value);
+    }
+
     connectedCallback() {}
-    attributeChangedCallback(name, oldVal, newVal) {}
+    attributeChangedCallback(name, oldVal, newVal) {
+        if (name === "color") {
+            this.root.style.color = newVal;
+        }
+        if (name === "name") {
+            this.use.setAttribute("xlink:href", `#ivy-icon-${newVal}`);
+        }
+        if (name === "size") {
+            this.root.style.fontSize = newVal;
+        }
+    }
 }
 
 if (!customElements.get("ivy-icon")) {
@@ -1411,4 +1429,175 @@ if (!customElements.get("ivy-message")) {
             }
         };
     };
+}
+
+/**
+ * 向上查找指定的元素
+ * @param {HTMLElement} self 起点
+ * @param {String} nodeName 查找的元素名称
+ * @returns {HTMLElement | null} 查找的结果
+ */
+
+/**
+ * 向下找到所有的指定组件
+ * @param {HTMLElement} self 起点
+ * @param {String} nodeName 查找的元素名称
+ * @returns {HTMLCollection} 查找的结果
+ */
+const findElementsDownward = (self, nodeName) => {
+    const children = self.children;
+    return [...children].reduce((elements, child) => {
+        if (child.nodeName.toLowerCase() === nodeName) {
+            elements.push(child);
+        }
+        const foundChildren = findElementsDownward(child, nodeName);
+        return elements.concat(foundChildren);
+    }, []);
+};
+
+class Rate extends HTMLElement {
+    constructor() {
+        super();
+        const template = document.createElement("template");
+        template.innerHTML = `
+            <style type="text/css">
+                :host {
+                    display: inline-block;
+                }
+                .ivy-rate {
+                    display: flex;
+                    align-items: center;
+                    line-height: 1em;
+                }
+                .ivy-rate>ivy-icon {
+                    transform: scale(1);
+                    transition: transform 0.3s;
+                    cursor: pointer;
+                    box-sizing: border-box;
+                }
+                .ivy-rate>ivy-icon:hover {
+                    transform: scale(1.2);
+                }
+                :host([disabled])>.ivy-rate>ivy-icon:hover {
+                    transform: scale(1);
+                    cursor: auto;
+                }
+            </style>
+            <div class="ivy-rate">
+                <ivy-icon name="${this.icon}" color="#eeeeee" size="${this.size}"></ivy-icon>
+                <ivy-icon name="${this.icon}" color="#eeeeee" size="${this.size}"></ivy-icon>
+                <ivy-icon name="${this.icon}" color="#eeeeee" size="${this.size}"></ivy-icon>
+                <ivy-icon name="${this.icon}" color="#eeeeee" size="${this.size}"></ivy-icon>
+                <ivy-icon name="${this.icon}" color="#eeeeee" size="${this.size}"></ivy-icon>
+            </div>
+        `;
+        this._shadowRoot = this.attachShadow({
+            mode: "open",
+        });
+        this._shadowRoot.appendChild(template.content.cloneNode(true));
+        this.root = this._shadowRoot.querySelector(".ivy-rate");
+
+        this.root.addEventListener("click", ev => {
+            if (this.disabled !== null) return;
+            const target = ev.target;
+            const nodeName = target.nodeName.toLowerCase();
+            const children = [...this.root.children];
+            if (nodeName === "ivy-icon") {
+                for (let i of children) {
+                    i.setAttribute("color", this.color || $_color_primary);
+                    if (target === i) {
+                        this.value = children.indexOf(target) + 1;
+                        this.dispatchEvent(new Event("change", { detail: this.value }));
+                        break;
+                    }
+                }
+            }
+        });
+        this.root.addEventListener(
+            "mouseenter",
+            ev => {
+                if (this.disabled !== null) return;
+                const target = ev.target;
+                const nodeName = target.nodeName.toLowerCase();
+                const children = [...this.root.children];
+                if (nodeName === "ivy-icon") {
+                    for (let i of children) {
+                        i.setAttribute("color", this.color || $_color_primary);
+                        if (target === i) {
+                            break;
+                        }
+                    }
+                }
+            },
+            true
+        );
+        this.root.addEventListener(
+            "mouseleave",
+            ev => {
+                if (this.disabled !== null) return;
+                const target = ev.target;
+                const nodeName = target.nodeName.toLowerCase();
+                const children = [...this.root.children];
+                if (nodeName === "ivy-icon") {
+                    for (let i in children) {
+                        if (this.value <= i) {
+                            children[i].setAttribute("color", "#eeeeee");
+                        }
+                    }
+                }
+            },
+            true
+        );
+    }
+    static get observedAttributes() {
+        return ["size", "icon", "color", "value", "disabled"];
+    }
+    get size() {
+        return this.getAttribute("size") || 20;
+    }
+    get icon() {
+        return this.getAttribute("icon") || "star-on";
+    }
+    get color() {
+        return this.getAttribute("color") || "";
+    }
+    get value() {
+        return this.getAttribute("value") || "0";
+    }
+    get disabled() {
+        return this.getAttribute("disabled");
+    }
+
+    set color(value) {
+        this.setAttribute("color", value);
+    }
+    set value(value) {
+        this.setAttribute("value", value);
+    }
+    set disabled(value) {
+        this.setAttribute("disabled", value);
+    }
+
+    connectedCallback() {
+        const children = findElementsDownward(this.root, "ivy-icon");
+        [...children].map((ele, i) => {
+            if (i < this.value) {
+                ele.setAttribute("color", this.color || $_color_primary);
+            }
+        });
+    }
+    attributeChangedCallback(name, oldVal, newVal) {
+        if (name === "value") {
+            const children = findElementsDownward(this.root, "ivy-icon");
+            [...children].map((ele, i) => {
+                if (i < this.value) {
+                    ele.setAttribute("color", this.color || $_color_primary);
+                }
+            });
+        }
+    }
+}
+
+if (!customElements.get("ivy-rate")) {
+    customElements.define("ivy-rate", Rate);
 }
