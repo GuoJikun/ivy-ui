@@ -11,3 +11,4 @@ import "./components/collapse.js";
 import "./components/drawer.js";
 import "./components/message.js";
 import "./components/rate.js";
+import "./components/tab.js";
