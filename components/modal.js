@@ -147,15 +147,15 @@ class Modal extends HTMLElement {
         const sureBtn = this._shadowRoot.querySelector(".ivy-modal-button-primary");
 
         closeBtn.addEventListener("click", () => {
-            this.dispatchEvent(new Event("close", { bubbles: false, cancelable: true, composed: false }));
+            this.dispatchEvent(new CustomEvent("close", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
         cancelBtn.addEventListener("click", () => {
-            this.dispatchEvent(new Event("cancel", { bubbles: false, cancelable: true, composed: false }));
+            this.dispatchEvent(new CustomEvent("cancel", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
         sureBtn.addEventListener("click", () => {
-            this.dispatchEvent(new Event("sure", { bubbles: false, cancelable: true, composed: false }));
+            this.dispatchEvent(new CustomEvent("sure", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
     }

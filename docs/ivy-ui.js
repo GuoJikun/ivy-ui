@@ -597,7 +597,7 @@ class Divider extends HTMLElement {
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.root = this._shadowRoot.querySelector(".ivy-timeline");
+        this.root = this._shadowRoot.querySelector(".ivy-divider");
     }
 }
 
@@ -753,15 +753,15 @@ class Modal extends HTMLElement {
         const sureBtn = this._shadowRoot.querySelector(".ivy-modal-button-primary");
 
         closeBtn.addEventListener("click", () => {
-            this.dispatchEvent(new Event("close", { bubbles: false, cancelable: true, composed: false }));
+            this.dispatchEvent(new CustomEvent("close", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
         cancelBtn.addEventListener("click", () => {
-            this.dispatchEvent(new Event("cancel", { bubbles: false, cancelable: true, composed: false }));
+            this.dispatchEvent(new CustomEvent("cancel", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
         sureBtn.addEventListener("click", () => {
-            this.dispatchEvent(new Event("sure", { bubbles: false, cancelable: true, composed: false }));
+            this.dispatchEvent(new CustomEvent("sure", { bubbles: false, cancelable: true, composed: false }));
             this.removeAttribute("show");
         });
     }
@@ -1011,7 +1011,7 @@ class Switch extends HTMLElement {
             } else {
                 this.setAttribute("checked", "");
             }
-            this.dispatchEvent(new CustomEvent("change", { bubbles: false, cancelable: true, composed: false, detail: checked }));
+            this.dispatchEvent(new CustomEvent("CustomEvent", { bubbles: false, cancelable: true, composed: false, detail: checked }));
         });
     }
 
@@ -1260,7 +1260,7 @@ class Drawer extends HTMLElement {
         this.mask.addEventListener("click", () => {
             if (this.maskClosable !== "false") {
                 this.removeAttribute("show");
-                new Event("close", { detail: { eventType: "maskClose" } });
+                new CustomEvent("close", { detail: { eventType: "maskClose" } });
             }
         });
         // document.body.appendChild(this);
@@ -1395,14 +1395,12 @@ if (!customElements.get("ivy-message")) {
         window.$ivy = {};
         window.$ivy.message = function (opt = {}) {
             const ivyBox = document.getElementById("ivy-message-box");
-            console.log(ivyBox, "ivyBox", opt);
             if (ivyBox === null) {
                 const parent = document.createElement("div");
                 parent.id = "ivy-message-box";
                 parent.style.position = "fixed";
                 parent.style.top = "0";
                 parent.style.left = "0";
-                // parent.style.height = "0";
                 parent.style.zIndex = "1000";
                 parent.style.width = "100vw";
                 parent.style.pointerEvents = "none";
@@ -1507,7 +1505,7 @@ class Rate extends HTMLElement {
                     i.setAttribute("color", this.color || $_color_primary);
                     if (target === i) {
                         this.value = children.indexOf(target) + 1;
-                        this.dispatchEvent(new Event("change", { detail: this.value }));
+                        this.dispatchEvent(new CustomEvent("change", { detail: this.value }));
                         break;
                     }
                 }
@@ -1615,10 +1613,42 @@ class Tab extends HTMLElement {
                 .ivy-tab {}
                 .ivy-tab-header {
                     margin-bottom: 15px;
-                    border-bottom: 1px solid var(--border-color, ${$_border_color_base});
+                    display: flex;
+                    position: relative;
+                }
+                .ivy-tab-header::after {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    background-color: var(--border-color, ${$_border_color_base});
+                    z-index: -1;
+                }
+                .ivy-tab-header-arrow {
+                    flex: 0 0 30px;
+                    width: 30px;
+                    align-content: center;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    display: none;
+                }
+                .ivy-tab-header-arrow:hover ivy-icon[name="^arrow"] {
+                    color: var(--color-primary, $_color_primary) !important;
+                }
+                .ivy-tab-wrap {
+                    flex: 0 0 100%;
+                    overflow: hidden;
+                    display: inline-flex;
                 }
                 .ivy-tab-wrap-inner {
                     display: flex;
+                    position: relative;
+                    transition: left 0.3s;
+                    left: 0;
                 }
                 .ivy-tab-wrap-item {
                     padding: 0 20px;
@@ -1632,6 +1662,7 @@ class Tab extends HTMLElement {
                     color: #303133;
                     position: relative;
                     cursor: pointer;
+                    word-break: keep-all;
                 }
                 .ivy-tab-wrap-item-first {
                     padding-left: 0;
@@ -1639,14 +1670,28 @@ class Tab extends HTMLElement {
                 .ivy-tab-wrap-item-last {
                     padding-right: 0;
                 }
+                .ivy-tab-wrap-line {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 1px;
+                    background-color: var(--color-primary, ${$_color_primary});
+                    transition: left 0.3s, width 0.3s;
+                }
             </style>
             <div class="ivy-tab">
                 <div class="ivy-tab-header">
-                    <div></div>
-                    <div class="ivy-tab-wrap">
-                        <div class="ivy-tab-wrap-inner"></div>
+                    <div class="ivy-tab-header-arrow ivy-tab-header-arrow-left">
+                        <ivy-icon name="arrow-left"></ivy-icon>
                     </div>
-                    <div></div>
+                    <div class="ivy-tab-wrap">
+                        <div class="ivy-tab-wrap-inner">
+                            <div class="ivy-tab-wrap-line"></div>
+                        </div>
+                    </div>
+                    <div class="ivy-tab-header-arrow ivy-tab-header-arrow-right">
+                        <ivy-icon name="arrow-right"></ivy-icon>
+                    </div>
                 </div>
                 <div>
                     <slot></slot>
@@ -1658,27 +1703,63 @@ class Tab extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
 
+        this.tableWrap = this._shadowRoot.querySelector(".ivy-tab-wrap");
         this.tableWrapInner = this._shadowRoot.querySelector(".ivy-tab-wrap-inner");
+        this.arrowLeft = this._shadowRoot.querySelector(".ivy-tab-header-arrow-left");
+        this.arrowRight = this._shadowRoot.querySelector(".ivy-tab-header-arrow-right");
+        this.tableWrapLine = null;
 
         this.tableWrapInner.addEventListener("click", ev => {
             const target = ev.target;
             const classList = [...target.classList];
+
             const name = target.getAttribute("name");
             const children = [...this.children];
-            console.log(classList, "classList");
             if (classList.includes("ivy-tab-wrap-item")) {
                 children.map(cur => {
                     if (cur.getAttribute("name") === name) {
                         cur.setAttribute("active", "");
+                        this.active = name;
                     } else {
                         cur.removeAttribute("active");
                     }
                 });
             }
+            // this.dispatchEvent(new CustomEvent("change", { detail: name }));
+            const width = getComputedStyle(target)["width"];
+            const paddingLeft = getComputedStyle(target)["paddingLeft"];
+            const paddingRight = getComputedStyle(target)["paddingRight"];
+            const lastWidth = parseFloat(width) - parseFloat(paddingLeft) - parseFloat(paddingRight);
+            const offset = target.offsetLeft;
+            this.tableWrapLine.style.width = `${lastWidth}px`;
+            this.tableWrapLine.style.left = `${offset + parseFloat(paddingLeft)}px`;
+        });
+
+        this.arrowLeft.addEventListener("click", ev => {
+            const left = getComputedStyle(this.tableWrapInner)["left"];
+            const leftN = parseFloat(left);
+            if (leftN < -60) {
+                this.tableWrapInner.style.left = `${leftN + 60}px`;
+            } else {
+                this.tableWrapInner.style.left = 0;
+            }
+        });
+        this.arrowRight.addEventListener("click", ev => {
+            const innerStyle = getComputedStyle(this.tableWrapInner);
+            const left = innerStyle["left"];
+            const width = innerStyle["width"];
+            const leftN = parseFloat(left);
+            const widthN = parseFloat(width);
+            const wrapWidth = parseFloat(getComputedStyle(this.tableWrap)["width"]);
+            if (wrapWidth - leftN < widthN - 60) {
+                this.tableWrapInner.style.left = `${leftN - 60}px`;
+            } else {
+                this.tableWrapInner.style.left = `-${widthN - wrapWidth}px`;
+            }
         });
     }
     static get observedAttributes() {
-        return ["active", "offset", "gutter"];
+        return ["active"];
     }
 
     get active() {
@@ -1686,23 +1767,61 @@ class Tab extends HTMLElement {
     }
 
     set active(value) {
-        this.getAttribute("active", value);
+        this.setAttribute("active", value);
+    }
+
+    createTabHeader(i, len = 0) {
+        const element = document.createElement("div");
+
+        if (i === 0) {
+            div.setAttribute("class", "ivy-tab-wrap-item ivy-tab-wrap-item-first");
+        } else if (i === len) {
+            div.setAttribute("class", "ivy-tab-wrap-item ivy-tab-wrap-item-last");
+        } else {
+            div.setAttribute("class", "ivy-tab-wrap-item");
+        }
+        return element;
     }
 
     connectedCallback() {
-        const titles = [];
+        const titles = ['<div class="ivy-tab-wrap-line"></div>'];
         const children = [...this.children];
         children.map((ele, i) => {
             const key = ele.getAttribute("name");
-            if (this.active === null && i === 0) {
-                this.active = key || "0";
+            if (i === 0) {
+                if (this.active === null) {
+                    if (key === null) {
+                        ele.setAttribute("name", String(i));
+                        this.active = "0";
+                    } else {
+                        this.active = key;
+                    }
+                    ele.setAttribute("active", "");
+                } else {
+                    if (key === null) {
+                        ele.setAttribute("name", String(i));
+                        if (this.active === String(i)) {
+                            ele.setAttribute("active", "");
+                        }
+                    } else {
+                        if (key === this.active) {
+                            ele.setAttribute("active", "");
+                        }
+                    }
+                }
+            } else {
+                if (key === null) {
+                    ele.setAttribute("name", String(i));
+                    if (this.active === String(i)) {
+                        ele.setAttribute("active", "");
+                    }
+                } else {
+                    if (key === this.active) {
+                        ele.setAttribute("active", "");
+                    }
+                }
             }
-            if (key === null) {
-                ele.setAttribute("name", String(i));
-            }
-            if (ele.getAttribute("name") === this.active) {
-                ele.setAttribute("active");
-            }
+
             titles.push(
                 `<div class="ivy-tab-wrap-item ${i === 0 ? "ivy-tab-wrap-item-first" : ""} ${
                     i === children.length - 1 ? "ivy-tab-wrap-item-last" : ""
@@ -1710,6 +1829,64 @@ class Tab extends HTMLElement {
             );
         });
         this.tableWrapInner.innerHTML = titles.join("");
+
+        this.tableWrapLine = this._shadowRoot.querySelector(".ivy-tab-wrap-line");
+
+        const tableWrapInnerWidth = getComputedStyle(this.tableWrapInner)["width"];
+        const tableWrapWidth = getComputedStyle(this.tableWrap)["width"];
+
+        if (parseFloat(tableWrapWidth) < parseFloat(tableWrapInnerWidth)) {
+            this.tableWrap.style.flex = "0 0 calc(100% - 60px)";
+            this._shadowRoot.querySelector(".ivy-tab-header-arrow-left").style.display = "inline-flex";
+            this._shadowRoot.querySelector(".ivy-tab-header-arrow-right").style.display = "inline-flex";
+        }
+
+        let headers = [...this.tableWrapInner.children];
+        headers = headers.map(v => {
+            const flag = v.getAttribute("name") === this.active;
+            if (flag) {
+                const style = getComputedStyle(v);
+                const width = style["width"];
+                const offset = v.offsetLeft;
+                const paddingLeft = style["paddingLeft"];
+                const paddingRight = style["paddingRight"];
+                const lastWidth = parseFloat(width) - parseFloat(paddingLeft) - parseFloat(paddingRight);
+                this.tableWrapLine.style.width = `${lastWidth}px`;
+                this.tableWrapLine.style.left = `${offset + parseFloat(paddingLeft)}px`;
+            }
+        });
+    }
+
+    attributeChangedCallback(attr, oldVal, val) {
+        if (attr === "active") {
+            const children = [...this.children];
+            const headerList = [...this.tableWrapInner.children].filter(item => {
+                const classList = [...item.classList];
+                return classList.includes("ivy-tab-wrap-item");
+            });
+            children.map(cur => {
+                if (cur.getAttribute("name") === val) {
+                    cur.setAttribute("active", "");
+                } else {
+                    cur.removeAttribute("active");
+                }
+            });
+
+            headerList.map(cur => {
+                const name = cur.getAttribute("name");
+                if (val === name) {
+                    const width = getComputedStyle(cur)["width"];
+                    const paddingLeft = getComputedStyle(cur)["paddingLeft"];
+                    const paddingRight = getComputedStyle(cur)["paddingRight"];
+                    const lastWidth = parseFloat(width) - parseFloat(paddingLeft) - parseFloat(paddingRight);
+                    const offset = cur.offsetLeft;
+                    this.tableWrapLine.style.width = `${lastWidth}px`;
+                    this.tableWrapLine.style.left = `${offset + parseFloat(paddingLeft)}px`;
+                }
+            });
+
+            this.dispatchEvent(new CustomEvent("change", { detail: val }));
+        }
     }
 }
 
@@ -1771,8 +1948,7 @@ class TabPane extends HTMLElement {
 
     connectedCallback() {}
 
-    attributeChangedCallback(attr, oldVal, val) {
-    }
+    attributeChangedCallback(attr, oldVal, val) {}
 }
 
 if (!customElements.get("ivy-tab-pane")) {

@@ -85,7 +85,7 @@ class Divider extends HTMLElement {
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.root = this._shadowRoot.querySelector(".ivy-timeline");
+        this.root = this._shadowRoot.querySelector(".ivy-divider");
     }
 }
 

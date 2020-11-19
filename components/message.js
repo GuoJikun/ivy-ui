@@ -81,14 +81,12 @@ if (!customElements.get("ivy-message")) {
         window.$ivy = {};
         window.$ivy.message = function (opt = {}) {
             const ivyBox = document.getElementById("ivy-message-box");
-            console.log(ivyBox, "ivyBox", opt);
             if (ivyBox === null) {
                 const parent = document.createElement("div");
                 parent.id = "ivy-message-box";
                 parent.style.position = "fixed";
                 parent.style.top = "0";
                 parent.style.left = "0";
-                // parent.style.height = "0";
                 parent.style.zIndex = "1000";
                 parent.style.width = "100vw";
                 parent.style.pointerEvents = "none";

@@ -54,7 +54,7 @@ class Rate extends HTMLElement {
                     i.setAttribute("color", this.color || $_color_primary);
                     if (target === i) {
                         this.value = children.indexOf(target) + 1;
-                        this.dispatchEvent(new Event("change", { detail: this.value }));
+                        this.dispatchEvent(new CustomEvent("change", { detail: this.value }));
                         break;
                     }
                 }

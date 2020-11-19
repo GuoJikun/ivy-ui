@@ -67,7 +67,7 @@ class Drawer extends HTMLElement {
         this.mask.addEventListener("click", () => {
             if (this.maskClosable !== "false") {
                 this.removeAttribute("show");
-                new Event("close", { detail: { eventType: "maskClose" } });
+                new CustomEvent("close", { detail: { eventType: "maskClose" } });
             }
         });
         // document.body.appendChild(this);
