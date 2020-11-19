@@ -27,6 +27,7 @@
 -   [x] `Rate` 组件
 -   [x] `tab` 组件
 -   [x] `tab-pane` 组件
+-   [x] `Image` 组件
 
 ## 未完成组件
 
@@ -40,4 +41,3 @@
 -   [ ] `Slider` 组件
 -   [ ] `Pagination` 组件
 -   [ ] `Tooltip` 组件
--   [ ] `Image` 组件
