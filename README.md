@@ -25,11 +25,11 @@
 -   [x] `divider` 组件
 -   [x] `Modal` 组件
 -   [x] `Rate` 组件
+-   [x] `tab` 组件
+-   [x] `tab-pane` 组件
 
 ## 未完成组件
 
--   [ ] `tab` 组件
--   [ ] `tab-pane` 组件
 -   [ ] `Message` 组件
 -   [ ] `Input` 组件
 -   [ ] `Select` 组件
