@@ -4,6 +4,7 @@ feat:
 
 -   [x] 添加 `tab` 组件
 -   [x] 添加 `tabPane` 组件
+-   [x] 添加 `Image` 组件
 
 # v0.3.0
 
