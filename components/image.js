@@ -77,14 +77,12 @@ class Image extends HTMLElement {
         this.errEle = this._shadowRoot.querySelector(".ivy-image-error");
 
         this.image.addEventListener("error", () => {
-            console.log("加载失败");
             this.loadEle.style.opacity = 0;
             this.loadEle.style.zIndex = -1;
             this.errEle.style.zIndex = 1;
             this.errEle.style.opacity = 1;
         });
         this.image.addEventListener("load", () => {
-            console.log("加载成功");
             this.image.style.display = "block";
             this.loadEle.style.opacity = 0;
             this.loadEle.style.zIndex = -1;
