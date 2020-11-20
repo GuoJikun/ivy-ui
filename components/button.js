@@ -113,8 +113,6 @@ class Button extends HTMLElement {
         this.$button = this._shadowRoot.querySelector("button");
         this.$loading = this._shadowRoot.querySelector("#ivy-loading");
         this.$buttonInner = this._shadowRoot.querySelector(".ivy-button-inner");
-
-        this.addEventListener("click", e => {});
     }
     connectedCallback() {
         if (this.type && this.$button) {

@@ -28,6 +28,7 @@
 -   [x] `tab` 组件
 -   [x] `tab-pane` 组件
 -   [x] `Image` 组件
+-   [x] `Tooltip` 组件
 
 ## 未完成组件
 
@@ -40,4 +41,3 @@
 -   [ ] `CheckboxGroup` 组件
 -   [ ] `Slider` 组件
 -   [ ] `Pagination` 组件
--   [ ] `Tooltip` 组件
