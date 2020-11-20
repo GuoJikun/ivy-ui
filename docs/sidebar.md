@@ -19,3 +19,4 @@
     -   [Tab 标签页](tab.md)
     -   [Image 图片](image.md)
     -   [Tooltip 文字提示](tooltip.md)
+    -   [Pagination 分页](pagination.md)

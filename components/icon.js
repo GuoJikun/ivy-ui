@@ -7,10 +7,12 @@ class Icon extends HTMLElement {
         template.innerHTML = `
             <style type="text/css">
                 :host {
-                    display: inline-block;
+                    display: inline-flex;
                     color: inherit;
                     transition: 0.3s;
                     font-size: inherit;
+                    align-items: center;
+                    justify-content: center;
                 }
                 :host([spin]) .ivy-icon {
                     animation: spin 1.4s linear infinite;
