@@ -15,7 +15,7 @@ class Form extends HTMLElement {
                 
             </style>
             <form>
-                
+                <slot></slot>
             </form>
         `;
         this._shadowRoot = this.attachShadow({
@@ -47,28 +47,6 @@ class Form extends HTMLElement {
         this.setAttribute("border", value);
     }
 
-    renderHeader(label, i) {
-        return `<td class="ivy-table-column-${i} ivy-table-column-cell  ivy-table-column-cell-header"><div class="ivy-cell">${label}</div></td>`;
-    }
-
-    renderCol(width, i) {
-        return `<col width='${width}' class="ivy-table-column-${i}">`;
-    }
-
-    renderBody(data, columns) {
-        return data.map(cur => {
-            const trInner = columns
-                .map((item, i) => {
-                    return `<td class="ivy-table-column-${i} ivy-table-column-cell"><div class="ivy-cell">${
-                        cur[item.prop] || ""
-                    }</div></td>`;
-                })
-                .join("");
-
-            return `<tr>${trInner}</tr>`;
-        });
-    }
-
     connectedCallback() {}
 
     attributeChangedCallback(attr, oldVal, val) {}
@@ -95,25 +73,42 @@ class FormItem extends HTMLElement {
                 }
                 .ivy-form-item-msg {
                     position: absolute;
-                    bottom: 100%;
+                    left: 
+                    bottom: -20px;
                     font-size: 12px;
+                    line-height: 20px;
+                    width: 100%;
+                }
+                .ivy-form-item-inner {
+                    display: flex;
+                    align-items: center;
+                }
+                .ivy-form-item-label {
+                    margin-right: 10px;
                 }
             </style>
             <div class="ivy-form-item">
                 <div class="ivy-form-item-inner">
-                    <slot></slot>
+                    <div class="ivy-form-item-label">${this.label}</div>
+                    <div>
+                        <slot></slot>
+                    </div>
                 </div>
-                <div class="ivy-form-item-msg"></div>
+                <div class="ivy-form-item-msg">
+                    这里是错误信息
+                </div>
             </div>
         `;
         this._shadowRoot = this.attachShadow({
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.msg = this._shadowRoot.querySelector(".ivy-form-item-msg");
     }
 
     static get observedAttributes() {
-        return ["prop", "label", "width", "minWidth"];
+        return ["rule", "label", "required", "message", "validator", "event", "status"];
     }
 
     get prop() {
@@ -122,11 +117,23 @@ class FormItem extends HTMLElement {
     get label() {
         return this.getAttribute("label");
     }
-    get width() {
-        return this.getAttribute("width");
+    get required() {
+        return this.getAttribute("required");
     }
-    get minWidth() {
-        return this.getAttribute("minWidth");
+    get required() {
+        return this.getAttribute("required");
+    }
+    get message() {
+        return this.getAttribute("message");
+    }
+    get validator() {
+        return this.getAttribute("validator");
+    }
+    get event() {
+        return this.getAttribute("event");
+    }
+    get status() {
+        return this.getAttribute("status");
     }
 
     set prop(value) {
@@ -135,11 +142,32 @@ class FormItem extends HTMLElement {
     set label(value) {
         this.setAttribute("label", value);
     }
-    set width(value) {
-        this.setAttribute("width", value);
+    set required(value) {
+        this.setAttribute("required", value);
     }
-    set minWidth(value) {
-        this.setAttribute("minWidth", value);
+    set message(value) {
+        this.setAttribute("message", value);
+    }
+    set validator(value) {
+        this.setAttribute("validator", value);
+    }
+    set event(value) {
+        this.setAttribute("event", value);
+    }
+    set status(value) {
+        this.setAttribute("status", value);
+    }
+
+    connectedCallback() {}
+
+    attributeChangedCallback(attr, oldVal, val) {
+        if (attr === "status") {
+            if (val === "error") {
+                this.msg.style.display = "block";
+            } else {
+                this.msg.style.display = "none";
+            }
+        }
     }
 }
 

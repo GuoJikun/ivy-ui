@@ -1436,6 +1436,18 @@ if (!customElements.get("ivy-message")) {
  * @param {String} nodeName 查找的元素名称
  * @returns {HTMLElement | null} 查找的结果
  */
+function findElementUpward(self, nodeName) {
+    let parent = self.parentNode;
+    let name = parent.nodeName.toLowerCase();
+
+    while (parent && (!name || nodeName !== name)) {
+        parent = parent.parentNode;
+        if (parent) {
+            name = parent.nodeName.toLowerCase();
+        }
+    }
+    return parent;
+}
 
 /**
  * 向下找到所有的指定组件
@@ -2149,13 +2161,13 @@ class Tooltip extends HTMLElement {
                 }
 
                 
-                :host([theme="dart"][placement|="top"]) .ivy-tooltip-arrow::before {
+                :host([theme="dark"][placement|="top"]) .ivy-tooltip-arrow::before {
                     border-top-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="top"]) .ivy-tooltip-arrow::after {
+                :host([theme="dark"][placement|="top"]) .ivy-tooltip-arrow::after {
                     border-top-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="top"]) .ivy-tooltip-text {
+                :host([theme="dark"][placement|="top"]) .ivy-tooltip-text {
                     border: 1px solid rgb(70, 76, 91);
                     background-color: rgb(70, 76, 91);
                     color: white;
@@ -2178,13 +2190,13 @@ class Tooltip extends HTMLElement {
                     top: -5px;
                     border-color: transparent transparent #ffffff transparent;
                 }
-                :host([theme="dart"][placement|="bottom"]) .ivy-tooltip-arrow::before {
+                :host([theme="dark"][placement|="bottom"]) .ivy-tooltip-arrow::before {
                     border-bottom-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="bottom"]) .ivy-tooltip-arrow::after {
+                :host([theme="dark"][placement|="bottom"]) .ivy-tooltip-arrow::after {
                     border-bottom-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="bottom"]) .ivy-tooltip-text {
+                :host([theme="dark"][placement|="bottom"]) .ivy-tooltip-text {
                     border: 1px solid rgb(70, 76, 91);
                     background-color: rgb(70, 76, 91);
                     color: white;
@@ -2214,13 +2226,13 @@ class Tooltip extends HTMLElement {
                     right: -5px;
                     border-color: transparent transparent transparent #ffffff;
                 }
-                :host([theme="dart"][placement|="left"]) .ivy-tooltip-arrow::before {
+                :host([theme="dark"][placement|="left"]) .ivy-tooltip-arrow::before {
                     border-left-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="left"]) .ivy-tooltip-arrow::after {
+                :host([theme="dark"][placement|="left"]) .ivy-tooltip-arrow::after {
                     border-left-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="left"]) .ivy-tooltip-text {
+                :host([theme="dark"][placement|="left"]) .ivy-tooltip-text {
                     border: 1px solid rgb(70, 76, 91);
                     background-color: rgb(70, 76, 91);
                     color: white;
@@ -2251,13 +2263,13 @@ class Tooltip extends HTMLElement {
                 :host([placement$="-bottom"]) .ivy-tooltip-arrow {
                     top: calc(100% - 12px);
                 }
-                :host([theme="dart"][placement|="right"]) .ivy-tooltip-arrow::before {
+                :host([theme="dark"][placement|="right"]) .ivy-tooltip-arrow::before {
                     border-right-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="right"]) .ivy-tooltip-arrow::after {
+                :host([theme="dark"][placement|="right"]) .ivy-tooltip-arrow::after {
                     border-right-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="right"]) .ivy-tooltip-text {
+                :host([theme="dark"][placement|="right"]) .ivy-tooltip-text {
                     border: 1px solid rgb(70, 76, 91);
                     background-color: rgb(70, 76, 91);
                     color: white;
@@ -2326,14 +2338,14 @@ class Tooltip extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["content", "dart", "placement"];
+        return ["content", "dark", "placement"];
     }
 
     get content() {
         return this.getAttribute("content");
     }
-    get dart() {
-        return this.getAttribute("dart");
+    get dark() {
+        return this.getAttribute("dark");
     }
     get placement() {
         return this.getAttribute("placement");
@@ -2342,8 +2354,8 @@ class Tooltip extends HTMLElement {
     set content(value) {
         this.setAttribute("content", value);
     }
-    set dart(value) {
-        this.setAttribute("dart", value);
+    set dark(value) {
+        this.setAttribute("dark", value);
     }
     set placement(value) {
         this.setAttribute("placement", value);
@@ -2768,7 +2780,7 @@ class Form extends HTMLElement {
                 
             </style>
             <form>
-                
+                <slot></slot>
             </form>
         `;
         this._shadowRoot = this.attachShadow({
@@ -2800,28 +2812,6 @@ class Form extends HTMLElement {
         this.setAttribute("border", value);
     }
 
-    renderHeader(label, i) {
-        return `<td class="ivy-table-column-${i} ivy-table-column-cell  ivy-table-column-cell-header"><div class="ivy-cell">${label}</div></td>`;
-    }
-
-    renderCol(width, i) {
-        return `<col width='${width}' class="ivy-table-column-${i}">`;
-    }
-
-    renderBody(data, columns) {
-        return data.map(cur => {
-            const trInner = columns
-                .map((item, i) => {
-                    return `<td class="ivy-table-column-${i} ivy-table-column-cell"><div class="ivy-cell">${
-                        cur[item.prop] || ""
-                    }</div></td>`;
-                })
-                .join("");
-
-            return `<tr>${trInner}</tr>`;
-        });
-    }
-
     connectedCallback() {}
 
     attributeChangedCallback(attr, oldVal, val) {}
@@ -2848,25 +2838,42 @@ class FormItem extends HTMLElement {
                 }
                 .ivy-form-item-msg {
                     position: absolute;
-                    bottom: 100%;
+                    left: 
+                    bottom: -20px;
                     font-size: 12px;
+                    line-height: 20px;
+                    width: 100%;
+                }
+                .ivy-form-item-inner {
+                    display: flex;
+                    align-items: center;
+                }
+                .ivy-form-item-label {
+                    margin-right: 10px;
                 }
             </style>
             <div class="ivy-form-item">
                 <div class="ivy-form-item-inner">
-                    <slot></slot>
+                    <div class="ivy-form-item-label">${this.label}</div>
+                    <div>
+                        <slot></slot>
+                    </div>
                 </div>
-                <div class="ivy-form-item-msg"></div>
+                <div class="ivy-form-item-msg">
+                    这里是错误信息
+                </div>
             </div>
         `;
         this._shadowRoot = this.attachShadow({
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.msg = this._shadowRoot.querySelector(".ivy-form-item-msg");
     }
 
     static get observedAttributes() {
-        return ["prop", "label", "width", "minWidth"];
+        return ["rule", "label", "required", "message", "validator", "event", "status"];
     }
 
     get prop() {
@@ -2875,11 +2882,23 @@ class FormItem extends HTMLElement {
     get label() {
         return this.getAttribute("label");
     }
-    get width() {
-        return this.getAttribute("width");
+    get required() {
+        return this.getAttribute("required");
     }
-    get minWidth() {
-        return this.getAttribute("minWidth");
+    get required() {
+        return this.getAttribute("required");
+    }
+    get message() {
+        return this.getAttribute("message");
+    }
+    get validator() {
+        return this.getAttribute("validator");
+    }
+    get event() {
+        return this.getAttribute("event");
+    }
+    get status() {
+        return this.getAttribute("status");
     }
 
     set prop(value) {
@@ -2888,11 +2907,32 @@ class FormItem extends HTMLElement {
     set label(value) {
         this.setAttribute("label", value);
     }
-    set width(value) {
-        this.setAttribute("width", value);
+    set required(value) {
+        this.setAttribute("required", value);
     }
-    set minWidth(value) {
-        this.setAttribute("minWidth", value);
+    set message(value) {
+        this.setAttribute("message", value);
+    }
+    set validator(value) {
+        this.setAttribute("validator", value);
+    }
+    set event(value) {
+        this.setAttribute("event", value);
+    }
+    set status(value) {
+        this.setAttribute("status", value);
+    }
+
+    connectedCallback() {}
+
+    attributeChangedCallback(attr, oldVal, val) {
+        if (attr === "status") {
+            if (val === "error") {
+                this.msg.style.display = "block";
+            } else {
+                this.msg.style.display = "none";
+            }
+        }
     }
 }
 
@@ -2910,15 +2950,11 @@ class Input extends HTMLElement {
                 :host {
                     display: block;
                 }
-                .ivy-form-item {
-                    display: block;
-                    position: relative;
-                    margin-bottom: 20px;
-                }
+                
                 .ivy-input-inner {
                     background-color: #fff;
                     background-image: none;
-                    border-radius: 4px;
+                    border-radius: var(--border-radius, ${$_border_radius});
                     border: 1px solid #dcdfe6;
                     box-sizing: border-box;
                     color: #606266;
@@ -2931,6 +2967,23 @@ class Input extends HTMLElement {
                     transition: border-color .2s cubic-bezier(.645,.045,.355,1);
                     width: 100%;
                 }
+                .ivy-input-inner:active,
+                .ivy-input-inner:hover,
+                .ivy-input-inner:focus {
+                    border-color: var(--color-primary, ${$_color_primary});
+                }
+                :host([disabled]) {
+                    cursor: not-allowed;
+                }
+                :host([disabled]) .ivy-input-inner {
+                    background-color: #f5f7fa;
+                    border-color: #e4e7ed;
+                    color: #c0c4cc;
+                    cursor: not-allowed;
+                }
+                :host([readonly]) {
+                    cursor: not-allowed;
+                }
             </style>
             <div class="ivy-input">
                 <input class="ivy-input-inner" />
@@ -2941,36 +2994,69 @@ class Input extends HTMLElement {
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.inputInner = this._shadowRoot.querySelector(".ivy-input-inner");
+
+        this.inputInner.addEventListener("change", ev => {
+            const target = ev.target;
+            const value = target.value;
+            const ivyFormItem = findElementUpward(this, "ivy-form-item");
+            console.log(ivyFormItem, "ivyFormItem");
+            if (ivyFormItem !== null) {
+                console.log(ivyFormItem.message);
+            }
+            this.dispatchEvent(new CustomEvent("change", { detail: value }));
+            this.dispatchEvent(new CustomEvent("change", { detail: value }));
+        });
     }
 
     static get observedAttributes() {
-        return ["prop", "label", "width", "minWidth"];
+        return ["status", "value", "disabled", "readonly"];
     }
 
-    get prop() {
-        return this.getAttribute("prop");
+    get status() {
+        return this.getAttribute("status");
     }
-    get label() {
-        return this.getAttribute("label");
+    get value() {
+        return this.getAttribute("value");
     }
-    get width() {
-        return this.getAttribute("width");
+    get disabled() {
+        return this.getAttribute("disabled");
     }
-    get minWidth() {
-        return this.getAttribute("minWidth");
+    get readonly() {
+        return this.getAttribute("readonly");
     }
 
-    set prop(value) {
-        this.setAttribute("prop", value);
+    set status(value) {
+        this.setAttribute("status", value);
     }
-    set label(value) {
-        this.setAttribute("label", value);
+    set value(value) {
+        this.setAttribute("value", value);
     }
-    set width(value) {
-        this.setAttribute("width", value);
+    set disabled(value) {
+        this.setAttribute("disabled", value);
     }
-    set minWidth(value) {
-        this.setAttribute("minWidth", value);
+    set readonly(value) {
+        this.setAttribute("readonly", value);
+    }
+
+    connectedCallback() {
+        if (this.disabled !== null) {
+            this.inputInner.setAttribute("disabled", "disabled");
+        }
+        if (this.readonly !== null) {
+            this.inputInner.setAttribute("readonly", "");
+        }
+    }
+
+    attributeChangedCallback(attr, oldVal, val) {
+        if (attr === "disabled") {
+            if (val === null) {
+                this.inputInner.removeAttribute("disabled");
+            } else {
+                this.inputInner.setAttribute("disabled", "");
+            }
+        }
     }
 }
 

@@ -1,3 +1,5 @@
+import { findElementUpward } from "../utils/assist.js";
+import { $_color_primary, $_border_radius } from "../utils/var.js";
 class Input extends HTMLElement {
     constructor() {
         super();
@@ -8,15 +10,11 @@ class Input extends HTMLElement {
                 :host {
                     display: block;
                 }
-                .ivy-form-item {
-                    display: block;
-                    position: relative;
-                    margin-bottom: 20px;
-                }
+                
                 .ivy-input-inner {
                     background-color: #fff;
                     background-image: none;
-                    border-radius: 4px;
+                    border-radius: var(--border-radius, ${$_border_radius});
                     border: 1px solid #dcdfe6;
                     box-sizing: border-box;
                     color: #606266;
@@ -29,6 +27,23 @@ class Input extends HTMLElement {
                     transition: border-color .2s cubic-bezier(.645,.045,.355,1);
                     width: 100%;
                 }
+                .ivy-input-inner:active,
+                .ivy-input-inner:hover,
+                .ivy-input-inner:focus {
+                    border-color: var(--color-primary, ${$_color_primary});
+                }
+                :host([disabled]) {
+                    cursor: not-allowed;
+                }
+                :host([disabled]) .ivy-input-inner {
+                    background-color: #f5f7fa;
+                    border-color: #e4e7ed;
+                    color: #c0c4cc;
+                    cursor: not-allowed;
+                }
+                :host([readonly]) {
+                    cursor: not-allowed;
+                }
             </style>
             <div class="ivy-input">
                 <input class="ivy-input-inner" />
@@ -39,36 +54,69 @@ class Input extends HTMLElement {
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.inputInner = this._shadowRoot.querySelector(".ivy-input-inner");
+
+        this.inputInner.addEventListener("change", ev => {
+            const target = ev.target;
+            const value = target.value;
+            const ivyFormItem = findElementUpward(this, "ivy-form-item");
+            console.log(ivyFormItem, "ivyFormItem");
+            if (ivyFormItem !== null) {
+                console.log(ivyFormItem.message);
+            }
+            this.dispatchEvent(new CustomEvent("change", { detail: value }));
+            this.dispatchEvent(new CustomEvent("change", { detail: value }));
+        });
     }
 
     static get observedAttributes() {
-        return ["prop", "label", "width", "minWidth"];
+        return ["status", "value", "disabled", "readonly"];
     }
 
-    get prop() {
-        return this.getAttribute("prop");
+    get status() {
+        return this.getAttribute("status");
     }
-    get label() {
-        return this.getAttribute("label");
+    get value() {
+        return this.getAttribute("value");
     }
-    get width() {
-        return this.getAttribute("width");
+    get disabled() {
+        return this.getAttribute("disabled");
     }
-    get minWidth() {
-        return this.getAttribute("minWidth");
+    get readonly() {
+        return this.getAttribute("readonly");
     }
 
-    set prop(value) {
-        this.setAttribute("prop", value);
+    set status(value) {
+        this.setAttribute("status", value);
     }
-    set label(value) {
-        this.setAttribute("label", value);
+    set value(value) {
+        this.setAttribute("value", value);
     }
-    set width(value) {
-        this.setAttribute("width", value);
+    set disabled(value) {
+        this.setAttribute("disabled", value);
     }
-    set minWidth(value) {
-        this.setAttribute("minWidth", value);
+    set readonly(value) {
+        this.setAttribute("readonly", value);
+    }
+
+    connectedCallback() {
+        if (this.disabled !== null) {
+            this.inputInner.setAttribute("disabled", "disabled");
+        }
+        if (this.readonly !== null) {
+            this.inputInner.setAttribute("readonly", "");
+        }
+    }
+
+    attributeChangedCallback(attr, oldVal, val) {
+        if (attr === "disabled") {
+            if (val === null) {
+                this.inputInner.removeAttribute("disabled");
+            } else {
+                this.inputInner.setAttribute("disabled", "");
+            }
+        }
     }
 }
 
