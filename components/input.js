@@ -64,6 +64,16 @@ class Input extends HTMLElement {
             console.log(ivyFormItem, "ivyFormItem");
             if (ivyFormItem !== null) {
                 console.log(ivyFormItem.message);
+                const validator = ivyFormItem.validator;
+                if (validator === null) {
+                    const message = ivyFormItem.message;
+                    if (message !== null) {
+                        if (value === null || value === "") {
+                            ivyFormItem.status = "error";
+                            this.status = "error";
+                        }
+                    }
+                }
             }
             this.dispatchEvent(new CustomEvent("change", { detail: value }));
             this.dispatchEvent(new CustomEvent("change", { detail: value }));

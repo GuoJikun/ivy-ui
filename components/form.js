@@ -1,6 +1,7 @@
 import "./icon.js";
 import { type } from "../utils/type.js";
 import { $_border_color_base } from "../utils/var.js";
+import { findElementsDownward } from "../utils/assist.js";
 
 class Form extends HTMLElement {
     constructor() {
@@ -45,6 +46,18 @@ class Form extends HTMLElement {
     }
     set border(value) {
         this.setAttribute("border", value);
+    }
+
+    validate(cb) {
+        const ivyFormItem = findElementsDownward(this, "ivy-form-item");
+        const flag = ivyFormItem.every(item => {
+            if (item.validator || item.message) {
+                return item.status !== "error";
+            } else {
+                return true;
+            }
+        });
+        cb(flag);
     }
 
     connectedCallback() {}
