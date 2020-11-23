@@ -20,3 +20,6 @@
     -   [Image 图片](image.md)
     -   [Tooltip 文字提示](tooltip.md)
     -   [Pagination 分页](pagination.md)
+    -   [Table 表格](table.md)
+    -   [Form 表单](form.md)
+    -   [Input 输入框](input.md)

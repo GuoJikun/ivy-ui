@@ -1,6 +1,6 @@
 # Icon 图标
 
-### 基础用法
+## 基础用法
 
 <ivy-icon name="download"></ivy-icon>
 <ivy-icon name="edit"></ivy-icon>
@@ -12,7 +12,7 @@
 <ivy-icon name="reading"></ivy-icon>
 ```
 
-### 旋转
+## 旋转
 
 添加`spin`属性来使 icon 旋转
 
@@ -26,7 +26,7 @@
 <ivy-icon name="refresh" spin></ivy-icon>
 ```
 
-### 大小
+## 大小
 
 添加`size`属性来设置大小
 
@@ -44,7 +44,7 @@
 <ivy-icon name="loading" size="20"></ivy-icon>
 ```
 
-### 颜色
+## 颜色
 
 添加`color`属性来设置颜色
 
@@ -62,7 +62,17 @@
 <ivy-icon name="loading" color="green"></ivy-icon>
 ```
 
-### 所有 icon
+## Attrs
+
+<ivy-table id="table">
+    <ivy-table-column label="属性名" prop="name" width="100px"></ivy-table-column>
+    <ivy-table-column label="说明" prop="desc" minWidth="150px"></ivy-table-column>
+    <ivy-table-column label="类型" prop="type" minWidth="100px"></ivy-table-column>
+    <ivy-table-column label="可选值" prop="value" minWidth="100px"></ivy-table-column>
+    <ivy-table-column label="默认值" prop="defaultValue" minWidth="100px"></ivy-table-column>
+</ivy-table>
+
+## 所有 icon
 
 <div id="icons">
 <ivy-icon name="edit" size="20" style="margin: 10px;"></ivy-icon>
@@ -373,4 +383,11 @@ document.getElementById('icons').addEventListener('click', ev=>{
         }
     }
 },false)
+
+document.getElementById("table").setAttribute('data-source', JSON.stringify([
+    {name: 'name', desc: '图标的名称', type: 'String', value: '-', defaultValue: '-' },
+    {name: 'spin', desc: '旋转图标', type: 'String', value: '-', defaultValue: '-' },
+    {name: 'size', desc: '图标的大小-同fontSize', type: 'String', value: '-', defaultValue: '14px' },
+    {name: 'color', desc: '图标的颜色-合法的css颜色', type: 'String', value: '-', defaultValue: '-' }
+]))
 </script>
