@@ -69,13 +69,13 @@ class Tooltip extends HTMLElement {
                 }
 
                 
-                :host([theme="dart"][placement|="top"]) .ivy-tooltip-arrow::before {
+                :host([theme="dark"][placement|="top"]) .ivy-tooltip-arrow::before {
                     border-top-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="top"]) .ivy-tooltip-arrow::after {
+                :host([theme="dark"][placement|="top"]) .ivy-tooltip-arrow::after {
                     border-top-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="top"]) .ivy-tooltip-text {
+                :host([theme="dark"][placement|="top"]) .ivy-tooltip-text {
                     border: 1px solid rgb(70, 76, 91);
                     background-color: rgb(70, 76, 91);
                     color: white;
@@ -98,13 +98,13 @@ class Tooltip extends HTMLElement {
                     top: -5px;
                     border-color: transparent transparent #ffffff transparent;
                 }
-                :host([theme="dart"][placement|="bottom"]) .ivy-tooltip-arrow::before {
+                :host([theme="dark"][placement|="bottom"]) .ivy-tooltip-arrow::before {
                     border-bottom-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="bottom"]) .ivy-tooltip-arrow::after {
+                :host([theme="dark"][placement|="bottom"]) .ivy-tooltip-arrow::after {
                     border-bottom-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="bottom"]) .ivy-tooltip-text {
+                :host([theme="dark"][placement|="bottom"]) .ivy-tooltip-text {
                     border: 1px solid rgb(70, 76, 91);
                     background-color: rgb(70, 76, 91);
                     color: white;
@@ -134,13 +134,13 @@ class Tooltip extends HTMLElement {
                     right: -5px;
                     border-color: transparent transparent transparent #ffffff;
                 }
-                :host([theme="dart"][placement|="left"]) .ivy-tooltip-arrow::before {
+                :host([theme="dark"][placement|="left"]) .ivy-tooltip-arrow::before {
                     border-left-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="left"]) .ivy-tooltip-arrow::after {
+                :host([theme="dark"][placement|="left"]) .ivy-tooltip-arrow::after {
                     border-left-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="left"]) .ivy-tooltip-text {
+                :host([theme="dark"][placement|="left"]) .ivy-tooltip-text {
                     border: 1px solid rgb(70, 76, 91);
                     background-color: rgb(70, 76, 91);
                     color: white;
@@ -171,13 +171,13 @@ class Tooltip extends HTMLElement {
                 :host([placement$="-bottom"]) .ivy-tooltip-arrow {
                     top: calc(100% - 12px);
                 }
-                :host([theme="dart"][placement|="right"]) .ivy-tooltip-arrow::before {
+                :host([theme="dark"][placement|="right"]) .ivy-tooltip-arrow::before {
                     border-right-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="right"]) .ivy-tooltip-arrow::after {
+                :host([theme="dark"][placement|="right"]) .ivy-tooltip-arrow::after {
                     border-right-color: rgb(70, 76, 91);
                 }
-                :host([theme="dart"][placement|="right"]) .ivy-tooltip-text {
+                :host([theme="dark"][placement|="right"]) .ivy-tooltip-text {
                     border: 1px solid rgb(70, 76, 91);
                     background-color: rgb(70, 76, 91);
                     color: white;
@@ -246,14 +246,14 @@ class Tooltip extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return ["content", "dart", "placement"];
+        return ["content", "dark", "placement"];
     }
 
     get content() {
         return this.getAttribute("content");
     }
-    get dart() {
-        return this.getAttribute("dart");
+    get dark() {
+        return this.getAttribute("dark");
     }
     get placement() {
         return this.getAttribute("placement");
@@ -262,8 +262,8 @@ class Tooltip extends HTMLElement {
     set content(value) {
         this.setAttribute("content", value);
     }
-    set dart(value) {
-        this.setAttribute("dart", value);
+    set dark(value) {
+        this.setAttribute("dark", value);
     }
     set placement(value) {
         this.setAttribute("placement", value);

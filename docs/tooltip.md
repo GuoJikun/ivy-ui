@@ -110,12 +110,12 @@
 
 ## 主题
 
-通过`theme`属性可以设置主题，可选值`light/dart`
+通过`theme`属性可以设置主题，可选值`light/dark`
 
 <ivy-tooltip content="Tooltip 文字提示">
     <ivy-button type="success">默认</ivy-button>
 </ivy-tooltip>
-<ivy-tooltip content="Tooltip 文字提示" theme="dart" class="ml-20">
+<ivy-tooltip content="Tooltip 文字提示" theme="dark" class="ml-20">
     <ivy-button type="success">默认</ivy-button>
 </ivy-tooltip>
 
@@ -123,7 +123,7 @@
 <ivy-tooltip content="Tooltip 文字提示">
     <ivy-button type="success">默认</ivy-button>
 </ivy-tooltip>
-<ivy-tooltip content="Tooltip 文字提示" theme="dart" class="ml-20">
+<ivy-tooltip content="Tooltip 文字提示" theme="dark" class="ml-20">
     <ivy-button type="success">默认</ivy-button>
 </ivy-tooltip>
 ```
