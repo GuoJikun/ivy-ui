@@ -28,7 +28,7 @@ class Table extends HTMLElement {
                     display: none;
                     opacity: 1;
                     transition: opacity 0.3s;
-                    background-color: rgba(55,55,55, 0.4);
+                    background-color: hsla(0, 0%, 100%, 0.9);
                     justify-content: center;
                     align-items: center;
                 }
@@ -50,6 +50,9 @@ class Table extends HTMLElement {
                 }
                 table {
                     border-collapse: collapse;
+                }
+                :host([loading]) .ivy-table-loading {
+                    display: flex;
                 }
             </style>
             <div class="ivy-table">
@@ -83,7 +86,7 @@ class Table extends HTMLElement {
         this.columns = [];
     }
     static get observedAttributes() {
-        return ["data-source", "border"];
+        return ["data-source", "border", "loading"];
     }
 
     get dataSource() {
@@ -92,12 +95,18 @@ class Table extends HTMLElement {
     get border() {
         return this.getAttribute("border");
     }
+    get loading() {
+        return this.getAttribute("loading");
+    }
 
     set dataSource(value) {
         this.setAttribute("data-source", value);
     }
     set border(value) {
         this.setAttribute("border", value);
+    }
+    set loading(value) {
+        this.setAttribute("loading", value);
     }
 
     renderHeader(label, i) {

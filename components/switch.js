@@ -73,7 +73,7 @@ class Switch extends HTMLElement {
             } else {
                 this.setAttribute("checked", "");
             }
-            this.dispatchEvent(new CustomEvent("CustomEvent", { bubbles: false, cancelable: true, composed: false, detail: checked }));
+            this.dispatchEvent(new CustomEvent("change", { bubbles: false, cancelable: true, composed: false, detail: !checked }));
         });
     }
 

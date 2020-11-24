@@ -88,6 +88,8 @@
 <ivy-rate value="2" onchange="alert(`当前的value：${this.value}`)"></ivy-rate>
 ```
 
+其它的触发方式
+
 ```js
 <script>
 rate.addEventListener('change',function(ev){
@@ -97,8 +99,6 @@ rate.addEventListener('change',function(ev){
 })
 </script>
 ```
-
-其它的触发方式
 
 ## Rate Attrs
 
