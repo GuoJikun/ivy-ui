@@ -18,3 +18,4 @@ import "./components/pagination.js";
 import "./components/table.js";
 import "./components/form.js";
 import "./components/input.js";
+import "./components/select.js";

@@ -57,7 +57,10 @@ class Input extends HTMLElement {
 
         this.inputInner = this._shadowRoot.querySelector(".ivy-input-inner");
 
+        const iFocus = new CustomEvent("focus", {});
+
         this.inputInner.addEventListener("change", ev => {
+            this.dispatchEvent(this.iFocus);
             const target = ev.target;
             const value = target.value;
             const ivyFormItem = findElementUpward(this, "ivy-form-item");
@@ -78,10 +81,19 @@ class Input extends HTMLElement {
             this.dispatchEvent(new CustomEvent("change", { detail: value }));
             this.dispatchEvent(new CustomEvent("change", { detail: value }));
         });
+
+        this.inputInner.addEventListener("focus", () => {
+            this.focus = "";
+            this.dispatchEvent(this.iFocus);
+        });
+        this.inputInner.addEventListener("blur", () => {
+            this.focus = null;
+            this.dispatchEvent(this.iFocus);
+        });
     }
 
     static get observedAttributes() {
-        return ["status", "value", "disabled", "readonly"];
+        return ["status", "value", "disabled", "readonly", "focus"];
     }
 
     get status() {
@@ -96,6 +108,9 @@ class Input extends HTMLElement {
     get readonly() {
         return this.getAttribute("readonly");
     }
+    get focus() {
+        return this.getAttribute("focus");
+    }
 
     set status(value) {
         this.setAttribute("status", value);
@@ -108,6 +123,9 @@ class Input extends HTMLElement {
     }
     set readonly(value) {
         this.setAttribute("readonly", value);
+    }
+    set focus(value) {
+        this.setAttribute("focus", value);
     }
 
     connectedCallback() {
