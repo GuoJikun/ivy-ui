@@ -90,6 +90,16 @@
 
 其它的触发方式
 
+## Rate Attrs
+
+| 名称     | 说明                      | 类型   | 可选值 | 默认值   |
+| -------- | ------------------------- | ------ | ------ | -------- |
+| value    | 评分的值                  | String | 1-5    | -        |
+| disabled | 只读                      | String | -      | -        |
+| size     | 大小-同 fontSize          | String | -      | 20px     |
+| color    | 颜色-同 color             | String | -      | -        |
+| icon     | 图标的名称-参考 icon 组件 | String | -      | start-on |
+
 ```js
 <script>
 rate.addEventListener('change',function(ev){

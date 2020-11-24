@@ -3,6 +3,8 @@
 feat:
 
 -   [x] 添加 `Tooltip` 组件
+-   [x] 添加 `Rate` 组件
+-   [x] 添加 `Table` 组件
 
 # v0.4.0
 

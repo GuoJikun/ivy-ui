@@ -64,7 +64,7 @@
 
 ## Attrs
 
-<ivy-table id="table">
+<ivy-table id="table" data-source="[]">
     <ivy-table-column label="属性名" prop="name" width="100px"></ivy-table-column>
     <ivy-table-column label="说明" prop="desc" minWidth="150px"></ivy-table-column>
     <ivy-table-column label="类型" prop="type" minWidth="100px"></ivy-table-column>
