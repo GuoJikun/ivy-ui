@@ -39,15 +39,15 @@ class Icon extends HTMLElement {
                         transform: rotate(360deg);
                     }
                 }
+                .ivy-icon-hidden {
+                    width: 0;
+                    height: 0;
+                    overflow:hidden;
+                    position: absolute;
+                }
             </style>
-            <svg aria-hidden="true" style="width: 0;height: 0;overflow:hidden;position: absolute;">
-                ${iconfont.replace(
-                    new RegExp(
-                        `(.+)(<symbol id=\"ivy-icon-${this.name}\" viewBox=\"0 0 1024 1024\"><path d=\"[^\"]+"\ +><\/path><\/symbol>)(.+)`,
-                        "g"
-                    ),
-                    "$2"
-                )}
+            <svg aria-hidden="true" class="ivy-icon-hidden">
+                
             </svg>
             <svg class="ivy-icon" style="font-size: ${this.size}px;color: ${this.color};">
                 <use xlink:href="#ivy-icon-${this.name}" class="ivy-icon-inner"></use>
@@ -59,6 +59,7 @@ class Icon extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-icon");
         this.use = this._shadowRoot.querySelector(".ivy-icon-inner");
+        this.hiddenSvg = this._shadowRoot.querySelector(".ivy-icon-hidden");
     }
     static get observedAttributes() {
         return ["size", "name", "color"];
@@ -83,12 +84,31 @@ class Icon extends HTMLElement {
         this.setAttribute("size", value);
     }
 
-    connectedCallback() {}
+    connectedCallback() {
+        if (this.name !== null) {
+            const reg1 = new RegExp(`ivy-icon-${this.name}`);
+            const reg = new RegExp(
+                `(.+)(<symbol id=\"ivy-icon-${this.name}\" viewBox=\"0 0 1024 1024\"><path d=\"[^\"]+"\ +><\/path><\/symbol>)(.+)`,
+                "g"
+            );
+            if (reg1.test(iconfont)) {
+                this.hiddenSvg.innerHTML = iconfont.replace(reg, "$2");
+            }
+        }
+    }
     attributeChangedCallback(name, oldVal, newVal) {
         if (name === "color") {
             this.root.style.color = newVal;
         }
         if (name === "name") {
+            const reg1 = new RegExp(`ivy-icon-${this.name}`);
+            const reg = new RegExp(
+                `(.+)(<symbol id=\"ivy-icon-${this.name}\" viewBox=\"0 0 1024 1024\"><path d=\"[^\"]+"\ +><\/path><\/symbol>)(.+)`,
+                "g"
+            );
+            if (reg1.test(iconfont)) {
+                this.hiddenSvg.innerHTML = iconfont.replace(reg, "$2");
+            }
             this.use.setAttribute("xlink:href", `#ivy-icon-${newVal}`);
         }
         if (name === "size") {
@@ -2976,7 +2996,9 @@ class Input extends HTMLElement {
                 :host {
                     display: block;
                 }
-                
+                .ivy-input {
+                    position: relative;
+                }
                 .ivy-input-inner {
                     background-color: #fff;
                     background-image: none;
@@ -2990,8 +3012,24 @@ class Input extends HTMLElement {
                     line-height: 34px;
                     outline: none;
                     padding: 0 15px;
-                    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+                    transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355,1);
                     width: 100%;
+                }
+                .ivy-input-inner::-webkit-input-placeholder {
+                    color: #C0C4CC;
+                    font-size: 14px;
+                }
+                .ivy-input-inner::-moz-input-placeholder {
+                    color: #C0C4CC;
+                    font-size: 14px;
+                }
+                .ivy-input-inner:-moz-input-placeholder {
+                    color: #C0C4CC;
+                    font-size: 14px;
+                }
+                .ivy-input-inner:-ms-input-placeholder {
+                    color: #C0C4CC;
+                    font-size: 14px;
                 }
                 .ivy-input-inner:active,
                 .ivy-input-inner:hover,
@@ -3010,9 +3048,28 @@ class Input extends HTMLElement {
                 :host([readonly]) {
                     cursor: not-allowed;
                 }
+                .ivy-input-icon {
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    height: 100%;
+                    width: 30px;
+                    align-items: center;
+                    justify-content: center;
+                    pointer-events: none;
+                }
+                .ivy-input .ivy-input-icon-prefix {
+                    left: 0;
+                }
             </style>
             <div class="ivy-input">
+                <span class="ivy-input-icon ivy-input-icon-prefix">
+                    <ivy-icon name="loading" color="#c0c4cc"></ivy-icon>
+                </span>
                 <input class="ivy-input-inner" />
+                <span class="ivy-input-icon ivy-input-icon-suffix">
+                    <ivy-icon name="reading" color="#c0c4cc"></ivy-icon>
+                </span>
             </div>
             
         `;
@@ -3022,17 +3079,16 @@ class Input extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
 
         this.inputInner = this._shadowRoot.querySelector(".ivy-input-inner");
-
-        const iFocus = new CustomEvent("focus", {});
+        this.preIcon = this._shadowRoot.querySelector(".ivy-input-icon-prefix");
+        this.preIconInner = this._shadowRoot.querySelector(".ivy-input-icon-prefix ivy-icon");
+        this.sufIcon = this._shadowRoot.querySelector(".ivy-input-icon-suffix");
+        this.sufIconInner = this._shadowRoot.querySelector(".ivy-input-icon-suffix ivy-icon");
 
         this.inputInner.addEventListener("change", ev => {
-            this.dispatchEvent(this.iFocus);
             const target = ev.target;
             const value = target.value;
             const ivyFormItem = findElementUpward(this, "ivy-form-item");
-            console.log(ivyFormItem, "ivyFormItem");
             if (ivyFormItem !== null) {
-                console.log(ivyFormItem.message);
                 const validator = ivyFormItem.validator;
                 if (validator === null) {
                     const message = ivyFormItem.message;
@@ -3044,22 +3100,28 @@ class Input extends HTMLElement {
                     }
                 }
             }
+            this.value = value;
             this.dispatchEvent(new CustomEvent("change", { detail: value }));
-            this.dispatchEvent(new CustomEvent("change", { detail: value }));
+            // this.dispatchEvent(new CustomEvent("change", { detail: value }));
         });
 
         this.inputInner.addEventListener("focus", () => {
             this.focus = "";
-            this.dispatchEvent(this.iFocus);
+            this.dispatchEvent(new CustomEvent("focus"));
         });
         this.inputInner.addEventListener("blur", () => {
-            this.focus = null;
-            this.dispatchEvent(this.iFocus);
+            this.dispatchEvent(new CustomEvent("blur"));
+        });
+        this.inputInner.addEventListener("input", ev => {
+            const target = ev.target;
+            const value = target.value;
+            this.value = value;
+            this.dispatchEvent(new CustomEvent("change", { detail: value }));
         });
     }
 
     static get observedAttributes() {
-        return ["status", "value", "disabled", "readonly", "focus"];
+        return ["status", "value", "disabled", "readonly", "focus", "prefix-icon", "suffix-icon", "placeholder"];
     }
 
     get status() {
@@ -3077,6 +3139,15 @@ class Input extends HTMLElement {
     get focus() {
         return this.getAttribute("focus");
     }
+    get prefixIcon() {
+        return this.getAttribute("prefix-icon");
+    }
+    get suffixIcon() {
+        return this.getAttribute("suffix-icon");
+    }
+    get placeholder() {
+        return this.getAttribute("placeholder");
+    }
 
     set status(value) {
         this.setAttribute("status", value);
@@ -3093,6 +3164,15 @@ class Input extends HTMLElement {
     set focus(value) {
         this.setAttribute("focus", value);
     }
+    set prefixIcon(value) {
+        this.setAttribute("prefix-icon", value);
+    }
+    set suffixIcon(value) {
+        this.setAttribute("suffix-icon", value);
+    }
+    set placeholder(value) {
+        this.setAttribute("placeholder", value);
+    }
 
     connectedCallback() {
         if (this.disabled !== null) {
@@ -3100,6 +3180,19 @@ class Input extends HTMLElement {
         }
         if (this.readonly !== null) {
             this.inputInner.setAttribute("readonly", "");
+        }
+        if (this.placeholder !== null) {
+            this.inputInner.setAttribute("placeholder", this.placeholder);
+        }
+        if (this.prefixIcon !== null) {
+            this.preIconInner.setAttribute("name", this.prefixIcon);
+            this.preIcon.style.display = "inline-flex";
+            this.inputInner.style.paddingLeft = "30px";
+        }
+        if (this.suffixIcon !== null) {
+            this.sufIconInner.setAttribute("name", this.suffixIcon);
+            this.sufIcon.style.display = "inline-flex";
+            this.inputInner.style.paddingRight = "30px";
         }
     }
 
@@ -3109,6 +3202,35 @@ class Input extends HTMLElement {
                 this.inputInner.removeAttribute("disabled");
             } else {
                 this.inputInner.setAttribute("disabled", "");
+            }
+        }
+        if (attr === "prefix-icon") {
+            if (val === null || val === "") {
+                this.preIcon.style.display = "none";
+                this.preIconInner.removeAttribute("name");
+                this.inputInner.style.paddingLeft = "15px";
+            } else {
+                this.preIconInner.setAttribute("name", val);
+                this.preIcon.style.display = "inline-flex";
+                this.inputInner.style.paddingLeft = "30px";
+            }
+        }
+        if (attr === "suffix-icon") {
+            if (val === null || val === "") {
+                this.sufIcon.style.display = "none";
+                this.sufIconInner.removeAttribute("name");
+                this.inputInner.style.paddingRight = "15px";
+            } else {
+                this.sufIconInner.setAttribute("name", val);
+                this.sufIcon.style.display = "inline-flex";
+                this.inputInner.style.paddingRight = "30px";
+            }
+        }
+        if (attr === "placeholder") {
+            if (val === null) {
+                this.inputInner.removeAttribute("placeholder");
+            } else {
+                this.inputInner.setAttribute("placeholder", val);
             }
         }
     }

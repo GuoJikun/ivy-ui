@@ -34,15 +34,15 @@ class Icon extends HTMLElement {
                         transform: rotate(360deg);
                     }
                 }
+                .ivy-icon-hidden {
+                    width: 0;
+                    height: 0;
+                    overflow:hidden;
+                    position: absolute;
+                }
             </style>
-            <svg aria-hidden="true" style="width: 0;height: 0;overflow:hidden;position: absolute;">
-                ${iconfont.replace(
-                    new RegExp(
-                        `(.+)(<symbol id=\"ivy-icon-${this.name}\" viewBox=\"0 0 1024 1024\"><path d=\"[^\"]+"\ +><\/path><\/symbol>)(.+)`,
-                        "g"
-                    ),
-                    "$2"
-                )}
+            <svg aria-hidden="true" class="ivy-icon-hidden">
+                
             </svg>
             <svg class="ivy-icon" style="font-size: ${this.size}px;color: ${this.color};">
                 <use xlink:href="#ivy-icon-${this.name}" class="ivy-icon-inner"></use>
@@ -54,6 +54,7 @@ class Icon extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-icon");
         this.use = this._shadowRoot.querySelector(".ivy-icon-inner");
+        this.hiddenSvg = this._shadowRoot.querySelector(".ivy-icon-hidden");
     }
     static get observedAttributes() {
         return ["size", "name", "color"];
@@ -78,12 +79,31 @@ class Icon extends HTMLElement {
         this.setAttribute("size", value);
     }
 
-    connectedCallback() {}
+    connectedCallback() {
+        if (this.name !== null) {
+            const reg1 = new RegExp(`ivy-icon-${this.name}`);
+            const reg = new RegExp(
+                `(.+)(<symbol id=\"ivy-icon-${this.name}\" viewBox=\"0 0 1024 1024\"><path d=\"[^\"]+"\ +><\/path><\/symbol>)(.+)`,
+                "g"
+            );
+            if (reg1.test(iconfont)) {
+                this.hiddenSvg.innerHTML = iconfont.replace(reg, "$2");
+            }
+        }
+    }
     attributeChangedCallback(name, oldVal, newVal) {
         if (name === "color") {
             this.root.style.color = newVal;
         }
         if (name === "name") {
+            const reg1 = new RegExp(`ivy-icon-${this.name}`);
+            const reg = new RegExp(
+                `(.+)(<symbol id=\"ivy-icon-${this.name}\" viewBox=\"0 0 1024 1024\"><path d=\"[^\"]+"\ +><\/path><\/symbol>)(.+)`,
+                "g"
+            );
+            if (reg1.test(iconfont)) {
+                this.hiddenSvg.innerHTML = iconfont.replace(reg, "$2");
+            }
             this.use.setAttribute("xlink:href", `#ivy-icon-${newVal}`);
         }
         if (name === "size") {
