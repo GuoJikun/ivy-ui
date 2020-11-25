@@ -9,6 +9,24 @@
 -   自定义事件（非原生事件）都需要使用`addEventListener`来绑定
 ```
 
+## 使用说明
+
+### npm or yarn
+
+```bash
+npm i ivy-ui
+yarn add ivy-ui
+```
+
+### script 引入
+
+```html
+<!--最新版-->
+<script type="module" src="//cdn.jsdelivr.net/npm/ivy-ui"></script>
+<!--指定版本号-->
+<script type="module" src="//cdn.jsdelivr.net/npm/ivy-ui@0.4.0"></script>
+```
+
 ## 已有组件
 
 -   [x] `Row` 组件
@@ -29,6 +47,7 @@
 -   [x] `tab-pane` 组件
 -   [x] `Image` 组件
 -   [x] `Tooltip` 组件
+-   [x] `Table` 组件
 
 ## 未完成组件
 

@@ -1,6 +1,6 @@
 {
   "name": "ivy-ui",
-  "version": "0.3.0",
+  "version": "0.5.0",
   "description": "符合Web Component规范的前端组件库",
   "keywords": [
     "ivy-ui",
@@ -11,7 +11,7 @@
     "ui",
     "uikit"
   ],
-  "main": "index.js",
+  "main": "lib/ivy-ui.js",
   "repository": "https://github.com/GuoJikun/fox-ui-wc.git",
   "author": "guojikun <guojikun@y-open.com>",
   "license": "MIT",
