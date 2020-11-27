@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css" />
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/vuep/dist/vuep.css" />
         <style>
             img[alt="ivy-ui"] {
                 height: 30px;
@@ -53,13 +54,27 @@
                 },
             };
         </script>
+        <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/vuep/dist/vuep.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
         <script type="module" src="ivy-ui.js"></script>
         <script>
+            Vue.config.ignoredElements = [
+                // 用一个 `RegExp` 忽略所有“ion-”开头的元素
+                // 仅在 2.5+ 支持
+                /^ivy-/,
+            ];
+            Vue.use(Vuep, {
+                lineNumbers: false,
+                mode: "text/x-vue",
+                theme: "material",
+                tabSize: 2,
+            });
             if (typeof navigator.serviceWorker !== "undefined") {
-                // navigator.serviceWorker.register("sw.js");
+                navigator.serviceWorker.register("sw.js");
             }
         </script>
     </body>
