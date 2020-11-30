@@ -54,25 +54,12 @@
                 },
             };
         </script>
-        <script src="//cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/vuep/dist/vuep.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
         <script type="module" src="ivy-ui.js"></script>
         <script>
-            Vue.config.ignoredElements = [
-                // 用一个 `RegExp` 忽略所有“ion-”开头的元素
-                // 仅在 2.5+ 支持
-                /^ivy-/,
-            ];
-            Vue.use(Vuep, {
-                lineNumbers: false,
-                mode: "text/x-vue",
-                theme: "material",
-                tabSize: 2,
-            });
             if (typeof navigator.serviceWorker !== "undefined") {
                 navigator.serviceWorker.register("sw.js");
             }
