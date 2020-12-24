@@ -1494,6 +1494,23 @@ const findElementsDownward = (self, nodeName) => {
     }, []);
 };
 
+/**
+ * 找到指定组件的兄弟组件
+ * @param {HTMLElement} self 起点
+ * @param {String} componentName 查找的元素名称
+ * @param {Boolean} exceptMe 是否包含自身
+ * @returns {HTMLCollection} 查找的结果
+ */
+const findBrothersElements = (self, nodeName, exceptMe = true) => {
+    let res = [...self.parentElement.children];
+    res = res.filter(item => {
+        return item.nodeName.toLowerCase() === nodeName;
+    });
+    let index = res.findIndex(item => item._uid === self._uid);
+    if (exceptMe) res.splice(index, 1);
+    return res;
+};
+
 class Rate extends HTMLElement {
     constructor() {
         super();
@@ -5221,25 +5238,9 @@ class Select extends HTMLElement {
         this.selectInput = this._shadowRoot.querySelector(".ivy-select-input");
 
         this.timer = null;
-        this.selectInput.addEventListener("focus", () => {
-            this.show = "";
-            if (this.timer !== null) {
-                clearTimeout(this.timer);
-            }
-            this.drop.style.display = "block";
-            this.popper.update();
-            this.drop.style.opacity = 1;
-        });
-        this.selectInput.addEventListener("blur", () => {
-            this.removeAttribute("show");
-            this.drop.style.opacity = 0;
-            this.timer = setTimeout(() => {
-                this.drop.style.display = "none";
-                clearTimeout(this.timer);
-                this.timer = null;
-            }, 300);
-            this.popper.update();
-        });
+        this.selectInput.addEventListener("click", this.showHandler);
+        this.selectInput.addEventListener("keypress", this.showHandler);
+
         this.drop.addEventListener("click", ev => {
             const target = ev.target;
             const label = target.label;
@@ -5310,6 +5311,32 @@ class Select extends HTMLElement {
         this.setAttribute("show", value);
     }
 
+    showHandler = ev => {
+        const type = ev.type;
+        const which = ev.which;
+        const isEnter = type === "keypress" && which === 13;
+        if (isEnter || type === "click") {
+            this.show = "";
+            if (this.timer !== null) {
+                clearTimeout(this.timer);
+            }
+            this.drop.style.display = "block";
+            this.popper.update();
+            this.drop.style.opacity = 1;
+        }
+    };
+
+    hideHandler = () => {
+        this.removeAttribute("show");
+        this.drop.style.opacity = 0;
+        this.timer = setTimeout(() => {
+            this.drop.style.display = "none";
+            clearTimeout(this.timer);
+            this.timer = null;
+        }, 300);
+        this.popper.update();
+    };
+
     validate(cb) {
         const ivyFormItem = findElementsDownward(this, "ivy-form-item");
         const flag = ivyFormItem.every(item => {
@@ -5329,12 +5356,17 @@ class Select extends HTMLElement {
         }
 
         this.selectInput.setAttribute("placeholder", this.placeholder || "请选择");
+        document.body.addEventListener("click", this.hideHandler, true);
     }
 
     attributeChangedCallback(attr, oldVal, val) {
         if (attr === "value") {
             this.selectInput.value = val;
         }
+    }
+
+    disconnectedCallback() {
+        document.body.removeEventListener("click", this.hideHandler);
     }
 }
 
@@ -5562,20 +5594,26 @@ class Radio extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
 
+        this.root = this._shadowRoot.querySelector(".ivy-radio");
         this.checkOriginal = this._shadowRoot.querySelector(".ivy-radio-original");
 
         this.checkOriginal.addEventListener("change", ev => {
             const checkboxGroup = findElementUpward(this, "ivy-radio-group");
-            const checked = this.checkOriginal.checked;
+            const brother = findBrothersElements(this, "ivy-radio");
+            const checked = ev.target.checked;
             if (checkboxGroup !== null) {
-                console.log(checkboxGroup);
                 if (checked) {
+                    brother.map(c => {
+                        const checked = c.checkOriginal.checked;
+                        console.log(checked, "checked");
+                        if (checked) {
+                            c.root.click();
+                            console.log(c.checkOriginal.checked, "c.checkOriginal.checked");
+                            c.removeAttribute("checked");
+                        }
+                    });
                     this.checked = "";
-                    checkboxGroup.value.push(this.label);
-                } else {
-                    this.removeAttribute("checked");
-                    const index = checkboxGroup.value.indexOf(this.label);
-                    checkboxGroup.value.splice(index, 1);
+                    checkboxGroup.value = this.label;
                 }
                 checkboxGroup.dispatchEvent(new CustomEvent("change", { detail: { value: checkboxGroup.value } }));
             } else {
@@ -5638,7 +5676,7 @@ class Radio extends HTMLElement {
             this.checkOriginal.setAttribute("checked", "checked");
             const checkboxGroup = findElementUpward(this, "ivy-radio-group");
             if (checkboxGroup === null) {
-                this.value = this.trueLabel || true;
+                this.value = this.label || true;
             }
         } else {
             this.value = this.falseLabel || false;
@@ -5682,7 +5720,7 @@ class RadioGroup extends HTMLElement {
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.value = [];
+        this.value = null;
     }
 
     static get observedAttributes() {
@@ -5702,7 +5740,7 @@ class RadioGroup extends HTMLElement {
         checkboxList.map(cur => {
             const checked = cur.getAttribute("checked");
             if (checked !== null) {
-                this.value.push(cur.getAttribute("label"));
+                this.value = cur.getAttribute("label");
             }
             if (this.disabled !== null) {
                 cur.setAttribute("disabled", "");

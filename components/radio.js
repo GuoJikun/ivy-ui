@@ -1,5 +1,5 @@
 import { $_text_color, $_color_primary } from "../utils/var.js";
-import { findElementUpward, findElementsDownward } from "../utils/assist.js";
+import { findElementUpward, findElementsDownward, findBrothersElements } from "../utils/assist.js";
 
 class Radio extends HTMLElement {
     constructor() {
@@ -110,20 +110,26 @@ class Radio extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
 
+        this.root = this._shadowRoot.querySelector(".ivy-radio");
         this.checkOriginal = this._shadowRoot.querySelector(".ivy-radio-original");
 
         this.checkOriginal.addEventListener("change", ev => {
             const checkboxGroup = findElementUpward(this, "ivy-radio-group");
-            const checked = this.checkOriginal.checked;
+            const brother = findBrothersElements(this, "ivy-radio");
+            const checked = ev.target.checked;
             if (checkboxGroup !== null) {
-                console.log(checkboxGroup);
                 if (checked) {
+                    brother.map(c => {
+                        const checked = c.checkOriginal.checked;
+                        console.log(checked, "checked");
+                        if (checked) {
+                            c.root.click();
+                            console.log(c.checkOriginal.checked, "c.checkOriginal.checked");
+                            c.removeAttribute("checked");
+                        }
+                    });
                     this.checked = "";
-                    checkboxGroup.value.push(this.label);
-                } else {
-                    this.removeAttribute("checked");
-                    const index = checkboxGroup.value.indexOf(this.label);
-                    checkboxGroup.value.splice(index, 1);
+                    checkboxGroup.value = this.label;
                 }
                 checkboxGroup.dispatchEvent(new CustomEvent("change", { detail: { value: checkboxGroup.value } }));
             } else {
@@ -186,7 +192,7 @@ class Radio extends HTMLElement {
             this.checkOriginal.setAttribute("checked", "checked");
             const checkboxGroup = findElementUpward(this, "ivy-radio-group");
             if (checkboxGroup === null) {
-                this.value = this.trueLabel || true;
+                this.value = this.label || true;
             }
         } else {
             this.value = this.falseLabel || false;
@@ -230,7 +236,7 @@ class RadioGroup extends HTMLElement {
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.value = [];
+        this.value = null;
     }
 
     static get observedAttributes() {
@@ -250,7 +256,7 @@ class RadioGroup extends HTMLElement {
         checkboxList.map(cur => {
             const checked = cur.getAttribute("checked");
             if (checked !== null) {
-                this.value.push(cur.getAttribute("label"));
+                this.value = cur.getAttribute("label");
             }
             if (this.disabled !== null) {
                 cur.setAttribute("disabled", "");

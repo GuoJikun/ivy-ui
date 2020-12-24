@@ -87,7 +87,7 @@ const findElementsDownward = (self, nodeName) => {
  * @returns {HTMLCollection} 查找的结果
  */
 const findBrothersElements = (self, nodeName, exceptMe = true) => {
-    let res = self.$parent.$children;
+    let res = [...self.parentElement.children];
     res = res.filter(item => {
         return item.nodeName.toLowerCase() === nodeName;
     });
