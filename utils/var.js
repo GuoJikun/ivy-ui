@@ -22,6 +22,9 @@ export const $_color_warn_hover = "#ebb563";
 export const $_color_error_hover = "#f78989";
 export const $_color_info_hover = "#a6a9ad";
 
+/** 文字基础颜色 **/
+export const $_text_color = "#606266";
+
 /****边框颜色 */
 export const $_border_color_base = "#DCDFE6";
 

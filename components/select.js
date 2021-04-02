@@ -144,25 +144,9 @@ class Select extends HTMLElement {
         this.selectInput = this._shadowRoot.querySelector(".ivy-select-input");
 
         this.timer = null;
-        this.selectInput.addEventListener("focus", () => {
-            this.show = "";
-            if (this.timer !== null) {
-                clearTimeout(this.timer);
-            }
-            this.drop.style.display = "block";
-            this.popper.update();
-            this.drop.style.opacity = 1;
-        });
-        this.selectInput.addEventListener("blur", () => {
-            this.removeAttribute("show");
-            this.drop.style.opacity = 0;
-            this.timer = setTimeout(() => {
-                this.drop.style.display = "none";
-                clearTimeout(this.timer);
-                this.timer = null;
-            }, 300);
-            this.popper.update();
-        });
+        this.selectInput.addEventListener("click", this.showHandler);
+        this.selectInput.addEventListener("keypress", this.showHandler);
+
         this.drop.addEventListener("click", ev => {
             const target = ev.target;
             const label = target.label;
@@ -233,6 +217,32 @@ class Select extends HTMLElement {
         this.setAttribute("show", value);
     }
 
+    showHandler = ev => {
+        const type = ev.type;
+        const which = ev.which;
+        const isEnter = type === "keypress" && which === 13;
+        if (isEnter || type === "click") {
+            this.show = "";
+            if (this.timer !== null) {
+                clearTimeout(this.timer);
+            }
+            this.drop.style.display = "block";
+            this.popper.update();
+            this.drop.style.opacity = 1;
+        }
+    };
+
+    hideHandler = () => {
+        this.removeAttribute("show");
+        this.drop.style.opacity = 0;
+        this.timer = setTimeout(() => {
+            this.drop.style.display = "none";
+            clearTimeout(this.timer);
+            this.timer = null;
+        }, 300);
+        this.popper.update();
+    };
+
     validate(cb) {
         const ivyFormItem = findElementsDownward(this, "ivy-form-item");
         const flag = ivyFormItem.every(item => {
@@ -252,12 +262,17 @@ class Select extends HTMLElement {
         }
 
         this.selectInput.setAttribute("placeholder", this.placeholder || "请选择");
+        document.body.addEventListener("click", this.hideHandler, true);
     }
 
     attributeChangedCallback(attr, oldVal, val) {
         if (attr === "value") {
             this.selectInput.value = val;
         }
+    }
+
+    disconnectedCallback() {
+        document.body.removeEventListener("click", this.hideHandler);
     }
 }
 

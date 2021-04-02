@@ -24,3 +24,5 @@
     -   [Form 表单](form.md)
     -   [Input 输入框](input.md)
     -   [Select 下拉选择框](select.md)
+    -   [Radio 单选框](radio.md)
+    -   [Checkbox 多选框](checkbox.md)

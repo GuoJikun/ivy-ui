@@ -48,15 +48,15 @@ yarn add ivy-ui
 -   [x] `Image` 组件
 -   [x] `Tooltip` 组件
 -   [x] `Table` 组件
+-   [x] `Input` 组件
+-   [x] `Checkbox` 组件
+-   [x] `CheckboxGroup` 组件
 
 ## 未完成组件
 
 -   [ ] `Message` 组件
--   [ ] `Input` 组件
 -   [ ] `Select` 组件
 -   [ ] `Radio` 组件
 -   [ ] `RadioGroup` 组件
--   [ ] `Checkbox` 组件
--   [ ] `CheckboxGroup` 组件
 -   [ ] `Slider` 组件
 -   [ ] `Pagination` 组件

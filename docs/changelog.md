@@ -1,3 +1,10 @@
+# v0.6.0
+
+feat:
+
+-   [x] `Checkbox` 组件
+-   [x] `CheckboxGroup` 组件
+
 # v0.5.0
 
 feat:
