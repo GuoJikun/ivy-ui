@@ -51,12 +51,12 @@ yarn add ivy-ui
 -   [x] `Input` 组件
 -   [x] `Checkbox` 组件
 -   [x] `CheckboxGroup` 组件
+-   [x] `Radio` 组件
+-   [x] `RadioGroup` 组件
 
 ## 未完成组件
 
 -   [ ] `Message` 组件
 -   [ ] `Select` 组件
--   [ ] `Radio` 组件
--   [ ] `RadioGroup` 组件
 -   [ ] `Slider` 组件
 -   [ ] `Pagination` 组件

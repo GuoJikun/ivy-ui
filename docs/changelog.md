@@ -4,6 +4,8 @@ feat:
 
 -   [x] `Checkbox` 组件
 -   [x] `CheckboxGroup` 组件
+-   [x] `Radio` 组件
+-   [x] `RadioGroup` 组件
 
 # v0.5.0
 

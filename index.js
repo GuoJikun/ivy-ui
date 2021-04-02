@@ -14,7 +14,6 @@ import "./components/rate.js";
 import "./components/tab.js";
 import "./components/image.js";
 import "./components/tooltip.js";
-import "./components/pagination.js";
 import "./components/table.js";
 import "./components/form.js";
 import "./components/input.js";

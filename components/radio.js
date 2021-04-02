@@ -24,6 +24,7 @@ class Radio extends HTMLElement {
                     cursor: pointer;
                     display: flex;
                     align-items: center;
+                    align-content: center;
                     white-space: nowrap;
                     user-select: none;
                 }
@@ -66,6 +67,9 @@ class Radio extends HTMLElement {
                 :host([checked]) .ivy-radio-inner::after {
                     transform: translate(-50%, -50%) scale(1);
                 }
+                :host([disabled]) .ivy-radio {
+                    cursor: not-allowed;
+                }
                 :host([disabled]) .ivy-radio-inner {
                     background-color: #edf2fc;
                     border-color: #dcdfe6;
@@ -76,33 +80,23 @@ class Radio extends HTMLElement {
                     border-color: #dcdfe6;
                 }
                 :host([disabled][checked]) .ivy-radio-inner::after {
-                    border-color: #c0c4cc;
-                }
-                .ivy-radio-original {
-                    opacity: 0;
-                    outline: none;
-                    position: absolute;
-                    margin: 0;
-                    width: 0;
-                    height: 0;
-                    z-index: -1;
+                    background-color: #c0c4cc;
                 }
                 .ivy-radio-label {
-                    display: inline-block;
                     padding-left: 8px;
-                    line-height: 19px;
                     font-size: 14px;
+                    display: inline-flex;
+                    align-items: center;
                 }
             </style>
-            <label class="ivy-radio">
+            <div class="ivy-radio">
                 <span class="ivy-radio-input">
                     <span class="ivy-radio-inner"></span>
-                    <input class="ivy-radio-original" type="checkbox" aria-hidden="false" />
                 </span>
                 <span class="ivy-radio-label">
                     <slot></slot>
                 </span>
-            </label>
+            </div>
         `;
 
         this._shadowRoot = this.attachShadow({
@@ -111,42 +105,42 @@ class Radio extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
 
         this.root = this._shadowRoot.querySelector(".ivy-radio");
-        this.checkOriginal = this._shadowRoot.querySelector(".ivy-radio-original");
 
-        this.checkOriginal.addEventListener("change", ev => {
+        this.root.addEventListener("click", ev => {
+            console.log(this.disabled, "this.disabled");
+            if (this.disabled !== null) {
+                return false;
+            }
             const checkboxGroup = findElementUpward(this, "ivy-radio-group");
-            const brother = findBrothersElements(this, "ivy-radio");
             const checked = ev.target.checked;
-            if (checkboxGroup !== null) {
+            if (checkboxGroup === null) {
                 if (checked) {
-                    brother.map(c => {
-                        const checked = c.checkOriginal.checked;
-                        console.log(checked, "checked");
-                        if (checked) {
-                            c.root.click();
-                            console.log(c.checkOriginal.checked, "c.checkOriginal.checked");
-                            c.removeAttribute("checked");
+                    return;
+                } else {
+                    this.setAttribute("checked", "checked");
+                    this.value = this.falseLabel || false;
+                }
+                this.dispatchEvent(new CustomEvent("change", { detail: { value: this.value } }));
+            } else {
+                const brother = findBrothersElements(this, "ivy-radio", false);
+                if (!checked) {
+                    brother.map(el => {
+                        const isChecked = el.checked;
+                        if (isChecked !== null) {
+                            console.log(el.innerText, "inline");
+                            el.removeAttribute("checked");
                         }
                     });
                     this.checked = "";
                     checkboxGroup.value = this.label;
+                    checkboxGroup.dispatchEvent(new CustomEvent("change", { detail: { value: checkboxGroup.value } }));
                 }
-                checkboxGroup.dispatchEvent(new CustomEvent("change", { detail: { value: checkboxGroup.value } }));
-            } else {
-                if (checked) {
-                    this.checked = "";
-                    this.value = this.trueLabel || true;
-                } else {
-                    this.removeAttribute("checked");
-                    this.value = this.falseLabel || false;
-                }
-                this.dispatchEvent(new CustomEvent("change", { detail: { value: this.value } }));
             }
         });
     }
 
     static get observedAttributes() {
-        return ["value", "checked", "label", "true-label", "false-label", "disabled"];
+        return ["value", "checked", "label", "disabled"];
     }
 
     get value() {
@@ -189,26 +183,19 @@ class Radio extends HTMLElement {
 
     connectedCallback() {
         if (this.checked !== null) {
-            this.checkOriginal.setAttribute("checked", "checked");
             const checkboxGroup = findElementUpward(this, "ivy-radio-group");
             if (checkboxGroup === null) {
-                this.value = this.label || true;
+                this.value = this.label;
             }
-        } else {
-            this.value = this.falseLabel || false;
-        }
-        if (this.disabled !== null) {
-            this.checkOriginal.setAttribute("disabled", "disabled");
         }
     }
 
     attributeChangedCallback(attr, oldVal, val) {
-        if (attr === "disabled") {
-            if (val === null) {
-                this.checkOriginal.removeAttribute("disabled");
-            } else {
-                this.checkOriginal.setAttribute("disabled", "disabled");
-            }
+        switch (attr) {
+            case "checked":
+                break;
+            default:
+                break;
         }
     }
 
