@@ -17,26 +17,25 @@ class Button extends HTMLElement {
             <style>
                 :host {
                     margin-left: 12px;
-                    line-height: 32px;
+                    line-height: 34px;
                     display: inline-flex;
                 }
                 :host(:first-child){
                     margin-left: 0;
                 }
-
-
                 .ivy-button {
                     display: block;
                     overflow: hidden;
                     outline: none;
                     height: 34px;
-                    line-height: 32px;
+                    line-height: 34px;
                     border: ${$_border_base};
                     border-radius: var(--border-radius, ${$_border_radius});
                     box-sizing: border-box;
                     padding: 0 20px;
                     background: white;
                     cursor: pointer;
+                    transition: backgroundColor 0.3s, color 0.3s, opacity 0.3s;
                 }
 
                 .ivy-button:not([disabled]):hover,
@@ -77,7 +76,7 @@ class Button extends HTMLElement {
                 #ivy-loading {
                     width: 1em;
                     height: 1em;
-                    vertical-align: -0.15em;
+                    vertical-align: text-top;
                     fill: currentColor;
                     overflow: hidden;
                     animation: rotate 1.4s linear infinite;
