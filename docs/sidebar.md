@@ -23,6 +23,4 @@
     -   [Input 输入框](input.md)
     -   [Radio 单选框](radio.md)
     -   [Checkbox 多选框](checkbox.md)
-    -   [Pagination 分页](pagination.md)
-    -   [Form 表单](form.md)
-    -   [Select 下拉选择框](select.md)
+    -   [Tag 标签](tag.md)

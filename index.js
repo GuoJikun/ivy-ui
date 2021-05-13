@@ -20,3 +20,4 @@ import "./components/input.js";
 import "./components/select.js";
 import "./components/radio.js";
 import "./components/checkbox.js";
+import "./components/tag.js";
