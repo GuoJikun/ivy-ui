@@ -96,4 +96,28 @@ const findBrothersElements = (self, nodeName, exceptMe = true) => {
     return res;
 };
 
-export { findElementUpward, findElementsUpward, findElementDownward, findElementsDownward, findBrothersElements };
+/**
+ * 颜色叠加
+ * @param {String} c1 颜色1-HEX格式
+ * @param {String} c2 颜色2-HEX格式
+ * @param {Number} ratio 小数-c1:所占比重；1-ratio:c2所占比重
+ * @returns {String} HEX格式
+ */
+const colorBlend = (c1, c2, ratio) => {
+    ratio = Math.max(Math.min(Number(ratio), 1), 0);
+    const r1 = parseInt(c1.substring(1, 3), 16);
+    const g1 = parseInt(c1.substring(3, 5), 16);
+    const b1 = parseInt(c1.substring(5, 7), 16);
+    const r2 = parseInt(c2.substring(1, 3), 16);
+    const g2 = parseInt(c2.substring(3, 5), 16);
+    const b2 = parseInt(c2.substring(5, 7), 16);
+    let r = Math.round(r1 * ratio + r2 * (1 - ratio));
+    let g = Math.round(g1 * ratio + g2 * (1 - ratio));
+    let b = Math.round(b1 * ratio + b2 * (1 - ratio));
+    r = "" + (r || 0).toString(16);
+    g = "" + (g || 0).toString(16);
+    b = "" + (b || 0).toString(16);
+    return `#${r}${g}${b}`;
+};
+
+export { findElementUpward, findElementsUpward, findElementDownward, findElementsDownward, findBrothersElements, colorBlend };
