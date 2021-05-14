@@ -1509,6 +1509,30 @@ const findBrothersElements = (self, nodeName, exceptMe = true) => {
     return res;
 };
 
+/**
+ * 颜色叠加
+ * @param {String} c1 颜色1-HEX格式
+ * @param {String} c2 颜色2-HEX格式
+ * @param {Number} ratio 小数-c1:所占比重；1-ratio:c2所占比重
+ * @returns {String} HEX格式
+ */
+const colorBlend = (c1, c2, ratio) => {
+    ratio = Math.max(Math.min(Number(ratio), 1), 0);
+    const r1 = parseInt(c1.substring(1, 3), 16);
+    const g1 = parseInt(c1.substring(3, 5), 16);
+    const b1 = parseInt(c1.substring(5, 7), 16);
+    const r2 = parseInt(c2.substring(1, 3), 16);
+    const g2 = parseInt(c2.substring(3, 5), 16);
+    const b2 = parseInt(c2.substring(5, 7), 16);
+    let r = Math.round(r1 * ratio + r2 * (1 - ratio));
+    let g = Math.round(g1 * ratio + g2 * (1 - ratio));
+    let b = Math.round(b1 * ratio + b2 * (1 - ratio));
+    r = "" + (r || 0).toString(16);
+    g = "" + (g || 0).toString(16);
+    b = "" + (b || 0).toString(16);
+    return `#${r}${g}${b}`;
+};
+
 class Rate extends HTMLElement {
     constructor() {
         super();
@@ -5951,21 +5975,118 @@ class Tag extends HTMLElement {
         template.innerHTML = `
             <style>
                 :host {
-                    padding: 0 14px;
                     display: inline-block;
-                    border: 1px solid var(--color-primary, ${$_color_primary});
-                    color: white;
-                    background-color: var(--color-primary, ${$_color_primary});
                     font-size: 12px;
-                    line-height: 30px;
-                    height: 32px;
-                    border-radius: 2px;
+                    border-radius: 4px;
                     box-sizing: border-box;
-                }
-                :host() + :host() {
                     margin-left: 10px;
                 }
-                
+                :host(:first-child) {
+                    margin-left:0;
+                }
+
+                :host,
+                :host([size="large"]) {
+                    line-height: 30px;
+                    height: 32px;
+                    padding: 0 12px;
+                }
+                :host([size="medium"]) {
+                    line-height: 26px;
+                    height: 28px;
+                    padding: 0 10px;
+                }
+                :host([size="small"]) {
+                    line-height: 22px;
+                    height: 24px;
+                    padding: 0 8px;
+                }
+                :host([size="mini"]) {
+                    line-height: 18px;
+                    height: 20px;
+                    padding: 0 6px;
+                }
+
+                :host,
+                :host([color="primary"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_primary, 0.8)};
+                    color: ${$_color_primary};
+                    background-color: ${colorBlend("#ffffff", $_color_primary, 0.9)};
+                }
+                :host([color="success"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_success, 0.8)};
+                    color: ${$_color_success};
+                    background-color: ${colorBlend("#ffffff", $_color_success, 0.9)};
+                }
+                :host([color="warning"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_warn, 0.8)};
+                    color: ${$_color_warn};
+                    background-color: ${colorBlend("#ffffff", $_color_warn, 0.9)};
+                }
+                :host([color="error"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_error, 0.8)};
+                    color: ${$_color_error};
+                    background-color: ${colorBlend("#ffffff", $_color_error, 0.9)};
+                }
+                :host([color="info"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_info, 0.8)};
+                    color: ${$_color_info};
+                    background-color: ${colorBlend("#ffffff", $_color_info, 0.9)};
+                }
+
+                :host([theme="plain"]),
+                :host([theme="plain"][color="primary"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_primary, 0.6)};
+                    color: ${$_color_primary};
+                    background-color: #ffffff;
+                }
+                :host([theme="plain"][color="success"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_success, 0.6)};
+                    color: ${$_color_success};
+                    background-color: #ffffff;
+                }
+                :host([theme="plain"][color="warning"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_warn, 0.6)};
+                    color: ${$_color_warn};
+                    background-color: #ffffff;
+                }
+                :host([theme="plain"][color="error"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_error, 0.6)};
+                    color: ${$_color_error};
+                    background-color: #ffffff;
+                }
+                :host([theme="plain"][color="info"]){
+                    border: 1px solid ${colorBlend("#ffffff", $_color_info, 0.6)};
+                    color: ${$_color_info};
+                    background-color: #ffffff;
+                }
+
+                :host([theme="dark"]),
+                :host([theme="dark"][color="primary"]){
+                    border: 1px solid ${$_color_primary};
+                    color: #ffffff;
+                    background-color: ${$_color_primary};
+                }
+                :host([theme="dark"][color="success"]){
+                    border: 1px solid ${$_color_success};
+                    color: #ffffff;
+                    background-color: ${$_color_success};
+                }
+                :host([theme="dark"][color="warning"]){
+                    border: 1px solid ${$_color_warn};
+                    color: #ffffff;
+                    background-color: ${$_color_warn};
+                }
+                :host([theme="dark"][color="error"]){
+                    border: 1px solid ${$_color_error};
+                    color: #ffffff;
+                    background-color: ${$_color_error};
+                }
+                :host([theme="dark"][color="info"]){
+                    border: 1px solid ${$_color_info};
+                    color: #ffffff;
+                    background-color: ${$_color_info};
+                }
             </style>
             <slot></slot>
         `;
@@ -5973,6 +6094,53 @@ class Tag extends HTMLElement {
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+    static get observedAttributes() {
+        return ["color", "theme"];
+    }
+
+    set color(value) {
+        this.setAttribute("color", value);
+    }
+    get color() {
+        return this.getAttribute("color");
+    }
+
+    set theme(value) {
+        this.setAttribute("theme", value);
+    }
+    get theme() {
+        return this.getAttribute("theme");
+    }
+
+    generatorColor(color, theme) {
+        if (theme === "plain") {
+            this.style.color = color || "#ffffff";
+            this.style.backgroundColor = "#FFFFFF";
+            this.style.borderColor = colorBlend("#ffffff", color, 0.6) || null;
+        } else if (theme === "dark") {
+            this.style.color = "#FFFFFF";
+            this.style.backgroundColor = color || null;
+            this.style.borderColor = color || null;
+        } else {
+            this.style.color = color || "#FFFFFF";
+            this.style.backgroundColor = colorBlend("#ffffff", color, 0.9) || null;
+            this.style.borderColor = colorBlend("#ffffff", color, 0.8) || null;
+        }
+    }
+
+    attributeChangedCallback(attr, oldVal, val) {
+        if (attr === "color") {
+            const theme = this.theme;
+            if (!["primary", "success", "warning", "error", "info"].includes(val)) {
+                this.generatorColor(val, theme);
+            }
+        } else if (attr === "theme") {
+            const color = this.color;
+            if (this.color && !["primary", "success", "warning", "error", "info"].includes(this.color)) {
+                this.generatorColor(color, val);
+            }
+        }
     }
 }
 
