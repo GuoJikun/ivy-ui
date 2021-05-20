@@ -21,3 +21,4 @@ import "./components/select.js";
 import "./components/radio.js";
 import "./components/checkbox.js";
 import "./components/tag.js";
+import "./components/clipboard-copy-element.js";
