@@ -1,3 +1,10 @@
+# v0.7.0
+
+feat:
+
+-   [x] `Tag` 组件
+-   [x] `Clipboard-copy` 组件
+
 # v0.6.0
 
 feat:
