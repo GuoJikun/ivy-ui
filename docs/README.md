@@ -53,6 +53,8 @@ yarn add ivy-ui
 -   [x] `CheckboxGroup` 组件
 -   [x] `Radio` 组件
 -   [x] `RadioGroup` 组件
+-   [x] `Tag` 组件
+-   [x] `Clipboard-copy` 组件
 
 ## 未完成组件
 
