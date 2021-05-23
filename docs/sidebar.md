@@ -25,3 +25,4 @@
   - [Checkbox 多选框](checkbox.md)
   - [Tag 标签](tag.md)
   - [Clipboard 复制到剪切板](clipboard.md)
+  - [Badge 标记](badge.md)
