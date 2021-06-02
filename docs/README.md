@@ -15,7 +15,10 @@
 
 ```bash
 npm i ivy-ui
+#OR
 yarn add ivy-ui
+#OR
+pnpm add ivy-ui
 ```
 
 ### script 引入
@@ -55,6 +58,7 @@ yarn add ivy-ui
 -   [x] `RadioGroup` 组件
 -   [x] `Tag` 组件
 -   [x] `Clipboard-copy` 组件
+-   [x] `Badge` 组件
 
 ## 未完成组件
 
@@ -62,3 +66,4 @@ yarn add ivy-ui
 -   [ ] `Select` 组件
 -   [ ] `Slider` 组件
 -   [ ] `Pagination` 组件
+-   [ ] `DatePicker` 组件
