@@ -3,6 +3,7 @@
 feat:
 
 - [x] `Badge` 组件
+
 # v0.7.0
 
 feat:
