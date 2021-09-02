@@ -1,3 +1,4 @@
 
 node_modules
-lib/ivy-ui.js
+.cache
+.temp

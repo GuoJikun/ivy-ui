@@ -2,3 +2,4 @@ package.json
 
 docs/*.md
 *.md
+pnpm.workspace.yaml

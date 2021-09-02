@@ -1,0 +1,15 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "code": "ERR_PNPM_CANNOT_REMOVE_MISSING_DEPS",
+    "hint": "Available dependencies: vuepress",
+    "err": {
+      "name": "pnpm",
+      "message": "Cannot remove 'lerna': no such dependency found",
+      "code": "ERR_PNPM_CANNOT_REMOVE_MISSING_DEPS",
+      "stack": "pnpm: Cannot remove 'lerna': no such dependency found\n    at Object.handler (C:\\Users\\Jason\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.14.5\\node_modules\\pnpm\\dist\\pnpm.cjs:124698:15)\n    at async C:\\Users\\Jason\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.14.5\\node_modules\\pnpm\\dist\\pnpm.cjs:133231:20\n    at async run (C:\\Users\\Jason\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.14.5\\node_modules\\pnpm\\dist\\pnpm.cjs:133206:34)\n    at async runPnpm (C:\\Users\\Jason\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.14.5\\node_modules\\pnpm\\dist\\pnpm.cjs:133416:5)\n    at async C:\\Users\\Jason\\AppData\\Roaming\\npm\\pnpm-global\\5\\node_modules\\.pnpm\\pnpm@6.14.5\\node_modules\\pnpm\\dist\\pnpm.cjs:133408:7"
+    }
+  }
+}
