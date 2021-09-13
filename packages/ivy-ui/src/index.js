@@ -23,3 +23,4 @@ import "./components/checkbox.js";
 import "./components/tag.js";
 import "./components/clipboard-copy-element.js";
 import "./components/badge.js";
+import "./components/content-menu.js";

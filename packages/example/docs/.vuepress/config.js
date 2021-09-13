@@ -102,6 +102,10 @@ module.exports = {
                         text: "Clipboard 复制到剪切板",
                         link: "/clipboard.md",
                     },
+                    {
+                        text: "ContentMenu 右键菜单",
+                        link: "/contentmenu.md",
+                    },
                 ],
             },
         ],
