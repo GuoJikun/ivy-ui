@@ -1,4 +1,4 @@
-import "./icon.js";
+import "../../../icon/src/index.js";
 import { type } from "../utils/type.js";
 import { $_border_color_base, $_border_radius, $_color_primary, $_shadow_base } from "../utils/var.js";
 import { findElementsDownward } from "../utils/assist.js";

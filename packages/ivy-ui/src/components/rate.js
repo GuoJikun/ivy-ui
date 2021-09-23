@@ -1,4 +1,4 @@
-import "./icon.js";
+import "../../../icon/src/index.js";
 import { $_color_primary } from "../utils/var.js";
 import { findElementsDownward } from "../utils/assist.js";
 

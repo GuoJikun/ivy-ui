@@ -1,4 +1,4 @@
-import "./components/icon.js";
+import "../../icon/src/index.js";
 import "./components/button.js";
 import "./components/card.js";
 import "./components/timeline.js";

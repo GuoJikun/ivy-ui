@@ -1,4 +1,4 @@
-import "./icon.js";
+import "../../../icon/src/index.js";
 class Message extends HTMLElement {
     constructor() {
         super();

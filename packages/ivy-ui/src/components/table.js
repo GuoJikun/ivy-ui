@@ -1,4 +1,4 @@
-import "./icon.js";
+import "../../../icon/src/index.js";
 import { type } from "../utils/type.js";
 import { $_border_color_base } from "../utils/var.js";
 

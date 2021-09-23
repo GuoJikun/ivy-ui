@@ -1,5 +1,5 @@
 import { $_border_color_base, $_color_primary } from "../utils/var.js";
-import "./icon.js";
+import "../../../icon/src/index.js";
 
 class Tab extends HTMLElement {
     constructor() {

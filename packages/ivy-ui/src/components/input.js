@@ -1,4 +1,4 @@
-import "./icon.js";
+import "../../../icon/src/index.js";
 import { findElementUpward } from "../utils/assist.js";
 import { $_color_primary, $_border_radius } from "../utils/var.js";
 class Input extends HTMLElement {
