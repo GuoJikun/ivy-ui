@@ -17,12 +17,20 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev": "pnpm run lib & pnpm run docs",
-    "lib": "pnpm run dev --filter ivy-ui",
-    "docs": "pnpm run dev --filter example",
-    "dev:lib": "pnpm run dev --dir=packages/ivy-ui",
-    "dev:docs": "pnpm run dev --dir packages/example",
-    "build:docs": "pnpm run build --dir packages/example",
-    "build:lib": "pnpm run build --dir=packages/ivy-ui"
+    "dev": "npm run lib & npm run docs",
+    "lib": "npm run dev --filter ivy-ui",
+    "docs": "npm run dev --filter example",
+    "dev:lib": "npm run dev --dir=packages/ivy-ui",
+    "dev:docs": "npm run dev --dir packages/example",
+    "build:docs": "npm run build --dir packages/example",
+    "build:lib": "npm run build --dir=packages/ivy-ui",
+    "build": "rollup -c rollup.config.prod.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.5",
+    "lerna": "^4.0.0",
+    "rollup": "^2.57.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }

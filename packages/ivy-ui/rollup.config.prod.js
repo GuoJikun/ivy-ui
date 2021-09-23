@@ -4,7 +4,7 @@ export default {
     input: "index.js",
     output: {
         file: "lib/ivy-ui.js",
-        format: "esm",
+        format: "es",
     },
     plugins: [resolve()],
 };

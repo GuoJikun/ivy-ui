@@ -1,4 +1,5 @@
 package.json
+lerna.json
 
 docs/*.md
 *.md
