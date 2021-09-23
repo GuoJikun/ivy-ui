@@ -7,12 +7,20 @@ const generatorConfig = components => {
     return components.map(c => {
         return {
             input: `./packages/${c}/src/index.js`,
-            output: ["es", "umd"].map(type => {
-                return {
-                    name: `ivy-${c}`,
-                    format: type,
-                    file: `./packages/${c}/dist/ivy-${c}.${type}.js`,
-                };
+            output: ["es", "umd", "esnext"].map(type => {
+                if (type === "esnext") {
+                    return {
+                        name: `ivy-${c}`,
+                        format: "es",
+                        file: `./packages/ivy-ui/dist/es/${c}.js`,
+                    };
+                } else {
+                    return {
+                        name: `ivy-${c}`,
+                        format: type,
+                        file: `./packages/${c}/dist/ivy-${c}.${type}.js`,
+                    };
+                }
             }),
             plugins: [nodeResolve(), terser()],
         };
