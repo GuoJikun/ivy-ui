@@ -1,6 +1,4 @@
-'use strict';
-
-const contextmenu = require('..');
+import contextmenu from '../src/contextmenu';
 
 describe('contextmenu', () => {
     it('needs tests');

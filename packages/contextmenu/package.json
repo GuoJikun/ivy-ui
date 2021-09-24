@@ -26,5 +26,6 @@
   },
   "bugs": {
     "url": "https://github.com/GuoJikun/ivy-ui/issues"
-  }
+  },
+  "module": "dist/contextmenu.module.js"
 }

@@ -5,7 +5,7 @@
 ## Usage
 
 ```
-const contextmenu = require('contextmenu');
+import contextmenu from 'contextmenu';
 
 // TODO: DEMONSTRATE API
 ```

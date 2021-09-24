@@ -8,13 +8,14 @@
   "author": "GuoJikun <guojikun@y-open.com>",
   "homepage": "https://github.com/GuoJikun/ivy-ui#readme",
   "license": "GPL-3.0",
-  "main": "lib/button.js",
+  "main": "dist/button.js",
+  "module": "dist/button.module.js",
   "directories": {
-    "lib": "lib",
+    "lib": "dist",
     "test": "__tests__"
   },
   "files": [
-    "lib"
+    "dist"
   ],
   "repository": {
     "type": "git",
