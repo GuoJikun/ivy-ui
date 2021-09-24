@@ -1,6 +1,6 @@
 {
   "name": "ivy",
-  "version": "0.8.0",
+  "version": "1.0.0",
   "description": "符合Web Component规范的前端组件库",
   "keywords": [
     "ivy-ui",
@@ -12,18 +12,11 @@
     "uikit"
   ],
   "main": "packages/ivy-ui/lib/index.js",
-  "repository": "https://github.com/GuoJikun/fox-ui-wc.git",
-  "author": "guojikun <guojikun@y-open.com>",
-  "license": "MIT",
+  "repository": "https://github.com/GuoJikun/ivy-ui.git",
+  "author": "guojikun <guojikun486546@163.com>",
+  "license": "GPL-3.0",
   "private": false,
   "scripts": {
-    "dev": "npm run lib & npm run docs",
-    "lib": "npm run dev --filter ivy-ui",
-    "docs": "npm run dev --filter example",
-    "dev:lib": "npm run dev --dir=packages/ivy-ui",
-    "dev:docs": "npm run dev --dir packages/example",
-    "build:docs": "npm run build --dir packages/example",
-    "build:lib": "npm run build --dir=packages/ivy-ui",
     "build": "rollup -c rollup.config.prod.js"
   },
   "devDependencies": {
