@@ -2,6 +2,12 @@ module.exports = {
     title: "ivy-ui",
     description: "符合Web Component规范的前端组件库",
     themeConfig: {
+        navbar: [
+            {
+                text: "Github",
+                link: "https://github.com/GuoJikun/ivy-ui",
+            },
+        ],
         sidebar: [
             {
                 text: "快速开始",
