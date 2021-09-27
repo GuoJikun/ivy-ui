@@ -109,7 +109,11 @@ module.exports = {
                         link: "/clipboard.md",
                     },
                     {
-                        text: "ContentMenu 右键菜单",
+                        text: "Badge 徽标",
+                        link: "/badge.md",
+                    },
+                    {
+                        text: "ContextMenu 右键菜单",
                         link: "/contentmenu.md",
                     },
                 ],

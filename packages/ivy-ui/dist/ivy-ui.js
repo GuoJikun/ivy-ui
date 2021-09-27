@@ -6413,7 +6413,6 @@ class Badge extends HTMLElement {
         super();
 
         const template = document.createElement("template");
-
         template.innerHTML = `
             <style>
                 :host {
@@ -6534,11 +6533,11 @@ class Badge extends HTMLElement {
     valueReg = /^\d+$/;
 
     attributeChangedCallback(attr, oldVal, val) {
-        if (attr === "value" && oldVal !== value) {
-            this.$sup.innerText = valueReg.test(val) ? (val > this.max ? `${this.max}+` : this.value) : this.value;
+        if (attr === "value" && oldVal !== val) {
+            this.$sup.innerText = this.valueReg.test(val) ? (val > this.max ? `${this.max}+` : this.value) : this.value;
         }
-        if (attr === "max" && oldVal !== value) {
-            this.$sup.innerText = valueReg.test(val) ? (val > this.max ? `${this.max}+` : this.value) : this.value;
+        if (attr === "max" && oldVal !== val) {
+            this.$sup.innerText = this.valueReg.test(val) ? (val > this.max ? `${this.max}+` : this.value) : this.value;
         }
     }
 }

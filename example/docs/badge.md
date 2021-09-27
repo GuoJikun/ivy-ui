@@ -125,3 +125,9 @@
     <ivy-button>评论</ivy-button>
 </ivy-badge>
 ```
+
+<style>
+.ml-40{
+    margin-left: 40px;
+}
+</style>

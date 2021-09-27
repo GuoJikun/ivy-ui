@@ -59,6 +59,7 @@ pnpm add ivy-ui
 - [x] `Tag` 组件
 - [x] `Clipboard-copy` 组件
 - [x] `Badge` 组件
+- [x] `Contextmenu` 组件
 
 ## 未完成组件
 
