@@ -43,7 +43,7 @@ jobs:
         run: lerna bootstrap
 
       - name: 打包
-        run: npm run build && lerna run --scope=ivy-ui && lerna run --scope=example
+        run: npm run build && lerna run build --scope=ivy-ui && lerna run --scope=example build
 
       # 配置git用户名和邮箱
       - name: 配置git
