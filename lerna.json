@@ -3,5 +3,8 @@
         "packages/*",
         "example"
     ],
+    "publishConfig":{
+        "directory": "dist"
+    },
     "version": "independent"
 }

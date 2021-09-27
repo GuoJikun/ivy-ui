@@ -9,8 +9,8 @@
     "dev": "npx rollup --watch --config rollup.config.js",
     "build": "npx rollup --config rollup.config.prod.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "GuoJiKun",
+  "license": "GPL-3.0",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",
     "@rollup/plugin-node-resolve": "^13.0.4",

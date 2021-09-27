@@ -1,7 +1,33 @@
 import nodeResolve from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 
-const components = ["icon", "button", "card", "tag"];
+const components = [
+    "badge",
+    "button",
+    "card",
+    "checkbox",
+    "collapse",
+    "contextmenu",
+    "copy",
+    "divider",
+    "drawer",
+    "grid",
+    "icon",
+    "image",
+    "input",
+    "message",
+    "modal",
+    "progress",
+    "radio",
+    "rate",
+    "select",
+    "switch",
+    "tab",
+    "table",
+    "tag",
+    "timeline",
+    "tooltip",
+];
 
 const generatorConfig = components => {
     return components.map(c => {
