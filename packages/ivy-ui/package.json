@@ -1,10 +1,13 @@
 {
   "name": "ivy-ui",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "符合Web Component规范的前端组件库",
   "main": "dist/ivy-ui.js",
   "module": "dist/ivy-ui.js",
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "dev": "npx rollup --watch --config rollup.config.js",
     "build": "npx rollup --config rollup.config.prod.js"

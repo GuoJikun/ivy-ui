@@ -1,6 +1,6 @@
 {
   "name": "ivy-contextmenu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "符合webcomponent规范的右键菜单组件",
   "keywords": [
     "webcomponent",
