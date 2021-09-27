@@ -1,5 +1,6 @@
 package.json
 lerna.json
+.github
 
 docs/*.md
 *.md
