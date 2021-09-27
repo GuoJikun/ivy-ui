@@ -1,0 +1,21 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "vuepress dev ./docs",
+    "build": "vuepress build ./docs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ivy-ui": "^0.8.0"
+  },
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.25"
+  }
+}

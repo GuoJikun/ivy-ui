@@ -1,0 +1,30 @@
+{
+  "name": "ivy-progress",
+  "version": "1.0.1",
+  "description": "progress",
+  "keywords": [
+    "progress"
+  ],
+  "author": "GuoJikun <guojikun@y-open.com>",
+  "homepage": "https://github.com/GuoJikun/ivy-ui#readme",
+  "license": "GPL-3.0",
+  "main": "dist/progress.js",
+  "module": "dist/progress.module.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuoJikun/ivy-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/GuoJikun/ivy-ui/issues"
+  }
+}

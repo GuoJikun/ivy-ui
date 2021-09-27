@@ -1,0 +1,56 @@
+# This is a basic workflow to help you get started with Actions
+
+name: 自动部署文档
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        npm-version: [7.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # Runs a single command using the runners shell
+      - name: 安装依赖
+        run: npm i
+
+      - name: lerna bootstrap
+        run: lerna bootstrap
+
+      - name: 打包
+        run: npm run build && lerna run --scope=ivy-ui && lerna run --scope=example
+
+      # 配置git用户名和邮箱
+      - name: 配置git
+        run: git config --global user.email "guojikun486546@163.com" && git config --global user.name "GuoJikun" && git config --global init.defaultBranch main
+
+      - name: 部署文档到gh-pages
+        env:
+          BRANCH: gh-pages
+          ACCESS_TOKEN: ${{ secrets.git_token }}
+        run: cd docs && git init && git add -A && git commit -m "deploy" && git push -f https://$ACCESS_TOKEN@github.com/guojikun/ivy-ui.git main:$BRANCH

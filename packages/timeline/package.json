@@ -1,0 +1,30 @@
+{
+  "name": "ivy-timeline",
+  "version": "1.0.1",
+  "description": "timeline",
+  "keywords": [
+    "timeline"
+  ],
+  "author": "GuoJikun <guojikun@y-open.com>",
+  "homepage": "https://github.com/GuoJikun/ivy-ui#readme",
+  "license": "GPL-3.0",
+  "main": "dist/timeline.js",
+  "module": "dist/timeline.module.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuoJikun/ivy-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/GuoJikun/ivy-ui/issues"
+  }
+}

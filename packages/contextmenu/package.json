@@ -1,0 +1,31 @@
+{
+  "name": "ivy-contextmenu",
+  "version": "1.0.1",
+  "description": "符合webcomponent规范的右键菜单组件",
+  "keywords": [
+    "webcomponent",
+    "contextmenu"
+  ],
+  "author": "GuoJikun <guojikun@y-open.com>",
+  "homepage": "https://github.com/GuoJikun/ivy-ui#readme",
+  "license": "GPL-3.0",
+  "main": "lib/cotextmenu.umd.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuoJikun/ivy-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/GuoJikun/ivy-ui/issues"
+  },
+  "module": "dist/contextmenu.module.js"
+}

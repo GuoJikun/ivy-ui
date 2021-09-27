@@ -1,0 +1,12 @@
+.margin {
+    &-left {
+        &-20 {
+            margin-left: 20px;
+        }
+    }
+    &-top {
+        &-20 {
+            margin-top: 20px;
+        }
+    }
+}
