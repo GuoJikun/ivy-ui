@@ -27,13 +27,17 @@ class Collapse extends HTMLElement {
         return this.getAttribute("active");
     }
 
+    set active(value) {
+        this.setAttribute("active", value);
+    }
+
     connectedCallback() {
         const active = this.active;
         const children = [...this.children];
         children.map((cur, i) => {
             const name = cur.getAttribute("name");
             if (name === null) {
-                cur.setAttribute("name", `_collapse_${i}`);
+                cur.setAttribute("name", `${i}`);
             }
             if (active === name) cur.setAttribute("active", "");
         });
@@ -124,6 +128,9 @@ class CollapseItem extends HTMLElement {
     get name() {
         return this.getAttribute("name") || "";
     }
+    set name(value) {
+        this.setAttribute("name", value);
+    }
 
     connectedCallback() {
         this.height = getComputedStyle(this.bodyInner)["height"];
@@ -136,7 +143,6 @@ class CollapseItem extends HTMLElement {
                 this.body.style.height = this.height;
             }
         });
-
         if (this.active === null) {
             this.body.style.height = 0;
         } else {
@@ -144,6 +150,21 @@ class CollapseItem extends HTMLElement {
         }
 
         this.headerSlot.textContent = this.title;
+    }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+        // if (name === "name") {
+        //     this.name = newVal;
+        //     console.log(name, "--name--", newVal);
+        // }
+        // if (name === "active") {
+        //     console.log(name, "--active--", newVal);
+        //     if (newVal === null) {
+        //         this.body.style.height = 0;
+        //     } else {
+        //         this.body.style.height = getComputedStyle(this.bodyInner)["height"];
+        //     }
+        // }
     }
 }
 

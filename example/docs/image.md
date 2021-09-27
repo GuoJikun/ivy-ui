@@ -79,3 +79,9 @@
     <ivy-icon name="picture-outline" size="28" slot="error"></ivy-icon>
 </ivy-image>
 ```
+
+<style>
+ivy-image+ivy-image{
+    margin-left: 24px;
+}
+</style>

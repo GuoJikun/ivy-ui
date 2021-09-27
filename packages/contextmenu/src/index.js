@@ -15,8 +15,9 @@ class Contextmenu extends HTMLElement {
                 }
             </style>
             <slot></slot>
-            
-                <slot name="menu" class="ivy-menu"></slot>
+            <div class="ivy-menu">
+                <slot name="menu"></slot>
+            </div>
             
         `;
 
@@ -38,7 +39,7 @@ class Contextmenu extends HTMLElement {
         });
 
         this.addEventListener("click", ev => {
-            this.$menu.style = "none";
+            this.$menu.style.display = "none";
         });
     }
 

@@ -53,6 +53,9 @@ class Card extends HTMLElement {
     get shadow() {
         return this.getAttribute("shadow");
     }
+    set shadow(value) {
+        this.setAttribute("shadow", value);
+    }
 
     get header() {
         return this.getAttribute("header") || "";

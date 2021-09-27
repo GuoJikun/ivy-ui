@@ -10,7 +10,6 @@ class Row extends HTMLElement {
                     width: 100%;
                     flex-wrap: wrap;
                 }
-                
             </style>
             <slot></slot>
         `;
@@ -39,10 +38,6 @@ class Row extends HTMLElement {
     }
 }
 
-if (!customElements.get("ivy-row")) {
-    customElements.define("ivy-row", Row);
-}
-
 class Col extends HTMLElement {
     constructor() {
         super();
@@ -55,14 +50,8 @@ class Col extends HTMLElement {
                     width: ${(this.span / 24) * 100}%;
                     margin: 0 ${this.gutter / 2}px;
                     margin-left: calc(${this.gutter / 2}px + ${(this.offset / 24) * 100}%);
+                    box-sizing: border-box;
                 }
-                :host(:first-child) {
-                    margin-left: 0 !important;
-                }
-                :host(:last-child) {
-                    margin-right: 0 !important;
-                }
-                
             </style>
             <slot></slot>
         `;
@@ -98,8 +87,22 @@ class Col extends HTMLElement {
     set gutter(val) {
         this.setAttribute("gutter", val);
     }
+
+    connectedCallback() {
+        this.style.width = `0 0 calc(${(this.span / 24) * 100}% - ${this.gutter}px)`;
+        this.style.flex = `0 0 calc(${(this.span / 24) * 100}% - ${this.gutter}px)`;
+        this.style.margin = `0 ${this.gutter / 2}px`;
+        if (this.offset) {
+            this.style.marginLeft = `calc(${this.gutter / 2}px + ${(this.offset / 24) * 100}%)`;
+        } else {
+            this.style.marginLeft = `${this.gutter / 2}px`;
+        }
+    }
 }
 
+if (!customElements.get("ivy-row")) {
+    customElements.define("ivy-row", Row);
+}
 if (!customElements.get("ivy-col")) {
     customElements.define("ivy-col", Col);
 }

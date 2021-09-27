@@ -2,6 +2,8 @@
 
 ## 基础用法
 
+只设置时间和描述
+
 <ivy-timeline>
     <ivy-timeline-item timestamp="2020-8-12">
     本周美国大选公布结果

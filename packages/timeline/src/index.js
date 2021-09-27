@@ -9,13 +9,13 @@ class Timeline extends HTMLElement {
                 :host {
                     display: flex;
                 }
-                :host([reverse]) .ivy-timeline {
-                    flex-direction: column-reverse;
-                }
                 .ivy-timeline {
                     display: flex;
                     flex-wrap: wrap;
                     flex-direction: column;
+                }
+                :host([reverse]) .ivy-timeline {
+                    flex-direction: column-reverse;
                 }
             </style>
             <div class="ivy-timeline">
@@ -27,7 +27,7 @@ class Timeline extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-timeline");
-        this.slot = this._shadowRoot.querySelector(".slot");
+        // this.slot = this._shadowRoot.querySelector(".slot");
     }
     static get observedAttributes() {
         return ["reverse"];
@@ -35,6 +35,10 @@ class Timeline extends HTMLElement {
     get reverse() {
         return this.getAttribute("reverse");
     }
+    set reverse(value) {
+        this.setAttribute("reverse", value);
+    }
+
     connectedCallback() {
         const reverse = this.reverse;
         const children = [...this.children];
