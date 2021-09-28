@@ -3,7 +3,6 @@ import { $_border_base, $_border_radius, $_shadow_base } from "../../ivy-ui/src/
 class Card extends HTMLElement {
     constructor() {
         super();
-
         const template = document.createElement("template");
 
         template.innerHTML = `
@@ -11,27 +10,27 @@ class Card extends HTMLElement {
                 :host {
                     display: inline-block;
                 }
-                :host([shadow]) .ins-card {
+                :host([shadow]) .ivy-card {
                     box-shadow: var(--box-shadow, ${$_shadow_base});
                     border-color: #eee;
                 }
-                .ins-card {
+                .ivy-card {
                     border: ${$_border_base};
                     border-radius: var(--border-radius, ${$_border_radius});
                 }
-                .ins-card-header {
+                .ivy-card-header {
                     border-bottom: ${$_border_base};
                     padding: 12px 16px;
                 }
-                .ins-card-body {
+                .ivy-card-body {
                     padding: 16px;
                 }
             </style>
-            <div class="ins-card">
-                <div class="ins-card-header">
+            <div class="ivy-card">
+                <div class="ivy-card-header">
                     <slot name="header" id="header">${this.header}</slot>
                 </div>
-                <div class="ins-card-body">
+                <div class="ivy-card-body">
                     <slot></slot>
                 </div>
             </div>
@@ -42,8 +41,8 @@ class Card extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
 
-        this.$el = this._shadowRoot.querySelector(".ins-card");
-        this.$header = this._shadowRoot.querySelector(".ins-card-header").children[0];
+        this.$el = this._shadowRoot.querySelector(".ivy-card");
+        this.$header = this._shadowRoot.querySelector(".ivy-card-header").children[0];
     }
 
     static get observedAttributes() {
@@ -82,6 +81,6 @@ class Card extends HTMLElement {
     }
 }
 
-if (!customElements.get("ins-card")) {
-    customElements.define("ins-card", Card);
+if (!customElements.get("ivy-card")) {
+    customElements.define("ivy-card", Card);
 }

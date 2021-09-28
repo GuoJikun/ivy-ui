@@ -133,5 +133,10 @@ module.exports = {
                     return options;
                 });
         },
+        vue: {
+            compileOptions: {
+                isCustomElement: tag => tag.startsWidth("ivy-"),
+            },
+        },
     },
 };
