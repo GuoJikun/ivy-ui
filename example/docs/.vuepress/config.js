@@ -1,5 +1,3 @@
-const webpack = require("webpack");
-
 module.exports = {
     title: "ivy-ui",
     description: "符合Web Component规范的前端组件库",
@@ -134,14 +132,6 @@ module.exports = {
                     };
                     return options;
                 });
-            /* config.plugin("define").tap(arg => {
-                console.log(arg[0]);
-                arg[0]["HTMLElement"] = class {};
-                arg[0]["customElements"] = function () {
-                    return false;
-                };
-                return arg;
-            }); */
         },
         vue: {
             compileOptions: {
