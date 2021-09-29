@@ -52,7 +52,7 @@
 
 <ivy-image src="http://www.08lr.cn/uploads/allimg/170822/1-1FR21A020.jpg" style="width: 300px;height: 200px;"></ivy-image>
 <ivy-image src="http://www.08lr.cn/uploads/allimg/170822/1-1FR21A020.jpg" style="width: 300px;height: 200px;" class="ml-20">
-<ivy-icon name="refresh" size="28" spin slot="placeholder"></ivy-icon>
+    <ivy-icon name="refresh" size="28" spin slot="placeholder"></ivy-icon>
 </ivy-image>
 
 ```html

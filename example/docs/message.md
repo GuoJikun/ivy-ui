@@ -4,8 +4,11 @@
 
 <ivy-button type="primary" id="btn">显示 Message</ivy-button>
 
-<script>
-document.getElementById('btn').addEventListener('click', ()=>{
-    $ivy.message({message: '这是测试内容'})
+<script setup>
+import { onMounted } from 'vue';
+onMounted(()=>{
+    document.getElementById('btn').addEventListener('click', ()=>{
+        $ivy.message({message: '这是测试内容'})
+    })
 })
 </script>

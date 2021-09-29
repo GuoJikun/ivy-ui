@@ -1,9 +1,11 @@
 import { defineClientAppEnhance } from "@vuepress/client";
-import "ivy-ui";
+// import "ivy-ui";
 
-export default defineClientAppEnhance(({ app }) => {
-    // app.config.compilerOptions.isCustomElement = tag => {
-    //     console.log(tag);
-    //     return tag.startsWith("ivy-");
-    // };
+export default defineClientAppEnhance(async ({ app }) => {
+    if (!__VUEPRESS_SSR__) {
+        import("ivy-ui");
+    }
+    app.config.compilerOptions.isCustomElement = tag => {
+        return tag.startsWith("ivy-");
+    };
 });
