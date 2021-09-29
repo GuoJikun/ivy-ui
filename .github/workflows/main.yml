@@ -53,4 +53,4 @@ jobs:
         env:
           BRANCH: gh-pages
           ACCESS_TOKEN: ${{ secrets.git_token }}
-        run: cd example/.vuepress/dist && git init && git add -A && git commit -m "deploy" && git push -f https://$ACCESS_TOKEN@github.com/guojikun/ivy-ui.git main:$BRANCH
+        run: cd example/docs/.vuepress/dist && git init && git add -A && git commit -m "deploy" && git push -f https://$ACCESS_TOKEN@github.com/guojikun/ivy-ui.git main:$BRANCH
