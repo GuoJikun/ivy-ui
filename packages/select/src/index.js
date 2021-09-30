@@ -88,7 +88,8 @@ class Select extends HTMLElement {
                     transition: opacity 0.3s;
                     width: 100%;
                     position: relative;
-                    z-index: 1;
+                    z-index: 10;
+                    background-color: #ffffff;
                 }
                 .ivy-drop-body {
                     background-color: white;

@@ -5,8 +5,8 @@
 通过`name`来设置不同的图标
 
 <ivy-icon name="download"></ivy-icon>
-<ivy-icon name="edit"></ivy-icon>
-<ivy-icon name="reading"></ivy-icon>
+<ivy-icon name="edit" class="margin-left-12"></ivy-icon>
+<ivy-icon name="reading" class="margin-left-12"></ivy-icon>
 
 ```html
 <ivy-icon name="download"></ivy-icon>
@@ -19,8 +19,8 @@
 添加`spin`属性来使 icon 旋转
 
 <ivy-icon name="loading" spin></ivy-icon>
-<ivy-icon name="refresh-right" spin></ivy-icon>
-<ivy-icon name="refresh" spin></ivy-icon>
+<ivy-icon name="refresh-right" spin class="margin-left-12"></ivy-icon>
+<ivy-icon name="refresh" spin class="margin-left-12"></ivy-icon>
 
 ```html
 <ivy-icon name="loading" spin></ivy-icon>
@@ -33,10 +33,10 @@
 添加`size`属性来设置大小
 
 <ivy-icon name="loading" size="12"></ivy-icon>
-<ivy-icon name="loading"></ivy-icon>
-<ivy-icon name="loading" size="16"></ivy-icon>
-<ivy-icon name="loading" size="18"></ivy-icon>
-<ivy-icon name="loading" size="20"></ivy-icon>
+<ivy-icon name="loading" class="margin-left-12"></ivy-icon>
+<ivy-icon name="loading" size="16" class="margin-left-12"></ivy-icon>
+<ivy-icon name="loading" size="18" class="margin-left-12"></ivy-icon>
+<ivy-icon name="loading" size="20" class="margin-left-12"></ivy-icon>
 
 ```html
 <ivy-icon name="loading" size="12"></ivy-icon>
@@ -51,10 +51,10 @@
 添加`color`属性来设置颜色
 
 <ivy-icon name="loading"></ivy-icon>
-<ivy-icon name="loading" color="red"></ivy-icon>
-<ivy-icon name="loading" color="blue"></ivy-icon>
-<ivy-icon name="loading" color="pink"></ivy-icon>
-<ivy-icon name="loading" color="green"></ivy-icon>
+<ivy-icon name="loading" color="red" class="margin-left-12"></ivy-icon>
+<ivy-icon name="loading" color="blue" class="margin-left-12"></ivy-icon>
+<ivy-icon name="loading" color="pink" class="margin-left-12"></ivy-icon>
+<ivy-icon name="loading" color="green" class="margin-left-12"></ivy-icon>
 
 ```html
 <ivy-icon name="loading"></ivy-icon>

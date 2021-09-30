@@ -25,6 +25,9 @@ module.exports = {
                 text: "组件",
                 children: [
                     {
+                        text: "基础",
+                    },
+                    {
                         text: "Icon 图标",
                         link: "/icon.md",
                     },
@@ -35,6 +38,32 @@ module.exports = {
                     {
                         text: "Grid 栅格",
                         link: "/grid.md",
+                    },
+                    {
+                        text: "表单",
+                    },
+                    {
+                        text: "Input 输入框",
+                        link: "/input.md",
+                    },
+                    {
+                        text: "Select 选择框",
+                        link: "/select.md",
+                    },
+                    {
+                        text: "Radio 单选框",
+                        link: "/radio.md",
+                    },
+                    {
+                        text: "Checkbox 多选框",
+                        link: "/checkbox.md",
+                    },
+                    {
+                        text: "Switch 开关",
+                        link: "/switch.md",
+                    },
+                    {
+                        text: "未分类",
                     },
                     {
                         text: "Card 卡片",
@@ -61,13 +90,10 @@ module.exports = {
                         link: "/drawer.md",
                     },
                     {
-                        text: "Switch 开关",
-                        link: "/switch.md",
-                    },
-                    {
                         text: "Collapse 折叠面板",
                         link: "/collapse.md",
                     },
+
                     {
                         text: "Rate 评分",
                         link: "/rate.md",
@@ -88,18 +114,7 @@ module.exports = {
                         text: "Table 表格",
                         link: "/table.md",
                     },
-                    {
-                        text: "Input 输入框",
-                        link: "/input.md",
-                    },
-                    {
-                        text: "Radio 单选框",
-                        link: "/radio.md",
-                    },
-                    {
-                        text: "Checkbox 多选框",
-                        link: "/checkbox.md",
-                    },
+
                     {
                         text: "Tag 标签",
                         link: "/tag.md",

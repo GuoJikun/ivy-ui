@@ -134,6 +134,7 @@ class CollapseItem extends HTMLElement {
 
     connectedCallback() {
         this.height = getComputedStyle(this.bodyInner)["height"];
+        console.log(this.height);
         this.$title.addEventListener("click", () => {
             if (this.active !== null) {
                 this.removeAttribute("active");
@@ -146,7 +147,7 @@ class CollapseItem extends HTMLElement {
         if (this.active === null) {
             this.body.style.height = 0;
         } else {
-            this.body.style.height = getComputedStyle(this.bodyInner)["height"];
+            this.body.style.height = this.height; //getComputedStyle(this.bodyInner)["height"];
         }
 
         this.headerSlot.textContent = this.title;

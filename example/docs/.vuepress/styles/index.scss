@@ -1,5 +1,8 @@
 .margin {
     &-left {
+        &-12 {
+            margin-left: 12px;
+        }
         &-20 {
             margin-left: 20px;
         }
@@ -9,4 +12,19 @@
             margin-top: 20px;
         }
     }
+}
+/*重置默认主题的字体大小*/
+.theme-default-content {
+    font-size: 15px;
+}
+/*reset sidebar style*/
+.sidebar-heading {
+    font-weight: 500;
+    font-size: 16px;
+}
+p.sidebar-item:not(.sidebar-heading) {
+    color: var(--c-bg-arrow);
+}
+.sidebar-item:not(.sidebar-heading) {
+    font-size: 15px;
 }

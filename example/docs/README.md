@@ -1,6 +1,12 @@
 # ivy-ui
 
-符合 Web Components 规范的 web 组件库
+`ivy-ui` 是一套使用原生 `Web Components` 规范开发的跨框架UI组件库。[查看文档][https://ivy.jser.press]
+
+[github项目地址][https://github.com/GuoJikun/ivy-ui]
+
+## 文档
+
+该文档基于 `vuepress@2.x` 创建，文中所有组件均为可交互实例。
 
 ## 使用须知
 
@@ -8,6 +14,14 @@
 -   所有组件的使用方式都和原生方式一致（获取元素的属性...）
 -   自定义事件（非原生事件）都需要使用`addEventListener`来绑定
 ```
+
+## 特性
+
+- 跨框架：无论是react、vue还是原生项目均可使用。
+- 组件化：shadow dom真正意义上实现了样式和功能的组件化。
+- 类原生：一个组件就像使用一个div标签一样。
+- 无依赖：纯原生，无需任何预处理器编译。
+- 无障碍，支持键盘访问。
 
 ## 使用说明
 

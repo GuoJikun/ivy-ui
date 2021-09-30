@@ -20,6 +20,8 @@
 
 ## 禁用选项
 
+通过给 `select` 设置 `disabled` 属性来禁用下拉框
+
 <ivy-select disabled>
     <ivy-option value="1" label="苹果"></ivy-option>
     <ivy-option value="2" label="香蕉"></ivy-option>
