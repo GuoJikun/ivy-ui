@@ -27,6 +27,7 @@ const components = [
     "tag",
     "timeline",
     "tooltip",
+    "empty",
 ];
 
 const generatorConfig = components => {

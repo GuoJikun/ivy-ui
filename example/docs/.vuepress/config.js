@@ -70,6 +70,10 @@ module.exports = {
                         link: "/card.md",
                     },
                     {
+                        text: "Empty 空状态",
+                        link: "/empty.md",
+                    },
+                    {
                         text: "Timeline 时间线",
                         link: "/timeline.md",
                     },

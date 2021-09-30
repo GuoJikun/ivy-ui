@@ -24,3 +24,4 @@ import "../../tag/src/index.js";
 import "../../copy/src/index.js";
 import "../../badge/src/index.js";
 import "../../contextmenu/src/index.js";
+import "../../empty/src/index.js";
