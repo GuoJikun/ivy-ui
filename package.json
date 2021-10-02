@@ -13,17 +13,17 @@
   ],
   "main": "packages/ivy-ui/dist/ivy-ui.js",
   "author": {
-    "name" : "GuoJiKun",
-    "email" : "guojikun486546@163.com"
+    "name": "GuoJiKun",
+    "email": "guojikun486546@163.com"
   },
   "homepage": "https://ivy.jser.press",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/GuoJikun/ivy-ui.git"
+    "type": "git",
+    "url": "https://github.com/GuoJikun/ivy-ui.git"
   },
   "bugs": {
-    "url" : "https://github.com/GuoJikun/ivy-ui/issues",
-    "email" : "guojikun486546@163.com"
+    "url": "https://github.com/GuoJikun/ivy-ui/issues",
+    "email": "guojikun486546@163.com"
   },
   "license": "GPL-3.0",
   "private": false,
