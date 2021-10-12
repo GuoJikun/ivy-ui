@@ -1,0 +1,30 @@
+{
+  "name": "ivy-datepicker",
+  "version": "1.0.0",
+  "description": "日期选择器",
+  "keywords": [
+    "datepick"
+  ],
+  "author": "GuoJiKun <guojikun486546@163.com>",
+  "homepage": "https://ivy.jser.press/packages/datepicker",
+  "license": "GPL-3.0",
+  "main": "dist/datepicker.js",
+  "module": "dist/datepicker.module.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com.cnpmjs.org/GuoJikun/ivy-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "dependencies": {
+    "dayjs": "^1.10.7"
+  }
+}

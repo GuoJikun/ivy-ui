@@ -28,7 +28,9 @@
   "license": "GPL-3.0",
   "private": false,
   "scripts": {
-    "build": "rollup -c rollup.config.prod.js"
+    "build": "rollup -c rollup.config.prod.js",
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^20.0.0",

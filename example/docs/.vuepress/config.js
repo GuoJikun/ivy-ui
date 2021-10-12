@@ -63,6 +63,10 @@ module.exports = {
                         link: "/switch.md",
                     },
                     {
+                        text: "DatePicker 日期选择",
+                        link: "/datepicker.md",
+                    },
+                    {
                         text: "未分类",
                     },
                     {
