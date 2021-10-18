@@ -30,11 +30,14 @@ export default class DatePicker extends HTMLElement {
             :host {
                 position: relative;
             }
-            .calendar {
+            .wrap {
                 padding: 10px;
                 position: absolute;
                 background-color: white;
                 z-index: 10;
+                width: 280px;
+                box-shadow: 0px 0px 9px 2px rgb(0 0 0 / 37%);
+                border-radius: 4px;
             }
             .calendar-header {
                 padding: 0 12px;
@@ -56,52 +59,69 @@ export default class DatePicker extends HTMLElement {
             .input>input[type="text"]:focus {
                 border-color: var(--color-primary, ${$_color_primary});
             }
+
+            .wrap-header{
+                display: flex;
+                justify-content: space-between;
+            }
+            .wrap-body{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .wrap-body-item{
+                flex: 0 0 30px;
+                height: 30px;
+                margin: 5px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 20px;
+                transition: background-color 0.3s, color 0.2s;
+                cursor: pointer;
+            }
+            .wrap-body-item[type="-1"],
+            .wrap-body-item[type="1"]{
+                color: #999999;
+            }
+            .is-active {
+                color: var(--color-primary, ${$_color_primary});
+            }
+            .wrap-body-item:not(.wrap-body-item-header):hover{
+                background: var(--color-primary, ${$_color_primary});
+                color: white;
+            }
             </style>
             <div class="input">
                 <input type="text" readonly />
             </div>
-            <div class="calendar">
-                <div class="calendar-header">
-                    <div class="calendar-header-inner">
-                        <div>
-                            <el-icon name="d-arrow-left" @click.native="prevYear"></el-icon>
-                            <el-icon name="arrow-left" @click.native="prevMonth"></el-icon>
-                        </div>
-                        <div class="calendar-header-date">{{ curYearAndMonth }}</div>
-                        <div>
-                            <el-icon name="arrow-right" @click.native="nextMonth"></el-icon>
-                            <el-icon name="d-arrow-right" @click.native="nextYear"></el-icon>
-                        </div>
+            <div class="wrap">
+                <div class="wrap-header">
+                    <div>
+                        <el-icon name="d-arrow-left" @click.native="prevYear"></el-icon>
+                        <el-icon name="arrow-left" @click.native="prevMonth"></el-icon>
                     </div>
-                    <div class="calendar-header-utils">
-                        <el-button @click="goCurDate" type="text">今天</el-button>
+                    <span class="wrap-header-date"></span>
+                    <div>
+                        <el-icon name="arrow-right" @click.native="nextMonth"></el-icon>
+                        <el-icon name="d-arrow-right" @click.native="nextYear"></el-icon>
                     </div>
                 </div>
-                <div class="calendar-body">
-                    <ul class="calendar-body-inner">
-                        <li class="calendar-body-inner-item calendar-body-inner-item-title">周日</li>
-                        <li class="calendar-body-inner-item calendar-body-inner-item-title">周一</li>
-                        <li class="calendar-body-inner-item calendar-body-inner-item-title">周二</li>
-                        <li class="calendar-body-inner-item calendar-body-inner-item-title">周三</li>
-                        <li class="calendar-body-inner-item calendar-body-inner-item-title">周四</li>
-                        <li class="calendar-body-inner-item calendar-body-inner-item-title">周五</li>
-                        <li class="calendar-body-inner-item calendar-body-inner-item-title">周六</li>
-                        
-                    </ul>
-                </div>
+                <div class="wrap-body"></div>
             </div>
         `;
 
         this._shadowRoot = this.attachShadow({
-            mode: "closed",
+            mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
+
+        this.pane = this._shadowRoot.querySelector(".wrap-body");
+        this.$title = this._shadowRoot.querySelector(".wrap-header-date");
 
         this.days = [];
         this.date = null;
         this.month = null;
         this.year = null;
-        this.init();
     }
 
     static get observedAttributes() {
@@ -135,10 +155,29 @@ export default class DatePicker extends HTMLElement {
         this.year = year;
         this.month = month;
         this.date = date;
-        this.days = this.generatorCalenderPanel();
+        const data = this.generatorCalenderPanel(date);
+        this.pane.innerHTML = data.join("");
+        this.$title.innerText = `${this.year}年 ${this.month}月 ${this.date}日`;
     }
-    generatorCalenderPanel() {
-        return generatorMountDay(this.month, this.year);
+    generatorCalenderPanel(cur) {
+        const data = generatorMountDay(this.month, this.year);
+        const dates = data.map(c => {
+            if (c.type === 0 && c.value === cur) {
+                return `<div class="wrap-body-item is-active" type="${c.type}">${c.value}</div>`;
+            } else {
+                return `<div class="wrap-body-item" type="${c.type}">${c.value}</div>`;
+            }
+        });
+        const start = `
+                        <div class="wrap-body-item wrap-body-item-title">周日</div>
+                        <div class="wrap-body-item wrap-body-item-title">周一</div>
+                        <div class="wrap-body-item wrap-body-item-title">周二</div>
+                        <div class="wrap-body-item wrap-body-item-title">周三</div>
+                        <div class="wrap-body-item wrap-body-item-title">周四</div>
+                        <div class="wrap-body-item wrap-body-item-title">周五</div>
+                        <div class="wrap-body-item wrap-body-item-title">周六</div>`;
+
+        return [start, ...dates];
     }
     nextMonth() {
         if (this.month === 12) {
@@ -198,6 +237,7 @@ export default class DatePicker extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log(this.value);
+        console.log(this.pane, document.querySelector(".calendar-body"), 'document.querySelector(".calendar-body")');
+        if (this.pane) this.init();
     }
 }

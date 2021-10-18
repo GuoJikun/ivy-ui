@@ -1,9 +1,9 @@
 {
-  "name": "ivy-datepicker",
+  "name": "ivy-date-picker",
   "version": "1.0.0",
   "description": "日期选择器",
   "keywords": [
-    "datepick"
+    "datePicker"
   ],
   "author": "GuoJiKun <guojikun486546@163.com>",
   "homepage": "https://ivy.jser.press/packages/datepicker",

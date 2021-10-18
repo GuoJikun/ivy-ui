@@ -5,12 +5,7 @@
 <ivy-date-picker></ivy-date-picker>
 
 ```html
-<ivy-select>
-    <ivy-option value="1" label="苹果"></ivy-option>
-    <ivy-option value="2" label="香蕉"></ivy-option>
-    <ivy-option value="3" label="橘子"></ivy-option>
-    <ivy-option value="4" label="芒果"></ivy-option>
-</ivy-select>
+<ivy-date-picker></ivy-date-picker>
 ```
 
 ## 禁用选项
