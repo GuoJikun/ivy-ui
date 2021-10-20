@@ -1,8 +1,8 @@
 # ivy-ui
 
-`ivy-ui` 是一套使用原生 `Web Components` 规范开发的跨框架UI组件库。[查看文档][https://ivy.jser.press]
+`ivy-ui` 是一套使用原生 `Web Components` 规范开发的跨框架UI组件库。[查看文档](https://ivy.jser.press)
 
-[github项目地址][https://github.com/GuoJikun/ivy-ui]
+[github项目地址](https://github.com/GuoJikun/ivy-ui)
 
 ## 文档
 
