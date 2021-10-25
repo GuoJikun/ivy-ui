@@ -1,4 +1,5 @@
 import resolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 
 export default {
     input: "src/index.js",
@@ -6,5 +7,5 @@ export default {
         file: "dist/ivy-ui.js",
         format: "es",
     },
-    plugins: [resolve()],
+    plugins: [resolve(), commonjs()],
 };
