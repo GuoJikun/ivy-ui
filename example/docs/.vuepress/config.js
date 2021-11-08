@@ -4,144 +4,154 @@ module.exports = {
     themeConfig: {
         navbar: [
             {
-                text: "Github",
-                link: "https://github.com/GuoJikun/ivy-ui",
-            },
-        ],
-        sidebar: [
-            {
-                text: "快速开始",
+                text: "首页",
                 link: "/README.md",
             },
             {
-                text: "主题自定义",
-                link: "/theme.md",
+                text: "组件",
+                link: "/components/index.md",
             },
             {
                 text: "更新日志",
                 link: "/changelog.md",
             },
             {
-                text: "组件",
-                children: [
-                    {
-                        text: "基础",
-                    },
-                    {
-                        text: "Icon 图标",
-                        link: "/icon.md",
-                    },
-                    {
-                        text: "Button 按钮",
-                        link: "/button.md",
-                    },
-                    {
-                        text: "Grid 栅格",
-                        link: "/grid.md",
-                    },
-                    {
-                        text: "表单",
-                    },
-                    {
-                        text: "Input 输入框",
-                        link: "/input.md",
-                    },
-                    {
-                        text: "Select 选择框",
-                        link: "/select.md",
-                    },
-                    {
-                        text: "Radio 单选框",
-                        link: "/radio.md",
-                    },
-                    {
-                        text: "Checkbox 多选框",
-                        link: "/checkbox.md",
-                    },
-                    {
-                        text: "Switch 开关",
-                        link: "/switch.md",
-                    },
-                    {
-                        text: "DatePicker 日期选择",
-                        link: "/datepicker.md",
-                    },
-                    {
-                        text: "未分类",
-                    },
-                    {
-                        text: "Card 卡片",
-                        link: "/card.md",
-                    },
-                    {
-                        text: "Empty 空状态",
-                        link: "/empty.md",
-                    },
-                    {
-                        text: "Timeline 时间线",
-                        link: "/timeline.md",
-                    },
-                    {
-                        text: "Divider 分割线",
-                        link: "/divider.md",
-                    },
-                    {
-                        text: "Progress 进度条",
-                        link: "/progress.md",
-                    },
-                    {
-                        text: "Modal 对话框",
-                        link: "/modal.md",
-                    },
-                    {
-                        text: "Drawer 抽屉",
-                        link: "/drawer.md",
-                    },
-                    {
-                        text: "Collapse 折叠面板",
-                        link: "/collapse.md",
-                    },
-
-                    {
-                        text: "Rate 评分",
-                        link: "/rate.md",
-                    },
-                    {
-                        text: "Tab 标签页",
-                        link: "/tab.md",
-                    },
-                    {
-                        text: "Image 图片",
-                        link: "/image.md",
-                    },
-                    {
-                        text: "Tooltip 文字提示",
-                        link: "/tooltip.md",
-                    },
-                    {
-                        text: "Table 表格",
-                        link: "/table.md",
-                    },
-
-                    {
-                        text: "Tag 标签",
-                        link: "/tag.md",
-                    },
-                    {
-                        text: "Clipboard 复制到剪切板",
-                        link: "/clipboard.md",
-                    },
-                    {
-                        text: "Badge 徽标",
-                        link: "/badge.md",
-                    },
-                    {
-                        text: "ContextMenu 右键菜单",
-                        link: "/contentmenu.md",
-                    },
-                ],
+                text: "Github",
+                link: "https://github.com/GuoJikun/ivy-ui",
             },
         ],
+        sidebar: {
+            "/components/": [
+                {
+                    text: "快速开始",
+                    link: "/components/index.md",
+                },
+                {
+                    text: "主题自定义",
+                    link: "/components/theme.md",
+                },
+                {
+                    text: "组件",
+                    children: [
+                        {
+                            text: "基础",
+                        },
+                        {
+                            text: "Icon 图标",
+                            link: "/components/icon.md",
+                        },
+                        {
+                            text: "Button 按钮",
+                            link: "/components/button.md",
+                        },
+                        {
+                            text: "Grid 栅格",
+                            link: "/components/grid.md",
+                        },
+                        {
+                            text: "表单",
+                        },
+                        {
+                            text: "Input 输入框",
+                            link: "/components/input.md",
+                        },
+                        {
+                            text: "Select 选择框",
+                            link: "/select.md",
+                        },
+                        {
+                            text: "Radio 单选框",
+                            link: "/components/radio.md",
+                        },
+                        {
+                            text: "Checkbox 多选框",
+                            link: "/components/checkbox.md",
+                        },
+                        {
+                            text: "Switch 开关",
+                            link: "/components/switch.md",
+                        },
+                        {
+                            text: "DatePicker 日期选择",
+                            link: "/components/datepicker.md",
+                        },
+                        {
+                            text: "未分类",
+                        },
+                        {
+                            text: "Card 卡片",
+                            link: "/components/card.md",
+                        },
+                        {
+                            text: "Empty 空状态",
+                            link: "/components/empty.md",
+                        },
+                        {
+                            text: "Timeline 时间线",
+                            link: "/components/timeline.md",
+                        },
+                        {
+                            text: "Divider 分割线",
+                            link: "/components/divider.md",
+                        },
+                        {
+                            text: "Progress 进度条",
+                            link: "/components/progress.md",
+                        },
+                        {
+                            text: "Modal 对话框",
+                            link: "/components/modal.md",
+                        },
+                        {
+                            text: "Drawer 抽屉",
+                            link: "/components/drawer.md",
+                        },
+                        {
+                            text: "Collapse 折叠面板",
+                            link: "/components/collapse.md",
+                        },
+
+                        {
+                            text: "Rate 评分",
+                            link: "/components/rate.md",
+                        },
+                        {
+                            text: "Tab 标签页",
+                            link: "/components/tab.md",
+                        },
+                        {
+                            text: "Image 图片",
+                            link: "/components/image.md",
+                        },
+                        {
+                            text: "Tooltip 文字提示",
+                            link: "/components/tooltip.md",
+                        },
+                        {
+                            text: "Table 表格",
+                            link: "/components/table.md",
+                        },
+
+                        {
+                            text: "Tag 标签",
+                            link: "/components/tag.md",
+                        },
+                        {
+                            text: "Clipboard 复制到剪切板",
+                            link: "/components/clipboard.md",
+                        },
+                        {
+                            text: "Badge 徽标",
+                            link: "/components/badge.md",
+                        },
+                        {
+                            text: "ContextMenu 右键菜单",
+                            link: "/components/contentmenu.md",
+                        },
+                    ],
+                },
+            ],
+        },
     },
     bundlerConfig: {
         chainWebpack: config => {
