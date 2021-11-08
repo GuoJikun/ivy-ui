@@ -1,6 +1,6 @@
 import "../../icon/src/index.js";
 class Message extends HTMLElement {
-    constructor() {
+    constructor(zIndex = 9000) {
         super();
         const template = document.createElement("template");
         template.innerHTML = `
@@ -8,10 +8,12 @@ class Message extends HTMLElement {
                 :host {
                     display: block;
                     pointer-events: all;
-                    margin-top: 20px;
+                    margin-top: 0;
                     pointer-events: inherit;
-                    height: 0;
-                    transition: all 0.3s;
+                    transition: margin-top 0.3s;
+                }
+                :host([show]) {
+                    margin-top: 20px;
                 }
                 .ivy-message {
                     padding: 11px 30px;
@@ -65,13 +67,6 @@ class Message extends HTMLElement {
         if (name === "message") {
             this.wrap.innerText = val;
         }
-        if (name === "show") {
-            if (val === null) {
-                this.style.height = "0";
-            } else {
-                this.style.height = "36px";
-            }
-        }
     }
 }
 
@@ -100,7 +95,7 @@ if (!customElements.get("ivy-message")) {
                 const timer = setTimeout(() => {
                     parent.removeChild(instance);
                     clearTimeout(timer);
-                }, 180000);
+                }, 3000);
             } else {
                 const instance = document.createElement("ivy-message");
                 instance.message = opt.message || "";
@@ -109,7 +104,7 @@ if (!customElements.get("ivy-message")) {
                 const timer = setTimeout(() => {
                     ivyBox.removeChild(instance);
                     clearTimeout(timer);
-                }, 1800);
+                }, 3000);
             }
         };
     };

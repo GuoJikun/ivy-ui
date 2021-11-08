@@ -76,6 +76,13 @@ module.exports = {
                             link: "/components/datepicker.md",
                         },
                         {
+                            text: "通知",
+                        },
+                        {
+                            text: "Message 消息提示",
+                            link: "/components/message.md",
+                        },
+                        {
                             text: "未分类",
                         },
                         {
