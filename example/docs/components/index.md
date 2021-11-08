@@ -1,31 +1,17 @@
-# ivy-ui
+# 快速开始
 
-`ivy-ui` 是一套使用原生 `Web Components` 规范开发的跨框架UI组件库。[查看文档][https://ivy.jser.press]
+## 通过 script 引入
 
-[github项目地址][https://github.com/GuoJikun/ivy-ui]
-
-## 文档
-
-该文档基于 `vuepress@2.x` 创建，文中所有组件均为可交互实例。
-
-## 使用须知
-
-```js
--   所有组件的使用方式都和原生方式一致（获取元素的属性...）
--   自定义事件（非原生事件）都需要使用`addEventListener`来绑定
+```html
+<!--最新版-->
+<script type="module" src="//cdn.jsdelivr.net/npm/ivy-ui"></script>
+<!--指定版本号-->
+<script type="module" src="//cdn.jsdelivr.net/npm/ivy-ui@0.4.0"></script>
 ```
 
-## 特性
+## 通过包管理器使用
 
-- 跨框架：无论是react、vue还是原生项目均可使用。
-- 组件化：shadow dom真正意义上实现了样式和功能的组件化。
-- 类原生：一个组件就像使用一个div标签一样。
-- 无依赖：纯原生，无需任何预处理器编译。
-- 无障碍，支持键盘访问。
-
-## 使用说明
-
-### npm or yarn
+### 安装
 
 ```bash
 npm i ivy-ui
@@ -35,13 +21,30 @@ yarn add ivy-ui
 pnpm add ivy-ui
 ```
 
-### script 引入
+### vue 中使用
 
-```html
-<!--最新版-->
-<script type="module" src="//cdn.jsdelivr.net/npm/ivy-ui"></script>
-<!--指定版本号-->
-<script type="module" src="//cdn.jsdelivr.net/npm/ivy-ui@0.4.0"></script>
+```js
+// vue2
+import Vue from 'vue'
+import 'ivy-ui'
+Vue.config.ignoredElements = [
+  // 用一个 `RegExp` 忽略所有“ion-”开头的元素
+  // 仅在 2.5+ 支持
+  /^ivy-/
+]
+
+// vue3
+import {createApp} from 'vue'
+createApp().config.compilerOptions.isCustomElement = tag => tag.startsWith('ivy-')
+```
+
+### react 中使用
+
+```js
+import 'ivy-ui'
+//如需单独使用
+import 'ivy-ui/dist/es/ivy-button.js';
+ReactDOM.render(<ivy-button>button</ivy-button>, document.body);
 ```
 
 ## 已有组件

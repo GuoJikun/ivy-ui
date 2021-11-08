@@ -57,7 +57,7 @@ module.exports = {
                         },
                         {
                             text: "Select 选择框",
-                            link: "/select.md",
+                            link: "/components/select.md",
                         },
                         {
                             text: "Radio 单选框",
