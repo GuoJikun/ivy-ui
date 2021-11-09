@@ -76,6 +76,26 @@ module.exports = {
                             link: "/components/datepicker.md",
                         },
                         {
+                            text: "数据",
+                        },
+
+                        {
+                            text: "Tab 标签页",
+                            link: "/components/tab.md",
+                        },
+                        {
+                            text: "Table 表格",
+                            link: "/components/table.md",
+                        },
+                        {
+                            text: "Tag 标签",
+                            link: "/components/tag.md",
+                        },
+                        {
+                            text: "Badge 徽标",
+                            link: "/components/badge.md",
+                        },
+                        {
                             text: "通知",
                         },
                         {
@@ -123,10 +143,6 @@ module.exports = {
                             link: "/components/rate.md",
                         },
                         {
-                            text: "Tab 标签页",
-                            link: "/components/tab.md",
-                        },
-                        {
                             text: "Image 图片",
                             link: "/components/image.md",
                         },
@@ -135,21 +151,8 @@ module.exports = {
                             link: "/components/tooltip.md",
                         },
                         {
-                            text: "Table 表格",
-                            link: "/components/table.md",
-                        },
-
-                        {
-                            text: "Tag 标签",
-                            link: "/components/tag.md",
-                        },
-                        {
                             text: "Clipboard 复制到剪切板",
                             link: "/components/clipboard.md",
-                        },
-                        {
-                            text: "Badge 徽标",
-                            link: "/components/badge.md",
                         },
                         {
                             text: "ContextMenu 右键菜单",
