@@ -12,7 +12,7 @@ class Message extends HTMLElement {
                     padding: 8px;
                     height: 54px;
                     text-align: center;
-                    transition: height 0.3s ease-in-out,padding 0.3s ease-in-out;
+                    transition: height 0.5s ease-in-out,padding 0.5s ease-in-out;
                 }
                  
                 .message {
@@ -24,7 +24,7 @@ class Message extends HTMLElement {
                     background: #fff;
                     position: relative;
                 }
-                :host([show]) {
+                :host([type="success"]) {
                     
                 }
                 .message-icon {
@@ -44,7 +44,7 @@ class Message extends HTMLElement {
         this.wrap = this._shadowRoot.querySelector(".message-content");
     }
     static get observedAttributes() {
-        return ["message", "show", "type"];
+        return ["message", "show", "type", "icon"];
     }
     get message() {
         return this.getAttribute("message") || "";

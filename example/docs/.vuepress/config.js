@@ -72,8 +72,12 @@ module.exports = {
                             link: "/components/switch.md",
                         },
                         {
-                            text: "DatePicker 日期选择",
+                            text: "DatePicker 日期选择器",
                             link: "/components/datepicker.md",
+                        },
+                        {
+                            text: "TimePicker 时间选择器",
+                            link: "/components/time-picker.md",
                         },
                         {
                             text: "数据",

@@ -1,0 +1,31 @@
+{
+  "name": "time-picker",
+  "version": "1.0.0",
+  "description": "时间选择器",
+  "keywords": [
+    "timePicker",
+    "time-picker"
+  ],
+  "author": "GuoJikun <guojikun@y-open.com>",
+  "homepage": "https://ivy.jser.press/components/time-picker",
+  "license": "GPL-3.0",
+  "main": "dist/time-picker.js",
+  "module": "dist/time-picker.module.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuoJikun/ivy-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/GuoJikun/ivy-ui/issues"
+  }
+}
