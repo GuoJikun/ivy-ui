@@ -27,3 +27,4 @@ import "../../contextmenu/src/index.js";
 import "../../empty/src/index.js";
 import "../../datepicker/src/index.js";
 import "../../time-picker/src/index.js";
+import "../../tip/src/index.js";

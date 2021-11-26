@@ -30,6 +30,7 @@ const components = [
     "timeline",
     "tooltip",
     "empty",
+    "tip",
 ];
 
 const generatorConfig = components => {
