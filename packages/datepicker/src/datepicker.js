@@ -75,20 +75,41 @@ export default class DatePicker extends HTMLElement {
                 background: var(--color-primary, ${$_color_primary});
                 color: white;
             }
+
+            /*箭头*/
+            .arrow-btn {
+                display: inline-flex;
+                overflow: hidden;
+                width: 14px;
+                height: 14px;
+                text-align: center;
+                line-height: 14px;
+                cursor: pointer;
+            }
+            
             </style>
+            
             <div class="input">
                 <input type="text" readonly  class="input-inner" />
             </div>
             <div class="wrap">
                 <div class="wrap-header">
                     <div>
-                        <el-icon name="d-arrow-left" @click.native="prevYear"></el-icon>
-                        <el-icon name="arrow-left" @click.native="prevMonth"></el-icon>
+                        <span class="arrow-btn arrow-btn-left">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M24 36L12 24L24 12" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 36L24 24L36 12" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span class="arrow-btn">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M31 36L19 24L31 12" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
                     </div>
                     <span class="wrap-header-date"></span>
                     <div>
-                        <el-icon name="arrow-right" @click.native="nextMonth"></el-icon>
-                        <el-icon name="d-arrow-right" @click.native="nextYear"></el-icon>
+                        <span class="arrow-btn">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M19 12L31 24L19 36" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span class="arrow-btn">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M12 12L24 24L12 36" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 12L36 24L24 36" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
                     </div>
                 </div>
                 <div class="wrap-body"></div>
