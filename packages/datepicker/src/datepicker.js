@@ -86,7 +86,9 @@ export default class DatePicker extends HTMLElement {
                 line-height: 14px;
                 cursor: pointer;
             }
-            
+            .arrow-btn:hover{
+                color: var(--color-primary, ${$_color_primary});
+            }
             </style>
             
             <div class="input">
@@ -95,19 +97,19 @@ export default class DatePicker extends HTMLElement {
             <div class="wrap">
                 <div class="wrap-header">
                     <div>
-                        <span class="arrow-btn arrow-btn-left">
+                        <span class="arrow-btn prev-year">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M24 36L12 24L24 12" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 36L24 24L36 12" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </span>
-                        <span class="arrow-btn">
+                        <span class="arrow-btn prev-month">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M31 36L19 24L31 12" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </span>
                     </div>
                     <span class="wrap-header-date"></span>
                     <div>
-                        <span class="arrow-btn">
+                        <span class="arrow-btn next-month">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M19 12L31 24L19 36" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </span>
-                        <span class="arrow-btn">
+                        <span class="arrow-btn next-year">
                             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M12 12L24 24L12 36" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 12L36 24L24 36" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </span>
                     </div>
@@ -126,35 +128,56 @@ export default class DatePicker extends HTMLElement {
         this.$body = this._shadowRoot.querySelector(".wrap");
         this.pane = this._shadowRoot.querySelector(".wrap-body");
         this.$title = this._shadowRoot.querySelector(".wrap-header-date");
+        this.$prevMonth = this._shadowRoot.querySelector(".prev-month");
+        this.$nextMonth = this._shadowRoot.querySelector(".next-month");
+        this.$prevYear = this._shadowRoot.querySelector(".prev-year");
+        this.$nextYear = this._shadowRoot.querySelector(".next-year");
 
-        this.date = null;
-        this.month = null;
-        this.year = null;
+        this.initData();
+    }
 
-        this.$input.addEventListener("click", ev => {
+    static get observedAttributes() {
+        return ["value", "placeholder", "format"];
+    }
+
+    connectedCallback() {
+        this.$input.addEventListener("click", () => {
             this.$body.style.display = "block";
         });
 
-        this.$body.addEventListener("click", ev => {
+        this.pane.addEventListener("click", ev => {
             const classNameList = ev.target.classList || [];
             if ([...classNameList].includes("wrap-body-item")) {
                 const type = ev.target.getAttribute("type");
                 const value = ev.target.textContent;
                 this.curDateClick({ type, value });
+                this.$body.style.display = "none";
             }
         });
-
         window.addEventListener(
             "click",
-            () => {
-                this.$body.style.display = "none";
+            ev => {
+                const target = ev.target;
+                if (!this.contains(target)) {
+                    this.$body.style.display = "none";
+                }
             },
             true
         );
-    }
-
-    static get observedAttributes() {
-        return ["value", "placeholder", "format"];
+        this.$prevMonth.addEventListener("click", () => {
+            this.prevMonth();
+        });
+        this.$nextMonth.addEventListener("click", () => {
+            this.nextMonth();
+        });
+        this.$prevYear.addEventListener("click", () => {
+            this.prevYear();
+        });
+        this.$nextYear.addEventListener("click", () => {
+            this.nextYear();
+        });
+        this.initDate();
+        this.render();
     }
 
     get value() {
@@ -178,17 +201,24 @@ export default class DatePicker extends HTMLElement {
         this.setAttribute("placeholder", text);
     }
 
+    initData() {
+        this.year = null;
+        this.month = null;
+        this.date = null;
+        this.previewYear = null;
+        this.previewMonth = null;
+    }
+
     getDateText() {
         const dateObj = dayjs(`${this.year}-${this.month}-${this.date}`);
         const cur = dateObj.format(this.format);
-        console.log(cur, 3);
         return cur;
     }
 
     initDate() {
         const { month, year, date } = getCurYearAndMonth(this.value);
-        this.year = year;
-        this.month = month;
+        this.year = this.previewYear = year;
+        this.month = this.previewMonth = month;
         this.date = date;
     }
 
@@ -196,12 +226,11 @@ export default class DatePicker extends HTMLElement {
         const data = this.generatorCalenderPanel();
         this.pane.innerHTML = data.join("");
         this.value = this.getDateText();
-        console.log(this.value);
         this.$inputText.value = this.value;
-        this.$title.innerText = `${this.year}年${this.month}月${this.date}日`;
+        this.$title.innerText = `${this.previewYear}年${this.previewMonth}月${this.date}日`;
     }
     generatorCalenderPanel() {
-        const data = generatorMountDay(this.month, this.year);
+        const data = generatorMountDay(this.previewMonth, this.previewYear);
         const dates = data.map(c => {
             if (c.type === 0 && c.value === this.date) {
                 return `<div class="wrap-body-item is-active" type="${c.type}">${c.value}</div>`;
@@ -209,8 +238,7 @@ export default class DatePicker extends HTMLElement {
                 return `<div class="wrap-body-item" type="${c.type}">${c.value}</div>`;
             }
         });
-        const start = `
-                        <div class="wrap-body-item-title">周日</div>
+        const start = `<div class="wrap-body-item-title">周日</div>
                         <div class="wrap-body-item-title">周一</div>
                         <div class="wrap-body-item-title">周二</div>
                         <div class="wrap-body-item-title">周三</div>
@@ -221,33 +249,30 @@ export default class DatePicker extends HTMLElement {
         return [start, ...dates];
     }
     nextMonth() {
-        if (this.month === 12) {
-            this.year = this.year + 1;
-            this.month = 1;
+        if (this.previewMonth === 12) {
+            this.previewYear = this.previewYear + 1;
+            this.previewMonth = 1;
         } else {
-            this.month = this.month + 1;
+            this.previewMonth = this.previewMonth + 1;
         }
         this.render();
-        // this.$emit("month-change", ...[this.month, this.year]);
     }
     prevMonth() {
-        console.log(this.month);
-        if (this.month === 1) {
-            this.year = this.year - 1;
-            this.month = 12;
+        if (this.previewMonth === 1) {
+            this.previewYear = this.previewYear - 1;
+            this.previewMonth = 12;
         } else {
-            this.month = this.month - 1;
+            this.previewMonth = this.previewMonth - 1;
         }
         this.render();
-        // this.$emit("month-change", ...[this.month, this.year]);
     }
     nextYear() {
-        this.year = this.year + 1;
-        this.days = this.generatorCalenderPanel();
+        this.previewYear = this.previewYear + 1;
+        this.render();
     }
     prevYear() {
-        this.year = this.year - 1;
-        this.days = this.generatorCalenderPanel();
+        this.previewYear = this.previewYear - 1;
+        this.render();
     }
     curDateClick(item) {
         const { type, value } = item;
@@ -259,6 +284,8 @@ export default class DatePicker extends HTMLElement {
         } else {
             this.render();
         }
+        this.year = this.previewYear;
+        this.month = this.previewMonth;
     }
     isTheDate(day) {
         if (day.type === 0) {
@@ -277,10 +304,5 @@ export default class DatePicker extends HTMLElement {
         } else {
             return false;
         }
-    }
-
-    connectedCallback() {
-        this.initDate();
-        this.render();
     }
 }
