@@ -37,7 +37,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: 安装依赖
-        run: npm i
+        run: npm i -g npm && npm i
 
       - name: lerna bootstrap
         run: lerna bootstrap
