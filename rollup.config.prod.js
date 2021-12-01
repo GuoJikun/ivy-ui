@@ -1,4 +1,5 @@
 import nodeResolve from "@rollup/plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
 
 const components = [
@@ -28,6 +29,8 @@ const components = [
     "timeline",
     "tooltip",
     "empty",
+    "tip",
+    "steps",
 ];
 
 const generatorConfig = components => {
@@ -49,7 +52,7 @@ const generatorConfig = components => {
                     file: `./packages/ivy-ui/dist/es/${c}.js`,
                 },
             ],
-            plugins: [nodeResolve(), terser()],
+            plugins: [nodeResolve(), terser(), commonjs],
         };
     });
 };

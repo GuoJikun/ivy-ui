@@ -1,54 +1,50 @@
 import "../../icon/src/index.js";
+import { type, isObject } from "../../ivy-ui/src/utils/type.js";
 class Message extends HTMLElement {
-    constructor() {
+    constructor(zIndex = 9000) {
         super();
         const template = document.createElement("template");
         template.innerHTML = `
             <style type="text/css">
                 :host {
                     display: block;
-                    pointer-events: all;
-                    margin-top: 20px;
-                    pointer-events: inherit;
-                    height: 0;
-                    transition: all 0.3s;
-                }
-                .ivy-message {
-                    padding: 11px 30px;
-                    position: relative;
-                    display: inline-flex;
-                    align-content: center;
-                    align-items: center;
-                    cursor: pointer;
-                    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-                    border-radius: 4px;
-                    min-width: 200px;
-                    background: #fff;
-                    pointer-events: initial;
                     box-sizing: border-box;
+                    padding: 8px;
+                    height: 54px;
+                    text-align: center;
+                    transition: height 0.5s ease-in-out,padding 0.5s ease-in-out;
                 }
-                .ivy-message-type {
-                    position: absolute;
-                    left: 8px;
+                 
+                .message {
+                    display: inline-flex;
+                    pointer-events: all;
+                    padding: 8px 16px;
+                    border-radius: 4px;
+                    box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
+                    background: #fff;
+                    position: relative;
                 }
-                .ivy-message-content {
-                    line-height: 1em;
+                :host([type="success"]) {
+                    
+                }
+                .message-icon {
+                    margin-right: 8px;
                 }
             </style>
-            <div class="ivy-message">
-                <ivy-icon name="info" class="ivy-message-type"></ivy-icon>
-                <div class="ivy-message-content"></div>
+            <div class="message">
+                <ivy-icon name="info" class="message-icon"></ivy-icon>
+                <div class="message-content"></div>
             </div>
         `;
         this._shadowRoot = this.attachShadow({
             mode: "open",
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
-        this.el = this._shadowRoot.querySelector(".ivy-message");
-        this.wrap = this._shadowRoot.querySelector(".ivy-message-content");
+        this.el = this._shadowRoot.querySelector(".message");
+        this.wrap = this._shadowRoot.querySelector(".message-content");
     }
     static get observedAttributes() {
-        return ["message", "show", "type"];
+        return ["message", "show", "type", "icon"];
     }
     get message() {
         return this.getAttribute("message") || "";
@@ -65,52 +61,93 @@ class Message extends HTMLElement {
         if (name === "message") {
             this.wrap.innerText = val;
         }
-        if (name === "show") {
-            if (val === null) {
-                this.style.height = "0";
-            } else {
-                this.style.height = "36px";
-            }
+    }
+    static show(opt = {}) {
+        if (isObject(opt)) {
+            const instance = new Message();
+            const ivyBox = document.querySelector("#ivy-message-box");
+            instance.message = opt.message || "";
+            ivyBox.appendChild(instance);
+            instance.setAttribute("show", "show");
+            const timer = setTimeout(() => {
+                ivyBox.removeChild(instance);
+                clearTimeout(timer);
+            }, opt.duration || 3000);
+        } else {
+            throw new Error("");
         }
     }
+    static info(opt) {
+        const typeStr = type(opt);
+        const conf = {
+            type: "info",
+        };
+        if (typeStr === "string") {
+            this.show({ message: opt, ...conf });
+        } else if (typeStr === "object") {
+            this.show({ ...opt, ...conf });
+        } else {
+            throw new Error("");
+        }
+    }
+    static success(opt) {
+        const typeStr = type(opt);
+        const conf = {
+            type: "success",
+        };
+        if (typeStr === "string") {
+            this.show({ message: opt, ...conf });
+        } else if (typeStr === "object") {
+            this.show({ ...opt, ...conf });
+        } else {
+            throw new Error("");
+        }
+    }
+    static warning(opt) {
+        const typeStr = type(opt);
+        const conf = {
+            type: "warning",
+        };
+        if (typeStr === "string") {
+            this.show({ message: opt, ...conf });
+        } else if (typeStr === "object") {
+            this.show({ ...opt, ...conf });
+        } else {
+            throw new Error("");
+        }
+    }
+    static error(opt) {
+        const typeStr = type(opt);
+        const conf = {
+            type: "error",
+        };
+        if (typeStr === "string") {
+            this.show({ message: opt, ...conf });
+        } else if (typeStr === "object") {
+            this.show({ ...opt, ...conf });
+        } else {
+            throw new Error("");
+        }
+    }
+}
+
+function addMessageBox() {
+    const parent = document.createElement("div");
+    parent.id = "ivy-message-box";
+    parent.style.position = "fixed";
+    parent.style.top = "24px";
+    parent.style.left = "0";
+    parent.style.zIndex = "10000";
+    parent.style.width = "100%";
+    parent.style.pointerEvents = "none";
+    parent.style.fontSize = "14px";
+    document.body.appendChild(parent);
 }
 
 if (!customElements.get("ivy-message")) {
     customElements.define("ivy-message", Message);
     window.onload = function () {
-        window.$ivy = {};
-        window.$ivy.message = function (opt = {}) {
-            const ivyBox = document.getElementById("ivy-message-box");
-            if (ivyBox === null) {
-                const parent = document.createElement("div");
-                parent.id = "ivy-message-box";
-                parent.style.position = "fixed";
-                parent.style.top = "0";
-                parent.style.left = "0";
-                parent.style.zIndex = "1000";
-                parent.style.width = "100vw";
-                parent.style.pointerEvents = "none";
-                parent.style.textAlign = "center";
-
-                const instance = document.createElement("ivy-message");
-                instance.message = opt.message || "";
-                parent.appendChild(instance);
-                instance.setAttribute("show", "");
-                document.body.appendChild(parent);
-                const timer = setTimeout(() => {
-                    parent.removeChild(instance);
-                    clearTimeout(timer);
-                }, 180000);
-            } else {
-                const instance = document.createElement("ivy-message");
-                instance.message = opt.message || "";
-                ivyBox.appendChild(instance);
-                instance.setAttribute("show", "");
-                const timer = setTimeout(() => {
-                    ivyBox.removeChild(instance);
-                    clearTimeout(timer);
-                }, 1800);
-            }
-        };
+        addMessageBox();
+        window.$message = Message;
     };
 }

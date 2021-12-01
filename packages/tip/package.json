@@ -1,0 +1,31 @@
+{
+  "name": "ivy-tip",
+  "version": "1.0.0",
+  "description": "重要信息的提示",
+  "keywords": [
+    "tip",
+    "alert"
+  ],
+  "author": "GuoJikun <guojikun@y-open.com>",
+  "homepage": "https://ivy.jser.press/packages/tip",
+  "license": "GPL-3.0",
+  "main": "dist/tip.js",
+  "module": "dist/tip.module.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuoJikun/ivy-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/GuoJikun/ivy-ui/issues"
+  }
+}

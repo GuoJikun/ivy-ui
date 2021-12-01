@@ -1,0 +1,31 @@
+{
+  "name": "ivy-steps",
+  "version": "1.0.0",
+  "description": "步骤条",
+  "keywords": [
+    "step",
+    "steps"
+  ],
+  "author": "GuoJikun <guojikun@y-open.com>",
+  "homepage": "https://ivy.jser.press/packages/steps",
+  "license": "GPL-3.0",
+  "main": "dist/steps.js",
+  "module": "dist/steps.module.js",
+  "directories": {
+    "lib": "dist",
+    "test": "__tests__"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuoJikun/ivy-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/GuoJikun/ivy-ui/issues"
+  }
+}

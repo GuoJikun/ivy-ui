@@ -8,7 +8,7 @@
 import { onMounted } from 'vue';
 onMounted(()=>{
     document.getElementById('btn').addEventListener('click', ()=>{
-        $ivy.message({message: '这是测试内容'})
+        $message.show({message: '这是测试内容'})
     })
 })
 </script>

@@ -67,8 +67,8 @@ class Modal extends HTMLElement {
                     margin-left: 10px;
                 }
                 .ivy-modal-button-primary {
-                    background-color: #2d8cf0;
-                    border-color: #2d8cf0;
+                    background-color: var(--color-primary, ${$_color_primary});
+                    border-color: var(--color-primary, ${$_color_primary});
                     color: white;
                     
                 }
@@ -121,7 +121,7 @@ class Modal extends HTMLElement {
             <div class="ivy-mask"></div>
             <div class="ivy-modal">
                 <div class="ivy-modal-header">
-                    <slot name="header">${this.title}</slot>
+                    <slot name="header" class="ivy-modal-header-slot"></slot>
                 </div>
                 <div class="ivy-modal-content">
                     <slot></slot>
@@ -140,24 +140,7 @@ class Modal extends HTMLElement {
         });
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.root = this._shadowRoot.querySelector(".ivy-modal");
-        document.body.appendChild(this);
-
-        const closeBtn = this._shadowRoot.querySelector(".ivy-modal-close");
-        const cancelBtn = this._shadowRoot.querySelector(".ivy-modal-button-cancel");
-        const sureBtn = this._shadowRoot.querySelector(".ivy-modal-button-primary");
-
-        closeBtn.addEventListener("click", () => {
-            this.dispatchEvent(new CustomEvent("close", { bubbles: false, cancelable: true, composed: false }));
-            this.removeAttribute("show");
-        });
-        cancelBtn.addEventListener("click", () => {
-            this.dispatchEvent(new CustomEvent("cancel", { bubbles: false, cancelable: true, composed: false }));
-            this.removeAttribute("show");
-        });
-        sureBtn.addEventListener("click", () => {
-            this.dispatchEvent(new CustomEvent("sure", { bubbles: false, cancelable: true, composed: false }));
-            this.removeAttribute("show");
-        });
+        this.headerSlot = this._shadowRoot.querySelector(".ivy-modal-header-slot");
     }
     static get observedAttributes() {
         return ["show", "title"];
@@ -175,7 +158,30 @@ class Modal extends HTMLElement {
     set title(value) {
         this.setAttribute("title", value);
     }
-    connectedCallback() {}
+    connectedCallback() {
+        const closeBtn = this._shadowRoot.querySelector(".ivy-modal-close");
+        const cancelBtn = this._shadowRoot.querySelector(".ivy-modal-button-cancel");
+        const sureBtn = this._shadowRoot.querySelector(".ivy-modal-button-primary");
+
+        closeBtn.addEventListener("click", () => {
+            this.dispatchEvent(new CustomEvent("close", { bubbles: false, cancelable: true, composed: false }));
+            this.removeAttribute("show");
+        });
+        cancelBtn.addEventListener("click", () => {
+            this.dispatchEvent(new CustomEvent("cancel", { bubbles: false, cancelable: true, composed: false }));
+            this.removeAttribute("show");
+        });
+        sureBtn.addEventListener("click", () => {
+            this.dispatchEvent(new CustomEvent("sure", { bubbles: false, cancelable: true, composed: false }));
+            this.removeAttribute("show");
+        });
+
+        console.log(this);
+
+        this.headerSlot.textContent = this.title;
+
+        document.body.appendChild(this);
+    }
     attributeChangedCallback(name, oldVal, newVal) {}
 }
 

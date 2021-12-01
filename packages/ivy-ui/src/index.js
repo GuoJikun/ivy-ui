@@ -25,3 +25,5 @@ import "../../copy/src/index.js";
 import "../../badge/src/index.js";
 import "../../contextmenu/src/index.js";
 import "../../empty/src/index.js";
+import "../../tip/src/index.js";
+import "../../steps/src/index.js";

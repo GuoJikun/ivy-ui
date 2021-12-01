@@ -75,7 +75,7 @@
 <ivy-badge is-dot>
     <ivy-icon name="chat-dot-round"></ivy-icon>
 </ivy-badge>
-<ivy-badge is-dot class="ml-20">
+<ivy-badge is-dot class="ml-40">
     <ivy-button>评论</ivy-button>
 </ivy-badge>
 
@@ -83,7 +83,7 @@
 <ivy-badge is-dot>
     <ivy-icon name="chat-dot-round"></ivy-icon>
 </ivy-badge>
-<ivy-badge is-dot class="ml-20">
+<ivy-badge is-dot class="ml-40">
     <ivy-button>评论</ivy-button>
 </ivy-badge>
 ```

@@ -1,60 +1,77 @@
-# v0.8.0
+# 更新日志
 
-feat:
+## v0.9.0
 
-- [x] `Badge` 组件
+**Feats:**
 
-# v0.7.0
+- 新增 `Tip` 组件
+- 新增 `Steps` 和 `Step` 组件
 
-feat:
+**Fixes:**
 
-- [x] `Tag` 组件
-- [x] `Clipboard-copy` 组件
+- 修复 `Badge` 组件 `type` 属性不生效的 bug
 
-# v0.6.0
+## v0.8.0
 
-feat:
+**Feats:**
 
-- [x] `Checkbox` 组件
-- [x] `CheckboxGroup` 组件
-- [x] `Radio` 组件
-- [x] `RadioGroup` 组件
+- 新增 `Badge` 组件
 
-# v0.5.0
+## v0.7.0
 
-feat:
+**Feats:**
 
-- [x] 添加 `Tooltip` 组件
-- [x] 添加 `Rate` 组件
-- [x] 添加 `Table` 组件
+- 新增 `Tag` 组件
+- 新增 `Clipboard-copy` 组件
 
-# v0.4.0
+## v0.6.0
 
-feat:
+**Feats:**
 
-- [x] 添加 `tab` 组件
-- [x] 添加 `tabPane` 组件
-- [x] 添加 `Image` 组件
+- 新增 `Checkbox` 组件
+- 新增 `CheckboxGroup` 组件
+- 新增 `Radio` 组件
+- 新增 `RadioGroup` 组件
 
-# v0.3.0
+## v0.5.0
 
-feat:
+**Feats:**
 
-- [x] 添加 `Row` 组件
-- [x] 添加 `Col` 组件
-- [x] 添加 `Switch` 组件
-- [x] 添加 `Collapse` 组件
-- [x] 添加 `CollapseItem` 组件
+- 新增 `Tooltip` 组件
+- 新增 `Rate` 组件
+- 新增 `Table` 组件
 
-# v0.2.0
+## v0.4.0
 
-- [x] 添加 `Icon` 组件
-- [x] 添加 `Progress` 组件
+**Feats:**
 
-# v0.1.0
+- 新增 `tab` 组件
+- 新增 `tabPane` 组件
+- 新增 `Image` 组件
 
-- [x] 添加 `Button` 组件
-- [x] 添加 `card` 组件
-- [x] 添加 `timeline` 组件
-- [x] 添加 `divider` 组件
-- [x] 添加 `Modal` 组件
+## v0.3.0
+
+**Feats:**
+
+- 新增 `Row` 组件
+- 新增 `Col` 组件
+- 新增 `Switch` 组件
+- 新增 `Collapse` 组件
+- 新增 `CollapseItem` 组件
+
+## v0.2.0
+
+**Feats:**
+
+- 新增 `Icon` 组件
+- 新增 `Progress` 组件
+
+## v0.1.0
+
+**Feats:**
+
+- 新增 `Button` 组件
+- 新增 `card` 组件
+- 新增 `timeline` 组件
+- 新增 `divider` 组件
+- 新增 `Modal` 组件

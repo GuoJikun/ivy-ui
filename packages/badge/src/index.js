@@ -33,23 +33,23 @@ class Badge extends HTMLElement {
                     white-space: nowrap;
                     border: 1px solid #fff;
                 }
-                :host(type="primary") .ivy-badge-content {
+                :host([type="primary"]) .ivy-badge-content {
                     background-color: var(--color-primary, ${$_color_primary});
                     color: white;
                 }
-                :host(type="success") .ivy-badge-content {
+                :host([type="success"]) .ivy-badge-content {
                     background-color: var(--color-primary, ${$_color_success});
                     color: white;
                 }
-                :host(type="warning") .ivy-badge-content {
+                :host([type="warning"]) .ivy-badge-content {
                     background-color: var(--color-warning, ${$_color_warn});
                     color: white;
                 }
-                :host(type="error") .ivy-badge-content {
+                :host([type="error"]) .ivy-badge-content {
                     background-color: var(--color-error, ${$_color_error});
                     color: white;
                 }
-                :host(type="info") .ivy-badge-content {
+                :host([type="info"]) .ivy-badge-content {
                     background-color: var(--color-info, ${$_color_info});
                     color: white;
                 }

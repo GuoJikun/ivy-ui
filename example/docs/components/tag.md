@@ -2,6 +2,8 @@
 
 ## 常规用法
 
+默认显示的样式
+
 <ivy-tag>default</ivy-tag>
 <ivy-tag color="primary">primary</ivy-tag>
 <ivy-tag color="success">success</ivy-tag>
@@ -9,21 +11,6 @@
 <ivy-tag color="error">error</ivy-tag>
 <ivy-tag color="info">info</ivy-tag>
 
-<ivy-tag theme="plain">default</ivy-tag>
-<ivy-tag theme="plain" color="primary">primary</ivy-tag>
-<ivy-tag theme="plain" color="success">success</ivy-tag>
-<ivy-tag theme="plain" color="warning">warning</ivy-tag>
-<ivy-tag theme="plain" color="error">error</ivy-tag>
-<ivy-tag theme="plain" color="info">info</ivy-tag>
-
-<ivy-tag theme="dark">default</ivy-tag>
-<ivy-tag theme="dark" color="primary">primary</ivy-tag>
-<ivy-tag theme="dark" color="success">success</ivy-tag>
-<ivy-tag theme="dark" color="warning">warning</ivy-tag>
-<ivy-tag theme="dark" color="error">error</ivy-tag>
-<ivy-tag theme="dark" color="info">info</ivy-tag>
-
-<!-- <ivy-tag>主要标签</ivy-tag> -->
 
 ## 自定义颜色
 
