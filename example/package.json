@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ivy-ui": "^"
+    "ivy-ui": "^0.10.0"
   },
   "devDependencies": {
     "vuepress": "^2.0.0-beta.25"
