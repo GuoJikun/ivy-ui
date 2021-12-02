@@ -31,6 +31,7 @@ const components = [
     "empty",
     "tip",
     "steps",
+    "breadcrumb",
 ];
 
 const generatorConfig = components => {

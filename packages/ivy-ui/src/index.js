@@ -27,3 +27,4 @@ import "../../contextmenu/src/index.js";
 import "../../empty/src/index.js";
 import "../../tip/src/index.js";
 import "../../steps/src/index.js";
+import "../../breadcrumb/src/index.js";

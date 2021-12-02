@@ -120,4 +120,21 @@ const colorBlend = (c1, c2, ratio) => {
     return `#${r}${g}${b}`;
 };
 
-export { findElementUpward, findElementsUpward, findElementDownward, findElementsDownward, findBrothersElements, colorBlend };
+const buildShadowRoot = (html = "", self) => {
+    self.shadowRoot = self.attachShadow({
+        mode: "open",
+    });
+    const template = document.createElement("template");
+    template.innerHTML = html;
+    self.shadowRoot.appendChild(template.content.cloneNode(true));
+};
+
+export {
+    findElementUpward,
+    findElementsUpward,
+    findElementDownward,
+    findElementsDownward,
+    findBrothersElements,
+    colorBlend,
+    buildShadowRoot,
+};
