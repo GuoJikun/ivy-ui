@@ -1,12 +1,12 @@
 {
   "name": "ivy-tooltip",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "tooltip",
   "keywords": [
     "tooltip"
   ],
   "author": "GuoJikun <guojikun@y-open.com>",
-  "homepage": "https://github.com/GuoJikun/ivy-ui#readme",
+  "homepage": "https://ivy.jser.press/components/tooltip.html",
   "license": "GPL-3.0",
   "main": "dist/tooltip.js",
   "module": "dist/tooltip.module.js",
@@ -15,7 +15,8 @@
     "test": "__tests__"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md"
   ],
   "repository": {
     "type": "git",
