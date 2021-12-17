@@ -5,14 +5,18 @@ module.exports = {
             link: "/components/index.md",
         },
         {
-            text: "主题自定义",
+            text: "Color 色彩",
+            link: "/components/color.md",
+        },
+        {
+            text: "theme 主题",
             link: "/components/theme.md",
         },
         {
             text: "组件",
             children: [
                 {
-                    text: "基础",
+                    text: "基础/布局",
                 },
                 {
                     text: "Icon 图标",
@@ -25,6 +29,10 @@ module.exports = {
                 {
                     text: "Grid 栅格",
                     link: "/components/grid.md",
+                },
+                {
+                    text: "Split 分割面板",
+                    link: "/components/split.md",
                 },
                 {
                     text: "表单",
