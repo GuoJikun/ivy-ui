@@ -32,6 +32,7 @@ const components = [
     "tip",
     "steps",
     "breadcrumb",
+    "split",
 ];
 
 const generatorConfig = components => {

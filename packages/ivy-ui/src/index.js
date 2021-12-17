@@ -28,3 +28,4 @@ import "../../empty/src/index.js";
 import "../../tip/src/index.js";
 import "../../steps/src/index.js";
 import "../../breadcrumb/src/index.js";
+import "../../split/src/index.js";
