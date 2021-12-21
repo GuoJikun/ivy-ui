@@ -37,6 +37,7 @@ export class Button extends HTMLElement {
                     cursor: pointer;
                     transition: backgroundColor 0.3s, color 0.3s, opacity 0.3s;
                 }
+                
 
                 .ivy-button:not([disabled]):hover,
                 .ivy-button:not([disabled]):focus{
@@ -79,13 +80,31 @@ export class Button extends HTMLElement {
                     vertical-align: text-top;
                     fill: currentColor;
                     overflow: hidden;
-                    animation: rotate 1.4s linear infinite;
+                    animation: rotate 1.8s linear infinite;
                     display: none;
                 }
                 @keyframes rotate{
                     to{
                         transform: rotate(360deg); 
                     }
+                }
+                :host([loading]){
+                    pointer-events: none;
+                    position: relative;
+                }
+                :host([loading])::before {
+                    pointer-events: none;
+                    content: "";
+                    position: absolute;
+                    left: -1px;
+                    top: -1px;
+                    right: -1px;
+                    bottom: -1px;
+                    border-radius: inherit;
+                    background-color: hsla(0,0%,100%, 0.35);
+                }
+                :host([loading]) #ivy-loading{
+                    display: initial;
                 }
             </style>
             <svg aria-hidden="true" style="position: absolute; width: 0px; height: 0px; overflow: hidden;">
@@ -171,12 +190,12 @@ export class Button extends HTMLElement {
             this.$button.style.cursor = "not-allowed";
             this.$button.style.opacity = "0.5";
         } */
-        if (name === "loading") {
-            this.$loading.style.display = "initial";
-            this.$buttonInner.style.marginLeft = "4px";
-            this.$button.style.cursor = "not-allowed";
-            this.$button.style.opacity = "0.5";
-        }
+        // if (name === "loading") {
+        //     this.$loading.style.display = "initial";
+        //     this.$buttonInner.style.marginLeft = "4px";
+        //     this.$button.style.cursor = "not-allowed";
+        //     this.$button.style.opacity = "0.5";
+        // }
     }
 }
 if (!customElements.get("ivy-button")) {
