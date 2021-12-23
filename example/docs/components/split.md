@@ -6,7 +6,7 @@
 
 左右分割用法。
 
-<ivy-split>
+<ivy-split style="height: 100px;">
     <div slot="left">
         <p>左侧面板</p>
     </div>
