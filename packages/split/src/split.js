@@ -67,7 +67,27 @@ class Split extends HTMLElement {
                     cursor: n-resize;
                 }
                 .vertical .trigger-default {
+                    width: 100%;
                     height: 6px;
+                    flex-direction: row;
+                    justify-content: center;
+                    border-width: 1px 0;
+                }
+                .vertical .trigger-default>div {
+                    height: 100%;
+                    width: 1px;
+                    margin: 0 6px;
+                }
+                .vertical .trigger-default>div::before,
+                .vertical .trigger-default>div::after{
+                    height: 100%;
+                    left: 4px;
+                    top: 0;
+                    width: 1px;
+                }
+                .vertical .trigger-default>div::after{
+                    right: 4px;
+                    left: auto;
                 }
             </style>
             <div class="horizontal">
@@ -99,6 +119,8 @@ class Split extends HTMLElement {
             right: this.$shadowRoot.querySelector(".right"),
             top: this.$shadowRoot.querySelector(".top"),
             bottom: this.$shadowRoot.querySelector(".bottom"),
+            trigger: this.$shadowRoot.querySelector(".horizontal .trigger"),
+            triggerV: this.$shadowRoot.querySelector(".vertical .trigger"),
         };
     }
 
@@ -139,6 +161,9 @@ class Split extends HTMLElement {
             this.$el.vertical.style.display = "none";
             this.$el.horizontal.style.display = "flex";
         }
+        this.$el.trigger.addEventListener("mousemove", ev => {
+            new requestAnimationFrame(() => {});
+        });
     }
 
     get vertical() {
