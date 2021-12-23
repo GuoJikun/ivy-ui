@@ -121,12 +121,13 @@ const colorBlend = (c1, c2, ratio) => {
 };
 
 const buildShadowRoot = (html = "", self) => {
-    self.shadowRoot = self.attachShadow({
+    const shadowRoot = self.attachShadow({
         mode: "open",
     });
     const template = document.createElement("template");
     template.innerHTML = html;
-    self.shadowRoot.appendChild(template.content.cloneNode(true));
+    shadowRoot.appendChild(template.content.cloneNode(true));
+    return shadowRoot;
 };
 
 export {

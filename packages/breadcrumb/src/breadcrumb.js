@@ -82,9 +82,9 @@ export class BreadcrumbItem extends HTMLElement {
             <a class="item"><slot></slot></a>
             <i class="separator"></i>
         `;
-        buildShadowRoot(html, this);
-        this.$separator = this.shadowRoot.querySelector(".separator");
-        this.$link = this.shadowRoot.querySelector(".item");
+        this.$shadowRoot = buildShadowRoot(html, this);
+        this.$separator = this.$shadowRoot.querySelector(".separator");
+        this.$link = this.$shadowRoot.querySelector(".item");
     }
 
     static get observedAttributes() {
