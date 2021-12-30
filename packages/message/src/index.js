@@ -12,9 +12,19 @@ class Message extends HTMLElement {
                     padding: 8px;
                     height: 54px;
                     text-align: center;
-                    transition: height 0.5s ease-in-out,padding 0.5s ease-in-out;
+                    animation: fadeInDown 0.3s ease-in-out;
                 }
-                 
+                @keyframes fadeInDown {
+                    from {
+                        opacity: 0;
+                        transform: translate3d(0, -100%, 0);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translate3d(0, 0, 0);
+                    }
+                    }
                 .message {
                     display: inline-flex;
                     pointer-events: all;
