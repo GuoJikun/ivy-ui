@@ -2,6 +2,7 @@ export default class Notification extends HTMLElement {
     constructor(zIndex = 9000) {
         super();
         const template = document.createElement("template");
+
         template.innerHTML = `
             <style type="text/css">
                 :host {
@@ -22,7 +23,7 @@ export default class Notification extends HTMLElement {
                         opacity: 1;
                         transform: translate3d(0, 0, 0);
                     }
-                    }
+                }
                 .notification {
                     display: inline-flex;
                     pointer-events: all;
