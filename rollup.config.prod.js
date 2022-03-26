@@ -1,6 +1,9 @@
 import nodeResolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import { terser } from "rollup-plugin-terser";
+import typescript from "@rollup/plugin-typescript";
+import json from "@rollup/plugin-json";
+import { join } from "path";
 
 const components = [
     "badge",
@@ -38,7 +41,7 @@ const components = [
 const generatorConfig = components => {
     return components.map(c => {
         return {
-            input: `./packages/${c}/src/index.js`,
+            input: `./packages/${c}/src/index.ts`,
             output: [
                 {
                     name: `ivy-${c}`,
@@ -51,12 +54,45 @@ const generatorConfig = components => {
                 },
                 {
                     format: "es",
-                    file: `./packages/ivy-ui/dist/es/${c}.js`,
+                    file: `./ivy-ui/dist/component/${c}.js`,
                 },
             ],
-            plugins: [nodeResolve(), terser(), commonjs],
+            plugins: [
+                json(),
+                typescript({
+                    tsconfig: join(__dirname, "tsconfig.json"),
+                    exclude: [join(__dirname, "packages/**/__test__/*.ts")],
+                }),
+                nodeResolve(),
+                commonjs(),
+                terser(),
+            ],
         };
     });
 };
 
-export default [...generatorConfig(components)];
+export default [
+    ...generatorConfig(components),
+    {
+        input: join(__dirname, `ivy-ui/src/index.ts`),
+        output: [
+            {
+                format: "es",
+                file: `./ivy-ui/dist/index.js`,
+            },
+            {
+                format: "es",
+                file: `./ivy-ui/dist/index.module.js`,
+            },
+        ],
+        plugins: [
+            json(),
+            typescript({
+                tsconfig: join(__dirname, "tsconfig.json"),
+            }),
+            nodeResolve(),
+            commonjs(),
+            terser(),
+        ],
+    },
+];

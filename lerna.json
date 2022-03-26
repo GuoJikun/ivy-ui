@@ -1,10 +1,17 @@
 {
     "packages": [
         "packages/*",
-        "example"
+        "example",
+        "ivy-ui"
     ],
     "publishConfig":{
         "directory": "dist"
+    },
+    "npmClient": "pnpm",
+    "command": {
+        "run": {
+            "npmClient": "pnpm"
+        }
     },
     "version": "independent"
 }
