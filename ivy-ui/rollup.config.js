@@ -2,14 +2,17 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 
 export default {
-    input: "src/index.js",
+    input: "src/index.ts",
     output: {
-        file: "dist/ivy-ui.js",
+        file: "dist/ns-ui.js",
         format: "es",
     },
-    plugins: [resolve({
-        alias: {
-            
-        }
-    }), commonjs()],
+    plugins: [
+        resolve({
+            alias: {
+                "@": "./src",
+            },
+        }),
+        commonjs(),
+    ],
 };
