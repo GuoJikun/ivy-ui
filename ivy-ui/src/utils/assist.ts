@@ -140,10 +140,6 @@ const style = (style: TemplateStringsArray): string => {
     return `<style type="text/css">${style}</style>` as string;
 };
 
-function component(target: HTMLElement) {
-    console.log(target);
-}
-
 export {
     findElementUpward,
     findElementsUpward,
@@ -153,5 +149,4 @@ export {
     colorBlend,
     buildShadowRoot,
     style,
-    component,
 };
