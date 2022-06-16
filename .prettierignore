@@ -5,3 +5,4 @@ lerna.json
 docs/*.md
 *.md
 pnpm.workspace.yaml
+*.json

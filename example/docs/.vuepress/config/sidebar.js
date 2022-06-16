@@ -104,6 +104,10 @@ module.exports = {
                     link: "/components/modal.md",
                 },
                 {
+                    text: "Notification 通知框",
+                    link: "/components/notification.md",
+                },
+                {
                     text: "导航",
                 },
                 {

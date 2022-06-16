@@ -24,22 +24,13 @@ module.exports = {
         ],
         sidebar: sidebar,
     },
+    bundler: "@vuepress/bundler-vite",
     bundlerConfig: {
-        chainWebpack: config => {
-            config.module
-                .rule("vue")
-                .use("vue-loader")
-                .tap(options => {
-                    options.compilerOptions = {
-                        ...options.compilerOptions,
-                        isCustomElement: tag => tag.startsWith("ivy-"),
-                    };
-                    return options;
-                });
-        },
-        vue: {
-            compileOptions: {
-                isCustomElement: tag => tag.startsWidth("ivy-"),
+        vuePluginOptions: {
+            template: {
+                compilerOptions: {
+                    isCustomElement: tag => tag.startsWith("ivy-"),
+                },
             },
         },
     },
