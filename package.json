@@ -1,18 +1,27 @@
 {
-  "name": "nsu-ui",
+  "name": "ivy-ui",
   "private": false,
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "type": "module",
   "files": [
     "dist",
     "package.json",
     "README.md"
   ],
+  "keywords": [
+    "ivy-ui",
+    "component",
+    "webComponent",
+    "ui"
+  ],
   "main": "./dist/nsu-ui.umd.js",
-  "module": "./dist/nsu-ui.mjs",
+  "module": "./dist/nsu-ui.es.js",
+  "browser": "./dist/nsu-ui.iife.js",
   "exports": {
     ".": {
       "import": "./dist/nsu-ui.mjs",
-      "require": "./dist/nsu-ui.umd.js"
+      "require": "./dist/nsu-ui.cjs.js",
+      "browser": "./dist/nsu-ui.iife.js"
     }
   },
   "scripts": {
@@ -22,5 +31,8 @@
   },
   "devDependencies": {
     "vite": "3.0.7"
+  },
+  "bugs": {
+    "url": "https://github.com/guojikun/ivy-ui/issues"
   }
 }
