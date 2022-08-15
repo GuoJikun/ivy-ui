@@ -1,8 +1,0 @@
-package.json
-lerna.json
-.github
-
-docs/*.md
-*.md
-pnpm.workspace.yaml
-*.json

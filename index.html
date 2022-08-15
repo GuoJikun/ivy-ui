@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+        'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+    }
+
+    #app {
+      width: 1000px;
+      margin: 0 auto;
+      padding-top: 150px;
+    }
+
+    .margin-top {
+      margin-top: 24px;
+    }
+
+    .menu-wrap {
+      display: inline-block;
+      background-color: #fff;
+      border: 1px solid #cacaca;
+      list-style: none;
+      padding: 4px 0;
+      border-radius: 4px;
+    }
+
+    .menu-wrap-item {
+      white-space: none;
+      width: 160px;
+      padding: 0 24px;
+      box-sizing: border-box;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 2em;
+    }
+
+    .menu-wrap-item:hover {
+      background-color: #efefef;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <ivy-contextmenu>
+      <div>
+        <p>这里是显示右键菜单的区域</p>
+        <p>这里是显示右键菜单的区域</p>
+        <p>这里是显示右键菜单的区域</p>
+        <p>这里是显示右键菜单的区域</p>
+        <p>这里是显示右键菜单的区域</p>
+      </div>
+      <ul slot="menu" class="menu-wrap">
+        <li class="menu-wrap-item" onclick="menuClick('复制')">复制</li>
+        <li class="menu-wrap-item" onclick="menuClick('粘贴')">粘贴</li>
+        <li class="menu-wrap-item" onclick="menuClick('这里是右键菜单')">这里是右键菜单</li>
+        <li class="menu-wrap-item" onclick="menuClick('这里是右键菜单')">这里是右键菜单</li>
+      </ul>
+    </ivy-contextmenu>
+    <div class="margin-top">
+      <ivy-switch checked></ivy-switch>
+    </div>
+    <div class="margin-top">
+      <ivy-switch disabled></ivy-switch>
+      <ivy-switch checked disabled></ivy-switch>
+    </div>
+    <div class="margin-top">
+      <ivy-image src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+        style="height: 100px;width: 100px;" fit="fit"></ivy-image>
+      <ivy-image src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+        style="height: 100px;width: 100px;" fit="contain" class="ml-10"></ivy-image>
+      <ivy-image src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+        style="height: 100px;width: 100px;" fit="cover" class="ml-10"></ivy-image>
+      <ivy-image src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+        style="height: 100px;width: 100px;" fit="none" class="ml-10"></ivy-image>
+      <ivy-image src="https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg"
+        style="height: 100px;width: 100px;" fit="scale-down" class="ml-10"></ivy-image>
+    </div>
+
+  </div>
+  <script type="module" src="/src/index.js"></script>
+  <script>
+    function menuClick(item) {
+      $message.success(item)
+    }
+  </script>
+</body>
+
+</html>
