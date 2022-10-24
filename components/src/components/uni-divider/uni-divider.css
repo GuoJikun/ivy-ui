@@ -1,0 +1,73 @@
+:host {
+  --uni-divider-color: var(--uni-border-color, #dcdfe6);
+  --uni-divider-text-padding: 0 12px;
+  padding: 28px 0;
+  display: block;
+  height: 0px;
+  line-height: 0px;
+  background-color: transparent;
+  display: block;
+  font-size: 14px;
+  position: relative;
+  z-index: 0;
+}
+
+.uni-divider-line {
+  display: block;
+  width: 100%;
+  height: 0px;
+  border-top: 1px solid var(--uni-divider-color);
+}
+.uni-divider-text {
+  display: inline-block;
+  padding: var(--uni-divider-text-padding);
+  font-size: inherit;
+  line-height: 1em;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+:host([type='solid']) .uni-divider-line {
+  border-top-style: solid;
+}
+:host([type='dotted']) .uni-divider-line {
+  border-top-style: dotted;
+}
+:host([type='dashed']) .uni-divider-line {
+  border-top-style: dashed;
+}
+:host([type='double']) .uni-divider-line {
+  border-top-style: double;
+}
+:host([type='groove']) .uni-divider-line {
+  border-top-style: groove;
+}
+:host([type='ridge']) .uni-divider-line {
+  border-top-style: ridge;
+}
+:host([type='inset']) .uni-divider-line {
+  border-top-style: inset;
+}
+:host([type='outset']) .uni-divider-line {
+  border-top-style: outset;
+}
+
+:host([hide-text]) .uni-divider-text {
+  display: none;
+}
+:host([placement='center']) .uni-divider-text {
+  margin: 0 auto;
+}
+:host([placement='left']) .uni-divider-text {
+  left: 10%;
+  transform: translate(0, -50%);
+}
+:host([placement='right']) .uni-divider-text {
+  left: auto;
+  right: 10%;
+  transform: translate(0, -50%);
+}

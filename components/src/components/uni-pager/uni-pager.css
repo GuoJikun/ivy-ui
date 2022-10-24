@@ -1,0 +1,37 @@
+:host {
+  display: flex;
+  line-height: 30px;
+  font-size: var(--uni-font-size, 14px);
+}
+ul {
+  list-style: none;
+  display: inline-flex;
+  margin: 0 12px;
+  padding: 0;
+}
+
+.pager-item {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 2px;
+  transition: background-color 0.15s, color 0.15s;
+  user-select: none;
+}
+.pager-item:hover {
+  color: var(--uni-color-primary, #409eff);
+}
+.pager-item-active {
+  color: var(--uni-color-primary, #409eff);
+  cursor: default;
+}
+
+.pager-btn {
+  cursor: pointer;
+  user-select: none;
+}
+.pager-btn:hover {
+  color: var(--uni-color-primary, #409eff);
+}

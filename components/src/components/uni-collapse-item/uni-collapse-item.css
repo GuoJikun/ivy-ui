@@ -1,0 +1,32 @@
+:host {
+  font-size: 14px;
+}
+.ivy-collapse-item-header {
+  background-color: #f7f7f7;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #dcdee2;
+  line-height: 1em;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+.ivy-collapse-item-body {
+  overflow: hidden;
+  transition: height 0.3s;
+  background-color: #fff;
+}
+:host([active='active']) .ivy-collapse-item-body {
+  height: auto;
+}
+
+.ivy-collapse-item-body-inner {
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+:host(:last-child) .ivy-collapse-item-header {
+  border-bottom: none;
+}
+:host([active='active']:last-child) .ivy-collapse-item-header {
+  border-bottom: 1px solid #dcdee2;
+}

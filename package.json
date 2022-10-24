@@ -1,38 +1,19 @@
 {
-  "name": "ivy-ui",
-  "private": false,
-  "version": "2.0.0",
-  "type": "module",
-  "files": [
-    "dist",
-    "package.json",
-    "README.md"
-  ],
-  "keywords": [
-    "ivy-ui",
-    "component",
-    "webComponent",
-    "ui"
-  ],
-  "main": "./dist/nsu-ui.umd.js",
-  "module": "./dist/nsu-ui.es.js",
-  "browser": "./dist/nsu-ui.iife.js",
-  "exports": {
-    ".": {
-      "import": "./dist/nsu-ui.mjs",
-      "require": "./dist/nsu-ui.cjs.js",
-      "browser": "./dist/nsu-ui.iife.js"
-    }
-  },
+  "name": "uni",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "vite --port 3001",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev:component": "pnpm --filter uni-ui run start",
+    "dev:icon": "pnpm --filter uni-icons run start",
+    "dev": "pnpm run dev:icon & pnpm run dev:component",
+    "build:component": "pnpm --filter uni-ui run build",
+    "build:icon": "pnpm --filter uni-icons run build",
+    "build": "pnpm run build:icon & pnpm run build:component",
+    "g": "pnpm --filter uni-ui run generate",
+    "g:icon": "pnpm --filter uni-icons run generate"
   },
-  "devDependencies": {
-    "vite": "3.0.7"
-  },
-  "bugs": {
-    "url": "https://github.com/guojikun/ivy-ui/issues"
-  }
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

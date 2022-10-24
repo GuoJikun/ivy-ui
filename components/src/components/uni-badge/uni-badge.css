@@ -1,0 +1,74 @@
+:host {
+  /* primary*/
+  --uni-color-primary: #409eff;
+  /* success*/
+  --uni-color-success: #67c23a;
+  /* warning*/
+  --uni-color-warning: #e6a23c;
+  /* danger*/
+  --uni-color-danger: #f56c6c;
+  /* info*/
+  --uni-color-info: #909399;
+
+  --uni-badge-bg-color: var(--uni-color-danger);
+  --uni-badge-color: #ffffff;
+  --uni-badge-radius: 10px;
+  --uni-badge-font-size: 12px;
+  --uni-badge-padding: 6px;
+  --uni-badge-size: 18px;
+
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.uni-badge-content {
+  background-color: var(--uni-badge-bg-color);
+  border-radius: var(--uni-badge-radius);
+  color: var(--uni-badge-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--uni-badge-font-size);
+  height: var(--uni-badge-size);
+  padding: 0 var(--uni-badge-padding);
+  white-space: nowrap;
+  border: 1px solid #fff;
+
+  position: absolute;
+  top: 0;
+  right: calc(1px + var(--uni-badge-size) / 2);
+  z-index: 1;
+  transform: translateY(-50%) translate(100%);
+  box-sizing: border-box;
+
+  line-height: 0;
+  vertical-align: baseline;
+  font-family: var(--uni-font-family, Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, \5fae\8f6f\96c5\9ed1, Arial, sans-serif);
+}
+:host([type='primary']) .uni-badge-content {
+  --uni-badge-bg-color: var(--uni-color-primary);
+}
+:host([type='success']) .uni-badge-content {
+  --uni-badge-bg-color: var(--uni-color-success);
+}
+:host([type='warning']) .uni-badge-content {
+  --uni-badge-bg-color: var(--uni-color-warning);
+}
+:host([type='danger']) .uni-badge-content {
+  --uni-badge-bg-color: var(--uni-color-danger);
+}
+:host([type='info']) .uni-badge-content {
+  --uni-badge-bg-color: var(--uni-color-info);
+}
+
+:host([is-dot]) sup.uni-badge-content {
+  height: 8px;
+  width: 8px;
+  line-height: 8px;
+  padding: 0;
+  right: 5px;
+  border-radius: 50%;
+  color: transparent;
+}

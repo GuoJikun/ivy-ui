@@ -1,0 +1,37 @@
+:host {
+  display: block;
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.wrap__hide {
+  display: none;
+}
+.wrap {
+  height: 100%;
+  min-width: 100%;
+  display: flex;
+  transition: transform 0.3s;
+}
+
+.indicator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.indicator-item {
+  display: inline-flex;
+  width: 10px;
+  height: 3px;
+  background-color: gray;
+  margin: 0 10px;
+  border-radius: 1px;
+}
+.indicator-item:hover {
+  cursor: pointer;
+}
+
+.indicator-item[active] {
+  background-color: #409eff;
+}

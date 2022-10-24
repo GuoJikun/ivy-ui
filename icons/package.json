@@ -1,0 +1,48 @@
+{
+  "name": "uni-icons",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/uni-icon/uni-icon.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+  },
+  "bin": {
+    "generate-before": "./bin/generate-before.js",
+    "generate-after": "./bin/generate-after.js"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "pregenerate": "node ./bin/generate-before.js",
+    "generate": "stencil generate",
+    "postgenerate": "node ./bin/generate-after.js",
+    "g": "npm run generate"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.3",
+    "@types/node": "^18.8.3",
+    "jest": "^27.4.5",
+    "jest-cli": "^27.4.5",
+    "puppeteer": "^10.0.0",
+    "svgo": "^2.8.0",
+    "svgson": "^5.2.1"
+  },
+  "license": "MIT"
+}

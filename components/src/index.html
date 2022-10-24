@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Stencil Component Starter</title>
+  <style>
+    html {
+      font-size: 10px;
+      margin: 0;
+    }
+
+    body {
+      font-size: 1.4rem;
+      line-height: 1.6em;
+      width: 800px;
+      margin: 0 auto;
+      background-color: #efefef;
+      height: 100vh;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+    }
+
+    .uni-margin-top {
+      margin-top: 12px;
+    }
+
+    .uni-margin-left {
+      margin-left: 12px;
+    }
+
+    .uni-margin-left-large {
+      margin-left: 12px;
+    }
+
+    .test::part(separator) {
+      color: red;
+    }
+  </style>
+  <script type="module" src="/build/uni.esm.js"></script>
+  <script nomodule src="/build/uni.js"></script>
+</head>
+
+<body>
+  <div style="height: 200px">
+
+  </div>
+  <div class="uni-margin-top">
+    <uni-tooltip content="tooltip" placement="top-start">
+      <uni-button> top start</uni-button>
+    </uni-tooltip>
+    <uni-tooltip content="tooltip" placement="top">
+      <uni-button> top</uni-button>
+    </uni-tooltip>
+    <uni-tooltip content="tooltip" placement="top-end">
+      <uni-button> top end</uni-button>
+    </uni-tooltip>
+
+    <uni-tooltip content="tooltip" placement="bottom-start">
+      <uni-button> bottom start</uni-button>
+    </uni-tooltip>
+    <uni-tooltip content="tooltip" placement="bottom">
+      <uni-button> bottom</uni-button>
+    </uni-tooltip>
+    <uni-tooltip content="tooltip" placement="bottom-end">
+      <uni-button> bottom end</uni-button>
+    </uni-tooltip>
+
+    <uni-tooltip content="tooltip" placement="left-start">
+      <uni-button> left start</uni-button>
+    </uni-tooltip>
+    <uni-tooltip content="tooltip" placement="left">
+      <uni-button> left</uni-button>
+    </uni-tooltip>
+    <uni-tooltip content="tooltip" placement="left-end">
+      <uni-button> left end</uni-button>
+    </uni-tooltip>
+
+    <uni-tooltip content="tooltip" placement="right-start">
+      <uni-button> right start</uni-button>
+    </uni-tooltip>
+    <uni-tooltip content="tooltip" placement="right">
+      <uni-button> right</uni-button>
+    </uni-tooltip>
+    <uni-tooltip content="tooltip" placement="right-end">
+      <uni-button> right end</uni-button>
+    </uni-tooltip>
+  </div>
+
+</body>
+
+<script>
+
+</script>
+
+</html>
