@@ -27,8 +27,7 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "pregenerate": "node ./bin/generate-before.js",
-    "generate": "stencil generate",
+    "generate": "node ./bin/generate-before.js",
     "postgenerate": "node ./bin/generate-after.js",
     "g": "npm run generate"
   },
