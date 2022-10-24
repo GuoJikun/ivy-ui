@@ -4,7 +4,12 @@ export default {
   ...DefaultTheme,
   async enhanceApp() {
     if (!import.meta.env.SSR) {
-      await import("ivy-ui");
+      const ivyUI = await import("ivy-ui/loader");
+      console.log(ivyUI);
+      if (ivyUI.defineCustomElements) {
+        ivyUI.defineCustomElements();
+      }
+      await import("ivy-icon/dist/components/index");
     }
   },
 };

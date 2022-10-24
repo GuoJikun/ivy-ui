@@ -221,7 +221,7 @@ export default defineConfig({
     template: {
       compilerOptions: {
         isCustomElement: (tag) => {
-          return /^ivy-/.test(tag);
+          return tag.startsWith("ivy-");
         },
       },
     },

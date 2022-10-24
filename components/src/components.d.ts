@@ -77,6 +77,10 @@ export namespace Components {
     }
     interface IvyEmpty {
     }
+    interface IvyImage {
+        "myArray": string;
+        "myObject": string;
+    }
     interface IvyPager {
         "defaultPage": string;
         "layout": string;
@@ -215,6 +219,12 @@ declare global {
         prototype: HTMLIvyEmptyElement;
         new (): HTMLIvyEmptyElement;
     };
+    interface HTMLIvyImageElement extends Components.IvyImage, HTMLStencilElement {
+    }
+    var HTMLIvyImageElement: {
+        prototype: HTMLIvyImageElement;
+        new (): HTMLIvyImageElement;
+    };
     interface HTMLIvyPagerElement extends Components.IvyPager, HTMLStencilElement {
     }
     var HTMLIvyPagerElement: {
@@ -274,6 +284,7 @@ declare global {
         "ivy-divider": HTMLIvyDividerElement;
         "ivy-drawer": HTMLIvyDrawerElement;
         "ivy-empty": HTMLIvyEmptyElement;
+        "ivy-image": HTMLIvyImageElement;
         "ivy-pager": HTMLIvyPagerElement;
         "ivy-row": HTMLIvyRowElement;
         "ivy-tag": HTMLIvyTagElement;
@@ -353,6 +364,10 @@ declare namespace LocalJSX {
     }
     interface IvyEmpty {
     }
+    interface IvyImage {
+        "myArray"?: string;
+        "myObject"?: string;
+    }
     interface IvyPager {
         "defaultPage"?: string;
         "layout"?: string;
@@ -399,6 +414,7 @@ declare namespace LocalJSX {
         "ivy-divider": IvyDivider;
         "ivy-drawer": IvyDrawer;
         "ivy-empty": IvyEmpty;
+        "ivy-image": IvyImage;
         "ivy-pager": IvyPager;
         "ivy-row": IvyRow;
         "ivy-tag": IvyTag;
@@ -428,6 +444,7 @@ declare module "@stencil/core" {
             "ivy-divider": LocalJSX.IvyDivider & JSXBase.HTMLAttributes<HTMLIvyDividerElement>;
             "ivy-drawer": LocalJSX.IvyDrawer & JSXBase.HTMLAttributes<HTMLIvyDrawerElement>;
             "ivy-empty": LocalJSX.IvyEmpty & JSXBase.HTMLAttributes<HTMLIvyEmptyElement>;
+            "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
             "ivy-tag": LocalJSX.IvyTag & JSXBase.HTMLAttributes<HTMLIvyTagElement>;
