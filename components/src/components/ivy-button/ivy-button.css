@@ -1,0 +1,256 @@
+:host {
+  /* 公共颜色变量 */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* primary*/
+  --color-primary: #409eff;
+  --color-primary-light-1: #53a8ff;
+  --color-primary-light-2: #66b1ff;
+  --color-primary-light-3: #79bbff;
+  --color-primary-light-4: #8cc5ff;
+  --color-primary-light-5: #a0cfff;
+  --color-primary-light-6: #b3d8ff;
+  --color-primary-light-7: #c6e2ff;
+  --color-primary-light-8: #d9ecff;
+  --color-primary-light-9: #ecf5ff;
+  /* success*/
+  --color-success: #67c23a;
+  --color-success-light-1: #76c84e;
+  --color-success-light-2: #85ce61;
+  --color-success-light-3: #95d475;
+  --color-success-light-4: #a4da89;
+  --color-success-light-5: #b3e19d;
+  --color-success-light-6: #c2e7b0;
+  --color-success-light-7: #d1edc4;
+  --color-success-light-8: #e1f3d8;
+  --color-success-light-9: #f0f9eb;
+  /* warning*/
+  --color-warning: #e6a23c;
+  --color-warning-light-1: #e9ab50;
+  --color-warning-light-2: #ebb563;
+  --color-warning-light-3: #eebe77;
+  --color-warning-light-4: #f0c78a;
+  --color-warning-light-5: #f3d19e;
+  --color-warning-light-6: #f5dab1;
+  --color-warning-light-7: #f8e3c5;
+  --color-warning-light-8: #faecd8;
+  --color-warning-light-9: #fdf6ec;
+  /* danger*/
+  --color-danger: #f56c6c;
+  --color-danger-light-1: #f67b7b;
+  --color-danger-light-2: #f78989;
+  --color-danger-light-3: #f89898;
+  --color-danger-light-4: #f9a7a7;
+  --color-danger-light-5: #fab6b6;
+  --color-danger-light-6: #fbc4c4;
+  --color-danger-light-7: #fcd3d3;
+  --color-danger-light-8: #fde2e2;
+  --color-danger-light-9: #fef0f0;
+  /* info*/
+  --color-info: #909399;
+  --color-info-light-1: #9b9ea3;
+  --color-info-light-2: #a6a9ad;
+  --color-info-light-3: #b1b3b8;
+  --color-info-light-4: #bcbec2;
+  --color-info-light-5: #c8c9cc;
+  --color-info-light-6: #d3d4d6;
+  --color-info-light-7: #dedfe0;
+  --color-info-light-8: #e9e9eb;
+  --color-info-light-9: #f4f4f5;
+
+  /***disabled */
+  --color-primary-disabled: #a0cfff;
+  --color-success-disabled: #b3e19d;
+  --color-warn-disabled: #f3d19e;
+  --color-danger-disabled: #fab6b6;
+  --color-info-disabled: #c8c9cc;
+
+  /****hover */
+  --color-primary-hover: #66b1ff;
+  --color-success-hover: #85ce61;
+  --color-warn-hover: #ebb563;
+  --color-danger-hover: #f78989;
+  --color-info-hover: #a6a9ad;
+
+  /** 文字基础颜色 **/
+  --text-color: #606266;
+
+  /****边框颜色 */
+  --border-color-base: #dcdfe6;
+
+  /***圆角 */
+  --border-radius: 4px;
+
+  /*****阴影 */
+  --shadow-base: 0 1px 6px rgba(0, 0, 0, 0.2);
+
+  /*****边框 */
+  --border-base: `1px solid var(--border-color-base);
+
+  --mask-color: rgba(55, 55, 55, 0.6);
+
+  /*****button组件 */
+  --button-border-base: --border-base;
+
+  --font-size: 14px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.15s;
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  border: var(--el-border);
+  padding: 8px 15px;
+  font-size: var(--font-size);
+  border-radius: var(--border-radius);
+  margin-left: 12px;
+  border: 1px solid var(--ivy-border-color, #dcdfe6);
+}
+:host(:hover) {
+  border: 1px solid var(--color-primary-light-5);
+  background-color: var(--color-primary-light-9);
+  color: var(--color-primary);
+}
+:host(:first-child) {
+  margin-left: 0;
+}
+
+:host([round]) {
+  border-radius: 16px;
+}
+
+:host([type='primary']) {
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-primary);
+  color: white;
+}
+:host([type='primary']:hover) {
+  border: 1px solid var(--color-primary-light-3);
+  background-color: var(--color-primary-light-3);
+  color: white;
+}
+:host([type='success']) {
+  border: 1px solid var(--color-success);
+  background-color: var(--color-success);
+  color: white;
+}
+:host([type='success']:hover) {
+  border: 1px solid var(--color-success-light-3);
+  background-color: var(--color-success-light-3);
+  color: white;
+}
+:host([type='warning']) {
+  border: 1px solid var(--color-warning);
+  background-color: var(--color-warning);
+  color: white;
+}
+:host([type='warning']:hover) {
+  border: 1px solid var(--color-warning-light-3);
+  background-color: var(--color-warning-light-3);
+  color: white;
+}
+:host([type='danger']) {
+  border: 1px solid var(--color-danger);
+  background-color: var(--color-danger);
+  color: white;
+}
+:host([type='danger']:hover) {
+  border: 1px solid var(--color-danger-light-3);
+  background-color: var(--color-danger-light-3);
+  color: white;
+}
+:host([type='info']) {
+  border: 1px solid var(--color-info);
+  background-color: var(--color-info);
+  color: white;
+}
+:host([type='info']:hover) {
+  border: 1px solid var(--color-info-light-3);
+  background-color: var(--color-info-light-3);
+  color: white;
+}
+:host([disabled]) {
+  cursor: not-allowed;
+  border-color: #e4e7ed;
+  background-color: white;
+  color: #a8abb2;
+}
+:host([disabled][type='primary']) {
+  cursor: not-allowed;
+  border: 1px solid var(--color-primary-light-5);
+  background-color: var(--color-primary-light-5);
+  color: white;
+}
+:host([disabled][type='success']) {
+  cursor: not-allowed;
+  border: 1px solid var(--color-success-light-5);
+  background-color: var(--color-success-light-5);
+  color: white;
+}
+:host([disabled][type='warning']) {
+  cursor: not-allowed;
+  border: 1px solid var(--color-warning-light-5);
+  background-color: var(--color-warning-light-5);
+  color: white;
+}
+:host([disabled][type='danger']) {
+  cursor: not-allowed;
+  border: 1px solid var(--color-danger-light-5);
+  background-color: var(--color-danger-light-5);
+  color: white;
+}
+:host([disabled][type='info']) {
+  cursor: not-allowed;
+  border: 1px solid var(--color-info-light-5);
+  background-color: var(--color-info-light-5);
+  color: white;
+}
+
+:host([loading]) {
+  position: relative;
+  pointer-events: none;
+}
+:host([loading])::before {
+  z-index: 1;
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: inherit;
+  background-color: var(--el-mask-color-extra-light, hsla(0, 0%, 100%, 0.35));
+}
+#ivy-loading {
+  width: 1em;
+  height: 1em;
+  vertical-align: text-top;
+  fill: currentColor;
+  overflow: hidden;
+  animation: rotate 1.8s linear infinite;
+  display: none;
+  margin-right: 8px;
+}
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+:host([loading]) #ivy-loading {
+  display: initial;
+}
+
+#hidden-svg {
+  display: none;
+}

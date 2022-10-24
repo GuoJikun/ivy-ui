@@ -1,0 +1,22 @@
+:host {
+  display: inline-flex;
+}
+
+.separator {
+  padding: 0 8px;
+  user-select: none;
+}
+:host(:first-child) .separator {
+  display: none;
+  padding-left: 0;
+}
+
+.content {
+  cursor: default;
+  transition: color 0.15s;
+}
+
+:host([href]) .content:hover {
+  color: var(--ivy-color-primary, #409eff);
+  cursor: pointer;
+}

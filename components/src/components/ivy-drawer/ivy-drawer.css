@@ -1,0 +1,126 @@
+:host {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 8000;
+  width: 100vw;
+  height: 100vh;
+  display: none;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.ivy-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--ivy-mask-color, rgba(55, 55, 55, 0.6));
+}
+.ivy-drawer {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  background-color: #ffffff;
+}
+.ivy-drawer-header {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--ivy-border-color, #dcdfe6);
+  display: none;
+}
+:host([show-header]) .ivy-drawer-header {
+  display: block;
+}
+.ivy-drawer-body {
+  padding: 16px;
+}
+
+:host([show]) {
+  display: block;
+}
+:host([show]) .ivy-drawer {
+  animation-delay: 0.05s;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+}
+
+:host([placement='right']) .ivy-drawer {
+  right: 0;
+  top: 0;
+  transform: translate3d(100%, 0, 0);
+}
+:host([placement='right'][show]) .ivy-drawer {
+  animation-name: slideInRight;
+}
+
+:host([placement='left']) .ivy-drawer {
+  left: 0;
+  top: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+:host([placement='left'][show]) .ivy-drawer {
+  animation-name: slideInLeft;
+}
+
+:host([placement='top']) .ivy-drawer {
+  left: 0;
+  top: 0;
+  transform: translate3d(0, -100%, 0);
+}
+:host([placement='top'][show]) .ivy-drawer {
+  animation-name: slideInDown;
+}
+
+:host([placement='bottom']) .ivy-drawer {
+  left: 0;
+  bottom: 0;
+  transform: translate3d(0, 100%, 0);
+}
+:host([placement='bottom'][show]) .ivy-drawer {
+  animation-name: slideInUp;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}

@@ -6,67 +6,67 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface UniBadge {
+    interface IvyBadge {
         "isDot": boolean;
         "max": string;
         "type": string;
         "value": string;
     }
-    interface UniBreadcrumb {
+    interface IvyBreadcrumb {
         "separator": string;
     }
-    interface UniBreadcrumbItem {
+    interface IvyBreadcrumbItem {
         "blank": boolean;
         "href": string;
         "separator": string;
         "setSeparator": (val: string) => Promise<void>;
     }
-    interface UniButton {
+    interface IvyButton {
         "loading": boolean;
         "plain": boolean;
         "round": boolean;
         "type": string;
     }
-    interface UniCard {
+    interface IvyCard {
         "header": string;
     }
-    interface UniCarousel {
+    interface IvyCarousel {
         "defaultActive": string;
     }
-    interface UniCarouselItem {
+    interface IvyCarouselItem {
     }
-    interface UniCol {
+    interface IvyCol {
         "span": string;
     }
-    interface UniCollapse {
+    interface IvyCollapse {
         "active": string;
     }
-    interface UniCollapseItem {
+    interface IvyCollapseItem {
         "active": string;
         "index": string;
         "name": string;
     }
-    interface UniDescription {
+    interface IvyDescription {
         "border": boolean;
         "columns": number;
         "gutter": string;
         "header": string;
         "labelWidth": string;
     }
-    interface UniDescriptionItem {
+    interface IvyDescriptionItem {
         "columns": string;
         "gutter": string;
         "label": string;
         "labelWidth": string;
     }
-    interface UniDialog {
+    interface IvyDialog {
         "close": () => Promise<void>;
         "open": () => Promise<void>;
         "visible": Boolean;
     }
-    interface UniDivider {
+    interface IvyDivider {
     }
-    interface UniDrawer {
+    interface IvyDrawer {
         "close": () => Promise<void>;
         "maskClosable": boolean;
         "open": () => Promise<void>;
@@ -75,30 +75,30 @@ export namespace Components {
         "visible": Boolean;
         "width": string;
     }
-    interface UniEmpty {
+    interface IvyEmpty {
     }
-    interface UniPager {
+    interface IvyPager {
         "defaultPage": string;
         "layout": string;
     }
-    interface UniRow {
+    interface IvyRow {
     }
-    interface UniTag {
+    interface IvyTag {
         "size": string;
         "theme": string;
         "type": string;
     }
-    interface UniTimeline {
+    interface IvyTimeline {
         "reverse": boolean;
     }
-    interface UniTimelineItem {
+    interface IvyTimelineItem {
         "timestamp": string;
     }
-    interface UniTip {
+    interface IvyTip {
         "name": string;
         "type": string;
     }
-    interface UniTooltip {
+    interface IvyTooltip {
         "content": string;
         "delay": string;
         "placement": string;
@@ -106,276 +106,276 @@ export namespace Components {
         "visible": boolean;
     }
 }
-export interface UniDialogCustomEvent<T> extends CustomEvent<T> {
+export interface IvyDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLUniDialogElement;
+    target: HTMLIvyDialogElement;
 }
-export interface UniDrawerCustomEvent<T> extends CustomEvent<T> {
+export interface IvyDrawerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLUniDrawerElement;
+    target: HTMLIvyDrawerElement;
 }
-export interface UniPagerCustomEvent<T> extends CustomEvent<T> {
+export interface IvyPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
-    target: HTMLUniPagerElement;
+    target: HTMLIvyPagerElement;
 }
 declare global {
-    interface HTMLUniBadgeElement extends Components.UniBadge, HTMLStencilElement {
+    interface HTMLIvyBadgeElement extends Components.IvyBadge, HTMLStencilElement {
     }
-    var HTMLUniBadgeElement: {
-        prototype: HTMLUniBadgeElement;
-        new (): HTMLUniBadgeElement;
+    var HTMLIvyBadgeElement: {
+        prototype: HTMLIvyBadgeElement;
+        new (): HTMLIvyBadgeElement;
     };
-    interface HTMLUniBreadcrumbElement extends Components.UniBreadcrumb, HTMLStencilElement {
+    interface HTMLIvyBreadcrumbElement extends Components.IvyBreadcrumb, HTMLStencilElement {
     }
-    var HTMLUniBreadcrumbElement: {
-        prototype: HTMLUniBreadcrumbElement;
-        new (): HTMLUniBreadcrumbElement;
+    var HTMLIvyBreadcrumbElement: {
+        prototype: HTMLIvyBreadcrumbElement;
+        new (): HTMLIvyBreadcrumbElement;
     };
-    interface HTMLUniBreadcrumbItemElement extends Components.UniBreadcrumbItem, HTMLStencilElement {
+    interface HTMLIvyBreadcrumbItemElement extends Components.IvyBreadcrumbItem, HTMLStencilElement {
     }
-    var HTMLUniBreadcrumbItemElement: {
-        prototype: HTMLUniBreadcrumbItemElement;
-        new (): HTMLUniBreadcrumbItemElement;
+    var HTMLIvyBreadcrumbItemElement: {
+        prototype: HTMLIvyBreadcrumbItemElement;
+        new (): HTMLIvyBreadcrumbItemElement;
     };
-    interface HTMLUniButtonElement extends Components.UniButton, HTMLStencilElement {
+    interface HTMLIvyButtonElement extends Components.IvyButton, HTMLStencilElement {
     }
-    var HTMLUniButtonElement: {
-        prototype: HTMLUniButtonElement;
-        new (): HTMLUniButtonElement;
+    var HTMLIvyButtonElement: {
+        prototype: HTMLIvyButtonElement;
+        new (): HTMLIvyButtonElement;
     };
-    interface HTMLUniCardElement extends Components.UniCard, HTMLStencilElement {
+    interface HTMLIvyCardElement extends Components.IvyCard, HTMLStencilElement {
     }
-    var HTMLUniCardElement: {
-        prototype: HTMLUniCardElement;
-        new (): HTMLUniCardElement;
+    var HTMLIvyCardElement: {
+        prototype: HTMLIvyCardElement;
+        new (): HTMLIvyCardElement;
     };
-    interface HTMLUniCarouselElement extends Components.UniCarousel, HTMLStencilElement {
+    interface HTMLIvyCarouselElement extends Components.IvyCarousel, HTMLStencilElement {
     }
-    var HTMLUniCarouselElement: {
-        prototype: HTMLUniCarouselElement;
-        new (): HTMLUniCarouselElement;
+    var HTMLIvyCarouselElement: {
+        prototype: HTMLIvyCarouselElement;
+        new (): HTMLIvyCarouselElement;
     };
-    interface HTMLUniCarouselItemElement extends Components.UniCarouselItem, HTMLStencilElement {
+    interface HTMLIvyCarouselItemElement extends Components.IvyCarouselItem, HTMLStencilElement {
     }
-    var HTMLUniCarouselItemElement: {
-        prototype: HTMLUniCarouselItemElement;
-        new (): HTMLUniCarouselItemElement;
+    var HTMLIvyCarouselItemElement: {
+        prototype: HTMLIvyCarouselItemElement;
+        new (): HTMLIvyCarouselItemElement;
     };
-    interface HTMLUniColElement extends Components.UniCol, HTMLStencilElement {
+    interface HTMLIvyColElement extends Components.IvyCol, HTMLStencilElement {
     }
-    var HTMLUniColElement: {
-        prototype: HTMLUniColElement;
-        new (): HTMLUniColElement;
+    var HTMLIvyColElement: {
+        prototype: HTMLIvyColElement;
+        new (): HTMLIvyColElement;
     };
-    interface HTMLUniCollapseElement extends Components.UniCollapse, HTMLStencilElement {
+    interface HTMLIvyCollapseElement extends Components.IvyCollapse, HTMLStencilElement {
     }
-    var HTMLUniCollapseElement: {
-        prototype: HTMLUniCollapseElement;
-        new (): HTMLUniCollapseElement;
+    var HTMLIvyCollapseElement: {
+        prototype: HTMLIvyCollapseElement;
+        new (): HTMLIvyCollapseElement;
     };
-    interface HTMLUniCollapseItemElement extends Components.UniCollapseItem, HTMLStencilElement {
+    interface HTMLIvyCollapseItemElement extends Components.IvyCollapseItem, HTMLStencilElement {
     }
-    var HTMLUniCollapseItemElement: {
-        prototype: HTMLUniCollapseItemElement;
-        new (): HTMLUniCollapseItemElement;
+    var HTMLIvyCollapseItemElement: {
+        prototype: HTMLIvyCollapseItemElement;
+        new (): HTMLIvyCollapseItemElement;
     };
-    interface HTMLUniDescriptionElement extends Components.UniDescription, HTMLStencilElement {
+    interface HTMLIvyDescriptionElement extends Components.IvyDescription, HTMLStencilElement {
     }
-    var HTMLUniDescriptionElement: {
-        prototype: HTMLUniDescriptionElement;
-        new (): HTMLUniDescriptionElement;
+    var HTMLIvyDescriptionElement: {
+        prototype: HTMLIvyDescriptionElement;
+        new (): HTMLIvyDescriptionElement;
     };
-    interface HTMLUniDescriptionItemElement extends Components.UniDescriptionItem, HTMLStencilElement {
+    interface HTMLIvyDescriptionItemElement extends Components.IvyDescriptionItem, HTMLStencilElement {
     }
-    var HTMLUniDescriptionItemElement: {
-        prototype: HTMLUniDescriptionItemElement;
-        new (): HTMLUniDescriptionItemElement;
+    var HTMLIvyDescriptionItemElement: {
+        prototype: HTMLIvyDescriptionItemElement;
+        new (): HTMLIvyDescriptionItemElement;
     };
-    interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {
+    interface HTMLIvyDialogElement extends Components.IvyDialog, HTMLStencilElement {
     }
-    var HTMLUniDialogElement: {
-        prototype: HTMLUniDialogElement;
-        new (): HTMLUniDialogElement;
+    var HTMLIvyDialogElement: {
+        prototype: HTMLIvyDialogElement;
+        new (): HTMLIvyDialogElement;
     };
-    interface HTMLUniDividerElement extends Components.UniDivider, HTMLStencilElement {
+    interface HTMLIvyDividerElement extends Components.IvyDivider, HTMLStencilElement {
     }
-    var HTMLUniDividerElement: {
-        prototype: HTMLUniDividerElement;
-        new (): HTMLUniDividerElement;
+    var HTMLIvyDividerElement: {
+        prototype: HTMLIvyDividerElement;
+        new (): HTMLIvyDividerElement;
     };
-    interface HTMLUniDrawerElement extends Components.UniDrawer, HTMLStencilElement {
+    interface HTMLIvyDrawerElement extends Components.IvyDrawer, HTMLStencilElement {
     }
-    var HTMLUniDrawerElement: {
-        prototype: HTMLUniDrawerElement;
-        new (): HTMLUniDrawerElement;
+    var HTMLIvyDrawerElement: {
+        prototype: HTMLIvyDrawerElement;
+        new (): HTMLIvyDrawerElement;
     };
-    interface HTMLUniEmptyElement extends Components.UniEmpty, HTMLStencilElement {
+    interface HTMLIvyEmptyElement extends Components.IvyEmpty, HTMLStencilElement {
     }
-    var HTMLUniEmptyElement: {
-        prototype: HTMLUniEmptyElement;
-        new (): HTMLUniEmptyElement;
+    var HTMLIvyEmptyElement: {
+        prototype: HTMLIvyEmptyElement;
+        new (): HTMLIvyEmptyElement;
     };
-    interface HTMLUniPagerElement extends Components.UniPager, HTMLStencilElement {
+    interface HTMLIvyPagerElement extends Components.IvyPager, HTMLStencilElement {
     }
-    var HTMLUniPagerElement: {
-        prototype: HTMLUniPagerElement;
-        new (): HTMLUniPagerElement;
+    var HTMLIvyPagerElement: {
+        prototype: HTMLIvyPagerElement;
+        new (): HTMLIvyPagerElement;
     };
-    interface HTMLUniRowElement extends Components.UniRow, HTMLStencilElement {
+    interface HTMLIvyRowElement extends Components.IvyRow, HTMLStencilElement {
     }
-    var HTMLUniRowElement: {
-        prototype: HTMLUniRowElement;
-        new (): HTMLUniRowElement;
+    var HTMLIvyRowElement: {
+        prototype: HTMLIvyRowElement;
+        new (): HTMLIvyRowElement;
     };
-    interface HTMLUniTagElement extends Components.UniTag, HTMLStencilElement {
+    interface HTMLIvyTagElement extends Components.IvyTag, HTMLStencilElement {
     }
-    var HTMLUniTagElement: {
-        prototype: HTMLUniTagElement;
-        new (): HTMLUniTagElement;
+    var HTMLIvyTagElement: {
+        prototype: HTMLIvyTagElement;
+        new (): HTMLIvyTagElement;
     };
-    interface HTMLUniTimelineElement extends Components.UniTimeline, HTMLStencilElement {
+    interface HTMLIvyTimelineElement extends Components.IvyTimeline, HTMLStencilElement {
     }
-    var HTMLUniTimelineElement: {
-        prototype: HTMLUniTimelineElement;
-        new (): HTMLUniTimelineElement;
+    var HTMLIvyTimelineElement: {
+        prototype: HTMLIvyTimelineElement;
+        new (): HTMLIvyTimelineElement;
     };
-    interface HTMLUniTimelineItemElement extends Components.UniTimelineItem, HTMLStencilElement {
+    interface HTMLIvyTimelineItemElement extends Components.IvyTimelineItem, HTMLStencilElement {
     }
-    var HTMLUniTimelineItemElement: {
-        prototype: HTMLUniTimelineItemElement;
-        new (): HTMLUniTimelineItemElement;
+    var HTMLIvyTimelineItemElement: {
+        prototype: HTMLIvyTimelineItemElement;
+        new (): HTMLIvyTimelineItemElement;
     };
-    interface HTMLUniTipElement extends Components.UniTip, HTMLStencilElement {
+    interface HTMLIvyTipElement extends Components.IvyTip, HTMLStencilElement {
     }
-    var HTMLUniTipElement: {
-        prototype: HTMLUniTipElement;
-        new (): HTMLUniTipElement;
+    var HTMLIvyTipElement: {
+        prototype: HTMLIvyTipElement;
+        new (): HTMLIvyTipElement;
     };
-    interface HTMLUniTooltipElement extends Components.UniTooltip, HTMLStencilElement {
+    interface HTMLIvyTooltipElement extends Components.IvyTooltip, HTMLStencilElement {
     }
-    var HTMLUniTooltipElement: {
-        prototype: HTMLUniTooltipElement;
-        new (): HTMLUniTooltipElement;
+    var HTMLIvyTooltipElement: {
+        prototype: HTMLIvyTooltipElement;
+        new (): HTMLIvyTooltipElement;
     };
     interface HTMLElementTagNameMap {
-        "uni-badge": HTMLUniBadgeElement;
-        "uni-breadcrumb": HTMLUniBreadcrumbElement;
-        "uni-breadcrumb-item": HTMLUniBreadcrumbItemElement;
-        "uni-button": HTMLUniButtonElement;
-        "uni-card": HTMLUniCardElement;
-        "uni-carousel": HTMLUniCarouselElement;
-        "uni-carousel-item": HTMLUniCarouselItemElement;
-        "uni-col": HTMLUniColElement;
-        "uni-collapse": HTMLUniCollapseElement;
-        "uni-collapse-item": HTMLUniCollapseItemElement;
-        "uni-description": HTMLUniDescriptionElement;
-        "uni-description-item": HTMLUniDescriptionItemElement;
-        "uni-dialog": HTMLUniDialogElement;
-        "uni-divider": HTMLUniDividerElement;
-        "uni-drawer": HTMLUniDrawerElement;
-        "uni-empty": HTMLUniEmptyElement;
-        "uni-pager": HTMLUniPagerElement;
-        "uni-row": HTMLUniRowElement;
-        "uni-tag": HTMLUniTagElement;
-        "uni-timeline": HTMLUniTimelineElement;
-        "uni-timeline-item": HTMLUniTimelineItemElement;
-        "uni-tip": HTMLUniTipElement;
-        "uni-tooltip": HTMLUniTooltipElement;
+        "ivy-badge": HTMLIvyBadgeElement;
+        "ivy-breadcrumb": HTMLIvyBreadcrumbElement;
+        "ivy-breadcrumb-item": HTMLIvyBreadcrumbItemElement;
+        "ivy-button": HTMLIvyButtonElement;
+        "ivy-card": HTMLIvyCardElement;
+        "ivy-carousel": HTMLIvyCarouselElement;
+        "ivy-carousel-item": HTMLIvyCarouselItemElement;
+        "ivy-col": HTMLIvyColElement;
+        "ivy-collapse": HTMLIvyCollapseElement;
+        "ivy-collapse-item": HTMLIvyCollapseItemElement;
+        "ivy-description": HTMLIvyDescriptionElement;
+        "ivy-description-item": HTMLIvyDescriptionItemElement;
+        "ivy-dialog": HTMLIvyDialogElement;
+        "ivy-divider": HTMLIvyDividerElement;
+        "ivy-drawer": HTMLIvyDrawerElement;
+        "ivy-empty": HTMLIvyEmptyElement;
+        "ivy-pager": HTMLIvyPagerElement;
+        "ivy-row": HTMLIvyRowElement;
+        "ivy-tag": HTMLIvyTagElement;
+        "ivy-timeline": HTMLIvyTimelineElement;
+        "ivy-timeline-item": HTMLIvyTimelineItemElement;
+        "ivy-tip": HTMLIvyTipElement;
+        "ivy-tooltip": HTMLIvyTooltipElement;
     }
 }
 declare namespace LocalJSX {
-    interface UniBadge {
+    interface IvyBadge {
         "isDot"?: boolean;
         "max"?: string;
         "type"?: string;
         "value"?: string;
     }
-    interface UniBreadcrumb {
+    interface IvyBreadcrumb {
         "separator"?: string;
     }
-    interface UniBreadcrumbItem {
+    interface IvyBreadcrumbItem {
         "blank"?: boolean;
         "href"?: string;
         "separator"?: string;
     }
-    interface UniButton {
+    interface IvyButton {
         "loading"?: boolean;
         "plain"?: boolean;
         "round"?: boolean;
         "type"?: string;
     }
-    interface UniCard {
+    interface IvyCard {
         "header"?: string;
     }
-    interface UniCarousel {
+    interface IvyCarousel {
         "defaultActive"?: string;
     }
-    interface UniCarouselItem {
+    interface IvyCarouselItem {
     }
-    interface UniCol {
+    interface IvyCol {
         "span"?: string;
     }
-    interface UniCollapse {
+    interface IvyCollapse {
         "active"?: string;
     }
-    interface UniCollapseItem {
+    interface IvyCollapseItem {
         "active"?: string;
         "index"?: string;
         "name"?: string;
     }
-    interface UniDescription {
+    interface IvyDescription {
         "border"?: boolean;
         "columns"?: number;
         "gutter"?: string;
         "header"?: string;
         "labelWidth"?: string;
     }
-    interface UniDescriptionItem {
+    interface IvyDescriptionItem {
         "columns"?: string;
         "gutter"?: string;
         "label"?: string;
         "labelWidth"?: string;
     }
-    interface UniDialog {
-        "onClosed"?: (event: UniDialogCustomEvent<string>) => void;
-        "onSure"?: (event: UniDialogCustomEvent<string>) => void;
+    interface IvyDialog {
+        "onClosed"?: (event: IvyDialogCustomEvent<string>) => void;
+        "onSure"?: (event: IvyDialogCustomEvent<string>) => void;
         "visible"?: Boolean;
     }
-    interface UniDivider {
+    interface IvyDivider {
     }
-    interface UniDrawer {
+    interface IvyDrawer {
         "maskClosable"?: boolean;
-        "onClosed"?: (event: UniDrawerCustomEvent<any>) => void;
+        "onClosed"?: (event: IvyDrawerCustomEvent<any>) => void;
         "placement"?: string;
         "showHeader"?: boolean;
         "visible"?: Boolean;
         "width"?: string;
     }
-    interface UniEmpty {
+    interface IvyEmpty {
     }
-    interface UniPager {
+    interface IvyPager {
         "defaultPage"?: string;
         "layout"?: string;
-        "onPageChange"?: (event: UniPagerCustomEvent<string>) => void;
+        "onPageChange"?: (event: IvyPagerCustomEvent<string>) => void;
     }
-    interface UniRow {
+    interface IvyRow {
     }
-    interface UniTag {
+    interface IvyTag {
         "size"?: string;
         "theme"?: string;
         "type"?: string;
     }
-    interface UniTimeline {
+    interface IvyTimeline {
         "reverse"?: boolean;
     }
-    interface UniTimelineItem {
+    interface IvyTimelineItem {
         "timestamp"?: string;
     }
-    interface UniTip {
+    interface IvyTip {
         "name"?: string;
         "type"?: string;
     }
-    interface UniTooltip {
+    interface IvyTooltip {
         "content"?: string;
         "delay"?: string;
         "placement"?: string;
@@ -383,58 +383,58 @@ declare namespace LocalJSX {
         "visible"?: boolean;
     }
     interface IntrinsicElements {
-        "uni-badge": UniBadge;
-        "uni-breadcrumb": UniBreadcrumb;
-        "uni-breadcrumb-item": UniBreadcrumbItem;
-        "uni-button": UniButton;
-        "uni-card": UniCard;
-        "uni-carousel": UniCarousel;
-        "uni-carousel-item": UniCarouselItem;
-        "uni-col": UniCol;
-        "uni-collapse": UniCollapse;
-        "uni-collapse-item": UniCollapseItem;
-        "uni-description": UniDescription;
-        "uni-description-item": UniDescriptionItem;
-        "uni-dialog": UniDialog;
-        "uni-divider": UniDivider;
-        "uni-drawer": UniDrawer;
-        "uni-empty": UniEmpty;
-        "uni-pager": UniPager;
-        "uni-row": UniRow;
-        "uni-tag": UniTag;
-        "uni-timeline": UniTimeline;
-        "uni-timeline-item": UniTimelineItem;
-        "uni-tip": UniTip;
-        "uni-tooltip": UniTooltip;
+        "ivy-badge": IvyBadge;
+        "ivy-breadcrumb": IvyBreadcrumb;
+        "ivy-breadcrumb-item": IvyBreadcrumbItem;
+        "ivy-button": IvyButton;
+        "ivy-card": IvyCard;
+        "ivy-carousel": IvyCarousel;
+        "ivy-carousel-item": IvyCarouselItem;
+        "ivy-col": IvyCol;
+        "ivy-collapse": IvyCollapse;
+        "ivy-collapse-item": IvyCollapseItem;
+        "ivy-description": IvyDescription;
+        "ivy-description-item": IvyDescriptionItem;
+        "ivy-dialog": IvyDialog;
+        "ivy-divider": IvyDivider;
+        "ivy-drawer": IvyDrawer;
+        "ivy-empty": IvyEmpty;
+        "ivy-pager": IvyPager;
+        "ivy-row": IvyRow;
+        "ivy-tag": IvyTag;
+        "ivy-timeline": IvyTimeline;
+        "ivy-timeline-item": IvyTimelineItem;
+        "ivy-tip": IvyTip;
+        "ivy-tooltip": IvyTooltip;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "uni-badge": LocalJSX.UniBadge & JSXBase.HTMLAttributes<HTMLUniBadgeElement>;
-            "uni-breadcrumb": LocalJSX.UniBreadcrumb & JSXBase.HTMLAttributes<HTMLUniBreadcrumbElement>;
-            "uni-breadcrumb-item": LocalJSX.UniBreadcrumbItem & JSXBase.HTMLAttributes<HTMLUniBreadcrumbItemElement>;
-            "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
-            "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
-            "uni-carousel": LocalJSX.UniCarousel & JSXBase.HTMLAttributes<HTMLUniCarouselElement>;
-            "uni-carousel-item": LocalJSX.UniCarouselItem & JSXBase.HTMLAttributes<HTMLUniCarouselItemElement>;
-            "uni-col": LocalJSX.UniCol & JSXBase.HTMLAttributes<HTMLUniColElement>;
-            "uni-collapse": LocalJSX.UniCollapse & JSXBase.HTMLAttributes<HTMLUniCollapseElement>;
-            "uni-collapse-item": LocalJSX.UniCollapseItem & JSXBase.HTMLAttributes<HTMLUniCollapseItemElement>;
-            "uni-description": LocalJSX.UniDescription & JSXBase.HTMLAttributes<HTMLUniDescriptionElement>;
-            "uni-description-item": LocalJSX.UniDescriptionItem & JSXBase.HTMLAttributes<HTMLUniDescriptionItemElement>;
-            "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
-            "uni-divider": LocalJSX.UniDivider & JSXBase.HTMLAttributes<HTMLUniDividerElement>;
-            "uni-drawer": LocalJSX.UniDrawer & JSXBase.HTMLAttributes<HTMLUniDrawerElement>;
-            "uni-empty": LocalJSX.UniEmpty & JSXBase.HTMLAttributes<HTMLUniEmptyElement>;
-            "uni-pager": LocalJSX.UniPager & JSXBase.HTMLAttributes<HTMLUniPagerElement>;
-            "uni-row": LocalJSX.UniRow & JSXBase.HTMLAttributes<HTMLUniRowElement>;
-            "uni-tag": LocalJSX.UniTag & JSXBase.HTMLAttributes<HTMLUniTagElement>;
-            "uni-timeline": LocalJSX.UniTimeline & JSXBase.HTMLAttributes<HTMLUniTimelineElement>;
-            "uni-timeline-item": LocalJSX.UniTimelineItem & JSXBase.HTMLAttributes<HTMLUniTimelineItemElement>;
-            "uni-tip": LocalJSX.UniTip & JSXBase.HTMLAttributes<HTMLUniTipElement>;
-            "uni-tooltip": LocalJSX.UniTooltip & JSXBase.HTMLAttributes<HTMLUniTooltipElement>;
+            "ivy-badge": LocalJSX.IvyBadge & JSXBase.HTMLAttributes<HTMLIvyBadgeElement>;
+            "ivy-breadcrumb": LocalJSX.IvyBreadcrumb & JSXBase.HTMLAttributes<HTMLIvyBreadcrumbElement>;
+            "ivy-breadcrumb-item": LocalJSX.IvyBreadcrumbItem & JSXBase.HTMLAttributes<HTMLIvyBreadcrumbItemElement>;
+            "ivy-button": LocalJSX.IvyButton & JSXBase.HTMLAttributes<HTMLIvyButtonElement>;
+            "ivy-card": LocalJSX.IvyCard & JSXBase.HTMLAttributes<HTMLIvyCardElement>;
+            "ivy-carousel": LocalJSX.IvyCarousel & JSXBase.HTMLAttributes<HTMLIvyCarouselElement>;
+            "ivy-carousel-item": LocalJSX.IvyCarouselItem & JSXBase.HTMLAttributes<HTMLIvyCarouselItemElement>;
+            "ivy-col": LocalJSX.IvyCol & JSXBase.HTMLAttributes<HTMLIvyColElement>;
+            "ivy-collapse": LocalJSX.IvyCollapse & JSXBase.HTMLAttributes<HTMLIvyCollapseElement>;
+            "ivy-collapse-item": LocalJSX.IvyCollapseItem & JSXBase.HTMLAttributes<HTMLIvyCollapseItemElement>;
+            "ivy-description": LocalJSX.IvyDescription & JSXBase.HTMLAttributes<HTMLIvyDescriptionElement>;
+            "ivy-description-item": LocalJSX.IvyDescriptionItem & JSXBase.HTMLAttributes<HTMLIvyDescriptionItemElement>;
+            "ivy-dialog": LocalJSX.IvyDialog & JSXBase.HTMLAttributes<HTMLIvyDialogElement>;
+            "ivy-divider": LocalJSX.IvyDivider & JSXBase.HTMLAttributes<HTMLIvyDividerElement>;
+            "ivy-drawer": LocalJSX.IvyDrawer & JSXBase.HTMLAttributes<HTMLIvyDrawerElement>;
+            "ivy-empty": LocalJSX.IvyEmpty & JSXBase.HTMLAttributes<HTMLIvyEmptyElement>;
+            "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
+            "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
+            "ivy-tag": LocalJSX.IvyTag & JSXBase.HTMLAttributes<HTMLIvyTagElement>;
+            "ivy-timeline": LocalJSX.IvyTimeline & JSXBase.HTMLAttributes<HTMLIvyTimelineElement>;
+            "ivy-timeline-item": LocalJSX.IvyTimelineItem & JSXBase.HTMLAttributes<HTMLIvyTimelineItemElement>;
+            "ivy-tip": LocalJSX.IvyTip & JSXBase.HTMLAttributes<HTMLIvyTipElement>;
+            "ivy-tooltip": LocalJSX.IvyTooltip & JSXBase.HTMLAttributes<HTMLIvyTooltipElement>;
         }
     }
 }

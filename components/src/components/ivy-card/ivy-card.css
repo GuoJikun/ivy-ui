@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  border: 1px solid var(--ivy-border-color, #dcdfe6);
+  border-radius: var(--ivy-border-radius, 8px);
+  font-size: var(--ivy-font-size, 14px);
+}
+:host([shadow]) {
+  box-shadow: var(--ivy-box-shadow, 0 1px 6px rgba(0, 0, 0, 0.2));
+}
+
+.ivy-card-header {
+  border-bottom: 1px solid var(--ivy-border-color, #dcdfe6);
+  padding: 12px 16px;
+}
+.ivy-card-body {
+  padding: 16px;
+}

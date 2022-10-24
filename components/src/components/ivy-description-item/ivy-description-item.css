@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+:host(:not(:defined)) {
+  display: none;
+}
+
+.content {
+  flex: auto;
+}
+
+:host([border]) {
+  border-left: 1px solid var(--ivy-border-color, #dcdfe6);
+  border-top: 1px solid var(--ivy-border-color, #dcdfe6);
+}

@@ -1,0 +1,73 @@
+:host {
+  --ivy-divider-color: var(--ivy-border-color, #dcdfe6);
+  --ivy-divider-text-padding: 0 12px;
+  padding: 28px 0;
+  display: block;
+  height: 0px;
+  line-height: 0px;
+  background-color: transparent;
+  display: block;
+  font-size: 14px;
+  position: relative;
+  z-index: 0;
+}
+
+.ivy-divider-line {
+  display: block;
+  width: 100%;
+  height: 0px;
+  border-top: 1px solid var(--ivy-divider-color);
+}
+.ivy-divider-text {
+  display: inline-block;
+  padding: var(--ivy-divider-text-padding);
+  font-size: inherit;
+  line-height: 1em;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
+
+:host([type='solid']) .ivy-divider-line {
+  border-top-style: solid;
+}
+:host([type='dotted']) .ivy-divider-line {
+  border-top-style: dotted;
+}
+:host([type='dashed']) .ivy-divider-line {
+  border-top-style: dashed;
+}
+:host([type='double']) .ivy-divider-line {
+  border-top-style: double;
+}
+:host([type='groove']) .ivy-divider-line {
+  border-top-style: groove;
+}
+:host([type='ridge']) .ivy-divider-line {
+  border-top-style: ridge;
+}
+:host([type='inset']) .ivy-divider-line {
+  border-top-style: inset;
+}
+:host([type='outset']) .ivy-divider-line {
+  border-top-style: outset;
+}
+
+:host([hide-text]) .ivy-divider-text {
+  display: none;
+}
+:host([placement='center']) .ivy-divider-text {
+  margin: 0 auto;
+}
+:host([placement='left']) .ivy-divider-text {
+  left: 10%;
+  transform: translate(0, -50%);
+}
+:host([placement='right']) .ivy-divider-text {
+  left: auto;
+  right: 10%;
+  transform: translate(0, -50%);
+}

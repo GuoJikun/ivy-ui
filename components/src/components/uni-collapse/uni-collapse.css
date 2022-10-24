@@ -1,9 +1,0 @@
-:host {
-  border: 1px solid #dcdee2;
-  display: block;
-  border-radius: var(--uni-border-radius, 4px);
-  overflow: hidden;
-}
-::slotted {
-  position: relative;
-}

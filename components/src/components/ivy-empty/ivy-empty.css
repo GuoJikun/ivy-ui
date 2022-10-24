@@ -1,0 +1,20 @@
+:host {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 40px 0;
+  --ivy-empty-text-color: #666;
+}
+.ivy-empty__image {
+  display: flex;
+  justify-content: center;
+  width: 160px;
+}
+.ivy-empty__text {
+  text-align: center;
+  margin-top: 12px;
+  color: var(--ivy-empty-text-color);
+}

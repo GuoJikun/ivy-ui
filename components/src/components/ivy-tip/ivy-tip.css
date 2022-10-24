@@ -1,0 +1,80 @@
+:host {
+  /* primary*/
+  --ivy-color-primary: #409eff;
+  --ivy-color-primary-light-9: #ecf5ff;
+  /* success*/
+  --ivy-color-success: #67c23a;
+  --ivy-color-success-light-9: #f0f9eb;
+  /* warning*/
+  --ivy-color-warning: #e6a23c;
+  --ivy-color-warning-light-9: #fdf6ec;
+  /* danger*/
+  --ivy-color-danger: #f56c6c;
+  --ivy-color-danger-light-9: #fef0f0;
+  /* info*/
+  --ivy-color-info: #909399;
+  --ivy-color-info-light-9: #f4f4f5;
+  display: block;
+  width: 100%;
+  padding: 12px 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: var(--ivy-tip-bg-color);
+  color: var(--ivy-tip-color);
+  border-radius: var(--ivy-tip-border-radius, 4px);
+}
+:host([line]) {
+  border-left-width: var(--ivy-tip-line-width, 4px);
+  border-left-style: solid;
+  border-left-color: var(--ivy-tip-line-color);
+}
+p {
+  margin: 0;
+}
+.title {
+  font-weight: 600;
+  font-size: var(--ivy-tip-title-font-size, 14px);
+  margin-bottom: 6px;
+}
+.content {
+  font-size: var(--ivy-tip-font-size, 13px);
+}
+:host([type='primary']) {
+  --ivy-tip-bg-color: var(--ivy-color-primary-light-9);
+  --ivy-tip-color: var(--ivy-color-primary);
+}
+:host([type='primary'][line]) {
+  --ivy-tip-line-color: var(--ivy-color-primary);
+}
+
+:host([type='success']) {
+  --ivy-tip-bg-color: var(--ivy-color-success-light-9);
+  --ivy-tip-color: var(--ivy-color-success);
+}
+:host([type='success'][line]) {
+  --ivy-tip-line-color: var(--ivy-color-success);
+}
+
+:host([type='warning']) {
+  --ivy-tip-bg-color: var(--ivy-color-warning-light-9);
+  --ivy-tip-color: var(--ivy-color-warning);
+}
+:host([type='warning'][line]) {
+  --ivy-tip-line-color: var(--ivy-color-warning);
+}
+
+:host([type='danger']) {
+  --ivy-tip-bg-color: var(--ivy-color-danger-light-9);
+  --ivy-tip-color: var(--ivy-color-danger);
+}
+:host([type='danger'][line]) {
+  --ivy-tip-line-color: var(--ivy-color-danger);
+}
+
+:host([type='info']) {
+  --ivy-tip-bg-color: var(--ivy-color-info-light-9);
+  --ivy-tip-color: var(--ivy-color-info);
+}
+:host([type='info'][line]) {
+  --ivy-tip-line-color: var(--ivy-color-info);
+}
