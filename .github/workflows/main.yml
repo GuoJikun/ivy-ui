@@ -6,7 +6,7 @@ name: 自动部署文档
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    tag:
+    tags:
       - "v*"
 
   # Allows you to run this workflow manually from the Actions tab
