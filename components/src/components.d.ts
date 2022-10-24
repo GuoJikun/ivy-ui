@@ -6,6 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface IvyAspectRatio {
+        "aspectRatio": string;
+        "mode": string;
+        "width": string;
+    }
     interface IvyBadge {
         "isDot": boolean;
         "max": string;
@@ -123,6 +128,12 @@ export interface IvyPagerCustomEvent<T> extends CustomEvent<T> {
     target: HTMLIvyPagerElement;
 }
 declare global {
+    interface HTMLIvyAspectRatioElement extends Components.IvyAspectRatio, HTMLStencilElement {
+    }
+    var HTMLIvyAspectRatioElement: {
+        prototype: HTMLIvyAspectRatioElement;
+        new (): HTMLIvyAspectRatioElement;
+    };
     interface HTMLIvyBadgeElement extends Components.IvyBadge, HTMLStencilElement {
     }
     var HTMLIvyBadgeElement: {
@@ -268,6 +279,7 @@ declare global {
         new (): HTMLIvyTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "ivy-aspect-ratio": HTMLIvyAspectRatioElement;
         "ivy-badge": HTMLIvyBadgeElement;
         "ivy-breadcrumb": HTMLIvyBreadcrumbElement;
         "ivy-breadcrumb-item": HTMLIvyBreadcrumbItemElement;
@@ -295,6 +307,11 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface IvyAspectRatio {
+        "aspectRatio"?: string;
+        "mode"?: string;
+        "width"?: string;
+    }
     interface IvyBadge {
         "isDot"?: boolean;
         "max"?: string;
@@ -398,6 +415,7 @@ declare namespace LocalJSX {
         "visible"?: boolean;
     }
     interface IntrinsicElements {
+        "ivy-aspect-ratio": IvyAspectRatio;
         "ivy-badge": IvyBadge;
         "ivy-breadcrumb": IvyBreadcrumb;
         "ivy-breadcrumb-item": IvyBreadcrumbItem;
@@ -428,6 +446,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ivy-aspect-ratio": LocalJSX.IvyAspectRatio & JSXBase.HTMLAttributes<HTMLIvyAspectRatioElement>;
             "ivy-badge": LocalJSX.IvyBadge & JSXBase.HTMLAttributes<HTMLIvyBadgeElement>;
             "ivy-breadcrumb": LocalJSX.IvyBreadcrumb & JSXBase.HTMLAttributes<HTMLIvyBreadcrumbElement>;
             "ivy-breadcrumb-item": LocalJSX.IvyBreadcrumbItem & JSXBase.HTMLAttributes<HTMLIvyBreadcrumbItemElement>;
