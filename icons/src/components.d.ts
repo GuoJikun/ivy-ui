@@ -6,53 +6,53 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface UniArrowUp {
+    interface IvyArrowUp {
         "color": string;
         "size": string;
     }
-    interface UniRefresh {
+    interface IvyRefresh {
         "color": string;
         "size": string;
     }
 }
 declare global {
-    interface HTMLUniArrowUpElement extends Components.UniArrowUp, HTMLStencilElement {
+    interface HTMLIvyArrowUpElement extends Components.IvyArrowUp, HTMLStencilElement {
     }
-    var HTMLUniArrowUpElement: {
-        prototype: HTMLUniArrowUpElement;
-        new (): HTMLUniArrowUpElement;
+    var HTMLIvyArrowUpElement: {
+        prototype: HTMLIvyArrowUpElement;
+        new (): HTMLIvyArrowUpElement;
     };
-    interface HTMLUniRefreshElement extends Components.UniRefresh, HTMLStencilElement {
+    interface HTMLIvyRefreshElement extends Components.IvyRefresh, HTMLStencilElement {
     }
-    var HTMLUniRefreshElement: {
-        prototype: HTMLUniRefreshElement;
-        new (): HTMLUniRefreshElement;
+    var HTMLIvyRefreshElement: {
+        prototype: HTMLIvyRefreshElement;
+        new (): HTMLIvyRefreshElement;
     };
     interface HTMLElementTagNameMap {
-        "uni-arrow-up": HTMLUniArrowUpElement;
-        "uni-refresh": HTMLUniRefreshElement;
+        "ivy-arrow-up": HTMLIvyArrowUpElement;
+        "ivy-refresh": HTMLIvyRefreshElement;
     }
 }
 declare namespace LocalJSX {
-    interface UniArrowUp {
+    interface IvyArrowUp {
         "color"?: string;
         "size"?: string;
     }
-    interface UniRefresh {
+    interface IvyRefresh {
         "color"?: string;
         "size"?: string;
     }
     interface IntrinsicElements {
-        "uni-arrow-up": UniArrowUp;
-        "uni-refresh": UniRefresh;
+        "ivy-arrow-up": IvyArrowUp;
+        "ivy-refresh": IvyRefresh;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "uni-arrow-up": LocalJSX.UniArrowUp & JSXBase.HTMLAttributes<HTMLUniArrowUpElement>;
-            "uni-refresh": LocalJSX.UniRefresh & JSXBase.HTMLAttributes<HTMLUniRefreshElement>;
+            "ivy-arrow-up": LocalJSX.IvyArrowUp & JSXBase.HTMLAttributes<HTMLIvyArrowUpElement>;
+            "ivy-refresh": LocalJSX.IvyRefresh & JSXBase.HTMLAttributes<HTMLIvyRefreshElement>;
         }
     }
 }

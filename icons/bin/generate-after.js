@@ -9,7 +9,7 @@ const outputDirList = readdirSync(targetDirPath, 'utf-8');
 const target = outputDirList.find(c => !beforeComponent.includes(c));
 
 if (target) {
-  const svgSourcePath = join(__dirname, '..', `svgs/${new String(target).replace('uni-', '')}`);
+  const svgSourcePath = join(__dirname, '..', `svgs/${new String(target).replace('ivy-', '')}`);
   const svgFileBuffer = readFileSync(`${svgSourcePath}.svg`);
   if (!svgFileBuffer) return;
   transSvg(svgFileBuffer)

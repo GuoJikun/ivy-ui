@@ -1,1 +1,1 @@
-module.exports = ["uni-arrow-up"]
+module.exports = ['ivy-arrow-up'];

@@ -14,7 +14,7 @@ const outputDirList = readdirSync(targetDirPath, 'utf-8');
 if (compName === undefined || compName === null) {
   console.error('\x1B[31m%s\x1B[0m', '请输入组件名称');
   process.exit();
-} else if (!compName.startsWith('uni-')) {
+} else if (!compName.startsWith('ivy-')) {
   console.error('\x1B[31m%s\x1B[0m', '组件名称必须以uni-开头');
   process.exit();
 } else if (!outputSvgList.map(c => c.replace('.svg', '')).some(v => compName.endsWith(v))) {

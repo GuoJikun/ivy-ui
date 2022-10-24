@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { UniRefresh } from '../uni-refresh';
+import { IvyArrowUp } from '../ivy-arrow-up';
 
-describe('uni-refresh', () => {
+describe('ivy-arrow-up', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [UniRefresh],
-      html: `<uni-refresh></uni-refresh>`,
+      components: [IvyArrowUp],
+      html: `<ivy-arrow-up></ivy-arrow-up>`,
     });
     expect(page.root).toEqualHtml(`
-      <uni-refresh>
+      <ivy-arrow-up>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </uni-refresh>
+      </ivy-arrow-up>
     `);
   });
 });

@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core';
 
 export const config: Config = {
-  namespace: 'uni-icon',
+  namespace: 'ivy-icon',
   outputTargets: [
     {
       type: 'dist',

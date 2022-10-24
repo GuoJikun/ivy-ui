@@ -31,11 +31,11 @@ const svg2component = svg => {
   return `
     import { Component, Host, h, Prop } from '@stencil/core';
     @Component({
-      tag: "uni-${svg.id}",
-      styleUrl: 'uni-${svg.id}.css',
+      tag: "ivy-${svg.id}",
+      styleUrl: 'ivy-${svg.id}.css',
       shadow: false,
     })
-    export class Uni${camelCase(svg.id)} {
+    export class Ivy${camelCase(svg.id)} {
       @Prop({
         attribute: 'size',
         mutable: true,
@@ -62,11 +62,11 @@ Promise.all(batches).then(res => {
     const parseStr = parseSync(c.file);
     const str = stringify(parseStr);
     const target = { content: str, id: c._name };
-    const flag = outputDirList.includes(`uni-target.id`);
+    const flag = outputDirList.includes(`ivy-target.id`);
     if (flag) {
     } else {
       console.log('没有对应的文件夹');
-      await spawn(`pnpm generate uni-${target.id}`, {
+      await spawn(`pnpm generate ivy-${target.id}`, {
         cwd: join(__dirname, '..'),
         stdio: 'inherit',
         shell: process.platform === 'win32',

@@ -6,9 +6,8 @@ name: 自动部署文档
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    tag:
+      - "v*"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -22,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [16.x]
         npm-version: [7.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
@@ -34,16 +33,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          cache: ["pnpm"]
 
       # Runs a single command using the runners shell
       - name: 安装依赖
-        run: npm i -g npm && npm i
-
-      - name: lerna bootstrap
-        run: lerna bootstrap
+        run: pnpm i
 
       - name: 打包
-        run: npm run build && lerna run build --scope ivy-ui && lerna run --scope example build
+        run: pnpm run build && lerna run build --scope ivy-ui && lerna run --scope example build
 
       # 配置git用户名和邮箱
       - name: 配置git

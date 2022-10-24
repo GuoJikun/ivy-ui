@@ -73,7 +73,7 @@ const writeFile = (path, name, svgContent) => {
   try {
     const cssContent = `:host {
   display: inline-block;
-  font-size: var(--uni-icon-size, 20px);
+  font-size: var(--ivy-icon-size, 20px);
   width: 1em;
   height: 1em;
   line-height: 1em;
