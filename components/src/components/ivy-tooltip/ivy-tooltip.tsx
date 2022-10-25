@@ -77,11 +77,11 @@ export class IvyTooltip {
   render() {
     return (
       <Host show={this.visible}>
-        <div class="ivy-tooltip-ref" onMouseEnter={this.show.bind(this)} onFocus={this.show.bind(this)} onMouseLeave={this.hide.bind(this)} onBlur={this.hide.bind(this)}>
+        <div class="ivy-tooltip-ref" onMouseEnter={this.show.bind(this)} onMouseOut={this.hide.bind(this)}>
           <slot></slot>
         </div>
         <div class="ivy-tooltip-content">
-          <div class="ivy-tooltip-arrow" data-popper-arrow></div>
+          <div class="ivy-tooltip-arrow"></div>
           <div class="ivy-tooltip-text">
             <slot name="content">{this.content}</slot>
           </div>

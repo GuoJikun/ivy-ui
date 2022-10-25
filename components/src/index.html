@@ -29,15 +29,15 @@
       margin: 0;
     }
 
-    .ivy-margin-top {
+    .margin-top {
       margin-top: 12px;
     }
 
-    .ivy-margin-left {
+    .-margin-left {
       margin-left: 12px;
     }
 
-    .ivy-margin-left-large {
+    .margin-left-large {
       margin-left: 12px;
     }
 
@@ -50,12 +50,52 @@
 </head>
 
 <body>
-  <div style="height: 120vh"></div>
   <div style="min-height: 200px">
-    <ivy-image src="https://xx.nonewall.com:12443/ydimage/assets/2022-08/1557544636157825024.png">321321321
-    </ivy-image>
-    <ivy-image src="https://xx.nonewall.com:12443/ydimage/assets/2022-08/1557544636157825024.png" lazy>321321321
-    </ivy-image>
+
+  </div>
+  <div>
+    <ivy-tooltip content="Tooltip 文字提示" placement="top-start" theme="dark">
+      <ivy-tag>top start</ivy-tag>
+    </ivy-tooltip>
+    <ivy-tooltip content="Tooltip 文字提示" placement="top" theme="dark">
+      <ivy-tag>top</ivy-tag>
+    </ivy-tooltip>
+    <ivy-tooltip content="Tooltip 文字提示" placement="top-end" theme="dark">
+      <ivy-tag>top end</ivy-tag>
+    </ivy-tooltip>
+  </div>
+  <div class="margin-top">
+    <ivy-tooltip content="Tooltip 文字提示" placement="bottom-start" theme="dark">
+      <ivy-tag>bottom start</ivy-tag>
+    </ivy-tooltip>
+    <ivy-tooltip content="Tooltip 文字提示" placement="bottom" theme="dark">
+      <ivy-tag>bottom</ivy-tag>
+    </ivy-tooltip>
+    <ivy-tooltip content="Tooltip 文字提示" placement="bottom-end" theme="dark">
+      <ivy-tag>bottom end</ivy-tag>
+    </ivy-tooltip>
+  </div>
+  <div class="margin-top">
+    <ivy-tooltip content="Tooltip 文字提示" placement="left-start" theme="dark">
+      <ivy-tag>left start</ivy-tag>
+    </ivy-tooltip>
+    <ivy-tooltip content="Tooltip 文字提示" placement="left" theme="dark">
+      <ivy-tag>left</ivy-tag>
+    </ivy-tooltip>
+    <ivy-tooltip content="Tooltip 文字提示" placement="left-end" theme="dark">
+      <ivy-tag>left end</ivy-tag>
+    </ivy-tooltip>
+  </div>
+  <div class="margin-top">
+    <ivy-tooltip content="Tooltip 文字提示" placement="right-start" theme="dark">
+      <ivy-tag>right start</ivy-tag>
+    </ivy-tooltip>
+    <ivy-tooltip content="Tooltip 文字提示" placement="right" theme="dark">
+      <ivy-tag>right</ivy-tag>
+    </ivy-tooltip>
+    <ivy-tooltip content="Tooltip 文字提示" placement="right-end" theme="dark">
+      <ivy-tag>right end</ivy-tag>
+    </ivy-tooltip>
   </div>
 
 
