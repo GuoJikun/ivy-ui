@@ -83,8 +83,9 @@ export namespace Components {
     interface IvyEmpty {
     }
     interface IvyImage {
-        "myArray": string;
-        "myObject": string;
+        "alt": string;
+        "lazy": boolean;
+        "src": string;
     }
     interface IvyPager {
         "defaultPage": string;
@@ -382,8 +383,9 @@ declare namespace LocalJSX {
     interface IvyEmpty {
     }
     interface IvyImage {
-        "myArray"?: string;
-        "myObject"?: string;
+        "alt"?: string;
+        "lazy"?: boolean;
+        "src"?: string;
     }
     interface IvyPager {
         "defaultPage"?: string;

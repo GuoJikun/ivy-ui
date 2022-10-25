@@ -1,3 +1,9 @@
 :host {
-  display: block;
+  display: inline-block;
+  width: var(--ivy-image-width);
+  height: var(--ivy-image-height);
+}
+.image-inner {
+  width: var(--ivy-image-width);
+  height: var(--ivy-image-height);
 }
