@@ -93,6 +93,8 @@ export namespace Components {
     }
     interface IvyRow {
     }
+    interface IvySpace {
+    }
     interface IvyTag {
         "size": string;
         "theme": string;
@@ -249,6 +251,12 @@ declare global {
         prototype: HTMLIvyRowElement;
         new (): HTMLIvyRowElement;
     };
+    interface HTMLIvySpaceElement extends Components.IvySpace, HTMLStencilElement {
+    }
+    var HTMLIvySpaceElement: {
+        prototype: HTMLIvySpaceElement;
+        new (): HTMLIvySpaceElement;
+    };
     interface HTMLIvyTagElement extends Components.IvyTag, HTMLStencilElement {
     }
     var HTMLIvyTagElement: {
@@ -300,6 +308,7 @@ declare global {
         "ivy-image": HTMLIvyImageElement;
         "ivy-pager": HTMLIvyPagerElement;
         "ivy-row": HTMLIvyRowElement;
+        "ivy-space": HTMLIvySpaceElement;
         "ivy-tag": HTMLIvyTagElement;
         "ivy-timeline": HTMLIvyTimelineElement;
         "ivy-timeline-item": HTMLIvyTimelineItemElement;
@@ -394,6 +403,8 @@ declare namespace LocalJSX {
     }
     interface IvyRow {
     }
+    interface IvySpace {
+    }
     interface IvyTag {
         "size"?: string;
         "theme"?: string;
@@ -437,6 +448,7 @@ declare namespace LocalJSX {
         "ivy-image": IvyImage;
         "ivy-pager": IvyPager;
         "ivy-row": IvyRow;
+        "ivy-space": IvySpace;
         "ivy-tag": IvyTag;
         "ivy-timeline": IvyTimeline;
         "ivy-timeline-item": IvyTimelineItem;
@@ -468,6 +480,7 @@ declare module "@stencil/core" {
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
+            "ivy-space": LocalJSX.IvySpace & JSXBase.HTMLAttributes<HTMLIvySpaceElement>;
             "ivy-tag": LocalJSX.IvyTag & JSXBase.HTMLAttributes<HTMLIvyTagElement>;
             "ivy-timeline": LocalJSX.IvyTimeline & JSXBase.HTMLAttributes<HTMLIvyTimelineElement>;
             "ivy-timeline-item": LocalJSX.IvyTimelineItem & JSXBase.HTMLAttributes<HTMLIvyTimelineItemElement>;
