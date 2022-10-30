@@ -2,6 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'ivy',
+  globalStyle: 'src/index.css',
   outputTargets: [
     {
       type: 'dist',
