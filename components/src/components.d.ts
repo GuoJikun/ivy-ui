@@ -84,6 +84,7 @@ export namespace Components {
     }
     interface IvyImage {
         "alt": string;
+        "fit": string;
         "lazy": boolean;
         "src": string;
     }
@@ -393,6 +394,7 @@ declare namespace LocalJSX {
     }
     interface IvyImage {
         "alt"?: string;
+        "fit"?: string;
         "lazy"?: boolean;
         "src"?: string;
     }
