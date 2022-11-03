@@ -5,29 +5,29 @@
 默认显示的样式
 
 <ivy-tag>default</ivy-tag>
-<ivy-tag color="primary">primary</ivy-tag>
-<ivy-tag color="success">success</ivy-tag>
-<ivy-tag color="warning">warning</ivy-tag>
-<ivy-tag color="error">error</ivy-tag>
-<ivy-tag color="info">info</ivy-tag>
+<ivy-tag type="primary">primary</ivy-tag>
+<ivy-tag type="success">success</ivy-tag>
+<ivy-tag type="warning">warning</ivy-tag>
+<ivy-tag type="danger">danger</ivy-tag>
+<ivy-tag type="info">info</ivy-tag>
 
 
 ## 自定义颜色
 
-通过`color`属性来设置主题,默认颜色有 5 中-`primary`、`success`、`warning`、`error`、`info`
+通过`type`属性来设置主题,默认颜色有 5 中-`primary`、`success`、`warning`、`error`、`info`
 
-<ivy-tag color="#008000">#008000</ivy-tag>
-<ivy-tag color="#67C23A">#67C23A</ivy-tag>
-<ivy-tag color="#E6A23C">#E6A23C</ivy-tag>
-<ivy-tag color="#F56C6C">#F56C6C</ivy-tag>
-<ivy-tag color="#909399">#909399</ivy-tag>
+<ivy-tag type="#008000">#008000</ivy-tag>
+<ivy-tag type="#67C23A">#67C23A</ivy-tag>
+<ivy-tag type="#E6A23C">#E6A23C</ivy-tag>
+<ivy-tag type="#F56C6C">#F56C6C</ivy-tag>
+<ivy-tag type="#909399">#909399</ivy-tag>
 
 ```html
-<ivy-tag color="#008000">#008000</ivy-tag>
-<ivy-tag color="#67C23A">#67C23A</ivy-tag>
-<ivy-tag color="#E6A23C">#E6A23C</ivy-tag>
-<ivy-tag color="#F56C6C">#F56C6C</ivy-tag>
-<ivy-tag color="#909399">#909399</ivy-tag>
+<ivy-tag type="#008000">#008000</ivy-tag>
+<ivy-tag type="#67C23A">#67C23A</ivy-tag>
+<ivy-tag type="#E6A23C">#E6A23C</ivy-tag>
+<ivy-tag type="#F56C6C">#F56C6C</ivy-tag>
+<ivy-tag type="#909399">#909399</ivy-tag>
 ```
 
 ## theme
@@ -35,47 +35,33 @@
 通过`theme`属性来设置主题,一共有三种`plain`、`dark`、`default`,其中`default`是默认的不用写
 
 default：
-<ivy-tag color="primary">#409eff</ivy-tag>
-<ivy-tag color="success">#67C23A</ivy-tag>
-<ivy-tag color="warning">#E6A23C</ivy-tag>
-<ivy-tag color="error">#F56C6C</ivy-tag>
-<ivy-tag color="info">#909399</ivy-tag>
+<ivy-tag type="primary">primary</ivy-tag>
+<ivy-tag type="success">success</ivy-tag>
+<ivy-tag type="warning">warning</ivy-tag>
+<ivy-tag type="danger">#F56C6C</ivy-tag>
+<ivy-tag type="info">info</ivy-tag>
 
 dark：
-<ivy-tag theme="dark" color="primary">#409eff</ivy-tag>
-<ivy-tag theme="dark" color="success">#67C23A</ivy-tag>
-<ivy-tag theme="dark" color="warning">#E6A23C</ivy-tag>
-<ivy-tag theme="dark" color="error">#F56C6C</ivy-tag>
-<ivy-tag theme="dark" color="info">#909399</ivy-tag>
-
-plain：
-<ivy-tag theme="plain" color="primary">#409eff</ivy-tag>
-<ivy-tag theme="plain" color="success">#67C23A</ivy-tag>
-<ivy-tag theme="plain" color="warning">#E6A23C</ivy-tag>
-<ivy-tag theme="plain" color="error">#F56C6C</ivy-tag>
-<ivy-tag theme="plain" color="info">#909399</ivy-tag>
+<ivy-tag theme="dark" type="primary">primary</ivy-tag>
+<ivy-tag theme="dark" type="success">success</ivy-tag>
+<ivy-tag theme="dark" type="warning">warning</ivy-tag>
+<ivy-tag theme="dark" type="danger">danger</ivy-tag>
+<ivy-tag theme="dark" type="info">info</ivy-tag>
 
 ```html
 default：
-<ivy-tag color="primary">#409eff</ivy-tag>
-<ivy-tag color="success">#67C23A</ivy-tag>
-<ivy-tag color="warning">#E6A23C</ivy-tag>
-<ivy-tag color="error">#F56C6C</ivy-tag>
-<ivy-tag color="info">#909399</ivy-tag>
+<ivy-tag type="primary">primary</ivy-tag>
+<ivy-tag type="success">success</ivy-tag>
+<ivy-tag type="warning">warning</ivy-tag>
+<ivy-tag type="danger">#F56C6C</ivy-tag>
+<ivy-tag type="info">info</ivy-tag>
 
 dark：
-<ivy-tag theme="dark" color="primary">#409eff</ivy-tag>
-<ivy-tag theme="dark" color="success">#67C23A</ivy-tag>
-<ivy-tag theme="dark" color="warning">#E6A23C</ivy-tag>
-<ivy-tag theme="dark" color="error">#F56C6C</ivy-tag>
-<ivy-tag theme="dark" color="info">#909399</ivy-tag>
-
-plain：
-<ivy-tag theme="plain" color="primary">#409eff</ivy-tag>
-<ivy-tag theme="plain" color="success">#67C23A</ivy-tag>
-<ivy-tag theme="plain" color="warning">#E6A23C</ivy-tag>
-<ivy-tag theme="plain" color="error">#F56C6C</ivy-tag>
-<ivy-tag theme="plain" color="info">#909399</ivy-tag>
+<ivy-tag theme="dark" type="primary">primary</ivy-tag>
+<ivy-tag theme="dark" type="success">success</ivy-tag>
+<ivy-tag theme="dark" type="warning">warning</ivy-tag>
+<ivy-tag theme="dark" type="danger">danger</ivy-tag>
+<ivy-tag theme="dark" type="info">info</ivy-tag>
 ```
 
 ## Size 大小
