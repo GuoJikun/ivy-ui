@@ -110,6 +110,7 @@ export namespace Components {
         "reverse": boolean;
     }
     interface IvyTimelineItem {
+        "reverse": boolean;
         "timestamp": string;
     }
     interface IvyTip {
@@ -433,6 +434,7 @@ declare namespace LocalJSX {
         "reverse"?: boolean;
     }
     interface IvyTimelineItem {
+        "reverse"?: boolean;
         "timestamp"?: string;
     }
     interface IvyTip {

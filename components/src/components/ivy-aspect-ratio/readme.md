@@ -10,7 +10,6 @@
 | Property      | Attribute      | Description | Type     | Default  |
 | ------------- | -------------- | ----------- | -------- | -------- |
 | `aspectRatio` | `aspect-ratio` |             | `string` | `'1/1'`  |
-| `mode`        | `mode`         |             | `string` | `'css'`  |
 | `width`       | `width`        |             | `string` | `'100%'` |
 
 

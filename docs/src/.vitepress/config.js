@@ -5,16 +5,17 @@ export default defineConfig({
   title: "ivy-ui 文档",
   description: "Just playing around.",
   lastUpdated: true,
+  srcDir: "./src",
+  outDir: "../dist",
   themeConfig: {
     // Type is `DefaultTheme.Config`
-    layout: "page",
-    repo: "GuoJikun/ivy-ui-docs",
-    docsDir: "docs",
-    docsBranch: "main",
-    editLinks: true,
-    editLinkText: "Edit this page on GitHub",
-    lastUpdated: "Last Updated",
-    outDir: "../dist",
+
+    editLink: {
+      pattern: "https://github.com/GuoJiKun/ivy-ui/edit/main/src/:path",
+      text: "Edit on GitHub",
+    },
+    lastUpdatedText: "Updated Date",
+    outlineTitle: "章节目录",
     nav: [
       {
         text: "首页",

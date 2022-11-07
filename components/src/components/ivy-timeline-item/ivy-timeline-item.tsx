@@ -12,6 +12,12 @@ export class IvyTimelineItem {
   })
   timestamp: string = '';
 
+  @Prop({
+    attribute: 'reverse',
+    reflect: true,
+  })
+  reverse: boolean;
+
   render() {
     return (
       <Host>
