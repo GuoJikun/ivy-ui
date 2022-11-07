@@ -1,0 +1,8 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  border-right: var(--ivy-grid-item-border);
+  border-bottom: var(--ivy-grid-item-border);
+  width: var(--ivy-grid-item-width);
+  height: var(--ivy-grid-item-height);
+}

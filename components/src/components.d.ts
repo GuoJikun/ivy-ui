@@ -82,6 +82,14 @@ export namespace Components {
     }
     interface IvyEmpty {
     }
+    interface IvyGrid {
+        "border": boolean;
+        "col": string;
+        "square": boolean;
+    }
+    interface IvyGridItem {
+        "col": string;
+    }
     interface IvyImage {
         "alt": string;
         "lazy": boolean;
@@ -92,8 +100,6 @@ export namespace Components {
         "layout": string;
     }
     interface IvyRow {
-    }
-    interface IvySpace {
     }
     interface IvyTag {
         "size": string;
@@ -233,6 +239,18 @@ declare global {
         prototype: HTMLIvyEmptyElement;
         new (): HTMLIvyEmptyElement;
     };
+    interface HTMLIvyGridElement extends Components.IvyGrid, HTMLStencilElement {
+    }
+    var HTMLIvyGridElement: {
+        prototype: HTMLIvyGridElement;
+        new (): HTMLIvyGridElement;
+    };
+    interface HTMLIvyGridItemElement extends Components.IvyGridItem, HTMLStencilElement {
+    }
+    var HTMLIvyGridItemElement: {
+        prototype: HTMLIvyGridItemElement;
+        new (): HTMLIvyGridItemElement;
+    };
     interface HTMLIvyImageElement extends Components.IvyImage, HTMLStencilElement {
     }
     var HTMLIvyImageElement: {
@@ -250,12 +268,6 @@ declare global {
     var HTMLIvyRowElement: {
         prototype: HTMLIvyRowElement;
         new (): HTMLIvyRowElement;
-    };
-    interface HTMLIvySpaceElement extends Components.IvySpace, HTMLStencilElement {
-    }
-    var HTMLIvySpaceElement: {
-        prototype: HTMLIvySpaceElement;
-        new (): HTMLIvySpaceElement;
     };
     interface HTMLIvyTagElement extends Components.IvyTag, HTMLStencilElement {
     }
@@ -305,10 +317,11 @@ declare global {
         "ivy-divider": HTMLIvyDividerElement;
         "ivy-drawer": HTMLIvyDrawerElement;
         "ivy-empty": HTMLIvyEmptyElement;
+        "ivy-grid": HTMLIvyGridElement;
+        "ivy-grid-item": HTMLIvyGridItemElement;
         "ivy-image": HTMLIvyImageElement;
         "ivy-pager": HTMLIvyPagerElement;
         "ivy-row": HTMLIvyRowElement;
-        "ivy-space": HTMLIvySpaceElement;
         "ivy-tag": HTMLIvyTagElement;
         "ivy-timeline": HTMLIvyTimelineElement;
         "ivy-timeline-item": HTMLIvyTimelineItemElement;
@@ -391,6 +404,14 @@ declare namespace LocalJSX {
     }
     interface IvyEmpty {
     }
+    interface IvyGrid {
+        "border"?: boolean;
+        "col"?: string;
+        "square"?: boolean;
+    }
+    interface IvyGridItem {
+        "col"?: string;
+    }
     interface IvyImage {
         "alt"?: string;
         "lazy"?: boolean;
@@ -402,8 +423,6 @@ declare namespace LocalJSX {
         "onPageChange"?: (event: IvyPagerCustomEvent<string>) => void;
     }
     interface IvyRow {
-    }
-    interface IvySpace {
     }
     interface IvyTag {
         "size"?: string;
@@ -445,10 +464,11 @@ declare namespace LocalJSX {
         "ivy-divider": IvyDivider;
         "ivy-drawer": IvyDrawer;
         "ivy-empty": IvyEmpty;
+        "ivy-grid": IvyGrid;
+        "ivy-grid-item": IvyGridItem;
         "ivy-image": IvyImage;
         "ivy-pager": IvyPager;
         "ivy-row": IvyRow;
-        "ivy-space": IvySpace;
         "ivy-tag": IvyTag;
         "ivy-timeline": IvyTimeline;
         "ivy-timeline-item": IvyTimelineItem;
@@ -477,10 +497,11 @@ declare module "@stencil/core" {
             "ivy-divider": LocalJSX.IvyDivider & JSXBase.HTMLAttributes<HTMLIvyDividerElement>;
             "ivy-drawer": LocalJSX.IvyDrawer & JSXBase.HTMLAttributes<HTMLIvyDrawerElement>;
             "ivy-empty": LocalJSX.IvyEmpty & JSXBase.HTMLAttributes<HTMLIvyEmptyElement>;
+            "ivy-grid": LocalJSX.IvyGrid & JSXBase.HTMLAttributes<HTMLIvyGridElement>;
+            "ivy-grid-item": LocalJSX.IvyGridItem & JSXBase.HTMLAttributes<HTMLIvyGridItemElement>;
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
-            "ivy-space": LocalJSX.IvySpace & JSXBase.HTMLAttributes<HTMLIvySpaceElement>;
             "ivy-tag": LocalJSX.IvyTag & JSXBase.HTMLAttributes<HTMLIvyTagElement>;
             "ivy-timeline": LocalJSX.IvyTimeline & JSXBase.HTMLAttributes<HTMLIvyTimelineElement>;
             "ivy-timeline-item": LocalJSX.IvyTimelineItem & JSXBase.HTMLAttributes<HTMLIvyTimelineItemElement>;

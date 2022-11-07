@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { IvySpace } from '../ivy-space';
+import { IvyGrid } from '../ivy-grid';
 
-describe('ivy-space', () => {
+describe('ivy-grid', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [IvySpace],
-      html: `<ivy-space></ivy-space>`,
+      components: [IvyGrid],
+      html: `<ivy-grid></ivy-grid>`,
     });
     expect(page.root).toEqualHtml(`
-      <ivy-space>
+      <ivy-grid>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </ivy-space>
+      </ivy-grid>
     `);
   });
 });

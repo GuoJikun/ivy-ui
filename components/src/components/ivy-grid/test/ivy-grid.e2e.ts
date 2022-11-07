@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('ivy-space', () => {
+describe('ivy-grid', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<ivy-space></ivy-space>');
+    await page.setContent('<ivy-grid></ivy-grid>');
 
-    const element = await page.find('ivy-space');
+    const element = await page.find('ivy-grid');
     expect(element).toHaveClass('hydrated');
   });
 });

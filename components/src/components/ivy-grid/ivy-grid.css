@@ -1,0 +1,11 @@
+:host {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+:host([border]) {
+  border-left: 1px solid var(--ivy-border-color, #dcdfe6);
+  border-top: 1px solid var(--ivy-border-color, #dcdfe6);
+  --ivy-grid-item-border: 1px solid var(--ivy-border-color, #dcdfe6);
+}
