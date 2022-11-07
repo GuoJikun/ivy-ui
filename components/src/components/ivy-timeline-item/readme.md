@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property    | Attribute   | Description | Type     | Default |
-| ----------- | ----------- | ----------- | -------- | ------- |
-| `timestamp` | `timestamp` |             | `string` | `''`    |
+| Property    | Attribute   | Description | Type      | Default     |
+| ----------- | ----------- | ----------- | --------- | ----------- |
+| `reverse`   | `reverse`   |             | `boolean` | `undefined` |
+| `timestamp` | `timestamp` |             | `string`  | `''`        |
 
 
 ----------------------------------------------
