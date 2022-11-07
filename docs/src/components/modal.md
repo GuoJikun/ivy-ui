@@ -6,15 +6,17 @@
 
 <ivy-button type="primary" @click="showDialog">显示 Modal</ivy-button>
 
-<ivy-modal id="modal1" title="Modal标题" @close="closed">
+<ivy-dialog id="modal1" @closed="closed">
+    <span slot="header">Modal标题</span>
     <div>这是Modal的内容部分<br>这是Modal的内容部分<br>这是Modal的内容部分<br></div>
-</ivy-modal>
+</ivy-dialog>
 
 ```html
 <ivy-button type="primary" @click="showDialog">显示 Modal</ivy-button>
-<ivy-modal id="modal1" title="Modal标题" @close="closed">
+<ivy-dialog id="modal1" @close="closed">
+    <p slot="header">Modal标题</p>
     <div>这是Modal的内容部分<br>这是Modal的内容部分<br>这是Modal的内容部分<br></div>
-</ivy-modal>
+</ivy-dialog>
 ```
 
 <script setup>
