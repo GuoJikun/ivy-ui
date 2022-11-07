@@ -8,7 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface IvyAspectRatio {
         "aspectRatio": string;
-        "mode": string;
         "width": string;
     }
     interface IvyBadge {
@@ -332,7 +331,6 @@ declare global {
 declare namespace LocalJSX {
     interface IvyAspectRatio {
         "aspectRatio"?: string;
-        "mode"?: string;
         "width"?: string;
     }
     interface IvyBadge {

@@ -1,4 +1,4 @@
-import { Component, Host, h, Listen, Prop, Element, Watch, State } from '@stencil/core';
+import { Component, Host, h, Listen, Prop, Element, Watch, State, writeTask } from '@stencil/core';
 
 @Component({
   tag: 'ivy-aspect-ratio',
@@ -24,9 +24,6 @@ export class IvyAspectRatio {
     }
   }
 
-  @Prop()
-  mode: string = 'css';
-
   @Listen('resize', {
     target: 'window',
   })
@@ -46,17 +43,9 @@ export class IvyAspectRatio {
 
   resize() {
     const tmp = this.getAspectRatio();
-    if (this.mode === 'js') {
-      if (this.el) {
-        const wrapJsWidth = this.width;
-        const widthNumber = parseFloat(wrapJsWidth);
-        const unit = wrapJsWidth.replace(widthNumber.toString(), '');
-        const height = (widthNumber / tmp.widthRatio) * tmp.heightRatio;
-        this.height = `${height}${unit}`;
-      }
-    } else {
-      this.height = `calc(${this.width} / ${tmp.widthRatio} * ${tmp.heightRatio})`;
-    }
+    const wrapJsWidth = this.el.getBoundingClientRect().width;
+    const height = (wrapJsWidth / tmp.widthRatio) * tmp.heightRatio;
+    this.height = `${height}px`;
   }
 
   render() {
@@ -68,6 +57,6 @@ export class IvyAspectRatio {
   }
 
   componentWillLoad() {
-    this.resize();
+    writeTask(this.resize.bind(this));
   }
 }
