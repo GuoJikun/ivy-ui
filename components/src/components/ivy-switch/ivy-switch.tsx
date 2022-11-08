@@ -20,16 +20,16 @@ export class IvySwitch {
   disabled: boolean = false;
 
   @Event({
-    eventName: 'change',
+    eventName: 'changed',
     bubbles: false,
     cancelable: true,
     composed: false,
   })
-  change: EventEmitter<boolean>;
+  changed: EventEmitter<boolean>;
 
   changeHandler() {
     this.checked = !this.checked;
-    this.change.emit(this.checked);
+    this.changed.emit(this.checked);
   }
   render() {
     return (
