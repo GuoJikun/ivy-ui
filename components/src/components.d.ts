@@ -101,6 +101,10 @@ export namespace Components {
     }
     interface IvyRow {
     }
+    interface IvySwitch {
+        "checked": boolean;
+        "disabled": boolean;
+    }
     interface IvyTag {
         "size": string;
         "theme": string;
@@ -136,6 +140,10 @@ export interface IvyDrawerCustomEvent<T> extends CustomEvent<T> {
 export interface IvyPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIvyPagerElement;
+}
+export interface IvySwitchCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvySwitchElement;
 }
 declare global {
     interface HTMLIvyAspectRatioElement extends Components.IvyAspectRatio, HTMLStencilElement {
@@ -270,6 +278,12 @@ declare global {
         prototype: HTMLIvyRowElement;
         new (): HTMLIvyRowElement;
     };
+    interface HTMLIvySwitchElement extends Components.IvySwitch, HTMLStencilElement {
+    }
+    var HTMLIvySwitchElement: {
+        prototype: HTMLIvySwitchElement;
+        new (): HTMLIvySwitchElement;
+    };
     interface HTMLIvyTagElement extends Components.IvyTag, HTMLStencilElement {
     }
     var HTMLIvyTagElement: {
@@ -323,6 +337,7 @@ declare global {
         "ivy-image": HTMLIvyImageElement;
         "ivy-pager": HTMLIvyPagerElement;
         "ivy-row": HTMLIvyRowElement;
+        "ivy-switch": HTMLIvySwitchElement;
         "ivy-tag": HTMLIvyTagElement;
         "ivy-timeline": HTMLIvyTimelineElement;
         "ivy-timeline-item": HTMLIvyTimelineItemElement;
@@ -425,6 +440,11 @@ declare namespace LocalJSX {
     }
     interface IvyRow {
     }
+    interface IvySwitch {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "onChange"?: (event: IvySwitchCustomEvent<boolean>) => void;
+    }
     interface IvyTag {
         "size"?: string;
         "theme"?: string;
@@ -471,6 +491,7 @@ declare namespace LocalJSX {
         "ivy-image": IvyImage;
         "ivy-pager": IvyPager;
         "ivy-row": IvyRow;
+        "ivy-switch": IvySwitch;
         "ivy-tag": IvyTag;
         "ivy-timeline": IvyTimeline;
         "ivy-timeline-item": IvyTimelineItem;
@@ -504,6 +525,7 @@ declare module "@stencil/core" {
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
+            "ivy-switch": LocalJSX.IvySwitch & JSXBase.HTMLAttributes<HTMLIvySwitchElement>;
             "ivy-tag": LocalJSX.IvyTag & JSXBase.HTMLAttributes<HTMLIvyTagElement>;
             "ivy-timeline": LocalJSX.IvyTimeline & JSXBase.HTMLAttributes<HTMLIvyTimelineElement>;
             "ivy-timeline-item": LocalJSX.IvyTimelineItem & JSXBase.HTMLAttributes<HTMLIvyTimelineItemElement>;

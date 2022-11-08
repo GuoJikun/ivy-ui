@@ -55,21 +55,20 @@
 
   </div>
   <div>
-    <ivy-timeline reverse>
-      <ivy-timeline-item timestamp="2020-8-12"> 本周美国大选公布结果 </ivy-timeline-item>
-      <ivy-timeline-item timestamp="2020-9-12"> 本周美国大选公布结果 </ivy-timeline-item>
-      <ivy-timeline-item timestamp="2020-10-12"> 本周美国大选公布结果 </ivy-timeline-item>
-      <ivy-timeline-item timestamp="2020-11-12"> 本周美国大选公布结果 </ivy-timeline-item>
-      <ivy-timeline-item timestamp="2020-12-12"> 本周美国大选公布结果 </ivy-timeline-item>
-    </ivy-timeline>
-
+    <ivy-switch id="test1"></ivy-switch>
+    <ivy-switch checked></ivy-switch>
+    <ivy-switch disabled></ivy-switch>
+    <ivy-switch checked disabled></ivy-switch>
   </div>
 
 
 </body>
 
 <script>
+  document.querySelector('#test1').addEventListener('change', ev => {
+    console.log(ev.detail, document.querySelector('#test1').checked)
 
+  })
 </script>
 
 </html>
