@@ -50,6 +50,13 @@ export namespace Components {
         "index": string;
         "name": string;
     }
+    interface IvyContextmenu {
+        "open": (position?: { x: number; y: number; }) => Promise<void>;
+        "target": string;
+        "wrap": boolean;
+    }
+    interface IvyContextmenuItem {
+    }
     interface IvyDescription {
         "border": boolean;
         "columns": number;
@@ -221,6 +228,18 @@ declare global {
         prototype: HTMLIvyCollapseItemElement;
         new (): HTMLIvyCollapseItemElement;
     };
+    interface HTMLIvyContextmenuElement extends Components.IvyContextmenu, HTMLStencilElement {
+    }
+    var HTMLIvyContextmenuElement: {
+        prototype: HTMLIvyContextmenuElement;
+        new (): HTMLIvyContextmenuElement;
+    };
+    interface HTMLIvyContextmenuItemElement extends Components.IvyContextmenuItem, HTMLStencilElement {
+    }
+    var HTMLIvyContextmenuItemElement: {
+        prototype: HTMLIvyContextmenuItemElement;
+        new (): HTMLIvyContextmenuItemElement;
+    };
     interface HTMLIvyDescriptionElement extends Components.IvyDescription, HTMLStencilElement {
     }
     var HTMLIvyDescriptionElement: {
@@ -347,6 +366,8 @@ declare global {
         "ivy-col": HTMLIvyColElement;
         "ivy-collapse": HTMLIvyCollapseElement;
         "ivy-collapse-item": HTMLIvyCollapseItemElement;
+        "ivy-contextmenu": HTMLIvyContextmenuElement;
+        "ivy-contextmenu-item": HTMLIvyContextmenuItemElement;
         "ivy-description": HTMLIvyDescriptionElement;
         "ivy-description-item": HTMLIvyDescriptionItemElement;
         "ivy-dialog": HTMLIvyDialogElement;
@@ -411,6 +432,12 @@ declare namespace LocalJSX {
         "active"?: string;
         "index"?: string;
         "name"?: string;
+    }
+    interface IvyContextmenu {
+        "target"?: string;
+        "wrap"?: boolean;
+    }
+    interface IvyContextmenuItem {
     }
     interface IvyDescription {
         "border"?: boolean;
@@ -511,6 +538,8 @@ declare namespace LocalJSX {
         "ivy-col": IvyCol;
         "ivy-collapse": IvyCollapse;
         "ivy-collapse-item": IvyCollapseItem;
+        "ivy-contextmenu": IvyContextmenu;
+        "ivy-contextmenu-item": IvyContextmenuItem;
         "ivy-description": IvyDescription;
         "ivy-description-item": IvyDescriptionItem;
         "ivy-dialog": IvyDialog;
@@ -547,6 +576,8 @@ declare module "@stencil/core" {
             "ivy-col": LocalJSX.IvyCol & JSXBase.HTMLAttributes<HTMLIvyColElement>;
             "ivy-collapse": LocalJSX.IvyCollapse & JSXBase.HTMLAttributes<HTMLIvyCollapseElement>;
             "ivy-collapse-item": LocalJSX.IvyCollapseItem & JSXBase.HTMLAttributes<HTMLIvyCollapseItemElement>;
+            "ivy-contextmenu": LocalJSX.IvyContextmenu & JSXBase.HTMLAttributes<HTMLIvyContextmenuElement>;
+            "ivy-contextmenu-item": LocalJSX.IvyContextmenuItem & JSXBase.HTMLAttributes<HTMLIvyContextmenuItemElement>;
             "ivy-description": LocalJSX.IvyDescription & JSXBase.HTMLAttributes<HTMLIvyDescriptionElement>;
             "ivy-description-item": LocalJSX.IvyDescriptionItem & JSXBase.HTMLAttributes<HTMLIvyDescriptionItemElement>;
             "ivy-dialog": LocalJSX.IvyDialog & JSXBase.HTMLAttributes<HTMLIvyDialogElement>;

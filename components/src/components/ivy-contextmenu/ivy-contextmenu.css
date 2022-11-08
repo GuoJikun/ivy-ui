@@ -1,0 +1,25 @@
+:host {
+  display: inline-flex;
+}
+
+:host(.is-container) {
+  display: block;
+  position: relative;
+}
+
+:host .menu,
+:host(.menu) {
+  display: inline-flex;
+  flex-direction: column;
+  /* box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px; */
+  filter: drop-shadow(0px 0 16px rgba(17, 17, 26, 0.1));
+  min-width: 120px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border-radius: 4px;
+}
+:host .menu {
+  position: absolute;
+}

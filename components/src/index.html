@@ -54,14 +54,28 @@
   <div style="min-height: 200px">
 
   </div>
-  <div>
-    <ivy-steps id="test1" current="1">
-      <ivy-step content="注册新账号">注册</ivy-step>
-      <ivy-step content="验证手机号是否是自己的">验证手机号</ivy-step>
-      <ivy-step content="注册完成">完成</ivy-step>
-    </ivy-steps>
+  <div class="margin-top">
+    <ivy-contextmenu wrap style="height: 500px">
+      <div slot="menu">
+        <ivy-contextmenu-item>复制</ivy-contextmenu-item>
+        <ivy-contextmenu-item>剪切</ivy-contextmenu-item>
+        <ivy-contextmenu-item>粘贴</ivy-contextmenu-item>
+        <ivy-contextmenu-item line></ivy-contextmenu-item>
+        <ivy-contextmenu-item>复制</ivy-contextmenu-item>
+        <ivy-contextmenu-item>剪切</ivy-contextmenu-item>
+        <ivy-contextmenu-item>粘贴</ivy-contextmenu-item>
+      </div>
+    </ivy-contextmenu>
 
   </div>
+  <div style="min-height: 200px">
+
+  </div>
+  <ivy-contextmenu id="test1" current="1">
+    <ivy-contextmenu-item>复制</ivy-contextmenu-item>
+    <ivy-contextmenu-item>剪切</ivy-contextmenu-item>
+    <ivy-contextmenu-item>粘贴</ivy-contextmenu-item>
+  </ivy-contextmenu>
   <ivy-button id="test">更改current</ivy-button>
 
 </body>
