@@ -21,9 +21,9 @@ export class IvySwitch {
 
   @Event({
     eventName: 'change',
-    composed: true,
+    bubbles: false,
     cancelable: true,
-    bubbles: true,
+    composed: false,
   })
   change: EventEmitter<boolean>;
 
