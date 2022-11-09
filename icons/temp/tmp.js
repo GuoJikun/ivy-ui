@@ -1,1 +1,1 @@
-module.exports = ['ivy-arrow-up'];
+module.exports = ["ivy-arrow-down","ivy-arrow-right","ivy-arrow-up","ivy-refresh"]

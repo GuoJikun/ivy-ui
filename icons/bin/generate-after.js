@@ -8,6 +8,8 @@ const targetDirPath = join(__dirname, '..', 'src/components');
 const outputDirList = readdirSync(targetDirPath, 'utf-8');
 const target = outputDirList.find(c => !beforeComponent.includes(c));
 
+console.log(222222);
+
 if (target) {
   const svgSourcePath = join(__dirname, '..', `svgs/${new String(target).replace('ivy-', '')}`);
   const svgFileBuffer = readFileSync(`${svgSourcePath}.svg`);

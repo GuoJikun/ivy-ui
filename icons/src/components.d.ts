@@ -6,6 +6,18 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface IvyArrowDown {
+        "color": string;
+        "size": string;
+    }
+    interface IvyArrowLeft {
+        "color": string;
+        "size": string;
+    }
+    interface IvyArrowRight {
+        "color": string;
+        "size": string;
+    }
     interface IvyArrowUp {
         "color": string;
         "size": string;
@@ -16,6 +28,24 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLIvyArrowDownElement extends Components.IvyArrowDown, HTMLStencilElement {
+    }
+    var HTMLIvyArrowDownElement: {
+        prototype: HTMLIvyArrowDownElement;
+        new (): HTMLIvyArrowDownElement;
+    };
+    interface HTMLIvyArrowLeftElement extends Components.IvyArrowLeft, HTMLStencilElement {
+    }
+    var HTMLIvyArrowLeftElement: {
+        prototype: HTMLIvyArrowLeftElement;
+        new (): HTMLIvyArrowLeftElement;
+    };
+    interface HTMLIvyArrowRightElement extends Components.IvyArrowRight, HTMLStencilElement {
+    }
+    var HTMLIvyArrowRightElement: {
+        prototype: HTMLIvyArrowRightElement;
+        new (): HTMLIvyArrowRightElement;
+    };
     interface HTMLIvyArrowUpElement extends Components.IvyArrowUp, HTMLStencilElement {
     }
     var HTMLIvyArrowUpElement: {
@@ -29,11 +59,26 @@ declare global {
         new (): HTMLIvyRefreshElement;
     };
     interface HTMLElementTagNameMap {
+        "ivy-arrow-down": HTMLIvyArrowDownElement;
+        "ivy-arrow-left": HTMLIvyArrowLeftElement;
+        "ivy-arrow-right": HTMLIvyArrowRightElement;
         "ivy-arrow-up": HTMLIvyArrowUpElement;
         "ivy-refresh": HTMLIvyRefreshElement;
     }
 }
 declare namespace LocalJSX {
+    interface IvyArrowDown {
+        "color"?: string;
+        "size"?: string;
+    }
+    interface IvyArrowLeft {
+        "color"?: string;
+        "size"?: string;
+    }
+    interface IvyArrowRight {
+        "color"?: string;
+        "size"?: string;
+    }
     interface IvyArrowUp {
         "color"?: string;
         "size"?: string;
@@ -43,6 +88,9 @@ declare namespace LocalJSX {
         "size"?: string;
     }
     interface IntrinsicElements {
+        "ivy-arrow-down": IvyArrowDown;
+        "ivy-arrow-left": IvyArrowLeft;
+        "ivy-arrow-right": IvyArrowRight;
         "ivy-arrow-up": IvyArrowUp;
         "ivy-refresh": IvyRefresh;
     }
@@ -51,6 +99,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "ivy-arrow-down": LocalJSX.IvyArrowDown & JSXBase.HTMLAttributes<HTMLIvyArrowDownElement>;
+            "ivy-arrow-left": LocalJSX.IvyArrowLeft & JSXBase.HTMLAttributes<HTMLIvyArrowLeftElement>;
+            "ivy-arrow-right": LocalJSX.IvyArrowRight & JSXBase.HTMLAttributes<HTMLIvyArrowRightElement>;
             "ivy-arrow-up": LocalJSX.IvyArrowUp & JSXBase.HTMLAttributes<HTMLIvyArrowUpElement>;
             "ivy-refresh": LocalJSX.IvyRefresh & JSXBase.HTMLAttributes<HTMLIvyRefreshElement>;
         }

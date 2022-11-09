@@ -1,0 +1,22 @@
+:host {
+  display: inline-block;
+  font-size: var(--ivy-icon-size, 20px);
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  transform: rotateZ(0);
+}
+:host([spin]) {
+  animation-name: spin;
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes spin {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
