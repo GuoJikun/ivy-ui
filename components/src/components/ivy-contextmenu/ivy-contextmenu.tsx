@@ -1,4 +1,4 @@
-import { Component, Host, h, Method, State, Prop } from '@stencil/core';
+import { Component, Host, h, State, Prop, Event, EventEmitter, writeTask } from '@stencil/core';
 
 @Component({
   tag: 'ivy-contextmenu',
@@ -8,38 +8,51 @@ import { Component, Host, h, Method, State, Prop } from '@stencil/core';
 export class IvyContextmenu {
   @State() x = 0;
   @State() y = 0;
-  @State() visible = false;
+  @Prop({
+    attribute: 'visible',
+    mutable: true,
+    reflect: true,
+  })
+  visible = false;
 
-  @Prop() target: string;
-  @Prop() wrap: boolean = false;
+  wrap: boolean = false;
 
-  contextmenuHandler(ev: Event) {
+  contextmenuHandler(ev: any) {
     ev.preventDefault();
-    console.log(ev, 2);
-    // this.open()
+    this.close();
+    writeTask(() => {
+      const x = ev.layerX;
+      const y = ev.layerY;
+      this.openHandler({ x, y });
+    });
   }
 
-  render() {
-    if (this.wrap) {
-      return (
-        <Host onContextmenu={this.contextmenuHandler.bind(this)} class="is-container">
-          <slot></slot>
-          <div class="menu" style={{ top: `${this.y}px`, left: `${this.x}px` }} onClick={}>
-            <slot name="menu"></slot>
-          </div>
-        </Host>
-      );
-    } else {
-      return (
-        <Host class="menu" style={{ top: `${this.y}px`, left: `${this.x}px` }}>
-          <slot></slot>
-        </Host>
-      );
+  @Event({
+    eventName: 'command',
+  })
+  command: EventEmitter<string>;
+
+  commandHandler(ev: any) {
+    const target = ev.target;
+    if (target.nodeName.toLowerCase() === 'ivy-contextmenu-item') {
+      const command = target.getAttribute('command');
+      this.command.emit(command);
+      this.close();
     }
   }
 
-  @Method()
-  async open(position = { x: 0, y: 0 }) {
+  render() {
+    return (
+      <Host visible={this.visible} onContextmenu={this.contextmenuHandler.bind(this)}>
+        <slot></slot>
+        <div class="menu" style={{ top: `${this.y}px`, left: `${this.x}px` }} onClick={this.commandHandler.bind(this)}>
+          <slot name="menu"></slot>
+        </div>
+      </Host>
+    );
+  }
+
+  openHandler(position = { x: 0, y: 0 }) {
     this.x = position.x;
     this.y = position.y;
     this.visible = true;
@@ -54,18 +67,16 @@ export class IvyContextmenu {
   }
 
   componentDidLoad() {
-    if (this.target) {
-      document.querySelector(this.target).addEventListener('scroll', this.scrollHandler.bind(this));
-    } else {
-      window.addEventListener('scroll', this.scrollHandler.bind(this));
-    }
+    window.addEventListener('scroll', this.scrollHandler.bind(this));
+    window.addEventListener('click', this.scrollHandler.bind(this));
+
+    window.addEventListener('contextmenu', this.scrollHandler.bind(this));
   }
 
   disconnectedCallback() {
-    if (this.target) {
-      document.querySelector(this.target).removeEventListener('scroll', this.scrollHandler.bind(this));
-    } else {
-      window.removeEventListener('scroll', this.scrollHandler.bind(this));
-    }
+    window.removeEventListener('scroll', this.scrollHandler.bind(this));
+    window.removeEventListener('click', this.scrollHandler.bind(this));
+
+    window.removeEventListener('contextmenu', this.scrollHandler.bind(this));
   }
 }

@@ -55,15 +55,15 @@
 
   </div>
   <div class="margin-top">
-    <ivy-contextmenu wrap style="height: 500px">
+    <ivy-contextmenu id="wrap" style="height: 500px;background-color: red">
       <div slot="menu">
-        <ivy-contextmenu-item>复制</ivy-contextmenu-item>
-        <ivy-contextmenu-item>剪切</ivy-contextmenu-item>
-        <ivy-contextmenu-item>粘贴</ivy-contextmenu-item>
+        <ivy-contextmenu-item command="copy">复制</ivy-contextmenu-item>
+        <ivy-contextmenu-item command="cut">剪切</ivy-contextmenu-item>
+        <ivy-contextmenu-item command="paste">粘贴</ivy-contextmenu-item>
         <ivy-contextmenu-item line></ivy-contextmenu-item>
-        <ivy-contextmenu-item>复制</ivy-contextmenu-item>
-        <ivy-contextmenu-item>剪切</ivy-contextmenu-item>
-        <ivy-contextmenu-item>粘贴</ivy-contextmenu-item>
+        <ivy-contextmenu-item>复制图像</ivy-contextmenu-item>
+        <ivy-contextmenu-item>翻译</ivy-contextmenu-item>
+        <ivy-contextmenu-item>截图</ivy-contextmenu-item>
       </div>
     </ivy-contextmenu>
 
@@ -71,19 +71,33 @@
   <div style="min-height: 200px">
 
   </div>
-  <ivy-contextmenu id="test1" current="1">
-    <ivy-contextmenu-item>复制</ivy-contextmenu-item>
-    <ivy-contextmenu-item>剪切</ivy-contextmenu-item>
-    <ivy-contextmenu-item>粘贴</ivy-contextmenu-item>
-  </ivy-contextmenu>
+  <div style="height: 50vh;background-color: greenyellow" id="container">
+    <ivy-contextmenu id="noWrap" style="height: 100%;">
+      <div slot="menu">
+        <ivy-contextmenu-item command="copy">复制</ivy-contextmenu-item>
+        <ivy-contextmenu-item command="cut">剪切</ivy-contextmenu-item>
+        <ivy-contextmenu-item command="paste">粘贴</ivy-contextmenu-item>
+        <ivy-contextmenu-item line></ivy-contextmenu-item>
+        <ivy-contextmenu-item>复制图像</ivy-contextmenu-item>
+        <ivy-contextmenu-item>翻译</ivy-contextmenu-item>
+        <ivy-contextmenu-item>截图</ivy-contextmenu-item>
+      </div>
+    </ivy-contextmenu>
+  </div>
+
   <ivy-button id="test">更改current</ivy-button>
 
 </body>
 
 <script>
-  document.querySelector('#test').addEventListener('click', ev => {
-    document.querySelector('#test1').setAttribute('current', '2')
+  document.querySelector('#wrap').addEventListener('command', ev => {
+    console.log(ev.detail)
   })
+  document.querySelector('#noWrap').addEventListener('command', ev => {
+    console.log(ev.detail)
+  })
+
+
 </script>
 
 </html>

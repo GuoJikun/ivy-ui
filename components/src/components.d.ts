@@ -51,9 +51,7 @@ export namespace Components {
         "name": string;
     }
     interface IvyContextmenu {
-        "open": (position?: { x: number; y: number; }) => Promise<void>;
-        "target": string;
-        "wrap": boolean;
+        "visible": boolean;
     }
     interface IvyContextmenuItem {
     }
@@ -144,6 +142,10 @@ export namespace Components {
         "theme": string;
         "visible": boolean;
     }
+}
+export interface IvyContextmenuCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvyContextmenuElement;
 }
 export interface IvyDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -434,8 +436,8 @@ declare namespace LocalJSX {
         "name"?: string;
     }
     interface IvyContextmenu {
-        "target"?: string;
-        "wrap"?: boolean;
+        "onCommand"?: (event: IvyContextmenuCustomEvent<string>) => void;
+        "visible"?: boolean;
     }
     interface IvyContextmenuItem {
     }
