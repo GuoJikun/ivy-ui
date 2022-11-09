@@ -4,66 +4,56 @@
 
 使用 `contextmenu` 标签来生成自定义右键菜单的区域
 
-<ivy-contextmenu>
-    <div>
-        <p>这里是显示右键菜单的区域</p>
-        <p>这里是显示右键菜单的区域</p>
-        <p>这里是显示右键菜单的区域</p>
-        <p>这里是显示右键菜单的区域</p>
-        <p>这里是显示右键菜单的区域</p>
+<ivy-contextmenu @command="menuClick">
+    <p>这里是显示右键菜单的区域</p>
+    <p>这里是显示右键菜单的区域</p>
+    <p>这里是显示右键菜单的区域</p>
+    <p>这里是显示右键菜单的区域</p>
+    <p>这里是显示右键菜单的区域</p>
+    <div slot="menu">
+        <ivy-contextmenu-item class="menu-wrap-item" command="copy">复制</ivy-contextmenu-item>
+        <ivy-contextmenu-item class="menu-wrap-item" command="cute">复制</ivy-contextmenu-item>
+        <ivy-contextmenu-item class="menu-wrap-item" command="paste">粘贴</ivy-contextmenu-item>
+        <ivy-contextmenu-item line></ivy-contextmenu-item>
+        <ivy-contextmenu-item class="menu-wrap-item">这里是右键菜单</ivy-contextmenu-item>
+        <ivy-contextmenu-item class="menu-wrap-item">这里是右键菜单</ivy-contextmenu-item>
     </div>
-    <ul slot="menu" class="menu-wrap">
-        <li class="menu-wrap-item" @click="menuClick('复制')">复制</li>
-        <li class="menu-wrap-item" @click="menuClick('粘贴')">粘贴</li>
-        <li class="menu-wrap-item" @click="menuClick('这里是右键菜单')">这里是右键菜单</li>
-        <li class="menu-wrap-item" @click="menuClick('这里是右键菜单')">这里是右键菜单</li>
-    </ul>
 </ivy-contextmenu>
 
-```html
-<ivy-contextmenu>
-    <div>
-        <p>这里是显示右键菜单的区域</p>
-        <p>这里是显示右键菜单的区域</p>
-        <p>这里是显示右键菜单的区域</p>
-        <p>这里是显示右键菜单的区域</p>
-        <p>这里是显示右键菜单的区域</p>
+```vue
+<ivy-contextmenu @command="menuClick">
+    <p>这里是显示右键菜单的区域</p>
+    <p>这里是显示右键菜单的区域</p>
+    <p>这里是显示右键菜单的区域</p>
+    <p>这里是显示右键菜单的区域</p>
+    <p>这里是显示右键菜单的区域</p>
+    <div slot="menu">
+        <ivy-contextmenu-item class="menu-wrap-item" command="copy">复制</ivy-contextmenu-item>
+        <ivy-contextmenu-item class="menu-wrap-item" command="cute">复制</ivy-contextmenu-item>
+        <ivy-contextmenu-item class="menu-wrap-item" command="paste">粘贴</ivy-contextmenu-item>
+        <ivy-contextmenu-item line></ivy-contextmenu-item>
+        <ivy-contextmenu-item class="menu-wrap-item">这里是右键菜单</ivy-contextmenu-item>
+        <ivy-contextmenu-item class="menu-wrap-item">这里是右键菜单</ivy-contextmenu-item>
     </div>
-    <ul slot="menu" class="menu-wrap">
-        <li class="menu-wrap-item" @click="menuClick('复制')">复制</li>
-        <li class="menu-wrap-item" @click="menuClick('粘贴')">粘贴</li>
-        <li class="menu-wrap-item" @click="menuClick('这里是右键菜单')">这里是右键菜单</li>
-        <li class="menu-wrap-item" @click="menuClick('这里是右键菜单')">这里是右键菜单</li>
-    </ul>
 </ivy-contextmenu>
-
-<style>
-.menu-wrap{
-    display: inline-block;
-    background-color: #fff;
-    border: 1px solid #cacaca;
-    list-style: none;
-    padding: 4px 0;
-    border-radius: 4px;
+<script>
+export default {
+    methods: {
+        menuClick(ev){
+            alert(`点击了菜单${ev.detail}`)
+        }
+    },
 }
-.menu-wrap-item{
-    white-space: none;
-    width: 160px;
-    padding: 0 24px;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-size: 14px;
-    line-height: 2em;
-}
-.menu-wrap-item:hover{
-    background-color: #efefef;
-}
-</style>
+</script>
 ```
 
-<script setup>
-const menuClick = (menu)=>{
-    alert(`点击了菜单${menu}`)
+<script>
+export default {
+    methods: {
+        menuClick(ev){
+            alert(`点击了菜单${ev.detail}`)
+        }
+    },
 }
 </script>
 
