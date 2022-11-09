@@ -19,19 +19,16 @@
   border-radius: 50%;
   background: #fff;
   box-shadow: 0, 0, 0, 2px, #999;
-  transition: 0.4s;
-  top: 2px;
+  transition: left 0.3s linear;
   position: absolute;
+  top: 2px;
   left: 2px;
 }
 :host([checked]) .ivy-switch {
   background: var(--ivy-color-primary, #409eff);
 }
 :host([checked]) .ivy-switch::after {
-  content: '';
-  position: absolute;
-  left: 55%;
-  top: 2px;
+  left: calc(100% - 18px);
 }
 :host([disabled]) {
   opacity: 0.6;
