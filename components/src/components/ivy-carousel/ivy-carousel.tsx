@@ -9,7 +9,7 @@ import { getBrotherElements } from '../../utils/utils';
 export class IvyCarousel {
   @Element() root: HTMLElement;
 
-  @State() carouselItemList: NodeListOf<HTMLIvyCarouselItemElement>;
+  @State() carouselItemList: NodeListOf<Element>;
 
   @Prop() defaultActive: string = '1';
 

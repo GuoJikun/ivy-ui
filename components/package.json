@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",
-    "@stencil/core": "^2.13.0",
+    "@stencil/core": "^2.19.2",
     "ivy-icon": "workspace:^0.0.1"
   },
   "devDependencies": {

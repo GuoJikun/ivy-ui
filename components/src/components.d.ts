@@ -100,6 +100,14 @@ export namespace Components {
         "lazy": boolean;
         "src": string;
     }
+    interface IvyInput {
+        "autoFocus": boolean;
+        "disabled": boolean;
+        "placeholder": string;
+        "readonly": boolean;
+        "type": string;
+        "value": string;
+    }
     interface IvyPager {
         "defaultPage": string;
         "layout": string;
@@ -154,6 +162,10 @@ export interface IvyDialogCustomEvent<T> extends CustomEvent<T> {
 export interface IvyDrawerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIvyDrawerElement;
+}
+export interface IvyInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvyInputElement;
 }
 export interface IvyPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -296,6 +308,12 @@ declare global {
         prototype: HTMLIvyImageElement;
         new (): HTMLIvyImageElement;
     };
+    interface HTMLIvyInputElement extends Components.IvyInput, HTMLStencilElement {
+    }
+    var HTMLIvyInputElement: {
+        prototype: HTMLIvyInputElement;
+        new (): HTMLIvyInputElement;
+    };
     interface HTMLIvyPagerElement extends Components.IvyPager, HTMLStencilElement {
     }
     var HTMLIvyPagerElement: {
@@ -379,6 +397,7 @@ declare global {
         "ivy-grid": HTMLIvyGridElement;
         "ivy-grid-item": HTMLIvyGridItemElement;
         "ivy-image": HTMLIvyImageElement;
+        "ivy-input": HTMLIvyInputElement;
         "ivy-pager": HTMLIvyPagerElement;
         "ivy-row": HTMLIvyRowElement;
         "ivy-step": HTMLIvyStepElement;
@@ -485,6 +504,17 @@ declare namespace LocalJSX {
         "lazy"?: boolean;
         "src"?: string;
     }
+    interface IvyInput {
+        "autoFocus"?: boolean;
+        "disabled"?: boolean;
+        "onBlur"?: (event: IvyInputCustomEvent<any>) => void;
+        "onChange"?: (event: IvyInputCustomEvent<string | number | boolean>) => void;
+        "onFocus"?: (event: IvyInputCustomEvent<any>) => void;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "type"?: string;
+        "value"?: string;
+    }
     interface IvyPager {
         "defaultPage"?: string;
         "layout"?: string;
@@ -551,6 +581,7 @@ declare namespace LocalJSX {
         "ivy-grid": IvyGrid;
         "ivy-grid-item": IvyGridItem;
         "ivy-image": IvyImage;
+        "ivy-input": IvyInput;
         "ivy-pager": IvyPager;
         "ivy-row": IvyRow;
         "ivy-step": IvyStep;
@@ -589,6 +620,7 @@ declare module "@stencil/core" {
             "ivy-grid": LocalJSX.IvyGrid & JSXBase.HTMLAttributes<HTMLIvyGridElement>;
             "ivy-grid-item": LocalJSX.IvyGridItem & JSXBase.HTMLAttributes<HTMLIvyGridItemElement>;
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
+            "ivy-input": LocalJSX.IvyInput & JSXBase.HTMLAttributes<HTMLIvyInputElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
             "ivy-step": LocalJSX.IvyStep & JSXBase.HTMLAttributes<HTMLIvyStepElement>;

@@ -51,27 +51,30 @@
 </head>
 
 <body>
-  <div style="min-height: 200px">
-
-  </div>
+  <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-switch id="wrap">
-
-    </ivy-switch>
-
+    <ivy-input id="wrap" placeholder="测试placeholder" auto-focus> </ivy-input>
+    <ivy-input type="password" placeholder="测试placeholder" auto-focus> </ivy-input>
+    <ivy-input type="color" placeholder="测试placeholder" auto-focus> </ivy-input>
+    <ivy-input type="date" placeholder="测试placeholder" auto-focus> </ivy-input>
+    <ivy-input type="time" placeholder="测试placeholder" auto-focus> </ivy-input>
+    <ivy-input type="number" placeholder="测试placeholder" auto-focus> </ivy-input>
   </div>
-  <div style="min-height: 200px">
-
-  </div>
-
-
+  <div style="min-height: 200px"> </div>
 
 </body>
 
 <script>
-
-
-
+  const el = document.querySelector('#wrap')
+  el.addEventListener('change', function (ev) {
+    console.log(ev.detail, this.value)
+  })
+  el.addEventListener('focus', function (ev) {
+    console.log('focus')
+  })
+  el.addEventListener('blur', function (ev) {
+    console.log('blur')
+  })
 </script>
 
 </html>

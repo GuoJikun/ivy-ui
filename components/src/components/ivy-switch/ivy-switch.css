@@ -19,7 +19,7 @@
   border-radius: 50%;
   background: #fff;
   box-shadow: 0, 0, 0, 2px, #999;
-  transition: left 0.3s linear;
+  transition: left 0.3s ease;
   position: absolute;
   top: 2px;
   left: 2px;
