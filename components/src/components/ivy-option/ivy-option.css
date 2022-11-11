@@ -1,0 +1,19 @@
+:host {
+  display: none;
+  padding: 0 12px;
+  line-height: 34px;
+  height: 34px;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+:host(:hover) {
+  background-color: #f4f4f5;
+}
+
+:host([disabled]) {
+  cursor: not-allowed;
+  color: #a8abb2;
+  background-color: transparent;
+  pointer-events: none;
+}

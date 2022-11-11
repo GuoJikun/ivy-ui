@@ -56,4 +56,6 @@
   --ivy-color-info-light-7: #dedfe0;
   --ivy-color-info-light-8: #e9e9eb;
   --ivy-color-info-light-9: #f4f4f5;
+
+  --ivy-shadow: drop-shadow(0px 0 16px rgba(17, 17, 26, 0.1));
 }

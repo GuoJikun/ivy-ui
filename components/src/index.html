@@ -53,12 +53,18 @@
 <body>
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-input id="wrap" placeholder="测试placeholder" auto-focus> </ivy-input>
-    <ivy-input type="password" placeholder="测试placeholder" auto-focus> </ivy-input>
-    <ivy-input type="color" placeholder="测试placeholder" auto-focus> </ivy-input>
-    <ivy-input type="date" placeholder="测试placeholder" auto-focus> </ivy-input>
-    <ivy-input type="time" placeholder="测试placeholder" auto-focus> </ivy-input>
-    <ivy-input type="number" placeholder="测试placeholder" auto-focus> </ivy-input>
+    <ivy-select id="wrap" placeholder="测试placeholder" auto-focus value="color">
+      <ivy-option value="password"> password</ivy-option>
+      <ivy-option value="color">color </ivy-option>
+      <ivy-option value="date" disabled>date </ivy-option>
+      <ivy-option value="time">time </ivy-option>
+      <ivy-option value="number">number </ivy-option>
+      <ivy-option value="radio"> radio</ivy-option>
+      <ivy-option value="checkbox">checkbox </ivy-option>
+      <ivy-option value="tel" disabled>tel </ivy-option>
+      <ivy-option value="email">email </ivy-option>
+    </ivy-select>
+
   </div>
   <div style="min-height: 200px"> </div>
 
@@ -69,12 +75,7 @@
   el.addEventListener('change', function (ev) {
     console.log(ev.detail, this.value)
   })
-  el.addEventListener('focus', function (ev) {
-    console.log('focus')
-  })
-  el.addEventListener('blur', function (ev) {
-    console.log('blur')
-  })
+  console.log(globalThis)
 </script>
 
 </html>

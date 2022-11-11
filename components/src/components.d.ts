@@ -108,11 +108,19 @@ export namespace Components {
         "type": string;
         "value": string;
     }
+    interface IvyOption {
+        "disabled": boolean;
+        "value": string;
+    }
     interface IvyPager {
         "defaultPage": string;
         "layout": string;
     }
     interface IvyRow {
+    }
+    interface IvySelect {
+        "disabled": boolean;
+        "value": string;
     }
     interface IvyStep {
         "content": string;
@@ -170,6 +178,10 @@ export interface IvyInputCustomEvent<T> extends CustomEvent<T> {
 export interface IvyPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIvyPagerElement;
+}
+export interface IvySelectCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvySelectElement;
 }
 export interface IvySwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -314,6 +326,12 @@ declare global {
         prototype: HTMLIvyInputElement;
         new (): HTMLIvyInputElement;
     };
+    interface HTMLIvyOptionElement extends Components.IvyOption, HTMLStencilElement {
+    }
+    var HTMLIvyOptionElement: {
+        prototype: HTMLIvyOptionElement;
+        new (): HTMLIvyOptionElement;
+    };
     interface HTMLIvyPagerElement extends Components.IvyPager, HTMLStencilElement {
     }
     var HTMLIvyPagerElement: {
@@ -325,6 +343,12 @@ declare global {
     var HTMLIvyRowElement: {
         prototype: HTMLIvyRowElement;
         new (): HTMLIvyRowElement;
+    };
+    interface HTMLIvySelectElement extends Components.IvySelect, HTMLStencilElement {
+    }
+    var HTMLIvySelectElement: {
+        prototype: HTMLIvySelectElement;
+        new (): HTMLIvySelectElement;
     };
     interface HTMLIvyStepElement extends Components.IvyStep, HTMLStencilElement {
     }
@@ -398,8 +422,10 @@ declare global {
         "ivy-grid-item": HTMLIvyGridItemElement;
         "ivy-image": HTMLIvyImageElement;
         "ivy-input": HTMLIvyInputElement;
+        "ivy-option": HTMLIvyOptionElement;
         "ivy-pager": HTMLIvyPagerElement;
         "ivy-row": HTMLIvyRowElement;
+        "ivy-select": HTMLIvySelectElement;
         "ivy-step": HTMLIvyStepElement;
         "ivy-steps": HTMLIvyStepsElement;
         "ivy-switch": HTMLIvySwitchElement;
@@ -515,12 +541,21 @@ declare namespace LocalJSX {
         "type"?: string;
         "value"?: string;
     }
+    interface IvyOption {
+        "disabled"?: boolean;
+        "value"?: string;
+    }
     interface IvyPager {
         "defaultPage"?: string;
         "layout"?: string;
         "onPageChange"?: (event: IvyPagerCustomEvent<string>) => void;
     }
     interface IvyRow {
+    }
+    interface IvySelect {
+        "disabled"?: boolean;
+        "onChange"?: (event: IvySelectCustomEvent<string>) => void;
+        "value"?: string;
     }
     interface IvyStep {
         "content"?: string;
@@ -582,8 +617,10 @@ declare namespace LocalJSX {
         "ivy-grid-item": IvyGridItem;
         "ivy-image": IvyImage;
         "ivy-input": IvyInput;
+        "ivy-option": IvyOption;
         "ivy-pager": IvyPager;
         "ivy-row": IvyRow;
+        "ivy-select": IvySelect;
         "ivy-step": IvyStep;
         "ivy-steps": IvySteps;
         "ivy-switch": IvySwitch;
@@ -621,8 +658,10 @@ declare module "@stencil/core" {
             "ivy-grid-item": LocalJSX.IvyGridItem & JSXBase.HTMLAttributes<HTMLIvyGridItemElement>;
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-input": LocalJSX.IvyInput & JSXBase.HTMLAttributes<HTMLIvyInputElement>;
+            "ivy-option": LocalJSX.IvyOption & JSXBase.HTMLAttributes<HTMLIvyOptionElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
+            "ivy-select": LocalJSX.IvySelect & JSXBase.HTMLAttributes<HTMLIvySelectElement>;
             "ivy-step": LocalJSX.IvyStep & JSXBase.HTMLAttributes<HTMLIvyStepElement>;
             "ivy-steps": LocalJSX.IvySteps & JSXBase.HTMLAttributes<HTMLIvyStepsElement>;
             "ivy-switch": LocalJSX.IvySwitch & JSXBase.HTMLAttributes<HTMLIvySwitchElement>;
