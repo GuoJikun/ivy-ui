@@ -2,9 +2,7 @@
   display: block;
   position: relative;
 }
-ivy-option:defined {
-  display: block;
-}
+
 .ivy-input-inner {
   background-color: #fff;
   background-image: none;
