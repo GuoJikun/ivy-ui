@@ -59,7 +59,7 @@ export class IvySelect {
   }
 
   focusHandler() {
-    this.visible = true;
+    if (!this.disabled) this.visible = true;
   }
 
   hideHandler() {
