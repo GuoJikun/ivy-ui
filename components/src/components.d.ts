@@ -116,6 +116,16 @@ export namespace Components {
         "defaultPage": string;
         "layout": string;
     }
+    interface IvyRadio {
+        "checked": boolean;
+        "disabled": boolean;
+        "value": string;
+    }
+    interface IvyRadioGroup {
+        "disabled": boolean;
+        "dispatchEventChange": (val: string) => Promise<void>;
+        "value": string;
+    }
     interface IvyRow {
     }
     interface IvySelect {
@@ -178,6 +188,14 @@ export interface IvyInputCustomEvent<T> extends CustomEvent<T> {
 export interface IvyPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIvyPagerElement;
+}
+export interface IvyRadioCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvyRadioElement;
+}
+export interface IvyRadioGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvyRadioGroupElement;
 }
 export interface IvySelectCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -338,6 +356,18 @@ declare global {
         prototype: HTMLIvyPagerElement;
         new (): HTMLIvyPagerElement;
     };
+    interface HTMLIvyRadioElement extends Components.IvyRadio, HTMLStencilElement {
+    }
+    var HTMLIvyRadioElement: {
+        prototype: HTMLIvyRadioElement;
+        new (): HTMLIvyRadioElement;
+    };
+    interface HTMLIvyRadioGroupElement extends Components.IvyRadioGroup, HTMLStencilElement {
+    }
+    var HTMLIvyRadioGroupElement: {
+        prototype: HTMLIvyRadioGroupElement;
+        new (): HTMLIvyRadioGroupElement;
+    };
     interface HTMLIvyRowElement extends Components.IvyRow, HTMLStencilElement {
     }
     var HTMLIvyRowElement: {
@@ -424,6 +454,8 @@ declare global {
         "ivy-input": HTMLIvyInputElement;
         "ivy-option": HTMLIvyOptionElement;
         "ivy-pager": HTMLIvyPagerElement;
+        "ivy-radio": HTMLIvyRadioElement;
+        "ivy-radio-group": HTMLIvyRadioGroupElement;
         "ivy-row": HTMLIvyRowElement;
         "ivy-select": HTMLIvySelectElement;
         "ivy-step": HTMLIvyStepElement;
@@ -550,6 +582,17 @@ declare namespace LocalJSX {
         "layout"?: string;
         "onPageChange"?: (event: IvyPagerCustomEvent<string>) => void;
     }
+    interface IvyRadio {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "onChange"?: (event: IvyRadioCustomEvent<boolean>) => void;
+        "value"?: string;
+    }
+    interface IvyRadioGroup {
+        "disabled"?: boolean;
+        "onChange"?: (event: IvyRadioGroupCustomEvent<string>) => void;
+        "value"?: string;
+    }
     interface IvyRow {
     }
     interface IvySelect {
@@ -619,6 +662,8 @@ declare namespace LocalJSX {
         "ivy-input": IvyInput;
         "ivy-option": IvyOption;
         "ivy-pager": IvyPager;
+        "ivy-radio": IvyRadio;
+        "ivy-radio-group": IvyRadioGroup;
         "ivy-row": IvyRow;
         "ivy-select": IvySelect;
         "ivy-step": IvyStep;
@@ -660,6 +705,8 @@ declare module "@stencil/core" {
             "ivy-input": LocalJSX.IvyInput & JSXBase.HTMLAttributes<HTMLIvyInputElement>;
             "ivy-option": LocalJSX.IvyOption & JSXBase.HTMLAttributes<HTMLIvyOptionElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
+            "ivy-radio": LocalJSX.IvyRadio & JSXBase.HTMLAttributes<HTMLIvyRadioElement>;
+            "ivy-radio-group": LocalJSX.IvyRadioGroup & JSXBase.HTMLAttributes<HTMLIvyRadioGroupElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
             "ivy-select": LocalJSX.IvySelect & JSXBase.HTMLAttributes<HTMLIvySelectElement>;
             "ivy-step": LocalJSX.IvyStep & JSXBase.HTMLAttributes<HTMLIvyStepElement>;
