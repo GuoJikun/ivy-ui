@@ -158,6 +158,14 @@ export namespace Components {
         "checked": boolean;
         "disabled": boolean;
     }
+    interface IvyTabPane {
+        "index": string;
+        "label": string;
+        "show": boolean;
+    }
+    interface IvyTabs {
+        "active": string;
+    }
     interface IvyTag {
         "size": string;
         "theme": string;
@@ -225,6 +233,10 @@ export interface IvySelectCustomEvent<T> extends CustomEvent<T> {
 export interface IvySwitchCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIvySwitchElement;
+}
+export interface IvyTabsCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvyTabsElement;
 }
 declare global {
     interface HTMLIvyAspectRatioElement extends Components.IvyAspectRatio, HTMLStencilElement {
@@ -431,6 +443,18 @@ declare global {
         prototype: HTMLIvySwitchElement;
         new (): HTMLIvySwitchElement;
     };
+    interface HTMLIvyTabPaneElement extends Components.IvyTabPane, HTMLStencilElement {
+    }
+    var HTMLIvyTabPaneElement: {
+        prototype: HTMLIvyTabPaneElement;
+        new (): HTMLIvyTabPaneElement;
+    };
+    interface HTMLIvyTabsElement extends Components.IvyTabs, HTMLStencilElement {
+    }
+    var HTMLIvyTabsElement: {
+        prototype: HTMLIvyTabsElement;
+        new (): HTMLIvyTabsElement;
+    };
     interface HTMLIvyTagElement extends Components.IvyTag, HTMLStencilElement {
     }
     var HTMLIvyTagElement: {
@@ -496,6 +520,8 @@ declare global {
         "ivy-step": HTMLIvyStepElement;
         "ivy-steps": HTMLIvyStepsElement;
         "ivy-switch": HTMLIvySwitchElement;
+        "ivy-tab-pane": HTMLIvyTabPaneElement;
+        "ivy-tabs": HTMLIvyTabsElement;
         "ivy-tag": HTMLIvyTagElement;
         "ivy-timeline": HTMLIvyTimelineElement;
         "ivy-timeline-item": HTMLIvyTimelineItemElement;
@@ -661,6 +687,15 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "onChanged"?: (event: IvySwitchCustomEvent<boolean>) => void;
     }
+    interface IvyTabPane {
+        "index"?: string;
+        "label"?: string;
+        "show"?: boolean;
+    }
+    interface IvyTabs {
+        "active"?: string;
+        "onTab-click"?: (event: IvyTabsCustomEvent<string>) => void;
+    }
     interface IvyTag {
         "size"?: string;
         "theme"?: string;
@@ -719,6 +754,8 @@ declare namespace LocalJSX {
         "ivy-step": IvyStep;
         "ivy-steps": IvySteps;
         "ivy-switch": IvySwitch;
+        "ivy-tab-pane": IvyTabPane;
+        "ivy-tabs": IvyTabs;
         "ivy-tag": IvyTag;
         "ivy-timeline": IvyTimeline;
         "ivy-timeline-item": IvyTimelineItem;
@@ -764,6 +801,8 @@ declare module "@stencil/core" {
             "ivy-step": LocalJSX.IvyStep & JSXBase.HTMLAttributes<HTMLIvyStepElement>;
             "ivy-steps": LocalJSX.IvySteps & JSXBase.HTMLAttributes<HTMLIvyStepsElement>;
             "ivy-switch": LocalJSX.IvySwitch & JSXBase.HTMLAttributes<HTMLIvySwitchElement>;
+            "ivy-tab-pane": LocalJSX.IvyTabPane & JSXBase.HTMLAttributes<HTMLIvyTabPaneElement>;
+            "ivy-tabs": LocalJSX.IvyTabs & JSXBase.HTMLAttributes<HTMLIvyTabsElement>;
             "ivy-tag": LocalJSX.IvyTag & JSXBase.HTMLAttributes<HTMLIvyTagElement>;
             "ivy-timeline": LocalJSX.IvyTimeline & JSXBase.HTMLAttributes<HTMLIvyTimelineElement>;
             "ivy-timeline-item": LocalJSX.IvyTimelineItem & JSXBase.HTMLAttributes<HTMLIvyTimelineItemElement>;
