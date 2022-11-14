@@ -39,6 +39,19 @@ export namespace Components {
     }
     interface IvyCarouselItem {
     }
+    interface IvyCheckbox {
+        "checked": boolean;
+        "disabled": boolean;
+        "falseValue": string;
+        "trueValue": string;
+        "value": string;
+    }
+    interface IvyCheckboxGroup {
+        "disabled": boolean;
+        "removeValue": (item: string) => Promise<void>;
+        "setValue": (item: string) => Promise<void>;
+        "value": Array<string>;
+    }
     interface IvyCol {
         "span": string;
     }
@@ -169,6 +182,14 @@ export namespace Components {
         "visible": boolean;
     }
 }
+export interface IvyCheckboxCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvyCheckboxElement;
+}
+export interface IvyCheckboxGroupCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvyCheckboxGroupElement;
+}
 export interface IvyContextmenuCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIvyContextmenuElement;
@@ -253,6 +274,18 @@ declare global {
     var HTMLIvyCarouselItemElement: {
         prototype: HTMLIvyCarouselItemElement;
         new (): HTMLIvyCarouselItemElement;
+    };
+    interface HTMLIvyCheckboxElement extends Components.IvyCheckbox, HTMLStencilElement {
+    }
+    var HTMLIvyCheckboxElement: {
+        prototype: HTMLIvyCheckboxElement;
+        new (): HTMLIvyCheckboxElement;
+    };
+    interface HTMLIvyCheckboxGroupElement extends Components.IvyCheckboxGroup, HTMLStencilElement {
+    }
+    var HTMLIvyCheckboxGroupElement: {
+        prototype: HTMLIvyCheckboxGroupElement;
+        new (): HTMLIvyCheckboxGroupElement;
     };
     interface HTMLIvyColElement extends Components.IvyCol, HTMLStencilElement {
     }
@@ -437,6 +470,8 @@ declare global {
         "ivy-card": HTMLIvyCardElement;
         "ivy-carousel": HTMLIvyCarouselElement;
         "ivy-carousel-item": HTMLIvyCarouselItemElement;
+        "ivy-checkbox": HTMLIvyCheckboxElement;
+        "ivy-checkbox-group": HTMLIvyCheckboxGroupElement;
         "ivy-col": HTMLIvyColElement;
         "ivy-collapse": HTMLIvyCollapseElement;
         "ivy-collapse-item": HTMLIvyCollapseItemElement;
@@ -500,6 +535,19 @@ declare namespace LocalJSX {
         "defaultActive"?: string;
     }
     interface IvyCarouselItem {
+    }
+    interface IvyCheckbox {
+        "checked"?: boolean;
+        "disabled"?: boolean;
+        "falseValue"?: string;
+        "onChange"?: (event: IvyCheckboxCustomEvent<boolean>) => void;
+        "trueValue"?: string;
+        "value"?: string;
+    }
+    interface IvyCheckboxGroup {
+        "disabled"?: boolean;
+        "onChange"?: (event: IvyCheckboxGroupCustomEvent<Array<string>>) => void;
+        "value"?: Array<string>;
     }
     interface IvyCol {
         "span"?: string;
@@ -645,6 +693,8 @@ declare namespace LocalJSX {
         "ivy-card": IvyCard;
         "ivy-carousel": IvyCarousel;
         "ivy-carousel-item": IvyCarouselItem;
+        "ivy-checkbox": IvyCheckbox;
+        "ivy-checkbox-group": IvyCheckboxGroup;
         "ivy-col": IvyCol;
         "ivy-collapse": IvyCollapse;
         "ivy-collapse-item": IvyCollapseItem;
@@ -688,6 +738,8 @@ declare module "@stencil/core" {
             "ivy-card": LocalJSX.IvyCard & JSXBase.HTMLAttributes<HTMLIvyCardElement>;
             "ivy-carousel": LocalJSX.IvyCarousel & JSXBase.HTMLAttributes<HTMLIvyCarouselElement>;
             "ivy-carousel-item": LocalJSX.IvyCarouselItem & JSXBase.HTMLAttributes<HTMLIvyCarouselItemElement>;
+            "ivy-checkbox": LocalJSX.IvyCheckbox & JSXBase.HTMLAttributes<HTMLIvyCheckboxElement>;
+            "ivy-checkbox-group": LocalJSX.IvyCheckboxGroup & JSXBase.HTMLAttributes<HTMLIvyCheckboxGroupElement>;
             "ivy-col": LocalJSX.IvyCol & JSXBase.HTMLAttributes<HTMLIvyColElement>;
             "ivy-collapse": LocalJSX.IvyCollapse & JSXBase.HTMLAttributes<HTMLIvyCollapseElement>;
             "ivy-collapse-item": LocalJSX.IvyCollapseItem & JSXBase.HTMLAttributes<HTMLIvyCollapseItemElement>;

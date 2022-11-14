@@ -53,27 +53,28 @@
 <body>
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-radio-group id="wrap" placeholder="测试placeholder" value="color">
-      <ivy-radio value="password"> password</ivy-radio>
-      <ivy-radio value="color">color </ivy-radio>
-      <ivy-radio value="date" disabled>date </ivy-radio>
-      <ivy-radio value="time">time </ivy-radio>
-      <ivy-radio value="number">number </ivy-radio>
-      <ivy-radio value="radio"> radio</ivy-radio>
-      <ivy-radio value="checkbox">checkbox </ivy-radio>
-      <ivy-radio value="tel" disabled>tel </ivy-radio>
-      <ivy-radio value="email">email </ivy-radio>
-      </ivy-radio-gro>
+    <ivy-checkbox-group id="wrap" placeholder="测试placeholder" disabled>
+      <ivy-checkbox value="password"> password</ivy-checkbox>
+      <ivy-checkbox value="color">color </ivy-checkbox>
+      <ivy-checkbox value="date" disabled>date </ivy-checkbox>
+      <ivy-checkbox value="time">time </ivy-checkbox>
+      <ivy-checkbox value="number">number </ivy-checkbox>
+      <ivy-checkbox value="radio"> radio</ivy-checkbox>
+      <ivy-checkbox value="checkbox">checkbox </ivy-checkbox>
+      <ivy-checkbox value="tel" disabled>tel </ivy-checkbox>
+      <ivy-checkbox value="email">email </ivy-checkbox>
+    </ivy-checkbox-group>
 
   </div>
   <div style="min-height: 200px"> </div>
-  <ivy-radio>单独一个</ivy-radio>
+  <ivy-checkbox>单独一个</ivy-checkbox>
 </body>
 
 <script>
   const el = document.querySelector('#wrap')
   el.addEventListener('change', function (ev) {
     console.log(ev.detail, this.value)
+
   })
   console.log(globalThis)
 </script>
