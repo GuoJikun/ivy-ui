@@ -97,6 +97,11 @@ export namespace Components {
         "visible": Boolean;
         "width": string;
     }
+    interface IvyDropdown {
+        "disabled": boolean;
+    }
+    interface IvyDropdownItem {
+    }
     interface IvyEmpty {
     }
     interface IvyGrid {
@@ -209,6 +214,10 @@ export interface IvyDialogCustomEvent<T> extends CustomEvent<T> {
 export interface IvyDrawerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIvyDrawerElement;
+}
+export interface IvyDropdownCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIvyDropdownElement;
 }
 export interface IvyInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -359,6 +368,18 @@ declare global {
         prototype: HTMLIvyDrawerElement;
         new (): HTMLIvyDrawerElement;
     };
+    interface HTMLIvyDropdownElement extends Components.IvyDropdown, HTMLStencilElement {
+    }
+    var HTMLIvyDropdownElement: {
+        prototype: HTMLIvyDropdownElement;
+        new (): HTMLIvyDropdownElement;
+    };
+    interface HTMLIvyDropdownItemElement extends Components.IvyDropdownItem, HTMLStencilElement {
+    }
+    var HTMLIvyDropdownItemElement: {
+        prototype: HTMLIvyDropdownItemElement;
+        new (): HTMLIvyDropdownItemElement;
+    };
     interface HTMLIvyEmptyElement extends Components.IvyEmpty, HTMLStencilElement {
     }
     var HTMLIvyEmptyElement: {
@@ -506,6 +527,8 @@ declare global {
         "ivy-dialog": HTMLIvyDialogElement;
         "ivy-divider": HTMLIvyDividerElement;
         "ivy-drawer": HTMLIvyDrawerElement;
+        "ivy-dropdown": HTMLIvyDropdownElement;
+        "ivy-dropdown-item": HTMLIvyDropdownItemElement;
         "ivy-empty": HTMLIvyEmptyElement;
         "ivy-grid": HTMLIvyGridElement;
         "ivy-grid-item": HTMLIvyGridItemElement;
@@ -619,6 +642,12 @@ declare namespace LocalJSX {
         "showHeader"?: boolean;
         "visible"?: Boolean;
         "width"?: string;
+    }
+    interface IvyDropdown {
+        "disabled"?: boolean;
+        "onCommand"?: (event: IvyDropdownCustomEvent<string>) => void;
+    }
+    interface IvyDropdownItem {
     }
     interface IvyEmpty {
     }
@@ -740,6 +769,8 @@ declare namespace LocalJSX {
         "ivy-dialog": IvyDialog;
         "ivy-divider": IvyDivider;
         "ivy-drawer": IvyDrawer;
+        "ivy-dropdown": IvyDropdown;
+        "ivy-dropdown-item": IvyDropdownItem;
         "ivy-empty": IvyEmpty;
         "ivy-grid": IvyGrid;
         "ivy-grid-item": IvyGridItem;
@@ -787,6 +818,8 @@ declare module "@stencil/core" {
             "ivy-dialog": LocalJSX.IvyDialog & JSXBase.HTMLAttributes<HTMLIvyDialogElement>;
             "ivy-divider": LocalJSX.IvyDivider & JSXBase.HTMLAttributes<HTMLIvyDividerElement>;
             "ivy-drawer": LocalJSX.IvyDrawer & JSXBase.HTMLAttributes<HTMLIvyDrawerElement>;
+            "ivy-dropdown": LocalJSX.IvyDropdown & JSXBase.HTMLAttributes<HTMLIvyDropdownElement>;
+            "ivy-dropdown-item": LocalJSX.IvyDropdownItem & JSXBase.HTMLAttributes<HTMLIvyDropdownItemElement>;
             "ivy-empty": LocalJSX.IvyEmpty & JSXBase.HTMLAttributes<HTMLIvyEmptyElement>;
             "ivy-grid": LocalJSX.IvyGrid & JSXBase.HTMLAttributes<HTMLIvyGridElement>;
             "ivy-grid-item": LocalJSX.IvyGridItem & JSXBase.HTMLAttributes<HTMLIvyGridItemElement>;

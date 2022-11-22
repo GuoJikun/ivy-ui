@@ -53,25 +53,23 @@
 <body>
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-tabs id="wrap" placeholder="测试placeholder" disabled>
-      <ivy-tab-pane label="password"> password</ivy-tab-pane>
-      <ivy-tab-pane label="color">color </ivy-tab-pane>
-      <ivy-tab-pane label="date" disabled>date </ivy-tab-pane>
-      <ivy-tab-pane label="time">time </ivy-tab-pane>
-      <ivy-tab-pane label="number">number </ivy-tab-pane>
-      <ivy-tab-pane label="radio"> radio</ivy-tab-pane>
-      <ivy-tab-pane label="checkbox">checkbox </ivy-tab-pane>
-      <ivy-tab-pane label="tel" disabled>tel </ivy-tab-pane>
-      <ivy-tab-pane label="email">email </ivy-tab-pane>
-    </ivy-tabs>
+    <ivy-dropdown id="wrap">
+      下拉菜单
+      <div slot="menu">
+        <ivy-dropdown-item command="add">新增fasdfsdf</ivy-dropdown-item>
+        <ivy-dropdown-item command="edit">修改</ivy-dropdown-item>
+        <ivy-dropdown-item command="delete">删除</ivy-dropdown-item>
+      </div>
+    </ivy-dropdown>
 
   </div>
   <div style="min-height: 200px"> </div>
+
 </body>
 
 <script>
   const el = document.querySelector('#wrap')
-  el.addEventListener('change', function (ev) {
+  el.addEventListener('command', function (ev) {
     console.log(ev.detail, this.value)
 
   })

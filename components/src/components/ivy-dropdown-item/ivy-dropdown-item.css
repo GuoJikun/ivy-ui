@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  padding: 6px 12px;
+  transition: background-color 0.3s;
+  cursor: default;
+  user-select: none;
+  word-break: keep-all;
+}
+:host(:not([line]):hover) {
+  background-color: var(--ivy-border-color, #dcdfe6);
+}
+:host([line]) {
+  height: 1px;
+  background-color: var(--ivy-border-color, #dcdfe6);
+  padding: 0;
+  pointer-events: none;
+}
