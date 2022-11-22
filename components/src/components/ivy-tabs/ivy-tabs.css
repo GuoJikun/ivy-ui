@@ -6,6 +6,7 @@
   margin-bottom: 15px;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 .ivy-tab-header::after {
   position: absolute;
@@ -21,25 +22,50 @@
 .ivy-tab-header-arrow {
   flex: 0 0 30px;
   width: 30px;
-  align-content: center;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   display: none;
+  position: relative;
 }
-.ivy-tab-header-arrow:hover ivy-icon[name='^arrow'] {
-  color: var(--ivy-color-primary, #409eff) !important;
+.ivy-tab-header-arrow::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border: 1px solid transparent;
+  position: absolute;
+  top: 18px;
+  right: 8px;
+  transform: rotateZ(-45deg);
+  pointer-events: none;
+}
+.ivy-tab-header-arrow-right::before {
+  border-right-color: #303133;
+  border-bottom-color: #303133;
+}
+.ivy-tab-header-arrow-left::before {
+  border-top-color: #303133;
+  border-left-color: #303133;
+  left: 8px;
+}
+.ivy-tab-header-arrow:hover .ivy-tab-header-arrow-right::before {
+  border-right-color: var(--ivy-color-primary, #409eff);
+  border-bottom-color: var(--ivy-color-primary, #409eff);
+}
+.ivy-tab-header-arrow:hover .ivy-tab-header-arrow-left::before {
+  border-top-color: var(--ivy-color-primary, #409eff);
+  border-left-color: var(--ivy-color-primary, #409eff);
 }
 .ivy-tab-wrap {
   flex: 0 0 100%;
   overflow: hidden;
   display: inline-flex;
+  position: relative;
 }
 .ivy-tab-wrap-inner {
   display: flex;
-  position: relative;
   transition: left 0.3s;
   left: 0;
+  position: relative;
 }
 .ivy-tab-wrap-item {
   padding: 0 20px;

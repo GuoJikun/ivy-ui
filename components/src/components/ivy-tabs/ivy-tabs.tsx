@@ -1,4 +1,4 @@
-import { Component, Host, h, Element, Prop, State, Event, EventEmitter } from '@stencil/core';
+import { Component, Host, h, Element, Prop, State, Event, EventEmitter, writeTask } from '@stencil/core';
 import { findElementsDownward } from 'src/utils/utils';
 
 @Component({
@@ -7,11 +7,21 @@ import { findElementsDownward } from 'src/utils/utils';
   shadow: true,
 })
 export class IvyTabs {
+  @State() x: number = 0;
+  @State() w: number = 0;
   @State() headerList: Array<Element> = [];
+  tabHeaderWrap: HTMLElement;
   tableInnerEl: HTMLElement;
+  btnLeft: HTMLElement;
+  btnRight: HTMLElement;
   @Element() el: HTMLElement;
 
-  @Prop() active: string = '0';
+  @Prop({
+    attribute: 'active',
+    mutable: true,
+    reflect: true,
+  })
+  active: string = '0';
 
   @Event({
     eventName: 'tab-click',
@@ -19,10 +29,14 @@ export class IvyTabs {
   tabClick: EventEmitter<string>;
 
   headerItemClick(ev: any) {
-    const index = ev.target.getAttribute('data-index');
+    const target = ev.target;
+    const index = target.getAttribute('data-index');
     this.headerList.forEach(el => {
       if (el.getAttribute('index') === index) {
         (el as any).show = true;
+        const rect = target.getBoundingClientRect();
+        this.w = rect.width;
+        this.x = (target as any).offsetLeft;
       } else {
         (el as any).show = false;
       }
@@ -30,13 +44,38 @@ export class IvyTabs {
     this.tabClick.emit(index);
   }
 
+  scrollLeft() {
+    const left = getComputedStyle(this.tableInnerEl)['left'];
+    const leftN = parseFloat(left);
+    console.log(left, leftN, 'left');
+    if (leftN < -60) {
+      (this.tableInnerEl as any).style.left = `${leftN + 60}px`;
+    } else {
+      (this.tableInnerEl as any).style.left = 0;
+    }
+  }
+  scrollRight() {
+    const innerStyle = getComputedStyle(this.tableInnerEl);
+    const left = innerStyle['left'];
+    const width = innerStyle['width'];
+    const leftN = parseFloat(left);
+    const widthN = parseFloat(width);
+    const wrapWidth = parseFloat(getComputedStyle(this.tabHeaderWrap)['width']);
+    console.log(widthN, leftN, wrapWidth, 'right');
+    if (wrapWidth - leftN < widthN - 60) {
+      (this.tableInnerEl as any).style.left = `${leftN - 60}px`;
+    } else {
+      (this.tableInnerEl as any).style.left = `-${widthN - wrapWidth}px`;
+    }
+  }
+
   render() {
     return (
       <Host active={this.active}>
         <div class="ivy-tab-header">
-          <div class="ivy-tab-header-arrow ivy-tab-header-arrow-left"></div>
-          <div class="ivy-tab-wrap">
-            <div class="ivy-tab-wrap-inner">
+          <div class="ivy-tab-header-arrow ivy-tab-header-arrow-left" ref={el => (this.btnLeft = el)} onClick={this.scrollLeft.bind(this)}></div>
+          <div class="ivy-tab-wrap" ref={el => (this.tabHeaderWrap = el)}>
+            <div class="ivy-tab-wrap-inner" ref={el => (this.tableInnerEl = el)}>
               {this.headerList.map((el, index) => {
                 let classList = ['ivy-tab-wrap-item'];
                 if (index === 0) {
@@ -51,10 +90,10 @@ export class IvyTabs {
                   </div>
                 );
               })}
-              <div class="ivy-tab-wrap-line"></div>
+              <div class="ivy-tab-wrap-line" style={{ width: `${this.w}px`, left: `${this.x}px` }}></div>
             </div>
           </div>
-          <div class="ivy-tab-header-arrow ivy-tab-header-arrow-right"></div>
+          <div class="ivy-tab-header-arrow ivy-tab-header-arrow-right" ref={el => (this.btnRight = el)} onClick={this.scrollRight.bind(this)}></div>
         </div>
         <div>
           <slot></slot>
@@ -76,6 +115,31 @@ export class IvyTabs {
         (el as any).show = false;
       }
       return el;
+    });
+  }
+
+  componentDidLoad() {
+    writeTask(() => {
+      const children = this.tableInnerEl.children;
+      for (let index = 0; index < children.length; index++) {
+        const el = children[index];
+        if (this.active === el.getAttribute('data-index')) {
+          const rect = el.getBoundingClientRect();
+          this.w = rect.width;
+
+          this.x = (el as any).offsetLeft;
+        }
+      }
+
+      const tableWrapInnerWidth = getComputedStyle(this.tableInnerEl)['width'];
+      const tableWrapWidth = getComputedStyle(this.tabHeaderWrap)['width'];
+
+      if (parseFloat(tableWrapWidth) < parseFloat(tableWrapInnerWidth)) {
+        this.tabHeaderWrap.style.flex = '0 0 calc(100% - 60px)';
+
+        (this.btnLeft as any).style.display = 'inline-block';
+        (this.btnRight as any).style.display = 'inline-block';
+      }
     });
   }
 }
