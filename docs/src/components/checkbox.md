@@ -32,15 +32,15 @@
 ## 配合`ivy-checkbox-group`使用
 
 <ivy-checkbox-group onchange="console.log(this.value)">
-    <ivy-checkbox label="1" checked>苹果</ivy-checkbox>
-    <ivy-checkbox label="2">橘子</ivy-checkbox>
-    <ivy-checkbox label="3">香蕉</ivy-checkbox>
+    <ivy-checkbox value="1" checked>苹果</ivy-checkbox>
+    <ivy-checkbox value="2">橘子</ivy-checkbox>
+    <ivy-checkbox value="3">香蕉</ivy-checkbox>
 </ivy-checkbox-group>
 
 ```html
 <ivy-checkbox-group onchange="console.log(this.value)">
-    <ivy-checkbox label="1" checked>苹果</ivy-checkbox>
-    <ivy-checkbox label="2">橘子</ivy-checkbox>
-    <ivy-checkbox label="3">香蕉</ivy-checkbox>
+    <ivy-checkbox value="1" checked>苹果</ivy-checkbox>
+    <ivy-checkbox value="2">橘子</ivy-checkbox>
+    <ivy-checkbox value="3">香蕉</ivy-checkbox>
 </ivy-checkbox-group>
 ```

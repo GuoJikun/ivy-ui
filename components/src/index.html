@@ -53,27 +53,29 @@
 <body>
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-dropdown id="wrap">
-      下拉菜单
-      <div slot="menu">
-        <ivy-dropdown-item command="add">新增fasdfsdf</ivy-dropdown-item>
-        <ivy-dropdown-item command="edit">修改</ivy-dropdown-item>
-        <ivy-dropdown-item command="delete">删除</ivy-dropdown-item>
-      </div>
-    </ivy-dropdown>
-
+    <ivy-button id="btn1">测试 Message</ivy-button>
+    <ivy-checkbox-group id="a">
+      <ivy-checkbox value="1" checked>1</ivy-checkbox>
+      <ivy-checkbox value="2">2</ivy-checkbox>
+      <ivy-checkbox value="3">3</ivy-checkbox>
+    </ivy-checkbox-group>
   </div>
   <div style="min-height: 200px"> </div>
 
 </body>
 
 <script>
-  const el = document.querySelector('#wrap')
-  el.addEventListener('command', function (ev) {
-    console.log(ev.detail, this.value)
-
+  const el = document.querySelector('#btn1')
+  el.addEventListener('click', function (ev) {
+    console.log(globalThis.$ivy)
+    $ivy.message.info('消息提示')
   })
-  console.log(globalThis)
+
+  document.querySelector('#a').addEventListener('change', ev => {
+    console.log(ev.detail)
+  })
+
+
 </script>
 
 </html>

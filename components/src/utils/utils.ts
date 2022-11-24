@@ -10,6 +10,14 @@ export function format(first: string, middle: string, last: string): string {
 export const getType = (val: unknown) => {
   return Object.prototype.toString.call(val).slice(8, -1);
 };
+/**
+ * 是否是Object类型
+ * @param val
+ * @returns
+ */
+export const isObject = (val: unknown) => {
+  return getType(val) === 'Object';
+};
 
 /**
  * 查找兄弟元素

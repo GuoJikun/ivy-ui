@@ -39,10 +39,10 @@ export class IvyCheckboxGroup {
     );
   }
 
-  componentDidLoad() {
+  componentWillLoad() {
     const checkboxList = findElementsDownward(this.el, 'ivy-checkbox');
     checkboxList.map(cur => {
-      const checked = cur.getAttribute('checked');
+      const checked = (cur as any).checked;
       if (checked) {
         this.value.push(cur.getAttribute('value'));
       }

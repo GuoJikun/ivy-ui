@@ -126,6 +126,9 @@ export namespace Components {
         "type": string;
         "value": string;
     }
+    interface IvyMessage {
+        "content": string;
+    }
     interface IvyOption {
         "disabled": boolean;
         "value": string;
@@ -410,6 +413,12 @@ declare global {
         prototype: HTMLIvyInputElement;
         new (): HTMLIvyInputElement;
     };
+    interface HTMLIvyMessageElement extends Components.IvyMessage, HTMLStencilElement {
+    }
+    var HTMLIvyMessageElement: {
+        prototype: HTMLIvyMessageElement;
+        new (): HTMLIvyMessageElement;
+    };
     interface HTMLIvyOptionElement extends Components.IvyOption, HTMLStencilElement {
     }
     var HTMLIvyOptionElement: {
@@ -534,6 +543,7 @@ declare global {
         "ivy-grid-item": HTMLIvyGridItemElement;
         "ivy-image": HTMLIvyImageElement;
         "ivy-input": HTMLIvyInputElement;
+        "ivy-message": HTMLIvyMessageElement;
         "ivy-option": HTMLIvyOptionElement;
         "ivy-pager": HTMLIvyPagerElement;
         "ivy-radio": HTMLIvyRadioElement;
@@ -676,6 +686,9 @@ declare namespace LocalJSX {
         "type"?: string;
         "value"?: string;
     }
+    interface IvyMessage {
+        "content"?: string;
+    }
     interface IvyOption {
         "disabled"?: boolean;
         "value"?: string;
@@ -776,6 +789,7 @@ declare namespace LocalJSX {
         "ivy-grid-item": IvyGridItem;
         "ivy-image": IvyImage;
         "ivy-input": IvyInput;
+        "ivy-message": IvyMessage;
         "ivy-option": IvyOption;
         "ivy-pager": IvyPager;
         "ivy-radio": IvyRadio;
@@ -825,6 +839,7 @@ declare module "@stencil/core" {
             "ivy-grid-item": LocalJSX.IvyGridItem & JSXBase.HTMLAttributes<HTMLIvyGridItemElement>;
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-input": LocalJSX.IvyInput & JSXBase.HTMLAttributes<HTMLIvyInputElement>;
+            "ivy-message": LocalJSX.IvyMessage & JSXBase.HTMLAttributes<HTMLIvyMessageElement>;
             "ivy-option": LocalJSX.IvyOption & JSXBase.HTMLAttributes<HTMLIvyOptionElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
             "ivy-radio": LocalJSX.IvyRadio & JSXBase.HTMLAttributes<HTMLIvyRadioElement>;
