@@ -128,6 +128,8 @@ export namespace Components {
     }
     interface IvyMessage {
         "content": string;
+        "show": boolean;
+        "type": string;
     }
     interface IvyOption {
         "disabled": boolean;
@@ -688,6 +690,8 @@ declare namespace LocalJSX {
     }
     interface IvyMessage {
         "content"?: string;
+        "show"?: boolean;
+        "type"?: string;
     }
     interface IvyOption {
         "disabled"?: boolean;

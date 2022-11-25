@@ -25,9 +25,10 @@
   box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
   background: #fff;
   position: relative;
+  min-width: 220px;
 }
-:host([type='success']) {
-  background-color: var(--ivy-color-success-light-7, #d1edc4);
+:host([type='success']) .message {
+  background-color: var(--ivy-color-success-light-9, #f0f9eb);
   color: var(--ivy-color-success, #d1edc4);
 }
 .message-icon {

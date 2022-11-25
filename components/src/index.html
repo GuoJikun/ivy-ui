@@ -54,26 +54,24 @@
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
     <ivy-button id="btn1">测试 Message</ivy-button>
-    <ivy-checkbox-group id="a">
-      <ivy-checkbox value="1" checked>1</ivy-checkbox>
-      <ivy-checkbox value="2">2</ivy-checkbox>
-      <ivy-checkbox value="3">3</ivy-checkbox>
-    </ivy-checkbox-group>
+
   </div>
   <div style="min-height: 200px"> </div>
 
 </body>
 
 <script>
+  let index = 1
   const el = document.querySelector('#btn1')
   el.addEventListener('click', function (ev) {
     console.log(globalThis.$ivy)
-    $ivy.message.info('消息提示')
+    $ivy.message({
+      content: '消息提示'
+    })
+    $ivy.message.success(`消息提示${++index}`)
   })
 
-  document.querySelector('#a').addEventListener('change', ev => {
-    console.log(ev.detail)
-  })
+
 
 
 </script>
