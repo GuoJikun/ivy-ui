@@ -1,6 +1,6 @@
 {
   "name": "ivy-ui",
-  "version": "2.0.0",
+  "version": "1.0.0-beta.2",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -28,7 +28,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@stencil/core": "^2.19.2",
-    "ivy-icon": "workspace:^0.0.1"
+    "ivy-icon": "workspace:1.0.0-beta.1"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",

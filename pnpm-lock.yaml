@@ -10,7 +10,7 @@ importers:
       '@popperjs/core': ^2.11.6
       '@stencil/core': ^2.19.2
       '@types/jest': ^27.0.3
-      ivy-icon: workspace:^0.0.1
+      ivy-icon: workspace:1.0.0-beta.1
       jest: ^27.4.5
       jest-cli: ^27.4.5
       puppeteer: ^10.0.0
