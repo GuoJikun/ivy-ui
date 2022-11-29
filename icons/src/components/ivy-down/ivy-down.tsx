@@ -1,10 +1,10 @@
 import { Component, Host, h, Prop } from '@stencil/core';
 @Component({
-  tag: "ivy-arrow-down",
-  styleUrl: 'ivy-arrow-down.css',
+  tag: "ivy-down",
+  styleUrl: 'ivy-down.css',
   shadow: true,
 })
-export class IvyArrowDown {
+export class IvyDown {
   @Prop({
     attribute: 'size',
     mutable: true,
@@ -20,7 +20,7 @@ export class IvyArrowDown {
   render(){
     return (
       <Host size={this.size} color={this.color}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="currentColor" d="M24 42V6M36 30 24 42 12 30" data-follow-stroke="#9b9b9b"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="currentColor" d="M36 18 24 30 12 18" data-follow-stroke="#9b9b9b"/></svg>
       </Host>
     )
   }
