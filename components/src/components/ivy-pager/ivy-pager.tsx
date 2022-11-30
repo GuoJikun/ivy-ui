@@ -1,11 +1,27 @@
-import { Component, Host, h, Prop, Event, EventEmitter, State, Watch } from '@stencil/core';
+import { Component, Host, h, Prop, Event, EventEmitter, State, Watch, Method } from '@stencil/core';
 
+type Pager = {
+  current: number;
+  size: number;
+  sizes: number[];
+  total: number;
+  layout: string[];
+  maxPage: number;
+};
 @Component({
   tag: 'ivy-pager',
   styleUrl: 'ivy-pager.css',
   shadow: true,
 })
 export class IvyPager {
+  private pager: Pager = {
+    current: 1,
+    size: 10,
+    sizes: [],
+    total: 0,
+    layout: [],
+    maxPage: 0,
+  };
   @Prop() layout: string = 'prev,pager,next';
 
   @Prop({
@@ -14,6 +30,27 @@ export class IvyPager {
     reflect: true,
   })
   defaultPage: string = '1';
+
+  @Prop({
+    attribute: 'size',
+    mutable: true,
+    reflect: true,
+  })
+  size: string = '10';
+
+  @Prop({
+    attribute: 'sizes',
+    mutable: true,
+    reflect: true,
+  })
+  sizes: string = '';
+
+  @Prop({
+    attribute: 'total',
+    mutable: true,
+    reflect: true,
+  })
+  total: string = '0';
 
   @State() currentPage = '1';
 
@@ -27,6 +64,11 @@ export class IvyPager {
 
   connectedCallback() {
     this.currentPage = this.defaultPage;
+    this.pager.current = parseInt(this.defaultPage);
+    this.pager.size = parseInt(this.size);
+    this.pager.sizes = this.sizes.split(',').map(c => parseInt(c.trim())) || [];
+    const maxPage = parseInt((this.pager.total / this.pager.size).toFixed(0));
+    this.pager.maxPage = this.pager.total % this.pager.size === 0 ? maxPage : maxPage + 1;
   }
 
   @Watch('currentPage')
@@ -43,20 +85,24 @@ export class IvyPager {
   }
 
   @Event({
-    eventName: 'pageChange',
+    eventName: 'current-change',
     composed: true,
     cancelable: true,
     bubbles: true,
   })
-  pageChange: EventEmitter<string>;
+  currentChange: EventEmitter<number>;
   pageChangedHandler(curPage) {
     if (this.currentPage != curPage) {
       this.currentPage = curPage;
-      const event = this.pageChange.emit(curPage);
+      const event = this.currentChange.emit(curPage);
       if (!event.defaultPrevented) {
         // if not prevented, do some default handling code
       }
     }
+  }
+
+  componentWillRender() {
+    this.pager.total = parseInt(this.total);
   }
 
   renderPagerItem(start: number, count: number) {
@@ -109,5 +155,13 @@ export class IvyPager {
         </div>
       </Host>
     );
+  }
+
+  @Method()
+  async setTotal(total: number) {
+    if (total < 0) {
+      throw new Error('total 属性必须是正整数');
+    }
+    this.pager.total = total;
   }
 }

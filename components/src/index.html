@@ -16,7 +16,7 @@
       line-height: 1.6em;
       width: 800px;
       margin: 0 auto;
-      background-color: #efefef;
+      background-color: #fff;
       height: 100vh;
     }
 
@@ -53,50 +53,42 @@
 <body>
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-button id="btn1">测试 Message</ivy-button>
+    <ivy-pager class="pager"></ivy-pager>
+    <ivy-button id="btn">更改进度条进度</ivy-button>
   </div>
   <div style="min-height: 200px">
-    <ivy-button>default</ivy-button>
-    <ivy-button type="primary">primary</ivy-button>
-    <ivy-button type="success">success</ivy-button>
-    <ivy-button type="warning">warning</ivy-button>
-    <ivy-button type="danger">danger</ivy-button>
-    <ivy-button type="info">info</ivy-button>
-  </div>
-  <div style="min-height: 200px">
-    <ivy-button disabled>default</ivy-button>
-  <ivy-button type="primary" disabled>primary</ivy-button>
-  <ivy-button type="success" disabled>success</ivy-button>
-  <ivy-button type="warning" disabled>warning</ivy-button>
-  <ivy-button type="danger" disabled>danger</ivy-button>
-  <ivy-button type="info" disabled>info</ivy-button>
-  </div>
-  <div style="min-height: 200px">
-    <ivy-button loading>default</ivy-button>
-  <ivy-button type="primary" loading>primary</ivy-button>
-  <ivy-button type="success" loading>success</ivy-button>
-  <ivy-button type="warning" loading>warning</ivy-button>
-  <ivy-button type="danger" loading>danger</ivy-button>
-  <ivy-button type="info" loading>info</ivy-button>
-  </div>
+    <ivy-progress value="30" id="progress1"></ivy-progress>
+    <ivy-progress value="50" class="margin-top"></ivy-progress>
+    <ivy-progress value="70" class="margin-top"></ivy-progress>
+    <ivy-progress value="100" class="margin-top"></ivy-progress>
 
+  </div>
+  <div style="min-height: 200px">
+    <ivy-progress value="70" color="blue"></ivy-progress>
+    <ivy-progress value="70" color="#afedf4" class="margin-top"></ivy-progress>
+    <ivy-progress value="70" color="green" class="margin-top"></ivy-progress>
+    <ivy-progress value="70" color="red" class="margin-top"></ivy-progress>
+  </div>
+  <div style="min-height: 200px">
+    <ivy-progress value="70" color="blue" show-text></ivy-progress>
+    <ivy-progress value="70" color="#afedf4" show-text class="margin-top"></ivy-progress>
+    <ivy-progress value="70" color="green" show-text class="margin-top"></ivy-progress>
+    <ivy-progress value="70" color="red" show-text class="margin-top"></ivy-progress>
+  </div>
 </body>
 
 <script>
   let index = 1
-  const el = document.querySelector('#btn1')
-  el.addEventListener('click', function (ev) {
-    console.log(globalThis.$ivy)
-    $ivy.message({
-      content: '消息提示'
-    })
-    $ivy.message.success(`消息提示${++index}`)
-    $ivy.message.info(`消息提示${++index}`)
-    $ivy.message.warning(`消息提示${++index}`)
-    $ivy.message.error(`消息提示${++index}`)
+  const el = document.querySelector('.pager')
+  el.addEventListener('current-change', function (ev) {
+    console.log(ev.detail);
+    console.log(this.pager)
   })
 
-
+  const valueList = [10, 30, 50, 70, 90, 100]
+  document.querySelector('#btn').addEventListener('click', () => {
+    document.querySelector('#progress1').setValue(Math.floor(Math.random() * 100))
+  })
 
 
 </script>

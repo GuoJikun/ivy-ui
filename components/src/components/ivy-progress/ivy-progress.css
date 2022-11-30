@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+.bar {
+  background-color: var(--ivy-progress-track-color, #ebeef5);
+  height: var(--ivy-progress-stroke-width, 6px);
+  border-radius: calc(var(--ivy-progress-stroke-width, 6px) / 2);
+  overflow: hidden;
+  flex: auto;
+}
+.inner {
+  background-color: var(--ivy-progress-color, #409eff);
+  height: 100%;
+  width: 0%;
+  border-radius: calc(var(--ivy-progress-stroke-width, 6px) / 2);
+  transition: width 0.3s;
+}
+
+.text {
+  font-size: var(--ivy-progress-text-size, 12px);
+  color: var(--ivy-progress-text-color, 12px);
+  flex: none;
+  margin-left: 6px;
+}

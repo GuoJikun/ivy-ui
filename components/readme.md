@@ -69,7 +69,8 @@ pnpm i ivy-ui
 |breadcrumb-item|-|面包屑导航子组件，不可单独使用|
 |image|-|图片组件|
 |message|-|顶部弹层提示组件|
-
+|tip|-|直接显示在界面上提示组件，等同于elementPlus的alert组件|
+|process|-|进度条组件|
 
 
 ## 计划完成组件
@@ -77,7 +78,6 @@ pnpm i ivy-ui
 | 组件名称 | 搭配子组件 | 组件描述 |
 |--|--|--|
 |slider|-|滑块组件|
-|process|-|进度条组件|
 |pager|-|分页组件|
 |notification|-|通知组件|
 |rate|-|评分组件|

@@ -138,6 +138,17 @@ export namespace Components {
     interface IvyPager {
         "defaultPage": string;
         "layout": string;
+        "setTotal": (total: number) => Promise<void>;
+        "size": string;
+        "sizes": string;
+        "total": string;
+    }
+    interface IvyProgress {
+        "color": string;
+        "formatter": string;
+        "setValue": (val: string | number) => Promise<void>;
+        "showText": boolean;
+        "value": string | number;
     }
     interface IvyRadio {
         "checked": boolean;
@@ -433,6 +444,12 @@ declare global {
         prototype: HTMLIvyPagerElement;
         new (): HTMLIvyPagerElement;
     };
+    interface HTMLIvyProgressElement extends Components.IvyProgress, HTMLStencilElement {
+    }
+    var HTMLIvyProgressElement: {
+        prototype: HTMLIvyProgressElement;
+        new (): HTMLIvyProgressElement;
+    };
     interface HTMLIvyRadioElement extends Components.IvyRadio, HTMLStencilElement {
     }
     var HTMLIvyRadioElement: {
@@ -548,6 +565,7 @@ declare global {
         "ivy-message": HTMLIvyMessageElement;
         "ivy-option": HTMLIvyOptionElement;
         "ivy-pager": HTMLIvyPagerElement;
+        "ivy-progress": HTMLIvyProgressElement;
         "ivy-radio": HTMLIvyRadioElement;
         "ivy-radio-group": HTMLIvyRadioGroupElement;
         "ivy-row": HTMLIvyRowElement;
@@ -700,7 +718,16 @@ declare namespace LocalJSX {
     interface IvyPager {
         "defaultPage"?: string;
         "layout"?: string;
-        "onPageChange"?: (event: IvyPagerCustomEvent<string>) => void;
+        "onCurrent-change"?: (event: IvyPagerCustomEvent<number>) => void;
+        "size"?: string;
+        "sizes"?: string;
+        "total"?: string;
+    }
+    interface IvyProgress {
+        "color"?: string;
+        "formatter"?: string;
+        "showText"?: boolean;
+        "value"?: string | number;
     }
     interface IvyRadio {
         "checked"?: boolean;
@@ -796,6 +823,7 @@ declare namespace LocalJSX {
         "ivy-message": IvyMessage;
         "ivy-option": IvyOption;
         "ivy-pager": IvyPager;
+        "ivy-progress": IvyProgress;
         "ivy-radio": IvyRadio;
         "ivy-radio-group": IvyRadioGroup;
         "ivy-row": IvyRow;
@@ -846,6 +874,7 @@ declare module "@stencil/core" {
             "ivy-message": LocalJSX.IvyMessage & JSXBase.HTMLAttributes<HTMLIvyMessageElement>;
             "ivy-option": LocalJSX.IvyOption & JSXBase.HTMLAttributes<HTMLIvyOptionElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
+            "ivy-progress": LocalJSX.IvyProgress & JSXBase.HTMLAttributes<HTMLIvyProgressElement>;
             "ivy-radio": LocalJSX.IvyRadio & JSXBase.HTMLAttributes<HTMLIvyRadioElement>;
             "ivy-radio-group": LocalJSX.IvyRadioGroup & JSXBase.HTMLAttributes<HTMLIvyRadioGroupElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
