@@ -1,5 +1,10 @@
-export function format(first: string, middle: string, last: string): string {
-  return (first || '') + (middle ? ` ${middle}` : '') + (last ? ` ${last}` : '');
+export type ScrollElement = HTMLElement | Window;
+
+const defaultRoot = window;
+
+function isElement(node: Element) {
+  const ELEMENT_NODE_TYPE = 1;
+  return node.tagName !== 'HTML' && node.tagName !== 'BODY' && node.nodeType === ELEMENT_NODE_TYPE;
 }
 
 /**
@@ -153,6 +158,20 @@ export const findBrothersElements = (self: HTMLElement, nodeName: string, except
 };
 
 /**
+ * 获取slot的子元素
+ * @param slot slot 元素
+ * @param tag 筛选的元素名称
+ * @returns
+ */
+export const getAssignedElements = (slot: HTMLSlotElement, tag?: string) => {
+  const tmp = slot.assignedElements();
+  if (tag) {
+    return tmp.filter(c => c.tagName.toLowerCase() === tag);
+  }
+  return tmp;
+};
+
+/**
  * 颜色叠加
  * @param {String} c1 颜色1-HEX格式
  * @param {String} c2 颜色2-HEX格式
@@ -175,3 +194,38 @@ export const colorBlend = (c1: string, c2: string, ratio: number): string => {
   b = '' + (b || 0).toString(16);
   return `#${r}${g}${b}`;
 };
+
+export const throttle = (func: Function, delay = 0, atLeast: number = 200) => {
+  let timer: any = null;
+  let lastRun = 0;
+  return (...args: any) => {
+    const now = +new Date();
+    if (timer) {
+      clearTimeout(timer);
+    }
+    if (now - lastRun > atLeast) {
+      lastRun = now;
+      func.apply(this, args);
+    } else {
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, delay);
+    }
+  };
+};
+
+const overflowScrollReg = /scroll|auto/i;
+// 获取滚动的父元素
+export function getScrollParent(el: Element, root: ScrollElement | undefined = defaultRoot) {
+  let node = el;
+
+  while (node && node !== root && isElement(node)) {
+    const { overflowY } = window.getComputedStyle(node);
+    if (overflowScrollReg.test(overflowY)) {
+      return node;
+    }
+    node = node.parentNode as Element;
+  }
+
+  return root;
+}

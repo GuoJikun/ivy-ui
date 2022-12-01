@@ -32,6 +32,6 @@
   cursor: pointer;
 }
 
-.indicator-item[active] {
+.indicator-item[data-active] {
   background-color: #409eff;
 }

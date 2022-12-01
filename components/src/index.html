@@ -54,27 +54,19 @@
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
     <ivy-pager class="pager"></ivy-pager>
-    <ivy-button id="btn">更改进度条进度</ivy-button>
   </div>
-  <div style="min-height: 200px">
-    <ivy-progress value="30" id="progress1"></ivy-progress>
-    <ivy-progress value="50" class="margin-top"></ivy-progress>
-    <ivy-progress value="70" class="margin-top"></ivy-progress>
-    <ivy-progress value="100" class="margin-top"></ivy-progress>
 
+  <div style="height: 200px;"></div>
+
+  <div>
+    <ivy-carousel>
+      <ivy-carousel-item>1</ivy-carousel-item>
+      <ivy-carousel-item>2</ivy-carousel-item>
+      <ivy-carousel-item>3</ivy-carousel-item>
+      <ivy-carousel-item>4</ivy-carousel-item>
+    </ivy-carousel>
   </div>
-  <div style="min-height: 200px">
-    <ivy-progress value="70" color="blue"></ivy-progress>
-    <ivy-progress value="70" color="#afedf4" class="margin-top"></ivy-progress>
-    <ivy-progress value="70" color="green" class="margin-top"></ivy-progress>
-    <ivy-progress value="70" color="red" class="margin-top"></ivy-progress>
-  </div>
-  <div style="min-height: 200px">
-    <ivy-progress value="70" color="blue" show-text></ivy-progress>
-    <ivy-progress value="70" color="#afedf4" show-text class="margin-top"></ivy-progress>
-    <ivy-progress value="70" color="green" show-text class="margin-top"></ivy-progress>
-    <ivy-progress value="70" color="red" show-text class="margin-top"></ivy-progress>
-  </div>
+
 </body>
 
 <script>
@@ -85,10 +77,7 @@
     console.log(this.pager)
   })
 
-  const valueList = [10, 30, 50, 70, 90, 100]
-  document.querySelector('#btn').addEventListener('click', () => {
-    document.querySelector('#progress1').setValue(Math.floor(Math.random() * 100))
-  })
+
 
 
 </script>
