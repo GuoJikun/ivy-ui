@@ -18,6 +18,12 @@
     "dist/",
     "loader/"
   ],
+  "keywords": [
+    "component",
+    "web-component",
+    "ivy-ui",
+    "ui"
+  ],
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
