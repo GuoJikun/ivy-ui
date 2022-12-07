@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "vitepress": "1.0.0-alpha.30"
   },
   "dependencies": {
-    "ivy-icon": "workspace:^1.0.0-beta.2",
-    "ivy-ui": "workspace:^1.0.0-beta.3"
+    "ivy-icon": "workspace:^1.0.0",
+    "ivy-ui": "workspace:^1.0.0"
   }
 }
