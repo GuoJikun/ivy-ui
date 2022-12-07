@@ -16,7 +16,8 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "readme.md"
   ],
   "keywords": [
     "component",
