@@ -1,7 +1,7 @@
 {
   "name": "ivy-icon",
   "version": "1.0.0",
-  "description": "使用web component技术的icon组件库",
+  "description": "一个使用stencilJs开发的web component 图标组件库",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",

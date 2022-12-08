@@ -1,7 +1,7 @@
 {
   "name": "ivy",
   "version": "1.0.0",
-  "description": "",
+  "description": "一个使用stencilJs开发的web component组件库",
   "main": "index.js",
   "scripts": {
     "dev:component": "pnpm --filter ivy-ui run start",
