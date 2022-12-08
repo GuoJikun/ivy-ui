@@ -72,8 +72,8 @@ export class IvyInput {
           disabled={this.disabled}
           readonly={this.readonly}
           onInput={this.changeHandler.bind(this)}
-          onCompositionStart={this.compositionStartHandler.bind(this)}
-          onCompositionEnd={this.compositionEndHandler.bind(this)}
+          onCompositionstart={this.compositionStartHandler.bind(this)}
+          onCompositionend={this.compositionEndHandler.bind(this)}
         />
       </Host>
     );

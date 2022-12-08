@@ -36,7 +36,7 @@
     "g": "npm run generate"
   },
   "dependencies": {
-    "@stencil/core": "^2.13.0"
+    "@stencil/core": "3.0.0-alpha.1"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
