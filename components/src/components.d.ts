@@ -81,6 +81,10 @@ export namespace Components {
         "label": string;
         "labelWidth": string;
     }
+    interface IvyDetails {
+        "header": string;
+        "open": boolean;
+    }
     interface IvyDialog {
         "close": () => Promise<void>;
         "open": () => Promise<void>;
@@ -366,6 +370,12 @@ declare global {
         prototype: HTMLIvyDescriptionItemElement;
         new (): HTMLIvyDescriptionItemElement;
     };
+    interface HTMLIvyDetailsElement extends Components.IvyDetails, HTMLStencilElement {
+    }
+    var HTMLIvyDetailsElement: {
+        prototype: HTMLIvyDetailsElement;
+        new (): HTMLIvyDetailsElement;
+    };
     interface HTMLIvyDialogElement extends Components.IvyDialog, HTMLStencilElement {
     }
     var HTMLIvyDialogElement: {
@@ -552,6 +562,7 @@ declare global {
         "ivy-contextmenu-item": HTMLIvyContextmenuItemElement;
         "ivy-description": HTMLIvyDescriptionElement;
         "ivy-description-item": HTMLIvyDescriptionItemElement;
+        "ivy-details": HTMLIvyDetailsElement;
         "ivy-dialog": HTMLIvyDialogElement;
         "ivy-divider": HTMLIvyDividerElement;
         "ivy-drawer": HTMLIvyDrawerElement;
@@ -657,6 +668,10 @@ declare namespace LocalJSX {
         "gutter"?: string;
         "label"?: string;
         "labelWidth"?: string;
+    }
+    interface IvyDetails {
+        "header"?: string;
+        "open"?: boolean;
     }
     interface IvyDialog {
         "onClosed"?: (event: IvyDialogCustomEvent<string>) => void;
@@ -810,6 +825,7 @@ declare namespace LocalJSX {
         "ivy-contextmenu-item": IvyContextmenuItem;
         "ivy-description": IvyDescription;
         "ivy-description-item": IvyDescriptionItem;
+        "ivy-details": IvyDetails;
         "ivy-dialog": IvyDialog;
         "ivy-divider": IvyDivider;
         "ivy-drawer": IvyDrawer;
@@ -861,6 +877,7 @@ declare module "@stencil/core" {
             "ivy-contextmenu-item": LocalJSX.IvyContextmenuItem & JSXBase.HTMLAttributes<HTMLIvyContextmenuItemElement>;
             "ivy-description": LocalJSX.IvyDescription & JSXBase.HTMLAttributes<HTMLIvyDescriptionElement>;
             "ivy-description-item": LocalJSX.IvyDescriptionItem & JSXBase.HTMLAttributes<HTMLIvyDescriptionItemElement>;
+            "ivy-details": LocalJSX.IvyDetails & JSXBase.HTMLAttributes<HTMLIvyDetailsElement>;
             "ivy-dialog": LocalJSX.IvyDialog & JSXBase.HTMLAttributes<HTMLIvyDialogElement>;
             "ivy-divider": LocalJSX.IvyDivider & JSXBase.HTMLAttributes<HTMLIvyDividerElement>;
             "ivy-drawer": LocalJSX.IvyDrawer & JSXBase.HTMLAttributes<HTMLIvyDrawerElement>;

@@ -53,32 +53,41 @@
 <body>
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-pager class="pager"></ivy-pager>
+    <ivy-details class="pager">
+      <div>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+      </div>
+    </ivy-details>
   </div>
 
-  <div style="height: 200px;"></div>
+  <div style="height: 200px;">
+    <ivy-details class="pager" type="card">
+      <div>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+      </div>
+    </ivy-details>
+  </div>
 
   <div>
-    <ivy-carousel>
-      <ivy-carousel-item>1</ivy-carousel-item>
-      <ivy-carousel-item>2</ivy-carousel-item>
-      <ivy-carousel-item>3</ivy-carousel-item>
-      <ivy-carousel-item>4</ivy-carousel-item>
-    </ivy-carousel>
+    <ivy-details class="pager" type="card" arrow-position="left">
+      <div>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+      </div>
+    </ivy-details>
   </div>
 
 </body>
 
 <script>
-  let index = 1
-  const el = document.querySelector('.pager')
-  el.addEventListener('current-change', function (ev) {
-    console.log(ev.detail);
-    console.log(this.pager)
-  })
-
-
-
 
 </script>
 
