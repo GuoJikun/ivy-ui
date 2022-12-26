@@ -78,7 +78,6 @@ pnpm i ivy-ui
 | 组件名称 | 搭配子组件 | 组件描述 |
 |--|--|--|
 |slider|-|滑块组件|
-|process|-|进度条组件|
 |pager|-|分页组件|
 |notification|-|通知组件|
 |rate|-|评分组件|
