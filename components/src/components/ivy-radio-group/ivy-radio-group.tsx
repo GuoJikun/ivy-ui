@@ -35,7 +35,7 @@ export class IvyRadioGroup {
 
   componentDidLoad() {
     const checkboxList = findElementsDownward(this.el, 'ivy-radio');
-    checkboxList.map(cur => {
+    checkboxList.forEach(cur => {
       const checked = cur.getAttribute('checked');
       if (checked) {
         this.value = cur.getAttribute('value');

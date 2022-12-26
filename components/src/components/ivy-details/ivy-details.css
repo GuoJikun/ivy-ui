@@ -1,0 +1,46 @@
+:host {
+  display: block;
+  font-size: var(--ivy-font-size, 14px);
+  border-radius: 4px;
+}
+.header {
+  cursor: default;
+  padding: 0 12px;
+  line-height: 32px;
+  position: relative;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  transform: rotate(-90deg);
+  transition: 0.3s transform;
+}
+
+:host([arrow-position='left']) .header {
+  padding-left: 30px;
+}
+:host([arrow-position='left']) .arrow {
+  left: 12px;
+}
+.content {
+  display: none;
+  padding: 6px 12px;
+}
+
+:host([open]) .content {
+  display: block;
+}
+:host([open]) .arrow {
+  transform: rotate(0);
+}
+:host([type='card']) {
+  border: 1px solid var(--ivy-border-color, #dcdfe6);
+}
+
+:host([type='card'][open]) .content {
+  border-top: 1px solid var(--ivy-border-color, #dcdfe6);
+}

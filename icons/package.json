@@ -1,7 +1,7 @@
 {
   "name": "ivy-icon",
-  "version": "0.0.1",
-  "description": "Stencil Component Starter",
+  "version": "1.0.0",
+  "description": "一个使用stencilJs开发的web component 图标组件库",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -19,7 +19,13 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "readme.md"
+  ],
+  "keywords": [
+    "icon",
+    "web-component",
+    "ivy-icon"
   ],
   "scripts": {
     "build": "stencil build --docs",
@@ -41,5 +47,6 @@
     "svgo": "^2.8.0",
     "svgson": "^5.2.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "private": false
 }

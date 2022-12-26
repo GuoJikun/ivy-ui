@@ -24,7 +24,7 @@ export class IvyCollapse {
     const active = this.active;
     const childList = getElement(this).children || [];
     const children = [...(childList as Array<HTMLElement>)];
-    children.map((cur, i) => {
+    children.forEach((cur, i) => {
       const index = cur.getAttribute('index');
       if (index === undefined) {
         if (active === i.toString()) {

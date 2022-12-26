@@ -81,6 +81,10 @@ export namespace Components {
         "label": string;
         "labelWidth": string;
     }
+    interface IvyDetails {
+        "header": string;
+        "open": boolean;
+    }
     interface IvyDialog {
         "close": () => Promise<void>;
         "open": () => Promise<void>;
@@ -128,6 +132,8 @@ export namespace Components {
     }
     interface IvyMessage {
         "content": string;
+        "show": boolean;
+        "type": string;
     }
     interface IvyOption {
         "disabled": boolean;
@@ -136,6 +142,17 @@ export namespace Components {
     interface IvyPager {
         "defaultPage": string;
         "layout": string;
+        "setTotal": (total: number) => Promise<void>;
+        "size": string;
+        "sizes": string;
+        "total": string;
+    }
+    interface IvyProgress {
+        "color": string;
+        "formatter": string;
+        "setValue": (val: string | number) => Promise<void>;
+        "showText": boolean;
+        "value": string | number;
     }
     interface IvyRadio {
         "checked": boolean;
@@ -353,6 +370,12 @@ declare global {
         prototype: HTMLIvyDescriptionItemElement;
         new (): HTMLIvyDescriptionItemElement;
     };
+    interface HTMLIvyDetailsElement extends Components.IvyDetails, HTMLStencilElement {
+    }
+    var HTMLIvyDetailsElement: {
+        prototype: HTMLIvyDetailsElement;
+        new (): HTMLIvyDetailsElement;
+    };
     interface HTMLIvyDialogElement extends Components.IvyDialog, HTMLStencilElement {
     }
     var HTMLIvyDialogElement: {
@@ -430,6 +453,12 @@ declare global {
     var HTMLIvyPagerElement: {
         prototype: HTMLIvyPagerElement;
         new (): HTMLIvyPagerElement;
+    };
+    interface HTMLIvyProgressElement extends Components.IvyProgress, HTMLStencilElement {
+    }
+    var HTMLIvyProgressElement: {
+        prototype: HTMLIvyProgressElement;
+        new (): HTMLIvyProgressElement;
     };
     interface HTMLIvyRadioElement extends Components.IvyRadio, HTMLStencilElement {
     }
@@ -533,6 +562,7 @@ declare global {
         "ivy-contextmenu-item": HTMLIvyContextmenuItemElement;
         "ivy-description": HTMLIvyDescriptionElement;
         "ivy-description-item": HTMLIvyDescriptionItemElement;
+        "ivy-details": HTMLIvyDetailsElement;
         "ivy-dialog": HTMLIvyDialogElement;
         "ivy-divider": HTMLIvyDividerElement;
         "ivy-drawer": HTMLIvyDrawerElement;
@@ -546,6 +576,7 @@ declare global {
         "ivy-message": HTMLIvyMessageElement;
         "ivy-option": HTMLIvyOptionElement;
         "ivy-pager": HTMLIvyPagerElement;
+        "ivy-progress": HTMLIvyProgressElement;
         "ivy-radio": HTMLIvyRadioElement;
         "ivy-radio-group": HTMLIvyRadioGroupElement;
         "ivy-row": HTMLIvyRowElement;
@@ -638,6 +669,10 @@ declare namespace LocalJSX {
         "label"?: string;
         "labelWidth"?: string;
     }
+    interface IvyDetails {
+        "header"?: string;
+        "open"?: boolean;
+    }
     interface IvyDialog {
         "onClosed"?: (event: IvyDialogCustomEvent<string>) => void;
         "onSure"?: (event: IvyDialogCustomEvent<string>) => void;
@@ -688,6 +723,8 @@ declare namespace LocalJSX {
     }
     interface IvyMessage {
         "content"?: string;
+        "show"?: boolean;
+        "type"?: string;
     }
     interface IvyOption {
         "disabled"?: boolean;
@@ -696,7 +733,16 @@ declare namespace LocalJSX {
     interface IvyPager {
         "defaultPage"?: string;
         "layout"?: string;
-        "onPageChange"?: (event: IvyPagerCustomEvent<string>) => void;
+        "onCurrent-change"?: (event: IvyPagerCustomEvent<number>) => void;
+        "size"?: string;
+        "sizes"?: string;
+        "total"?: string;
+    }
+    interface IvyProgress {
+        "color"?: string;
+        "formatter"?: string;
+        "showText"?: boolean;
+        "value"?: string | number;
     }
     interface IvyRadio {
         "checked"?: boolean;
@@ -779,6 +825,7 @@ declare namespace LocalJSX {
         "ivy-contextmenu-item": IvyContextmenuItem;
         "ivy-description": IvyDescription;
         "ivy-description-item": IvyDescriptionItem;
+        "ivy-details": IvyDetails;
         "ivy-dialog": IvyDialog;
         "ivy-divider": IvyDivider;
         "ivy-drawer": IvyDrawer;
@@ -792,6 +839,7 @@ declare namespace LocalJSX {
         "ivy-message": IvyMessage;
         "ivy-option": IvyOption;
         "ivy-pager": IvyPager;
+        "ivy-progress": IvyProgress;
         "ivy-radio": IvyRadio;
         "ivy-radio-group": IvyRadioGroup;
         "ivy-row": IvyRow;
@@ -829,6 +877,7 @@ declare module "@stencil/core" {
             "ivy-contextmenu-item": LocalJSX.IvyContextmenuItem & JSXBase.HTMLAttributes<HTMLIvyContextmenuItemElement>;
             "ivy-description": LocalJSX.IvyDescription & JSXBase.HTMLAttributes<HTMLIvyDescriptionElement>;
             "ivy-description-item": LocalJSX.IvyDescriptionItem & JSXBase.HTMLAttributes<HTMLIvyDescriptionItemElement>;
+            "ivy-details": LocalJSX.IvyDetails & JSXBase.HTMLAttributes<HTMLIvyDetailsElement>;
             "ivy-dialog": LocalJSX.IvyDialog & JSXBase.HTMLAttributes<HTMLIvyDialogElement>;
             "ivy-divider": LocalJSX.IvyDivider & JSXBase.HTMLAttributes<HTMLIvyDividerElement>;
             "ivy-drawer": LocalJSX.IvyDrawer & JSXBase.HTMLAttributes<HTMLIvyDrawerElement>;
@@ -842,6 +891,7 @@ declare module "@stencil/core" {
             "ivy-message": LocalJSX.IvyMessage & JSXBase.HTMLAttributes<HTMLIvyMessageElement>;
             "ivy-option": LocalJSX.IvyOption & JSXBase.HTMLAttributes<HTMLIvyOptionElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
+            "ivy-progress": LocalJSX.IvyProgress & JSXBase.HTMLAttributes<HTMLIvyProgressElement>;
             "ivy-radio": LocalJSX.IvyRadio & JSXBase.HTMLAttributes<HTMLIvyRadioElement>;
             "ivy-radio-group": LocalJSX.IvyRadioGroup & JSXBase.HTMLAttributes<HTMLIvyRadioGroupElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;

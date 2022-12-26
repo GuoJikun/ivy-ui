@@ -20,7 +20,7 @@ export class IvyArrowDown {
   render(){
     return (
       <Host size={this.size} color={this.color}>
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48"><path fill-opacity=".01" fill="currentColor" d="M0 0h48v48H0z" data-follow-fill="#fff"/><path stroke-linejoin="round" stroke-width="2" stroke="currentColor" d="M37 18 25 30 13 18" data-follow-stroke="#333"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48"><path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="currentColor" d="M24 42V6M36 30 24 42 12 30" data-follow-stroke="#9b9b9b"/></svg>
       </Host>
     )
   }

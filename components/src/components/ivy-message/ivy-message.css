@@ -23,13 +23,50 @@
   padding: 8px 16px;
   border-radius: 4px;
   box-shadow: 0 1px 6px rgb(0 0 0 / 20%);
-  background: #fff;
+  background-color: #fff;
   position: relative;
+  min-width: 220px;
+  align-items: center;
 }
-:host([type='success']) {
-  background-color: var(--ivy-color-success-light-7, #d1edc4);
+
+.icon {
+  margin-right: 8px;
+  font-size: 16px;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+:host([type='success']) .message {
+  background-color: var(--ivy-color-success-light-9, #f0f9eb);
   color: var(--ivy-color-success, #d1edc4);
 }
-.message-icon {
-  margin-right: 8px;
+:host([type='success']) .icon {
+  color: var(--ivy-color-success, #d1edc4);
+}
+
+:host([type='warning']) .message {
+  background-color: var(--ivy-color-warning-light-9, #fdf6ec);
+  color: var(--ivy-color-warning, #e6a23c);
+}
+:host([type='warning']) .icon {
+  color: var(--ivy-color-warning, #e6a23c);
+}
+
+:host([type='info']) .message {
+  background-color: var(--ivy-color-info-light-9, #f4f4f5);
+  color: var(--ivy-color-info, #909399);
+}
+:host([type='info']) .icon {
+  color: var(--ivy-color-info, #909399);
+}
+
+:host([type='error']) .message {
+  background-color: var(--ivy-color-danger-light-9, #fef0f0);
+  color: var(--ivy-color-danger, #f56c6c);
+}
+:host([type='error']) .icon {
+  color: var(--ivy-color-danger, #f56c6c);
 }

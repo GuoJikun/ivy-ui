@@ -30,37 +30,54 @@ pnpm i ivy-ui
 
 ## 已有组件
 
-- [x] `Row` 组件 
-- [x] `Col` 组件
-- [x] `Switch` 组件
-- [x] `Collapse` 组件
-- [x] `CollapseItem` 组件
-- [x] `Drawer` 组件
-- [x] `Icon` 组件
-- [x] `Progress` 组件
-- [x] `Button` 组件
-- [x] `card` 组件
-- [x] `timeline` 组件
-- [x] `divider` 组件
-- [x] `Modal` 组件
-- [x] `Rate` 组件
-- [x] `tab` 组件
-- [x] `tab-pane` 组件
-- [x] `Image` 组件
-- [x] `Tooltip` 组件
-- [x] `Table` 组件
-- [x] `Input` 组件
-- [x] `Checkbox` 组件
-- [x] `CheckboxGroup` 组件
-- [x] `Radio` 组件
-- [x] `RadioGroup` 组件
-- [x] `Tag` 组件
-- [x] `Clipboard-copy` 组件
-- [x] `Badge` 组件
+| 组件名称 | 搭配子组件 | 组件描述 |
+|--|--|--|
+|grid|grid-item|宫格组件-常用于九宫格|
+|row|col|行组件，子组件必须是col组件|
+|col|-|row的子组件，不可单独使用|
+|aspect-ratio|-|宽高保持固定比例的容器|
+|button|-|按钮组件|
+|card|-|卡片组件|
+|input|-|输入组件|
+|radio-group|radio|单选框组|
+|radio|-|单选框|
+|select|option|下拉选择组件|
+|option|-|下拉选择子组件，不可单独使用|
+|checkbox-group|checkbox|多选框组|
+|checkbox|-|多选框|
+|switch|-|开关组件|
+|dialog|-|弹窗组件|
+|tooltip|-|提示组件|
+|drawer|-|抽屉组件|
+|collapse|Collapse-item|折叠面板|
+|collapse-item|-|折叠面板子组件，不可单独使用|
+|timeline|timeline-item|时间线组件|
+|timeline-item|-|时间线子组件，不可单独使用|
+|steps|step|步骤条组件|
+|step|-|步骤条子组件，不可单独使用|
+|tabs|tab-pane|tab组件|
+|tab-pane|-|tab子组件，不可单独使用|
+|divider|-|分割线，常用于分割内容|
+|tag|-|标签组件|
+|Badge|-|徽章组件|
+|contextmenu|contextmenu-item|右键菜单组件|
+|contextmenu-item|-|右键菜单子组件，不可单独使用|
+|dropdown|dropdown-item|下拉菜单组件|
+|dropdown-item|-|下拉菜单子组件，不可单独使用|
+|empty|-|空组件，常用于内容为空的场合|
+|breadcrumb|breadcrumb-item|面包屑导航组件|
+|breadcrumb-item|-|面包屑导航子组件，不可单独使用|
+|image|-|图片组件|
+|message|-|顶部弹层提示组件|
+|tip|-|直接显示在界面上提示组件，等同于elementPlus的alert组件|
+|process|-|进度条组件|
 
-## 未完成组件
 
-- [ ] `Message` 组件
-- [ ] `Select` 组件
-- [ ] `Slider` 组件
-- [ ] `Pagination` 组件
+## 计划完成组件
+
+| 组件名称 | 搭配子组件 | 组件描述 |
+|--|--|--|
+|slider|-|滑块组件|
+|pager|-|分页组件|
+|notification|-|通知组件|
+|rate|-|评分组件|

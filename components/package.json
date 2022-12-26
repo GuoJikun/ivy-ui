@@ -1,7 +1,7 @@
 {
   "name": "ivy-ui",
-  "version": "2.0.0",
-  "description": "Stencil Component Starter",
+  "version": "1.0.0",
+  "description": "一个使用stencilJs开发的web component通用组件库",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -16,7 +16,14 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "readme.md"
+  ],
+  "keywords": [
+    "component",
+    "web-component",
+    "ivy-ui",
+    "ui"
   ],
   "scripts": {
     "build": "stencil build --docs",
@@ -28,7 +35,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "@stencil/core": "^2.19.2",
-    "ivy-icon": "workspace:^0.0.1"
+    "ivy-icon": "workspace:1.0.0"
   },
   "devDependencies": {
     "@types/jest": "^27.0.3",
@@ -36,5 +43,6 @@
     "jest-cli": "^27.4.5",
     "puppeteer": "^10.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "private": false
 }

@@ -16,7 +16,7 @@
       line-height: 1.6em;
       width: 800px;
       margin: 0 auto;
-      background-color: #efefef;
+      background-color: #fff;
       height: 100vh;
     }
 
@@ -53,29 +53,55 @@
 <body>
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-button id="btn1">测试 Message</ivy-button>
-    <ivy-checkbox-group id="a">
-      <ivy-checkbox value="1" checked>1</ivy-checkbox>
-      <ivy-checkbox value="2">2</ivy-checkbox>
-      <ivy-checkbox value="3">3</ivy-checkbox>
-    </ivy-checkbox-group>
+    <ivy-button class="btn1">default/info</ivy-button>
+    <ivy-button class="btn2">success</ivy-button>
+    <ivy-button class="btn3">warning</ivy-button>
+    <ivy-button class="btn4">error</ivy-button>
+    <ivy-button class="btn5">info</ivy-button>
   </div>
-  <div style="min-height: 200px"> </div>
+
+  <div style="height: 200px;">
+    <ivy-details class="pager" type="card">
+      <div>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+      </div>
+    </ivy-details>
+  </div>
+
+  <div>
+    <ivy-details class="pager" type="card" arrow-position="left">
+      <div>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+        <p>dafsadf</p>
+      </div>
+    </ivy-details>
+  </div>
 
 </body>
 
-<script>
-  const el = document.querySelector('#btn1')
-  el.addEventListener('click', function (ev) {
-    console.log(globalThis.$ivy)
-    $ivy.message.info('消息提示')
+<script type="module">
+  document.querySelector('.btn1').addEventListener('click', () => {
+    $ivy.open({
+      content: 'default'
+    })
   })
-
-  document.querySelector('#a').addEventListener('change', ev => {
-    console.log(ev.detail)
+  document.querySelector('.btn2').addEventListener('click', () => {
+    $ivy.message.success('这是为了测试Message的长度会不会随着文字的增长而增长')
   })
-
-
+  document.querySelector('.btn3').addEventListener('click', () => {
+    $ivy.message.warning('warning')
+  })
+  document.querySelector('.btn4').addEventListener('click', () => {
+    $ivy.message.error('error')
+  })
+  document.querySelector('.btn5').addEventListener('click', () => {
+    $ivy.message.info('info')
+  })
 </script>
 
 </html>
