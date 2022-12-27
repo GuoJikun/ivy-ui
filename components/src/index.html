@@ -53,55 +53,27 @@
 <body>
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-button class="btn1">default/info</ivy-button>
-    <ivy-button class="btn2">success</ivy-button>
-    <ivy-button class="btn3">warning</ivy-button>
-    <ivy-button class="btn4">error</ivy-button>
-    <ivy-button class="btn5">info</ivy-button>
+    <ivy-space class="btn1">
+      text
+      <ivy-button>test</ivy-button>
+      <ivy-tag>dddd</ivy-tag>
+    </ivy-space>
   </div>
 
   <div style="height: 200px;">
-    <ivy-details class="pager" type="card">
-      <div>
-        <p>dafsadf</p>
-        <p>dafsadf</p>
-        <p>dafsadf</p>
-        <p>dafsadf</p>
-      </div>
-    </ivy-details>
+    <ivy-space class="btn1" direction="vertical">
+      text
+      <ivy-button>test</ivy-button>
+      <ivy-tag>dddd</ivy-tag>
+    </ivy-space>
   </div>
 
-  <div>
-    <ivy-details class="pager" type="card" arrow-position="left">
-      <div>
-        <p>dafsadf</p>
-        <p>dafsadf</p>
-        <p>dafsadf</p>
-        <p>dafsadf</p>
-      </div>
-    </ivy-details>
-  </div>
+
 
 </body>
 
 <script type="module">
-  document.querySelector('.btn1').addEventListener('click', () => {
-    $ivy.open({
-      content: 'default'
-    })
-  })
-  document.querySelector('.btn2').addEventListener('click', () => {
-    $ivy.message.success('这是为了测试Message的长度会不会随着文字的增长而增长')
-  })
-  document.querySelector('.btn3').addEventListener('click', () => {
-    $ivy.message.warning('warning')
-  })
-  document.querySelector('.btn4').addEventListener('click', () => {
-    $ivy.message.error('error')
-  })
-  document.querySelector('.btn5').addEventListener('click', () => {
-    $ivy.message.info('info')
-  })
+
 </script>
 
 </html>
