@@ -87,6 +87,7 @@ export namespace Components {
     }
     interface IvyDialog {
         "close": () => Promise<void>;
+        "header": string;
         "open": () => Promise<void>;
         "visible": Boolean;
     }
@@ -137,6 +138,7 @@ export namespace Components {
     }
     interface IvyOption {
         "disabled": boolean;
+        "label": string;
         "value": string;
     }
     interface IvyPager {
@@ -168,6 +170,7 @@ export namespace Components {
     }
     interface IvySelect {
         "disabled": boolean;
+        "placeholder": string;
         "value": string;
     }
     interface IvySpace {
@@ -684,6 +687,7 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface IvyDialog {
+        "header"?: string;
         "onClosed"?: (event: IvyDialogCustomEvent<string>) => void;
         "onSure"?: (event: IvyDialogCustomEvent<string>) => void;
         "visible"?: Boolean;
@@ -738,6 +742,7 @@ declare namespace LocalJSX {
     }
     interface IvyOption {
         "disabled"?: boolean;
+        "label"?: string;
         "value"?: string;
     }
     interface IvyPager {
@@ -770,6 +775,7 @@ declare namespace LocalJSX {
     interface IvySelect {
         "disabled"?: boolean;
         "onChange"?: (event: IvySelectCustomEvent<string>) => void;
+        "placeholder"?: string;
         "value"?: string;
     }
     interface IvySpace {

@@ -12,10 +12,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vitepress": "1.0.0-alpha.30"
+    "vitepress": "1.0.0-alpha.43"
   },
   "dependencies": {
-    "ivy-icon": "workspace:^1.0.0",
-    "ivy-ui": "workspace:^1.0.0"
+    "ivy-icon": "workspace:*",
+    "ivy-ui": "workspace:*"
   }
 }

@@ -53,19 +53,18 @@
 <body>
   <div style="min-height: 200px"> </div>
   <div class="margin-top">
-    <ivy-space class="btn1">
-      text
-      <ivy-button>test</ivy-button>
-      <ivy-tag>dddd</ivy-tag>
-    </ivy-space>
+
+    <ivy-button id="btn">test</ivy-button>
+    <ivy-dialog id="dialog" header="Dialog 标题">
+      <p>这是dialog 内容</p>
+      <p>这是dialog 内容</p>
+      <p>这是dialog 内容</p>
+      <p>这是dialog 内容</p>
+    </ivy-dialog>
   </div>
 
   <div style="height: 200px;">
-    <ivy-space class="btn1" direction="vertical">
-      text
-      <ivy-button>test</ivy-button>
-      <ivy-tag>dddd</ivy-tag>
-    </ivy-space>
+
   </div>
 
 
@@ -73,7 +72,15 @@
 </body>
 
 <script type="module">
-
+  document.querySelector('#btn').addEventListener('click', () => {
+    document.querySelector('#dialog').open()
+  })
+  document.querySelector('#dialog').addEventListener('closed', ev => {
+    console.log(ev, 'close')
+  })
+  document.querySelector('#dialog').addEventListener('sure', ev => {
+    console.log(ev, 'sure')
+  })
 </script>
 
 </html>
