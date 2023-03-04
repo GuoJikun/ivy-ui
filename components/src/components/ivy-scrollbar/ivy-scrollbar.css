@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.ivy-scrollbar__bar {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  z-index: 1;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.el-scrollbar__thumb {
+}
