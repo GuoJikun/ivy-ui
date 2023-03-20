@@ -18,6 +18,7 @@
   padding: 0 15px;
   transition: border-color 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
   width: 100%;
+  font-size: var(--ivy-font-size, 14px);
 }
 .ivy-input-inner::input-placeholder {
   color: #c0c4cc;
@@ -62,6 +63,7 @@
   display: none;
   border-radius: 2px;
   overflow: hidden;
+  z-index: 10;
 }
 :host([visible]) .select-option-wrap {
   display: block;

@@ -33,15 +33,14 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.6",
-    "@stencil/core": "^2.19.2",
-    "ivy-icon": "workspace:1.0.0"
+    "@stencil/core": "^3.0.0"
   },
   "devDependencies": {
-    "@types/jest": "^27.0.3",
-    "jest": "^27.4.5",
-    "jest-cli": "^27.4.5",
-    "puppeteer": "^10.0.0"
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.11",
+    "jest": "^27.5.1",
+    "jest-cli": "^27.5.1",
+    "puppeteer": "^19.5.2"
   },
   "license": "MIT",
   "private": false

@@ -20,6 +20,13 @@ export class IvySelect {
   value: string;
 
   @Prop({
+    attribute: 'placeholder',
+    mutable: true,
+    reflect: true,
+  })
+  placeholder: string;
+
+  @Prop({
     attribute: 'disabled',
   })
   disabled: boolean = false;
@@ -69,7 +76,7 @@ export class IvySelect {
   render() {
     return (
       <Host visible={this.visible}>
-        <input type="text" readonly value={this.value} class="ivy-input-inner" onFocus={this.focusHandler.bind(this)} />
+        <input type="text" placeholder={ this.placeholder } readonly value={this.value} class="ivy-input-inner" onFocus={this.focusHandler.bind(this)} />
         <div class="select-option-wrap" ref={ev => (this.drop = ev)}>
           <div class="select-arrow"></div>
           <div class="select-option-scroll">

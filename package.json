@@ -4,11 +4,11 @@
   "description": "一个使用stencilJs开发的web component组件库",
   "main": "index.js",
   "scripts": {
-    "dev:component": "pnpm --filter ivy-ui run start",
+    "dev:c": "pnpm --filter ivy-ui run start",
     "dev:icon": "pnpm --filter ivy-icon run start",
     "dev:docs": "pnpm --filter docs run dev",
     "dev": "pnpm run dev:icon & pnpm run dev:component",
-    "build:component": "pnpm --filter ivy-ui run build",
+    "build:c": "pnpm --filter ivy-ui run build",
     "build:icon": "pnpm --filter ivy-icon run build",
     "build:docs": "pnpm --filter docs run build",
     "build": "pnpm run build:icon & pnpm run build:component",
@@ -19,6 +19,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@changesets/cli": "^2.25.2"
+    "@changesets/cli": "^2.26.0"
   }
 }

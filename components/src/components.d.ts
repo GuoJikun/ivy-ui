@@ -87,6 +87,7 @@ export namespace Components {
     }
     interface IvyDialog {
         "close": () => Promise<void>;
+        "header": string;
         "open": () => Promise<void>;
         "visible": Boolean;
     }
@@ -137,6 +138,7 @@ export namespace Components {
     }
     interface IvyOption {
         "disabled": boolean;
+        "label": string;
         "value": string;
     }
     interface IvyPager {
@@ -166,9 +168,18 @@ export namespace Components {
     }
     interface IvyRow {
     }
+    interface IvyScrollbar {
+        "height": string;
+        "maxHeight": string;
+        "minSize": number;
+    }
     interface IvySelect {
         "disabled": boolean;
+        "placeholder": string;
         "value": string;
+    }
+    interface IvySpace {
+        "direction": string;
     }
     interface IvyStep {
         "content": string;
@@ -478,11 +489,23 @@ declare global {
         prototype: HTMLIvyRowElement;
         new (): HTMLIvyRowElement;
     };
+    interface HTMLIvyScrollbarElement extends Components.IvyScrollbar, HTMLStencilElement {
+    }
+    var HTMLIvyScrollbarElement: {
+        prototype: HTMLIvyScrollbarElement;
+        new (): HTMLIvyScrollbarElement;
+    };
     interface HTMLIvySelectElement extends Components.IvySelect, HTMLStencilElement {
     }
     var HTMLIvySelectElement: {
         prototype: HTMLIvySelectElement;
         new (): HTMLIvySelectElement;
+    };
+    interface HTMLIvySpaceElement extends Components.IvySpace, HTMLStencilElement {
+    }
+    var HTMLIvySpaceElement: {
+        prototype: HTMLIvySpaceElement;
+        new (): HTMLIvySpaceElement;
     };
     interface HTMLIvyStepElement extends Components.IvyStep, HTMLStencilElement {
     }
@@ -580,7 +603,9 @@ declare global {
         "ivy-radio": HTMLIvyRadioElement;
         "ivy-radio-group": HTMLIvyRadioGroupElement;
         "ivy-row": HTMLIvyRowElement;
+        "ivy-scrollbar": HTMLIvyScrollbarElement;
         "ivy-select": HTMLIvySelectElement;
+        "ivy-space": HTMLIvySpaceElement;
         "ivy-step": HTMLIvyStepElement;
         "ivy-steps": HTMLIvyStepsElement;
         "ivy-switch": HTMLIvySwitchElement;
@@ -674,6 +699,7 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface IvyDialog {
+        "header"?: string;
         "onClosed"?: (event: IvyDialogCustomEvent<string>) => void;
         "onSure"?: (event: IvyDialogCustomEvent<string>) => void;
         "visible"?: Boolean;
@@ -728,6 +754,7 @@ declare namespace LocalJSX {
     }
     interface IvyOption {
         "disabled"?: boolean;
+        "label"?: string;
         "value"?: string;
     }
     interface IvyPager {
@@ -757,10 +784,19 @@ declare namespace LocalJSX {
     }
     interface IvyRow {
     }
+    interface IvyScrollbar {
+        "height"?: string;
+        "maxHeight"?: string;
+        "minSize"?: number;
+    }
     interface IvySelect {
         "disabled"?: boolean;
         "onChange"?: (event: IvySelectCustomEvent<string>) => void;
+        "placeholder"?: string;
         "value"?: string;
+    }
+    interface IvySpace {
+        "direction"?: string;
     }
     interface IvyStep {
         "content"?: string;
@@ -843,7 +879,9 @@ declare namespace LocalJSX {
         "ivy-radio": IvyRadio;
         "ivy-radio-group": IvyRadioGroup;
         "ivy-row": IvyRow;
+        "ivy-scrollbar": IvyScrollbar;
         "ivy-select": IvySelect;
+        "ivy-space": IvySpace;
         "ivy-step": IvyStep;
         "ivy-steps": IvySteps;
         "ivy-switch": IvySwitch;
@@ -895,7 +933,9 @@ declare module "@stencil/core" {
             "ivy-radio": LocalJSX.IvyRadio & JSXBase.HTMLAttributes<HTMLIvyRadioElement>;
             "ivy-radio-group": LocalJSX.IvyRadioGroup & JSXBase.HTMLAttributes<HTMLIvyRadioGroupElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
+            "ivy-scrollbar": LocalJSX.IvyScrollbar & JSXBase.HTMLAttributes<HTMLIvyScrollbarElement>;
             "ivy-select": LocalJSX.IvySelect & JSXBase.HTMLAttributes<HTMLIvySelectElement>;
+            "ivy-space": LocalJSX.IvySpace & JSXBase.HTMLAttributes<HTMLIvySpaceElement>;
             "ivy-step": LocalJSX.IvyStep & JSXBase.HTMLAttributes<HTMLIvyStepElement>;
             "ivy-steps": LocalJSX.IvySteps & JSXBase.HTMLAttributes<HTMLIvyStepsElement>;
             "ivy-switch": LocalJSX.IvySwitch & JSXBase.HTMLAttributes<HTMLIvySwitchElement>;

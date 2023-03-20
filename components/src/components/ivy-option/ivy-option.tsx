@@ -12,6 +12,8 @@ export class IvyOption {
     reflect: true,
   })
   value: string;
+  @Prop()
+  label: string;
 
   @Prop({
     attribute: 'disabled',
@@ -21,7 +23,7 @@ export class IvyOption {
   render() {
     return (
       <Host value={this.value} disabled={this.disabled}>
-        <slot></slot>
+        <slot>{ this.label }</slot>
       </Host>
     );
   }
