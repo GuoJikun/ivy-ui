@@ -18,11 +18,11 @@ export class IvyRadioGroup {
   @Prop() disabled: boolean = false;
 
   @Event({
-    eventName: 'change',
+    eventName: 'changed',
   })
-  change: EventEmitter<string>;
+  changed: EventEmitter<string>;
   customChangeHandler(val: string) {
-    this.change.emit(val);
+    this.changed.emit(val);
   }
 
   render() {
@@ -48,6 +48,6 @@ export class IvyRadioGroup {
 
   @Method()
   async dispatchEventChange(val: string) {
-    this.change.emit(val);
+    this.changed.emit(val);
   }
 }

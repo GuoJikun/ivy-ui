@@ -25,11 +25,11 @@ export class IvyRadio {
   checked: boolean = false;
 
   @Event({
-    eventName: 'change',
+    eventName: 'changed',
   })
-  change: EventEmitter<boolean>;
+  changed: EventEmitter<boolean>;
   customChangeHandler(val: boolean) {
-    this.change.emit(val);
+    this.changed.emit(val);
   }
 
   clickHandler() {

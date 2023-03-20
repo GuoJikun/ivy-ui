@@ -19,11 +19,11 @@
 
 ## Events
 
-| Event    | Description | Type                                       |
-| -------- | ----------- | ------------------------------------------ |
-| `blur`   |             | `CustomEvent<any>`                         |
-| `change` |             | `CustomEvent<boolean \| number \| string>` |
-| `focus`  |             | `CustomEvent<any>`                         |
+| Event     | Description | Type                                       |
+| --------- | ----------- | ------------------------------------------ |
+| `blur`    |             | `CustomEvent<any>`                         |
+| `changed` |             | `CustomEvent<boolean \| number \| string>` |
+| `focus`   |             | `CustomEvent<any>`                         |
 
 
 ----------------------------------------------

@@ -655,7 +655,7 @@ declare namespace LocalJSX {
         "checked"?: boolean;
         "disabled"?: boolean;
         "falseValue"?: string;
-        "onChange"?: (event: IvyCheckboxCustomEvent<boolean>) => void;
+        "onChanged"?: (event: IvyCheckboxCustomEvent<boolean>) => void;
         "trueValue"?: string;
         "value"?: string;
     }
@@ -740,7 +740,7 @@ declare namespace LocalJSX {
         "autoFocus"?: boolean;
         "disabled"?: boolean;
         "onBlur"?: (event: IvyInputCustomEvent<any>) => void;
-        "onChange"?: (event: IvyInputCustomEvent<string | number | boolean>) => void;
+        "onChanged"?: (event: IvyInputCustomEvent<string | number | boolean>) => void;
         "onFocus"?: (event: IvyInputCustomEvent<any>) => void;
         "placeholder"?: string;
         "readonly"?: boolean;
@@ -774,12 +774,12 @@ declare namespace LocalJSX {
     interface IvyRadio {
         "checked"?: boolean;
         "disabled"?: boolean;
-        "onChange"?: (event: IvyRadioCustomEvent<boolean>) => void;
+        "onChanged"?: (event: IvyRadioCustomEvent<boolean>) => void;
         "value"?: string;
     }
     interface IvyRadioGroup {
         "disabled"?: boolean;
-        "onChange"?: (event: IvyRadioGroupCustomEvent<string>) => void;
+        "onChanged"?: (event: IvyRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
     interface IvyRow {
@@ -791,7 +791,7 @@ declare namespace LocalJSX {
     }
     interface IvySelect {
         "disabled"?: boolean;
-        "onChange"?: (event: IvySelectCustomEvent<string>) => void;
+        "onChanged"?: (event: IvySelectCustomEvent<string>) => void;
         "placeholder"?: string;
         "value"?: string;
     }

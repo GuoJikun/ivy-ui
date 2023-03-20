@@ -18,9 +18,9 @@
 
 ## Events
 
-| Event    | Description | Type                   |
-| -------- | ----------- | ---------------------- |
-| `change` |             | `CustomEvent<boolean>` |
+| Event     | Description | Type                   |
+| --------- | ----------- | ---------------------- |
+| `changed` |             | `CustomEvent<boolean>` |
 
 
 ----------------------------------------------

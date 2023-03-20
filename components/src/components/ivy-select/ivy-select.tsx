@@ -48,7 +48,7 @@ export class IvySelect {
   }
 
   @Event({
-    eventName: 'change',
+    eventName: 'changed',
   })
   changed: EventEmitter<string>;
 
@@ -76,7 +76,7 @@ export class IvySelect {
   render() {
     return (
       <Host visible={this.visible}>
-        <input type="text" placeholder={ this.placeholder } readonly value={this.value} class="ivy-input-inner" onFocus={this.focusHandler.bind(this)} />
+        <input type="text" placeholder={this.placeholder} readonly value={this.value} class="ivy-input-inner" onFocus={this.focusHandler.bind(this)} />
         <div class="select-option-wrap" ref={ev => (this.drop = ev)}>
           <div class="select-arrow"></div>
           <div class="select-option-scroll">

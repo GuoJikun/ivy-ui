@@ -25,7 +25,7 @@ export class IvyInput {
   value: string = '';
 
   @Event({
-    eventName: 'change',
+    eventName: 'changed',
   })
   changed: EventEmitter<string | number | boolean>;
 
