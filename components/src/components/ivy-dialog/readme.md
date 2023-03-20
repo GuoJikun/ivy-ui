@@ -7,9 +7,10 @@
 
 ## Properties
 
-| Property  | Attribute | Description | Type      | Default |
-| --------- | --------- | ----------- | --------- | ------- |
-| `visible` | --        |             | `Boolean` | `false` |
+| Property  | Attribute | Description | Type      | Default     |
+| --------- | --------- | ----------- | --------- | ----------- |
+| `header`  | `header`  |             | `string`  | `undefined` |
+| `visible` | --        |             | `Boolean` | `false`     |
 
 
 ## Events
