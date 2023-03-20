@@ -2,8 +2,12 @@
   display: block;
   position: relative;
   box-sizing: border-box;
+  overflow: hidden;
 }
-
+.ivy-scrollbar__view {
+  width: max-content;
+  height: max-content;
+}
 .ivy-scrollbar__bar {
   position: absolute;
   right: 2px;
@@ -11,6 +15,28 @@
   z-index: 1;
   border-radius: 4px;
   box-sizing: border-box;
+  display: none;
 }
 .el-scrollbar__thumb {
+  background-color: var(--ivy-scrollbar-thumb-background-color, #ddd);
+  border-radius: 4px;
+}
+.ivy-scrollbar__bar.is-vertical {
+  width: 8px;
+  top: 0;
+}
+.ivy-scrollbar__bar.is-horizontal {
+  height: 8px;
+  left: 0;
+}
+.ivy-scrollbar__bar.is-vertical .el-scrollbar__thumb {
+  width: 100%;
+  height: 100px;
+}
+.ivy-scrollbar__bar.is-horizontal .el-scrollbar__thumb {
+  height: 100%;
+}
+
+:host(:hover) .ivy-scrollbar__bar[data-show='show'] {
+  display: initial;
 }
