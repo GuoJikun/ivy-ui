@@ -42,17 +42,17 @@ export default defineConfig({
           items: [
             {
               text: "快速开始",
-              link: "/components/index",
+              link: "/guide/index",
               items: [],
             },
             {
               text: "Color 色彩",
-              link: "/components/color",
+              link: "/guide/color",
               items: [],
             },
             {
               text: "theme 主题",
-              link: "/components/theme",
+              link: "/guide/theme",
               items: [],
             },
           ],
