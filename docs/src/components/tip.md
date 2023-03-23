@@ -26,10 +26,10 @@
 通过 设置 `line` 属性在左侧添加一条竖线
 
 <ivy-tip line>默认消息提示的文案</ivy-tip>
-<ivy-tip line type="info" class="margin-top-20">主要消息提示的文案</ivy-tip>
-<ivy-tip line type="success" class="margin-top-20">成功消息提示的文案</ivy-tip>
-<ivy-tip line type="warning" class="margin-top-20">警告消息提示的文案</ivy-tip>
-<ivy-tip line type="error" class="margin-top-20">错误消息提示的文案</ivy-tip>
+<ivy-tip line type="info" class="margin-top">主要消息提示的文案</ivy-tip>
+<ivy-tip line type="success" class="margin-top">成功消息提示的文案</ivy-tip>
+<ivy-tip line type="warning" class="margin-top">警告消息提示的文案</ivy-tip>
+<ivy-tip line type="error" class="margin-top">错误消息提示的文案</ivy-tip>
 
 ```html
 <ivy-tip line>默认消息提示的文案</ivy-tip>
@@ -44,9 +44,9 @@
 通过 设置 `type` 属性来改变颜色
 
 <ivy-tip type="info">主要消息提示的文案</ivy-tip>
-<ivy-tip type="success" class="margin-top-20">成功消息提示的文案</ivy-tip>
-<ivy-tip type="warning" class="margin-top-20">警告消息提示的文案</ivy-tip>
-<ivy-tip type="error" class="margin-top-20">错误消息提示的文案</ivy-tip>
+<ivy-tip type="success" class="margin-top">成功消息提示的文案</ivy-tip>
+<ivy-tip type="warning" class="margin-top">警告消息提示的文案</ivy-tip>
+<ivy-tip type="error" class="margin-top">错误消息提示的文案</ivy-tip>
 
 ```html
 <ivy-tip type="info">主要消息提示的文案</ivy-tip>
