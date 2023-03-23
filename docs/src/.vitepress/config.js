@@ -72,6 +72,10 @@ export default defineConfig({
               link: "/components/button",
             },
             {
+              text: "Space 间距",
+              link: "/components/space",
+            },
+            {
               text: "Grid 宫格布局",
               link: "/components/grid-layout.md",
             },
