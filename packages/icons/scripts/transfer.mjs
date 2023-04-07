@@ -141,7 +141,7 @@ const renderCompFile = (entry, outDir) => {
       const components = ${JSON.stringify(compNameList)};
       export {${compNameList.map(c => c.className).join(',')}}
       export const registerComponent = () => {
-        if(__IVY__iCON__iNSTALLED__) return;
+        if(window.__IVY__ICON__INSTALLED__) return;
         components.forEach(c => {window.customElements.default.define(c.compName, c.className);});
 
       }`;
