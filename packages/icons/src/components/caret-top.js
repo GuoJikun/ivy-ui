@@ -5,7 +5,7 @@ class IvyIconCaretTop extends HTMLElement {
           const style = `<style>:host{ display: inline-block; width: 1em;height: 1em;color: currentColor;font-size: inherit; }</style>`;
           const html = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" d="M512 320 192 704h639.936z"/></svg>`;
 
-          const template = createElement('template');
+          const template = document.createElement('template');
           template.innerHTML = style + html;
           host.appendChild(template.content.cloneNode(true));
         }

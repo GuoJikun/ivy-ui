@@ -5,7 +5,7 @@ class IvyIconCaretBottom extends HTMLElement {
           const style = `<style>:host{ display: inline-block; width: 1em;height: 1em;color: currentColor;font-size: inherit; }</style>`;
           const html = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" d="m192 384 320 384 320-384z"/></svg>`;
 
-          const template = createElement('template');
+          const template = document.createElement('template');
           template.innerHTML = style + html;
           host.appendChild(template.content.cloneNode(true));
         }

@@ -5,7 +5,7 @@ class IvyIconHistogram extends HTMLElement {
           const style = `<style>:host{ display: inline-block; width: 1em;height: 1em;color: currentColor;font-size: inherit; }</style>`;
           const html = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024"><path fill="currentColor" d="M416 896V128h192v768H416zm-288 0V448h192v448H128zm576 0V320h192v576H704z"/></svg>`;
 
-          const template = createElement('template');
+          const template = document.createElement('template');
           template.innerHTML = style + html;
           host.appendChild(template.content.cloneNode(true));
         }
