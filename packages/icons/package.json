@@ -4,12 +4,7 @@
   "description": "一个使用原生js开发的web component 图标组件库",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/ivy-icon/ivy-icon.esm.js",
+  "unpkg": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ionic-team/stencil-component-starter.git"
