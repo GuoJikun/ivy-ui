@@ -55,7 +55,7 @@ const renderCode = (name, ctx) => {
           const style = \`<style>:host{ display: inline-block; width: 1em;height: 1em;color: currentColor;font-size: inherit; }</style>\`;
           const html = \`${ctx}\`;
 
-          const template = createElement('template');
+          const template = document.createElement('template');
           template.innerHTML = style + html;
           host.appendChild(template.content.cloneNode(true));
         }
