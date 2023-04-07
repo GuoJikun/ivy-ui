@@ -142,8 +142,8 @@ const renderCompFile = (entry, outDir) => {
       export {${compNameList.map(c => c.className).join(',')}}
       export const registerComponent = () => {
         if(window.__IVY__ICON__INSTALLED__) return;
-        components.forEach(c => {window.customElements.default.define(c.compName, c.className);});
-
+        components.forEach(c => {window.customElements.define(c.compName, c.className);});
+        window.__IVY__ICON__INSTALLED__ = true;
       }`;
 
       const indexFileContent = `${importStr}\n${install}`;
