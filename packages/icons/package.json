@@ -1,6 +1,6 @@
 {
   "name": "ivy-icon",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "一个使用原生js开发的web component 图标组件库",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
