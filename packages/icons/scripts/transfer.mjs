@@ -86,9 +86,11 @@ const renderCode = (name, ctx) => {
           switch (attr) {
             case 'size':
               this.size = newVal;
+              this.style.fontSize = newVal;
               break;
             case 'color':
               this.color = newVal;
+              this.style.color = newVal;
               break;
           }
         }
@@ -130,19 +132,24 @@ const renderCompFile = (entry, outDir) => {
           };
         });
       });
-
-      console.log(names);
       return names;
     })
     .then(res => {
       const importStr = res.map(c => `import ${c.className} from './components/${c.name}.js';`).join('\n');
-      const compNameList = [...res.map(c => ({ compName: c.compName, className: c.className }))];
+      const compNameList = [...res.map(c => ({ compName: c.compName, className: [c.className].join('') }))];
       const install = `
-      const components = ${JSON.stringify(compNameList)};
+      const components = import.meta.glob('./components/*.js', { import: 'default' })
+
       export {${compNameList.map(c => c.className).join(',')}}
       export const registerComponent = () => {
         if(window.__IVY__ICON__INSTALLED__) return;
-        components.forEach(c => {window.customElements.define(c.compName, c.className);});
+        for (const path in components) {
+          const name = path.replace('./components/', '').replace('.js', '');
+          const component = components[path];
+          component().then(module => {
+            window.customElements.define(\`ivy-icon-\${name}\`, module);
+          });
+        }
         window.__IVY__ICON__INSTALLED__ = true;
       }`;
 
@@ -154,10 +161,15 @@ const renderCompFile = (entry, outDir) => {
       });
     });
 };
-console.log(import.meta.url);
+// const name = [];
+//                 \`\${module.name}\`.replace(/([A-Z])([a-z]+)/g, (val) => {
+//                     name.push(val.toLocaleLowerCase())
+//                     return val
+//                 })
+//                 customElements.define(name.join('-'), comp)
+
 const __dirname = new URL('..', import.meta.url);
 const root = fileURLToPath(__dirname);
-console.log(__dirname, fileURLToPath(__dirname));
 
 const entryDir = join(root, 'svgs');
 const outputDir = join(root, 'src');

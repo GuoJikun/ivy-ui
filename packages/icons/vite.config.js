@@ -16,30 +16,42 @@ const getPagePathList = () => {
   return map;
 };
 
-export default defineConfig({
-  build: {
-    lib: {
-      entry: {
-        index: 'src/index.js',
-        ...getPagePathList(),
+export default defineConfig(({ command, mode }) => {
+  console.log(command, mode);
+  if (command === 'serve') {
+    return {
+      resolve: {
+        alias: {
+          '@': resolve(__dirname, 'src'),
+        },
       },
-      formats: ['es', 'cjs'],
-      fileName(format, entryName) {
-        console.log(format, entryName);
-        if (format === 'es') {
-          if (entryName === 'index') {
-            return `index.js`;
-          } else {
-            return `es/${entryName}.js`;
-          }
-        } else if (format === 'cjs') {
-          if (entryName === 'index') {
-            return `index.cjs.js`;
-          } else {
-            return `cjs/${entryName}.js`;
-          }
-        }
+    };
+  } else {
+    return {
+      build: {
+        lib: {
+          entry: {
+            index: 'src/index.js',
+            ...getPagePathList(),
+          },
+          formats: ['es', 'cjs'],
+          fileName(format, entryName) {
+            if (format === 'es') {
+              if (entryName === 'index') {
+                return `index.js`;
+              } else {
+                return `es/${entryName}.js`;
+              }
+            } else if (format === 'cjs') {
+              if (entryName === 'index') {
+                return `index.cjs.js`;
+              } else {
+                return `cjs/${entryName}.js`;
+              }
+            }
+          },
+        },
       },
-    },
-  },
+    };
+  }
 });

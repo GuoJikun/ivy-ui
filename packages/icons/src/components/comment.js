@@ -36,9 +36,11 @@ class IvyIconComment extends HTMLElement {
           switch (attr) {
             case 'size':
               this.size = newVal;
+              this.style.fontSize = newVal;
               break;
             case 'color':
               this.color = newVal;
+              this.style.color = newVal;
               break;
           }
         }
