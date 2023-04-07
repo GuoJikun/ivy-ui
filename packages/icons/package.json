@@ -9,15 +9,13 @@
     "type": "git",
     "url": "https://github.com/ionic-team/stencil-component-starter.git"
   },
-  "bin": {
-    "generate": "./bin/generate-before.js"
-  },
   "files": [
     "dist/",
-    "loader/",
+    "package.json",
     "readme.md"
   ],
   "keywords": [
+    "front-end",
     "icon",
     "web-component",
     "ivy-icon"
