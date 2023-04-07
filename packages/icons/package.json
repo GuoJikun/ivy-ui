@@ -1,7 +1,7 @@
 {
   "name": "ivy-icon",
-  "version": "1.0.0",
-  "description": "一个使用stencilJs开发的web component 图标组件库",
+  "version": "1.0.1",
+  "description": "一个使用原生js开发的web component 图标组件库",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
   "es2015": "dist/esm/index.mjs",
@@ -28,24 +28,13 @@
     "ivy-icon"
   ],
   "scripts": {
-    "build": "stencil build --docs",
-    "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "node ./bin/generate-before.js",
-    "g": "npm run generate"
-  },
-  "dependencies": {
-    "@stencil/core": "^3.0.0"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.11",
-    "jest": "^27.5.1",
-    "jest-cli": "^27.5.1",
-    "puppeteer": "^19.5.2",
-    "svgo": "^2.8.0",
-    "svgson": "^5.2.1"
+    "terser": "^5.16.8",
+    "vite": "^4.2.0"
   },
   "license": "MIT",
   "private": false

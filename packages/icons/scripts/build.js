@@ -6,7 +6,7 @@ const { transSvg, camelCase } = require('./utils.js');
 
 const entryDir = join(__dirname, '..', 'svgs');
 
-const outputDir = join(__dirname, '..', 'src/components');
+const outputDir = join(__dirname, '..', 'components');
 
 const entryFileList = readdirSync(entryDir, 'utf-8');
 
@@ -57,14 +57,29 @@ const svg2component = svg => {
   `;
 };
 
+const getSvgFiles = dir => {
+  return readdirSync(entryDir, 'utf-8');
+};
+
+const svgFileToSvgStr = file => {
+  return;
+};
+
+const registerComponent = svg => {};
+
+const svg2Comp = svg => {
+  return `
+    class Ivy${camelCase(svg.id)} extends HTMLElement {
+  `;
+};
+
 Promise.all(batches).then(res => {
   const t = res.map(async c => {
     const parseStr = parseSync(c.file);
     const str = stringify(parseStr);
     const target = { content: str, id: c._name };
-    const flag = outputDirList.includes(`ivy-target.id`);
-    if (flag) {
-    } else {
+    const flag = outputDirList.includes(`ivy-${target.id}`);
+    if (!flag) {
       console.log('没有对应的文件夹');
       await spawn(`pnpm generate ivy-${target.id}`, {
         cwd: join(__dirname, '..'),

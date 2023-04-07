@@ -1,5 +1,5 @@
 const { optimize } = require('svgo');
-const svgoPluginConf = require('./svgo-plugin-config.js');
+const svgoPluginConf = require('./svgo-plugin-config.mjs');
 const { writeFileSync } = require('fs');
 
 const format = svgFile =>
