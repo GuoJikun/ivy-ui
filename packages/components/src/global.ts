@@ -1,4 +1,5 @@
 import { addMessageBox, Message } from './utils/message';
+import { addNotificationBox, Notification } from './utils/notification';
 
 export default () => {
   const cacheIvyOption = globalThis.$ivy;
@@ -7,7 +8,9 @@ export default () => {
   const conf = {
     ...cacheIvyOption,
     message,
+    Notification,
   };
   globalThis.$ivy = conf;
   addMessageBox();
+  addNotificationBox();
 };
