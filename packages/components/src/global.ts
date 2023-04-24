@@ -8,7 +8,7 @@ export default () => {
   const conf = {
     ...cacheIvyOption,
     message,
-    Notification,
+    notification: Notification,
   };
   globalThis.$ivy = conf;
   addMessageBox();

@@ -136,6 +136,12 @@ export namespace Components {
         "show": boolean;
         "type": string;
     }
+    interface IvyNotification {
+        "content": string;
+        "header": string;
+        "show": boolean;
+        "type": string;
+    }
     interface IvyOption {
         "disabled": boolean;
         "label": string;
@@ -453,6 +459,12 @@ declare global {
         prototype: HTMLIvyMessageElement;
         new (): HTMLIvyMessageElement;
     };
+    interface HTMLIvyNotificationElement extends Components.IvyNotification, HTMLStencilElement {
+    }
+    var HTMLIvyNotificationElement: {
+        prototype: HTMLIvyNotificationElement;
+        new (): HTMLIvyNotificationElement;
+    };
     interface HTMLIvyOptionElement extends Components.IvyOption, HTMLStencilElement {
     }
     var HTMLIvyOptionElement: {
@@ -597,6 +609,7 @@ declare global {
         "ivy-image": HTMLIvyImageElement;
         "ivy-input": HTMLIvyInputElement;
         "ivy-message": HTMLIvyMessageElement;
+        "ivy-notification": HTMLIvyNotificationElement;
         "ivy-option": HTMLIvyOptionElement;
         "ivy-pager": HTMLIvyPagerElement;
         "ivy-progress": HTMLIvyProgressElement;
@@ -752,6 +765,12 @@ declare namespace LocalJSX {
         "show"?: boolean;
         "type"?: string;
     }
+    interface IvyNotification {
+        "content"?: string;
+        "header"?: string;
+        "show"?: boolean;
+        "type"?: string;
+    }
     interface IvyOption {
         "disabled"?: boolean;
         "label"?: string;
@@ -873,6 +892,7 @@ declare namespace LocalJSX {
         "ivy-image": IvyImage;
         "ivy-input": IvyInput;
         "ivy-message": IvyMessage;
+        "ivy-notification": IvyNotification;
         "ivy-option": IvyOption;
         "ivy-pager": IvyPager;
         "ivy-progress": IvyProgress;
@@ -927,6 +947,7 @@ declare module "@stencil/core" {
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-input": LocalJSX.IvyInput & JSXBase.HTMLAttributes<HTMLIvyInputElement>;
             "ivy-message": LocalJSX.IvyMessage & JSXBase.HTMLAttributes<HTMLIvyMessageElement>;
+            "ivy-notification": LocalJSX.IvyNotification & JSXBase.HTMLAttributes<HTMLIvyNotificationElement>;
             "ivy-option": LocalJSX.IvyOption & JSXBase.HTMLAttributes<HTMLIvyOptionElement>;
             "ivy-pager": LocalJSX.IvyPager & JSXBase.HTMLAttributes<HTMLIvyPagerElement>;
             "ivy-progress": LocalJSX.IvyProgress & JSXBase.HTMLAttributes<HTMLIvyProgressElement>;

@@ -83,13 +83,13 @@ export class IvyNotification {
             <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3" stroke="currentColor" d="M24.5 34V20h-2M21 34h7" data-follow-stroke="#9b9b9b" />
           </symbol>
         </svg>
-        <div class="message">
+        <div class="notification">
           <svg class="icon">
             <use xlinkHref={`#${this.type === 'error' ? 'danger' : this.type}`}></use>
           </svg>
-          <div class="wrap">
-            <div class="header">{this.header}</div>
-            <div class="message-content">{this.content}</div>
+          <div class="notification-wrap">
+            <div class="notification-header">{this.header}</div>
+            <div class="notification-content">{this.content}</div>
           </div>
         </div>
       </Host>

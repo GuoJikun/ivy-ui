@@ -74,7 +74,7 @@
   </div>
 
   <div style="height: 200px;">
-
+    <ivy-button id="openNotification">test</ivy-button>
   </div>
 
 
@@ -82,9 +82,9 @@
 </body>
 
 <script type="module">
-  // document.querySelector('#btn').addEventListener('click', () => {
-  //   document.querySelector('#dialog').open()
-  // })
+  document.querySelector('#openNotification').addEventListener('click', () => {
+    console.log(window.$ivy.notification.success('123213'))
+  })
   // document.querySelector('#dialog').addEventListener('closed', ev => {
   //   console.log(ev, 'close')
   // })
