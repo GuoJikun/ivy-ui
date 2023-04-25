@@ -95,6 +95,7 @@ export namespace Components {
     }
     interface IvyDrawer {
         "close": () => Promise<void>;
+        "header": string;
         "maskClosable": boolean;
         "open": () => Promise<void>;
         "placement": string;
@@ -720,6 +721,7 @@ declare namespace LocalJSX {
     interface IvyDivider {
     }
     interface IvyDrawer {
+        "header"?: string;
         "maskClosable"?: boolean;
         "onClosed"?: (event: IvyDrawerCustomEvent<any>) => void;
         "placement"?: string;

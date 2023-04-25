@@ -9,6 +9,7 @@
 
 | Property       | Attribute       | Description | Type      | Default   |
 | -------------- | --------------- | ----------- | --------- | --------- |
+| `header`       | `header`        |             | `string`  | `''`      |
 | `maskClosable` | `mask-closable` |             | `boolean` | `true`    |
 | `placement`    | `placement`     |             | `string`  | `'right'` |
 | `showHeader`   | `show-header`   |             | `boolean` | `false`   |

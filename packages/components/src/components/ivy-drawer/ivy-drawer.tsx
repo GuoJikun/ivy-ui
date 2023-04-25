@@ -16,6 +16,11 @@ export class IvyDrawer {
   showHeader: boolean = false;
 
   @Prop({
+    attribute: 'header',
+  })
+  header: string = '';
+
+  @Prop({
     attribute: 'mask-closable',
     mutable: true,
     reflect: true,
@@ -37,6 +42,18 @@ export class IvyDrawer {
     }
   }
 
+  renderHeader() {
+    if (this.showHeader) {
+      return (
+        <div class="ivy-drawer-header">
+          <slot name="header">{this.header}</slot>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+
   render() {
     return (
       <Host show={this.visible}>
@@ -45,9 +62,8 @@ export class IvyDrawer {
           class="ivy-drawer"
           style={{ width: ['left', 'right'].includes(this.placement) ? this.width : '100%', height: ['top', 'bottom'].includes(this.placement) ? this.width : '100%' }}
         >
-          <div class="ivy-drawer-header">
-            <slot name="title"></slot>
-          </div>
+          {this.renderHeader()}
+
           <div class="ivy-drawer-body">
             <slot></slot>
           </div>
