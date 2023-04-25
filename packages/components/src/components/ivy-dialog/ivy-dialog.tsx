@@ -13,7 +13,7 @@ export class IvyDialog {
   })
   visible: Boolean = false;
 
-  @Prop({reflect:true}) header: string
+  @Prop({ reflect: true }) header: string;
 
   @Event() closed: EventEmitter<string>;
   closeHandler(type: string) {
@@ -26,13 +26,12 @@ export class IvyDialog {
   }
 
   render() {
-    console.log(this.header)
     return (
       <Host show={this.visible}>
         <div class="ivy-mask"></div>
         <div class="ivy-modal">
           <div class="ivy-modal-header">
-            <slot name="header">{ this.header }</slot>
+            <slot name="header">{this.header}</slot>
           </div>
           <div class="ivy-modal-content">
             <slot></slot>

@@ -31,7 +31,7 @@ onMounted(()=>{
 })
 
 const showDialog = ()=>{
-    document.getElementById('modal1').setAttribute('show', '')
+    document.getElementById('modal1').open()
 }
 
 const closed = ()=>{
