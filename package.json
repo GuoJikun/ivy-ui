@@ -1,6 +1,6 @@
 {
   "name": "ivy",
-  "version": "1.0.0",
+  "version": "1.0.0.beta4",
   "description": "一个使用stencilJs开发的web component组件库",
   "main": "index.js",
   "scripts": {

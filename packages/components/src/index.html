@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Stencil Component Starter</title>
+  <link rel="stylesheet" href="/build/ivy.css" />
+  <style>
+    html {
+      font-size: 10px;
+      margin: 0;
+    }
+
+    body {
+      font-size: 1.4rem;
+      line-height: 1.6em;
+      width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      height: 100vh;
+    }
+
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+    }
+
+    .margin-top {
+      margin-top: 12px;
+    }
+
+    .-margin-left {
+      margin-left: 12px;
+    }
+
+    .margin-left-large {
+      margin-left: 12px;
+    }
+
+    .test::part(separator) {
+      color: red;
+    }
+  </style>
+  <script type="module" src="/build/ivy.esm.js"></script>
+  <script nomodule src="/build/ivy.js"></script>
+</head>
+
+<body>
+  <div style="min-height: 200px"> </div>
+  <div class="margin-top">
+
+    <ivy-scrollbar height="400px">
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <div style="height: 100px;"></div>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <div style="height: 100px;"></div>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <div style="height: 100px;"></div>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+      <div style="height: 100px;"></div>
+      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
+    </ivy-scrollbar>
+  </div>
+
+  <div style="height: 200px;">
+    <ivy-button id="openNotification">test</ivy-button>
+  </div>
+
+
+
+</body>
+
+<script type="module">
+  document.querySelector('#openNotification').addEventListener('click', () => {
+    console.log(window.$ivy.notification.success('123213'))
+  })
+  // document.querySelector('#dialog').addEventListener('closed', ev => {
+  //   console.log(ev, 'close')
+  // })
+  // document.querySelector('#dialog').addEventListener('sure', ev => {
+  //   console.log(ev, 'sure')
+  // })
+</script>
+
+</html>

@@ -1,0 +1,21 @@
+:host {
+  display: inline-block;
+}
+.hide {
+  display: none;
+}
+.inner {
+  display: flex;
+  align-items: var(--ivy-space-alignment, center);
+  flex-wrap: var(--ivy-space-wrap, nowrap);
+}
+:host([direction='horizontal']) .item + .item {
+  margin-left: var(--ivy-space-size, 12px);
+}
+
+:host([direction='vertical']) .inner {
+  flex-direction: column;
+}
+:host([direction='vertical']) .item + .item {
+  margin-top: var(--ivy-space-size, 12px);
+}

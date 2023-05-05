@@ -8,49 +8,49 @@
 
 <div style="width: 400px;">
     <div style="display: flex;justify-content: space-between;padding: 0 70px">
-        <ivy-tooltip content="Tooltip 文字提示" placement="top-left">
+        <ivy-tooltip content="Tooltip 文字提示" placement="top-start">
             <ivy-button type="success">上左</ivy-button>
         </ivy-tooltip>
         <ivy-tooltip content="Tooltip 文字提示" placement="top">
             <ivy-button type="success">上边</ivy-button>
         </ivy-tooltip>
-        <ivy-tooltip content="Tooltip 文字提示" placement="top-right">
+        <ivy-tooltip content="Tooltip 文字提示" placement="top-end">
             <ivy-button type="success">上右</ivy-button>
         </ivy-tooltip>
     </div>
     <div style="display: flex;justify-content: space-between;height: 180px;padding: 20px 0;">
         <div style="display: inline-flex;justify-content: space-between;flex-direction: column;">
-            <ivy-tooltip content="Tooltip 文字提示" placement="left-top">
+            <ivy-tooltip content="Tooltip 文字提示" placement="left-start">
                 <ivy-button type="success">左上</ivy-button>
             </ivy-tooltip>
             <ivy-tooltip content="Tooltip 文字提示" placement="left">
                 <ivy-button type="success">左边</ivy-button>
             </ivy-tooltip>
-            <ivy-tooltip content="Tooltip 文字提示" placement="left-bottom">
+            <ivy-tooltip content="Tooltip 文字提示" placement="left-end">
                 <ivy-button type="success">左下</ivy-button>
             </ivy-tooltip>
         </div>
         <div style="flex: auto;"></div>
         <div style="display: inline-flex;justify-content: space-between;flex-direction: column;">
-            <ivy-tooltip content="Tooltip 文字提示" placement="right-top">
+            <ivy-tooltip content="Tooltip 文字提示" placement="right-start">
                 <ivy-button type="success">右上</ivy-button>
             </ivy-tooltip>
             <ivy-tooltip content="Tooltip 文字提示" placement="right">
                 <ivy-button type="success">右边</ivy-button>
             </ivy-tooltip>
-            <ivy-tooltip content="Tooltip 文字提示" placement="right-bottom">
+            <ivy-tooltip content="Tooltip 文字提示" placement="right-end">
                 <ivy-button type="success">右下</ivy-button>
             </ivy-tooltip>
         </div>
     </div>
     <div style="display: flex;justify-content: space-between;padding: 0 70px">
-        <ivy-tooltip content="Tooltip 文字提示" placement="bottom-left">
+        <ivy-tooltip content="Tooltip 文字提示" placement="bottom-start">
             <ivy-button type="success">下左</ivy-button>
         </ivy-tooltip>
         <ivy-tooltip content="Tooltip 文字提示" placement="bottom">
             <ivy-button type="success">下边</ivy-button>
         </ivy-tooltip>
-        <ivy-tooltip content="Tooltip 文字提示" placement="bottom-right">
+        <ivy-tooltip content="Tooltip 文字提示" placement="bottom-end">
             <ivy-button type="success">下右</ivy-button>
         </ivy-tooltip>
     </div>
@@ -59,49 +59,49 @@
 ```html
 <div style="width: 400px;">
     <div style="display: flex;justify-content: space-between;padding: 0 70px">
-        <ivy-tooltip content="Tooltip 文字提示" placement="top-left">
+        <ivy-tooltip content="Tooltip 文字提示" placement="top-start">
             <ivy-button type="success">上左</ivy-button>
         </ivy-tooltip>
         <ivy-tooltip content="Tooltip 文字提示" placement="top">
             <ivy-button type="success">上边</ivy-button>
         </ivy-tooltip>
-        <ivy-tooltip content="Tooltip 文字提示" placement="top-right">
+        <ivy-tooltip content="Tooltip 文字提示" placement="top-end">
             <ivy-button type="success">上右</ivy-button>
         </ivy-tooltip>
     </div>
     <div style="display: flex;justify-content: space-between;height: 180px;padding: 20px 0;">
         <div style="display: inline-flex;justify-content: space-between;flex-direction: column;">
-            <ivy-tooltip content="Tooltip 文字提示" placement="left-top">
+            <ivy-tooltip content="Tooltip 文字提示" placement="left-start">
                 <ivy-button type="success">左上</ivy-button>
             </ivy-tooltip>
             <ivy-tooltip content="Tooltip 文字提示" placement="left">
                 <ivy-button type="success">左边</ivy-button>
             </ivy-tooltip>
-            <ivy-tooltip content="Tooltip 文字提示" placement="left-bottom">
+            <ivy-tooltip content="Tooltip 文字提示" placement="left-end">
                 <ivy-button type="success">左下</ivy-button>
             </ivy-tooltip>
         </div>
         <div style="flex: auto;"></div>
         <div style="display: inline-flex;justify-content: space-between;flex-direction: column;">
-            <ivy-tooltip content="Tooltip 文字提示" placement="right-top">
+            <ivy-tooltip content="Tooltip 文字提示" placement="right-start">
                 <ivy-button type="success">右上</ivy-button>
             </ivy-tooltip>
             <ivy-tooltip content="Tooltip 文字提示" placement="right">
                 <ivy-button type="success">右边</ivy-button>
             </ivy-tooltip>
-            <ivy-tooltip content="Tooltip 文字提示" placement="right-bottom">
+            <ivy-tooltip content="Tooltip 文字提示" placement="right-end">
                 <ivy-button type="success">右下</ivy-button>
             </ivy-tooltip>
         </div>
     </div>
     <div style="display: flex;justify-content: space-between;padding: 0 70px">
-        <ivy-tooltip content="Tooltip 文字提示" placement="bottom-left">
+        <ivy-tooltip content="Tooltip 文字提示" placement="bottom-start">
             <ivy-button type="success">下左</ivy-button>
         </ivy-tooltip>
         <ivy-tooltip content="Tooltip 文字提示" placement="bottom">
             <ivy-button type="success">下边</ivy-button>
         </ivy-tooltip>
-        <ivy-tooltip content="Tooltip 文字提示" placement="bottom-right">
+        <ivy-tooltip content="Tooltip 文字提示" placement="bottom-end">
             <ivy-button type="success">下右</ivy-button>
         </ivy-tooltip>
     </div>

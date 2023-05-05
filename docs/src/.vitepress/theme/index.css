@@ -1,0 +1,19 @@
+.margin-top {
+  margin-top: 12px;
+}
+.margin-top-large {
+  margin-top: 24px;
+}
+.margin-left {
+  margin-left: 12px;
+}
+.margin-left-large {
+  margin-left: 24px;
+}
+
+.demo-block {
+  border: 1px solid #ddd;
+  padding: 16px 12px;
+  box-sizing: border-box;
+  border-radius: 4px;
+}
