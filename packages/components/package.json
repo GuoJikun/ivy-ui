@@ -2,14 +2,10 @@
   "name": "ivy-ui",
   "version": "1.0.0-beta.4",
   "description": "一个使用stencilJs开发的web component通用组件库",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "es2015": "dist/esm/index.mjs",
-  "es2017": "dist/esm/index.mjs",
+  "main": "dist/components/index.js",
+  "module": "dist/components/index.js",
   "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/uni/uni.esm.js",
+  "unpkg": "dist/components/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/ionic-team/stencil-component-starter.git"
