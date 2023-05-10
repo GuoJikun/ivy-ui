@@ -126,7 +126,7 @@
 </ivy-badge>
 ```
 
-<style>
+<style scoped>
 .ml-40{
     margin-left: 40px;
 }

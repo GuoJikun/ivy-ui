@@ -8,7 +8,7 @@ export const config: Config = {
     {
       type: 'dist-custom-elements',
       generateTypeDeclarations: true,
-      customElementsExportBehavior: 'single-export-module',
+      customElementsExportBehavior: 'bundle',
     },
     {
       type: 'www',

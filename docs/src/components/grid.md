@@ -78,7 +78,7 @@
 </ivy-row>
 ```
 
-<style>
+<style scoped>
 .grid-item {
     height: 32px;
     line-height: 32px;

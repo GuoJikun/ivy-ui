@@ -26,7 +26,8 @@ pnpm add ivy-ui
 ```js
 // vue2
 import Vue from "vue";
-import "ivy-ui";
+import { defineCustomElements } from "ivy-ui";
+defineCustomElements()
 Vue.config.ignoredElements = [
   // 用一个 `RegExp` 忽略所有“ion-”开头的元素
   // 仅在 2.5+ 支持
@@ -35,6 +36,8 @@ Vue.config.ignoredElements = [
 
 // vue3
 import { createApp } from "vue";
+import { defineCustomElements } from "ivy-ui";
+defineCustomElements()
 createApp().config.compilerOptions.isCustomElement = (tag) =>
   tag.startsWith("ivy-");
 ```
@@ -42,9 +45,10 @@ createApp().config.compilerOptions.isCustomElement = (tag) =>
 ### react 中使用
 
 ```js
-import "ivy-ui";
+import { defineCustomElements } from "ivy-ui";
+defineCustomElements()
 //如需单独使用
-import "ivy-ui/dist/es/ivy-button.js";
+import {defineCustomElement} from "ivy-ui/dist/components/ivy-button.js";
 ReactDOM.render(<ivy-button>button</ivy-button>, document.body);
 ```
 

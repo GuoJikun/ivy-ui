@@ -79,7 +79,7 @@
 </ivy-grid>
 ```
 
-<style>
+<style scoped>
 .grid-item {
     line-height: 32px;
     text-align: center;

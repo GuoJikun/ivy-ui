@@ -360,7 +360,7 @@
 </div>
 
 <script setup>
-import {onMounted} from 'vue';
+import { onMounted } from 'vue';
 
 onMounted(()=>{
     document.getElementById('icons').addEventListener('click', ev=>{

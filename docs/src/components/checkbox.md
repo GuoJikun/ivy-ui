@@ -12,7 +12,7 @@
 
 ## 自定义选中和没有选中的值
 
-?> 通过 `true-label` 和 `false-label` 来设置选中和没有选中的值，通常适用于单个选择框的情况
+> 通过 `true-label` 和 `false-label` 来设置选中和没有选中的值，通常适用于单个选择框的情况
 
 <ivy-checkbox true-label="1" false-label="0" checked onchange="console.log(this.value)">勾选即同意本协议</ivy-checkbox>
 

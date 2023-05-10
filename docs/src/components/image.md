@@ -80,7 +80,7 @@
 </ivy-image>
 ```
 
-<style>
+<style scoped>
 ivy-image+ivy-image{
     margin-left: 24px;
 }

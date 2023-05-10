@@ -10,7 +10,7 @@
 <ivy-clipboard-copy value="自身的 value 属性值" id="s">Copy</ivy-clipboard-copy>
 ```
 
-!> 可以使用自定义事件`clipboard-copy`在复制文本后做一些操作
+> 可以使用自定义事件`clipboard-copy`在复制文本后做一些操作
 
 <script setup>
 const clipboardCopy = () => {

@@ -20,7 +20,7 @@
     </div>
 </ivy-contextmenu>
 
-```vue
+```html
 <ivy-contextmenu @command="menuClick">
     <p>这里是显示右键菜单的区域</p>
     <p>这里是显示右键菜单的区域</p>
@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .menu-wrap{
     display: inline-block;
     background-color: #fff;
