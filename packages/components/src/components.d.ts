@@ -5,6 +5,8 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { IvyResultType } from "./components/ivy-result/ivy-result";
+export { IvyResultType } from "./components/ivy-result/ivy-result";
 export namespace Components {
     interface IvyAspectRatio {
         "aspectRatio": string;
@@ -172,6 +174,11 @@ export namespace Components {
         "disabled": boolean;
         "dispatchEventChange": (val: string) => Promise<void>;
         "value": string;
+    }
+    interface IvyResult {
+        "description": string;
+        "header": string;
+        "type": IvyResultType;
     }
     interface IvyRow {
     }
@@ -496,6 +503,12 @@ declare global {
         prototype: HTMLIvyRadioGroupElement;
         new (): HTMLIvyRadioGroupElement;
     };
+    interface HTMLIvyResultElement extends Components.IvyResult, HTMLStencilElement {
+    }
+    var HTMLIvyResultElement: {
+        prototype: HTMLIvyResultElement;
+        new (): HTMLIvyResultElement;
+    };
     interface HTMLIvyRowElement extends Components.IvyRow, HTMLStencilElement {
     }
     var HTMLIvyRowElement: {
@@ -616,6 +629,7 @@ declare global {
         "ivy-progress": HTMLIvyProgressElement;
         "ivy-radio": HTMLIvyRadioElement;
         "ivy-radio-group": HTMLIvyRadioGroupElement;
+        "ivy-result": HTMLIvyResultElement;
         "ivy-row": HTMLIvyRowElement;
         "ivy-scrollbar": HTMLIvyScrollbarElement;
         "ivy-select": HTMLIvySelectElement;
@@ -803,6 +817,11 @@ declare namespace LocalJSX {
         "onChanged"?: (event: IvyRadioGroupCustomEvent<string>) => void;
         "value"?: string;
     }
+    interface IvyResult {
+        "description"?: string;
+        "header"?: string;
+        "type"?: IvyResultType;
+    }
     interface IvyRow {
     }
     interface IvyScrollbar {
@@ -900,6 +919,7 @@ declare namespace LocalJSX {
         "ivy-progress": IvyProgress;
         "ivy-radio": IvyRadio;
         "ivy-radio-group": IvyRadioGroup;
+        "ivy-result": IvyResult;
         "ivy-row": IvyRow;
         "ivy-scrollbar": IvyScrollbar;
         "ivy-select": IvySelect;
@@ -955,6 +975,7 @@ declare module "@stencil/core" {
             "ivy-progress": LocalJSX.IvyProgress & JSXBase.HTMLAttributes<HTMLIvyProgressElement>;
             "ivy-radio": LocalJSX.IvyRadio & JSXBase.HTMLAttributes<HTMLIvyRadioElement>;
             "ivy-radio-group": LocalJSX.IvyRadioGroup & JSXBase.HTMLAttributes<HTMLIvyRadioGroupElement>;
+            "ivy-result": LocalJSX.IvyResult & JSXBase.HTMLAttributes<HTMLIvyResultElement>;
             "ivy-row": LocalJSX.IvyRow & JSXBase.HTMLAttributes<HTMLIvyRowElement>;
             "ivy-scrollbar": LocalJSX.IvyScrollbar & JSXBase.HTMLAttributes<HTMLIvyScrollbarElement>;
             "ivy-select": LocalJSX.IvySelect & JSXBase.HTMLAttributes<HTMLIvySelectElement>;
