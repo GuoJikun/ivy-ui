@@ -51,30 +51,14 @@
 </head>
 
 <body>
-  <div style="min-height: 200px"> </div>
+  <div style="min-height: 200px"></div>
   <div class="margin-top">
-
-    <ivy-scrollbar height="400px">
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <div style="height: 100px;"></div>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <div style="height: 100px;"></div>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <div style="height: 100px;"></div>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-      <div style="height: 100px;"></div>
-      <p>都放大了看是否考虑的实际交付圣诞节风口浪尖上的离开解放螺丝钉解放了集散地立刻反击立刻撒旦记录卡</p>
-    </ivy-scrollbar>
+    <ivy-button type="primary" id="btn">设置表格数据</ivy-button>
+    <ivy-table id="table" border></ivy-table>
   </div>
 
   <div style="height: 200px;">
-    <ivy-button id="openNotification">test</ivy-button>
+
   </div>
 
 
@@ -82,15 +66,58 @@
 </body>
 
 <script type="module">
-  document.querySelector('#openNotification').addEventListener('click', () => {
-    console.log(window.$ivy.notification.success('123213'))
+  const columns = [
+    { title: '日期', prop: 'date' },
+    { title: '姓名', prop: 'name' },
+    { title: '状态', prop: 'state' },
+    { title: '城市', prop: 'city' },
+    { title: '地址', prop: 'address' },
+    { title: 'zip', prop: 'zip' },
+    { title: '标签', prop: 'tag' },
+  ]
+  const tableData = [
+    {
+      date: '2016-05-03',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Home',
+    },
+    {
+      date: '2016-05-02',
+      name: 'Jack',
+      state: 'California',
+      city: '上海',
+      address: '上海市青浦区华新镇e通世界花新园C栋',
+      zip: 'CA 90036',
+      tag: 'Office',
+    },
+    {
+      date: '2016-05-04',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Home',
+    },
+    {
+      date: '2016-05-01',
+      name: 'Tom',
+      state: 'California',
+      city: 'Los Angeles',
+      address: 'No. 189, Grove St, Los Angeles',
+      zip: 'CA 90036',
+      tag: 'Office',
+    },
+  ]
+  document.querySelector('#btn').addEventListener('click', () => {
+    console.log('click')
+    document.querySelector('#table').setData(tableData)
   })
-  // document.querySelector('#dialog').addEventListener('closed', ev => {
-  //   console.log(ev, 'close')
-  // })
-  // document.querySelector('#dialog').addEventListener('sure', ev => {
-  //   console.log(ev, 'sure')
-  // })
+  document.querySelector('#table').setColumns(columns)
 </script>
 
 </html>

@@ -1,0 +1,14 @@
+:host {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+}
+.table-cell {
+  padding: 4px 8px;
+  text-align: center;
+}
+
+:host([border]) .table-cell {
+  border: 1px solid var(--ivy-table-border-color, #e0e0e0);
+}

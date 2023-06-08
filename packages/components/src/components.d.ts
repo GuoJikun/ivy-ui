@@ -6,7 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { IvyResultType } from "./components/ivy-result/ivy-result";
+import { Columns, Rows } from "./components/ivy-table/ivy-table";
 export { IvyResultType } from "./components/ivy-result/ivy-result";
+export { Columns, Rows } from "./components/ivy-table/ivy-table";
 export namespace Components {
     interface IvyAspectRatio {
         "aspectRatio": string;
@@ -212,6 +214,11 @@ export namespace Components {
         "index": string;
         "label": string;
         "show": boolean;
+    }
+    interface IvyTable {
+        "border": boolean;
+        "setColumns": (columns: Columns) => Promise<void>;
+        "setData": (data: Rows) => Promise<void>;
     }
     interface IvyTabs {
         "active": string;
@@ -557,6 +564,12 @@ declare global {
         prototype: HTMLIvyTabPaneElement;
         new (): HTMLIvyTabPaneElement;
     };
+    interface HTMLIvyTableElement extends Components.IvyTable, HTMLStencilElement {
+    }
+    var HTMLIvyTableElement: {
+        prototype: HTMLIvyTableElement;
+        new (): HTMLIvyTableElement;
+    };
     interface HTMLIvyTabsElement extends Components.IvyTabs, HTMLStencilElement {
     }
     var HTMLIvyTabsElement: {
@@ -638,6 +651,7 @@ declare global {
         "ivy-steps": HTMLIvyStepsElement;
         "ivy-switch": HTMLIvySwitchElement;
         "ivy-tab-pane": HTMLIvyTabPaneElement;
+        "ivy-table": HTMLIvyTableElement;
         "ivy-tabs": HTMLIvyTabsElement;
         "ivy-tag": HTMLIvyTagElement;
         "ivy-timeline": HTMLIvyTimelineElement;
@@ -856,6 +870,9 @@ declare namespace LocalJSX {
         "label"?: string;
         "show"?: boolean;
     }
+    interface IvyTable {
+        "border"?: boolean;
+    }
     interface IvyTabs {
         "active"?: string;
         "onTab-click"?: (event: IvyTabsCustomEvent<string>) => void;
@@ -928,6 +945,7 @@ declare namespace LocalJSX {
         "ivy-steps": IvySteps;
         "ivy-switch": IvySwitch;
         "ivy-tab-pane": IvyTabPane;
+        "ivy-table": IvyTable;
         "ivy-tabs": IvyTabs;
         "ivy-tag": IvyTag;
         "ivy-timeline": IvyTimeline;
@@ -984,6 +1002,7 @@ declare module "@stencil/core" {
             "ivy-steps": LocalJSX.IvySteps & JSXBase.HTMLAttributes<HTMLIvyStepsElement>;
             "ivy-switch": LocalJSX.IvySwitch & JSXBase.HTMLAttributes<HTMLIvySwitchElement>;
             "ivy-tab-pane": LocalJSX.IvyTabPane & JSXBase.HTMLAttributes<HTMLIvyTabPaneElement>;
+            "ivy-table": LocalJSX.IvyTable & JSXBase.HTMLAttributes<HTMLIvyTableElement>;
             "ivy-tabs": LocalJSX.IvyTabs & JSXBase.HTMLAttributes<HTMLIvyTabsElement>;
             "ivy-tag": LocalJSX.IvyTag & JSXBase.HTMLAttributes<HTMLIvyTagElement>;
             "ivy-timeline": LocalJSX.IvyTimeline & JSXBase.HTMLAttributes<HTMLIvyTimelineElement>;
