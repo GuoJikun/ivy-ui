@@ -1,5 +1,6 @@
 import DefaultTheme from "vitepress/theme";
 import { defineCustomElements } from "ivy-ui";
+import { registerComponent } from 'ivy-icon'
 import "./index.css";
 
 export default {
@@ -8,6 +9,7 @@ export default {
         DefaultTheme.enhanceApp(ctx);
         if (!import.meta.env.SSR) {
             defineCustomElements();
+            registerComponent()
         }
     },
 };

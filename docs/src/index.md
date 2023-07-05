@@ -3,7 +3,7 @@ layout: home
 hero:
   heroImage: /logo.png
   heroAlt: Logo image
-  name: nsu-ui
+  name: ivy-ui
   tagline: 一个使用原生web component技术构建的ui库。
   actions:
     - theme: brand
@@ -14,7 +14,7 @@ hero:
       link: https://github.com/GuoJikun/ivy-ui
 features:
   - title: 原生
-    details: nsu-ui是使用原生web component技术构建的ui库.
+    details: ivy-ui是使用原生web component技术构建的ui库.
   - title: 简单
     details: 一个组件就像使用一个div标签一样。
   - title: 通用
