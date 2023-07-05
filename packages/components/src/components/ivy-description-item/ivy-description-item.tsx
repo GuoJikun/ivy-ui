@@ -26,16 +26,16 @@ export class IvyDescriptionItem {
   gutter: string;
 
   @Prop({
-    attribute: 'columns',
+    attribute: 'span',
     mutable: true,
     reflect: true,
   })
-  columns: string = '3';
+  span: string = '1';
 
   render() {
     return (
-      <Host>
-        <div class="label" style={{ flex: `0 0 ${this.labelWidth}` }}>
+      <Host span={this.span}>
+        <div class="label" style={{ flex: `0 0 ${this.labelWidth}`,minWidth: `${this.labelWidth}` }}>
           <slot name="label">{this.label}</slot>
         </div>
         <div class="content">

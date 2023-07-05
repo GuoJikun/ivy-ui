@@ -128,6 +128,10 @@ export default defineConfig({
                     collapsible: true,
                     items: [
                         {
+                            text: "Description 描述列表",
+                            link: "/components/description",
+                        },
+                        {
                             text: "Tab 标签页",
                             link: "/components/tab",
                         },

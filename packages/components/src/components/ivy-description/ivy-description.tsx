@@ -57,7 +57,9 @@ export class IvyDescription {
     for (let index = 0; index < len; index++) {
       const element = list[index];
       const curLabelWidth = element.getAttribute('label-width');
-      element.style.width = `${(1 / this.columns) * 100}%`;
+      const elementSpan = Number(element.span || '1');
+      console.log(elementSpan)
+      element.style.width = elementSpan >= this.columns ? '100%' : `${(elementSpan / this.columns) * 100}%`;
       const gutter = `${parseInt(this.gutter) / 2}px`;
       element.style.paddingLeft = gutter;
       element.style.paddingRight = gutter;
@@ -66,12 +68,12 @@ export class IvyDescription {
         element.setAttribute('label-width', this.labelWidth);
       }
       const curIndex = index + 1;
-      if (curIndex % this.columns === 1) {
-        element.style.borderLeft = 'none';
+      if (curIndex % this.columns === 0) {
+        element.style.borderRight = 'none';
       }
-
-      if (index < this.columns) {
-        element.style.borderTop = 'none';
+      const tmp = len / this.columns;
+      if (tmp * this.columns <= curIndex) {
+        element.style.borderBottom = 'none';
       }
       if (this.border) {
         element.setAttribute('border', '');

@@ -80,10 +80,10 @@ export namespace Components {
         "labelWidth": string;
     }
     interface IvyDescriptionItem {
-        "columns": string;
         "gutter": string;
         "label": string;
         "labelWidth": string;
+        "span": string;
     }
     interface IvyDetails {
         "header": string;
@@ -731,10 +731,10 @@ declare namespace LocalJSX {
         "labelWidth"?: string;
     }
     interface IvyDescriptionItem {
-        "columns"?: string;
         "gutter"?: string;
         "label"?: string;
         "labelWidth"?: string;
+        "span"?: string;
     }
     interface IvyDetails {
         "header"?: string;
