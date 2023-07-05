@@ -13,7 +13,7 @@ export class IvyTooltip {
     reflect: true,
     mutable: true,
   })
-  visible: boolean = false;
+  show: boolean = false;
 
   @Prop({
     attribute: 'content',
@@ -60,24 +60,24 @@ export class IvyTooltip {
 
   @Element() el: HTMLElement;
 
-  show() {
+  open = ()=> {
     if (this.timer === null) {
       clearTimeout(this.timer);
       this.timer = null;
     }
     this.timer = setTimeout(() => {
-      this.visible = true;
+      this.show = true;
     }, parseInt(this.delay) || 10);
   }
 
-  hide() {
-    this.visible = false;
+  close = () => {
+    this.show = false;
   }
 
   render() {
     return (
-      <Host show={this.visible}>
-        <div class="ivy-tooltip-ref" onMouseEnter={this.show.bind(this)} onMouseOut={this.hide.bind(this)}>
+      <Host show={this.show}>
+        <div class="ivy-tooltip-ref" onMouseEnter={this.open} onMouseOut={this.close}>
           <slot></slot>
         </div>
         <div class="ivy-tooltip-content">

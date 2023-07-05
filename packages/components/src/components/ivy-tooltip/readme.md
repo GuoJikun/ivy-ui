@@ -12,8 +12,8 @@
 | `content`   | `content`   |             | `string`  | `''`      |
 | `delay`     | `delay`     |             | `string`  | `'10'`    |
 | `placement` | `placement` |             | `string`  | `'top'`   |
+| `show`      | `show`      |             | `boolean` | `false`   |
 | `theme`     | `theme`     |             | `string`  | `'light'` |
-| `visible`   | `show`      |             | `boolean` | `false`   |
 
 
 ----------------------------------------------

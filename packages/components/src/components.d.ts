@@ -243,8 +243,8 @@ export namespace Components {
         "content": string;
         "delay": string;
         "placement": string;
+        "show": boolean;
         "theme": string;
-        "visible": boolean;
     }
 }
 export interface IvyCheckboxCustomEvent<T> extends CustomEvent<T> {
@@ -897,8 +897,8 @@ declare namespace LocalJSX {
         "content"?: string;
         "delay"?: string;
         "placement"?: string;
+        "show"?: boolean;
         "theme"?: string;
-        "visible"?: boolean;
     }
     interface IntrinsicElements {
         "ivy-aspect-ratio": IvyAspectRatio;
