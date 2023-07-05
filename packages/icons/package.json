@@ -28,8 +28,8 @@
   },
   "devDependencies": {
     "svgo": "^3.0.2",
-    "terser": "^5.16.8",
-    "vite": "^4.2.0"
+    "terser": "^5.18.2",
+    "vite": "^4.2.3"
   },
   "license": "MIT",
   "private": false

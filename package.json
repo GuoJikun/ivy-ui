@@ -19,6 +19,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@changesets/cli": "^2.26.0"
+    "@changesets/cli": "^2.26.2"
+  },
+  "dependencies": {
+    "taze": "^0.11.2"
   }
 }

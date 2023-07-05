@@ -28,14 +28,14 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^3.0.0"
+    "@stencil/core": "^4.0.1"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.11",
-    "jest": "^27.5.1",
-    "jest-cli": "^27.5.1",
-    "puppeteer": "^19.5.2"
+    "@types/jest": "^29.5.2",
+    "@types/node": "^16.18.38",
+    "jest": "^29.6.0",
+    "jest-cli": "^29.6.0",
+    "puppeteer": "^20.7.4"
   },
   "license": "MIT",
   "private": false
