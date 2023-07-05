@@ -376,16 +376,17 @@ registerBackComponent()
 <ivy-icon-dish- size="20" style="margin: 10px;"></ivy-icon-dish->
 </div>
 
-<script setup>
-import { onMounted } from 'vue';
+<script>
+import { defineComponent } from 'vue';
 
-onMounted(()=>{
-    document.getElementById('icons').addEventListener('click', ev=>{
+export default defineComponent({
+    mounted() {
+        document.getElementById('icons').addEventListener('click', ev=>{
         const target = ev.target;
         const nodeName = target.nodeName;
-        const name = target.name;
-        const icon = `<ivy-icon name="${name}"></ivy-icon>`;
-        if(nodeName === 'IVY-ICON'){
+        const tagName = nodeName.toLowerCase();
+        const icon = `<${tagName}></${tagName}>`;
+        
             if (window.navigator.clipboard) {
                 window.navigator.clipboard
                     .writeText(icon)
@@ -403,14 +404,8 @@ onMounted(()=>{
             }else{
                 alert('浏览器不支持，请切换到chrome浏览器')
             }
-        }
+        
     },false)
-
-    document.getElementById("table").setAttribute('data-source', JSON.stringify([
-        {name: 'name', desc: '图标的名称', type: 'String', value: '-', defaultValue: '-' },
-        {name: 'spin', desc: '旋转图标', type: 'String', value: '-', defaultValue: '-' },
-        {name: 'size', desc: '图标的大小-同fontSize', type: 'String', value: '-', defaultValue: '14px' },
-        {name: 'color', desc: '图标的颜色-合法的css颜色', type: 'String', value: '-', defaultValue: '-' }
-    ]))
+    }
 })
 </script>
