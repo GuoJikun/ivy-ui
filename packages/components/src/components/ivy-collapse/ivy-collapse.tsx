@@ -1,4 +1,5 @@
 import { Component, Host, h, getElement, Prop } from '@stencil/core';
+import {findElementsDownward} from "../../utils/utils";
 
 @Component({
   tag: 'ivy-collapse',
@@ -20,19 +21,23 @@ export class IvyCollapse {
       </Host>
     );
   }
-  connectedCallback() {
+  componentDidLoad() {
     const active = this.active;
-    const childList = getElement(this).children || [];
+    const el = getElement(this)
+    const childList = findElementsDownward(el, 'ivy-collapse-item')
+
     const children = [...(childList as Array<HTMLElement>)];
     children.forEach((cur, i) => {
       const index = cur.getAttribute('index');
-      if (index === undefined) {
-        if (active === i.toString()) {
-          cur.setAttribute('active', '');
+
+      if (index) {
+        if (active === index) {
+          cur.setAttribute('active', 'true');
         }
       } else {
-        if (active === index) {
-          cur.setAttribute('active', 'active');
+        cur.setAttribute('index', i.toString())
+        if (active === i.toString()) {
+          cur.setAttribute('active', 'true');
         }
       }
     });

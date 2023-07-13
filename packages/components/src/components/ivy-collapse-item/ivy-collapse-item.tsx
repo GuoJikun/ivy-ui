@@ -11,14 +11,14 @@ export class IvyCollapseItem {
     mutable: true,
     reflect: true,
   })
-  active: string = '';
+  active: boolean = false;
 
   @Prop({
-    attribute: 'name',
+    attribute: 'header',
     mutable: true,
     reflect: true,
   })
-  name: string;
+  header: string;
 
   @Prop({
     attribute: 'index',
@@ -34,29 +34,28 @@ export class IvyCollapseItem {
   bodyEl = null;
 
   headerClickHandler() {
-    if (this.active === 'active') {
-      this.active = '';
-    } else {
-      this.active = 'active';
-    }
+    this.active = !this.active;
   }
 
   @Watch('active')
   watchPropHandler(val: string) {
     if (val) {
-      this.el.setAttribute('active', 'active');
+      this.el.setAttribute('active', 'true');
+      if(this.bodyEl)
       this.bodyEl.style.height = this.height;
     } else {
-      this.el.setAttribute('active', '');
+      this.el.setAttribute('active', 'false');
+      if(this.bodyEl)
       this.bodyEl.style.height = 0;
     }
   }
 
   render() {
     return (
-      <Host>
+      <Host index={this.index}>
         <div class="ivy-collapse-item-header" onClick={this.headerClickHandler.bind(this)}>
-          <slot name="name">{this.name}</slot>
+          <slot name="header">{this.header}</slot>
+          <span class="arrow"></span>
         </div>
         <div class="ivy-collapse-item-body">
           <div class="ivy-collapse-item-body-inner">
@@ -74,7 +73,7 @@ export class IvyCollapseItem {
     const height = bodyStyle['height'];
     this.height = height;
     this.bodyEl = body;
-    if (this.active !== 'active') {
+    if (!this.active) {
       this.bodyEl.style.height = 0;
     } else {
       this.bodyEl.style.height = height;

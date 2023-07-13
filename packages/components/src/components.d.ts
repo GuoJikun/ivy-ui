@@ -63,9 +63,9 @@ export namespace Components {
         "active": string;
     }
     interface IvyCollapseItem {
-        "active": string;
+        "active": boolean;
+        "header": string;
         "index": string;
-        "name": string;
     }
     interface IvyContextmenu {
         "visible": boolean;
@@ -713,9 +713,9 @@ declare namespace LocalJSX {
         "active"?: string;
     }
     interface IvyCollapseItem {
-        "active"?: string;
+        "active"?: boolean;
+        "header"?: string;
         "index"?: string;
-        "name"?: string;
     }
     interface IvyContextmenu {
         "onCommand"?: (event: IvyContextmenuCustomEvent<string>) => void;

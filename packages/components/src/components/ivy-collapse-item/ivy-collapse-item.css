@@ -3,30 +3,57 @@
 }
 .ivy-collapse-item-header {
   background-color: #f7f7f7;
-  padding: 10px 20px;
+  padding: 12px 24px 12px 16px;
   cursor: pointer;
   border-bottom: 1px solid #dcdee2;
   line-height: 1em;
   display: flex;
   align-items: center;
   align-content: center;
+  position: relative;
+}
+.arrow{
+  display: block;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform-origin: center center;
+  transform: translateY(-7px);
+  transition: transform 0.3s;
+}
+.arrow::after{
+  position: absolute;
+  top: 50%;
+  right: 5px;
+  width: 6px;
+  height: 6px;
+  content: '';
+  border-right: 1px solid var(--ivy-border-color, #999999);
+  border-top: 1px solid var(--ivy-border-color, #999999);
+  transform: translateY( -3px) rotateZ(45deg);
 }
 .ivy-collapse-item-body {
   overflow: hidden;
   transition: height 0.3s;
   background-color: #fff;
 }
-:host([active='active']) .ivy-collapse-item-body {
+:host([active=""]) .ivy-collapse-item-body {
   height: auto;
 }
 
+:host([active=""]) .arrow{
+  transform: translateY(-7px) rotateZ(90deg);
+}
+
 .ivy-collapse-item-body-inner {
-  padding: 10px 20px;
+  padding: 12px 16px;
   box-sizing: border-box;
 }
 :host(:last-child) .ivy-collapse-item-header {
   border-bottom: none;
 }
-:host([active='active']:last-child) .ivy-collapse-item-header {
+:host([active]:last-child) .ivy-collapse-item-header {
   border-bottom: 1px solid #dcdee2;
 }
