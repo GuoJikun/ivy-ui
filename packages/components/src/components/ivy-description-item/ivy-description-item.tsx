@@ -16,7 +16,7 @@ export class IvyDescriptionItem {
     mutable: true,
     reflect: true,
   })
-  labelWidth: string = '30%';
+  labelWidth: string = '';
 
   @Prop({
     attribute: 'gutter',
@@ -35,8 +35,8 @@ export class IvyDescriptionItem {
   render() {
     return (
       <Host span={this.span}>
-        <div class="label" style={{ flex: `0 0 ${this.labelWidth}`,minWidth: `${this.labelWidth}` }}>
-          <slot name="label">{this.label}</slot>
+        <div class="label" style={{ flex: `0 0 ${this.labelWidth || '100px'}` }}>
+          {this.label}
         </div>
         <div class="content">
           <slot></slot>

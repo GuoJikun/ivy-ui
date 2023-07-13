@@ -10,9 +10,5 @@ export const config: Config = {
       generateTypeDeclarations: true,
       customElementsExportBehavior: 'bundle',
     },
-    {
-      type: 'www',
-      serviceWorker: null, // disable service workers
-    },
   ],
 };

@@ -1,14 +1,106 @@
+/*重置默认主题的字体大小*/
+.theme-default-content {
+  font-size: 15px;
+}
+/*reset sidebar style*/
+.sidebar-heading {
+  font-weight: 500;
+  font-size: 16px;
+}
+p.sidebar-item:not(.sidebar-heading) {
+  /*noinspection CssUnresolvedCustomProperty*/
+  color: var(--c-bg-arrow);
+}
+.sidebar-item:not(.sidebar-heading) {
+  font-size: 15px;
+}
+
+@media (min-width: 1440px) {
+  #VPContent.VPContent {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #VPContent.VPContent.has-sidebar {
+    padding-left: var(--vp-sidebar-width);
+    padding-right: 0;
+  }
+  .Layout aside.VPSidebar {
+    padding-left: 32px;
+    width: var(--vp-sidebar-width);
+  }
+  .Layout .VPNavBar.has-sidebar > .container > .title {
+    padding-left: 32px;
+    width: var(--vp-sidebar-width);
+  }
+  .Layout .VPNavBar.has-sidebar .content {
+    padding-left: var(--vp-sidebar-width);
+    padding-right: 32px;
+  }
+  .Layout .VPDoc.has-aside .content-container {
+    max-width: 1000px;
+  }
+}
+
+/** flex
+***************************/
+.flex {
+  display: flex;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.align-items-center {
+  align-items: center;
+  align-content: center;
+}
+.flex-justify-content-between {
+  justify-content: space-between;
+}
+
+.vp-doc .el-table table {
+  margin: 0;
+}
+
+/*Margin*/
+.margin-top-small {
+  margin-top: 8px;
+}
 .margin-top {
   margin-top: 12px;
 }
 .margin-top-large {
   margin-top: 24px;
 }
+
+.margin-left-small {
+  margin-left: 8px;
+}
 .margin-left {
   margin-left: 12px;
 }
 .margin-left-large {
   margin-left: 24px;
+}
+
+/*Padding*/
+.padding-top-small {
+  padding-top: 8px;
+}
+.padding-top {
+  padding-top: 12px;
+}
+.padding-top-large {
+  padding-top: 24px;
+}
+
+.padding-left-small {
+  padding-left: 8px;
+}
+.padding-left {
+  padding-left: 12px;
+}
+.padding-left-large {
+  padding-left: 24px;
 }
 
 .demo-block {

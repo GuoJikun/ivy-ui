@@ -1,6 +1,8 @@
 :host {
   display: block;
   border-radius: var(--ivy-border-radius, 4px);
+  --ivy-description-label-bg-color: #f5f7fa;
+  font-size: var(--ivy-font-size, 14px);
 }
 :host(:not(:defined)) {
   display: none;
@@ -18,6 +20,6 @@
 :host([border]) {
   border: 1px solid var(--ivy-border-color, #dcdfe6);
 }
-:host([border]) .wrap {
-  border-top: 1px solid var(--ivy-border-color, #dcdfe6);
+:host([border]) .header {
+  border-bottom: 1px solid var(--ivy-border-color, #dcdfe6);
 }

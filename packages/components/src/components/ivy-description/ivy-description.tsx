@@ -41,8 +41,8 @@ export class IvyDescription {
   render() {
     return (
       <Host border={this.border}>
-        <div class="header" style={{ padding: `12px ${parseFloat(this.gutter) / 2}px` }}>
-          <slot name="header">{this.header}</slot>
+        <div class="header" style={{ padding: `12px ${parseFloat(this.gutter) / 2}px`, display: this.header ? null : 'none' }}>
+          {this.header}
         </div>
         <div class="wrap">
           <slot></slot>
@@ -58,17 +58,15 @@ export class IvyDescription {
       const element = list[index];
       const curLabelWidth = element.getAttribute('label-width');
       const elementSpan = Number(element.span || '1');
-      console.log(elementSpan)
+
       element.style.width = elementSpan >= this.columns ? '100%' : `${(elementSpan / this.columns) * 100}%`;
       const gutter = `${parseInt(this.gutter) / 2}px`;
-      element.style.paddingLeft = gutter;
-      element.style.paddingRight = gutter;
       element.setAttribute('gutter', gutter);
-      if (curLabelWidth === '30%' && this.labelWidth) {
+      if ([undefined,null, ''].includes(curLabelWidth) && this.labelWidth) {
         element.setAttribute('label-width', this.labelWidth);
       }
       const curIndex = index + 1;
-      if (curIndex % this.columns === 0) {
+      if (curIndex % this.columns === 0 || len === curIndex) {
         element.style.borderRight = 'none';
       }
       const tmp = len / this.columns;
@@ -76,7 +74,7 @@ export class IvyDescription {
         element.style.borderBottom = 'none';
       }
       if (this.border) {
-        element.setAttribute('border', '');
+        element.setAttribute('border', 'true');
       }
     }
   }
