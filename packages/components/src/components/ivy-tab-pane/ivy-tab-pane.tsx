@@ -8,16 +8,20 @@ import { Component, Host, h, Prop } from '@stencil/core';
 export class IvyTabPane {
   @Prop({
     attribute: 'label',
+    reflect: true,
   })
   label: string;
 
   @Prop({
     attribute: 'index',
+    reflect: true,
+    mutable: true
   })
   index: string;
 
   @Prop({
     attribute: 'show',
+    reflect: true,
   })
   show: boolean = false;
 

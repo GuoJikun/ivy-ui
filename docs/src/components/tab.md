@@ -6,28 +6,28 @@
 
 最常见的用法
 
-<ivy-tab id="tab">
-    <ivy-tab-pane title="用户管理">
+<ivy-tabs id="tab">
+    <ivy-tab-pane label="用户管理">
         用户管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="配置管理">
+    <ivy-tab-pane label="配置管理">
         配置管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="角色管理">
+    <ivy-tab-pane label="角色管理">
         角色管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-</ivy-tab>
+</ivy-tabs>
 
 ```html
-<ivy-tab>
-    <ivy-tab-pane title="用户管理"> 用户管理 </ivy-tab-pane>
-    <ivy-tab-pane title="配置管理"> 配置管理 </ivy-tab-pane>
-    <ivy-tab-pane title="角色管理"> 角色管理 </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理"> 权限管理 </ivy-tab-pane>
-</ivy-tab>
+<ivy-tabs>
+    <ivy-tab-pane label="用户管理"> 用户管理 </ivy-tab-pane>
+    <ivy-tab-pane label="配置管理"> 配置管理 </ivy-tab-pane>
+    <ivy-tab-pane label="角色管理"> 角色管理 </ivy-tab-pane>
+    <ivy-tab-pane label="权限管理"> 权限管理 </ivy-tab-pane>
+</ivy-tabs>
 ```
 
 ## 标识 name
@@ -38,29 +38,29 @@
 
 <ivy-button type="success" onclick="document.getElementById('tab3').setAttribute('active', 'd')">跳转到-权限管理</ivy-button>
 &nbsp;
-<ivy-tab active="b" id="tab3">
-    <ivy-tab-pane title="用户管理" name="a">
+<ivy-tabs active="b" id="tab3">
+    <ivy-tab-pane label="用户管理" index="a">
         用户管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="配置管理" name="b">
+    <ivy-tab-pane label="配置管理" index="b">
         配置管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="角色管理" name="c">
+    <ivy-tab-pane label="角色管理" index="c">
         角色管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理" name="d">
+    <ivy-tab-pane label="权限管理" index="d">
         权限管理
     </ivy-tab-pane>
-</ivy-tab>
+</ivy-tabs>
 
 
 ```html
-<ivy-tab active="b" id="tab3">
-    <ivy-tab-pane title="用户管理" name="a"> 用户管理 </ivy-tab-pane>
-    <ivy-tab-pane title="配置管理" name="b"> 配置管理 </ivy-tab-pane>
-    <ivy-tab-pane title="角色管理" name="c"> 角色管理 </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理" name="d"> 权限管理 </ivy-tab-pane>
-</ivy-tab>
+<ivy-tabs active="b" id="tab3">
+    <ivy-tab-pane label="用户管理" index="a"> 用户管理 </ivy-tab-pane>
+    <ivy-tab-pane label="配置管理" index="b"> 配置管理 </ivy-tab-pane>
+    <ivy-tab-pane label="角色管理" index="c"> 角色管理 </ivy-tab-pane>
+    <ivy-tab-pane label="权限管理" index="d"> 权限管理 </ivy-tab-pane>
+</ivy-tabs>
 <ivy-button type="success" onclick="document.getElementById('tab3').setAttribute('active', 'd')">跳转到-权限管理</ivy-button>
 ```
 
@@ -68,90 +68,90 @@
 
 当 `tab-pane` 比较多时，两次会会出现按钮，点击按钮可以左右滚动。
 
-<ivy-tab active="2" id="tab1">
-    <ivy-tab-pane title="用户管理">
+<ivy-tabs active="2" id="tab1">
+    <ivy-tab-pane label="用户管理">
         用户管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="配置管理">
+    <ivy-tab-pane label="配置管理">
         配置管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="角色管理">
+    <ivy-tab-pane label="角色管理">
         角色管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-</ivy-tab>
+</ivy-tabs>
 
 ```html
-<ivy-tab active="2" id="tab1">
-    <ivy-tab-pane title="用户管理">
+<ivy-tabs active="2" id="tab1">
+    <ivy-tab-pane label="用户管理">
         用户管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="配置管理">
+    <ivy-tab-pane label="配置管理">
         配置管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="角色管理">
+    <ivy-tab-pane label="角色管理">
         角色管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-    <ivy-tab-pane title="权限管理">
+    <ivy-tab-pane label="权限管理">
         权限管理
     </ivy-tab-pane>
-</ivy-tab>
+</ivy-tabs>
 ```
 
 <script setup>

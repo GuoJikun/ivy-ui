@@ -47,7 +47,7 @@ export class IvyTabs {
   scrollLeft() {
     const left = getComputedStyle(this.tableInnerEl)['left'];
     const leftN = parseFloat(left);
-    console.log(left, leftN, 'left');
+
     if (leftN < -60) {
       (this.tableInnerEl as any).style.left = `${leftN + 60}px`;
     } else {
@@ -61,7 +61,7 @@ export class IvyTabs {
     const leftN = parseFloat(left);
     const widthN = parseFloat(width);
     const wrapWidth = parseFloat(getComputedStyle(this.tabHeaderWrap)['width']);
-    console.log(widthN, leftN, wrapWidth, 'right');
+
     if (wrapWidth - leftN < widthN - 60) {
       (this.tableInnerEl as any).style.left = `${leftN - 60}px`;
     } else {
@@ -102,31 +102,30 @@ export class IvyTabs {
     );
   }
 
-  componentWillLoad() {
+
+  componentDidLoad() {
     const list = findElementsDownward(this.el, 'ivy-tab-pane');
     this.headerList = list.map((el, index) => {
-      const elIndex = el.getAttribute('index');
-      if (!elIndex) {
+      const elIndex = (el as any).index
+      if ([undefined, null, ''].includes(elIndex)) {
+
         el.setAttribute('index', index.toString());
       }
-      if (this.active === el.getAttribute('index')) {
-        (el as any).show = true;
+      if (this.active === (el as any).index) {
+        (el as any).show = true
       } else {
-        (el as any).show = false;
+        (el as any).show = false
       }
       return el;
     });
-  }
-
-  componentDidLoad() {
     writeTask(() => {
+
       const children = this.tableInnerEl.children;
       for (let index = 0; index < children.length; index++) {
         const el = children[index];
         if (this.active === el.getAttribute('data-index')) {
           const rect = el.getBoundingClientRect();
           this.w = rect.width;
-
           this.x = (el as any).offsetLeft;
         }
       }

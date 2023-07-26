@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `active` | `active`  |             | `string` | `''`        |
-| `index`  | `index`   |             | `string` | `undefined` |
-| `name`   | `name`    |             | `string` | `undefined` |
+| Property | Attribute | Description | Type      | Default     |
+| -------- | --------- | ----------- | --------- | ----------- |
+| `active` | `active`  |             | `boolean` | `false`     |
+| `header` | `header`  |             | `string`  | `undefined` |
+| `index`  | `index`   |             | `string`  | `undefined` |
 
 
 ----------------------------------------------
