@@ -136,6 +136,10 @@ export namespace Components {
         "type": string;
         "value": string;
     }
+    interface IvyLoading {
+        "loading": boolean;
+        "text": string;
+    }
     interface IvyMessage {
         "content": string;
         "show": boolean;
@@ -468,6 +472,12 @@ declare global {
         prototype: HTMLIvyInputElement;
         new (): HTMLIvyInputElement;
     };
+    interface HTMLIvyLoadingElement extends Components.IvyLoading, HTMLStencilElement {
+    }
+    var HTMLIvyLoadingElement: {
+        prototype: HTMLIvyLoadingElement;
+        new (): HTMLIvyLoadingElement;
+    };
     interface HTMLIvyMessageElement extends Components.IvyMessage, HTMLStencilElement {
     }
     var HTMLIvyMessageElement: {
@@ -635,6 +645,7 @@ declare global {
         "ivy-grid-item": HTMLIvyGridItemElement;
         "ivy-image": HTMLIvyImageElement;
         "ivy-input": HTMLIvyInputElement;
+        "ivy-loading": HTMLIvyLoadingElement;
         "ivy-message": HTMLIvyMessageElement;
         "ivy-notification": HTMLIvyNotificationElement;
         "ivy-option": HTMLIvyOptionElement;
@@ -790,6 +801,10 @@ declare namespace LocalJSX {
         "type"?: string;
         "value"?: string;
     }
+    interface IvyLoading {
+        "loading"?: boolean;
+        "text"?: string;
+    }
     interface IvyMessage {
         "content"?: string;
         "show"?: boolean;
@@ -929,6 +944,7 @@ declare namespace LocalJSX {
         "ivy-grid-item": IvyGridItem;
         "ivy-image": IvyImage;
         "ivy-input": IvyInput;
+        "ivy-loading": IvyLoading;
         "ivy-message": IvyMessage;
         "ivy-notification": IvyNotification;
         "ivy-option": IvyOption;
@@ -986,6 +1002,7 @@ declare module "@stencil/core" {
             "ivy-grid-item": LocalJSX.IvyGridItem & JSXBase.HTMLAttributes<HTMLIvyGridItemElement>;
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-input": LocalJSX.IvyInput & JSXBase.HTMLAttributes<HTMLIvyInputElement>;
+            "ivy-loading": LocalJSX.IvyLoading & JSXBase.HTMLAttributes<HTMLIvyLoadingElement>;
             "ivy-message": LocalJSX.IvyMessage & JSXBase.HTMLAttributes<HTMLIvyMessageElement>;
             "ivy-notification": LocalJSX.IvyNotification & JSXBase.HTMLAttributes<HTMLIvyNotificationElement>;
             "ivy-option": LocalJSX.IvyOption & JSXBase.HTMLAttributes<HTMLIvyOptionElement>;
