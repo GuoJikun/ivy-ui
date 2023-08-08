@@ -122,6 +122,9 @@ export namespace Components {
     interface IvyGridItem {
         "col": string;
     }
+    interface IvyIcon {
+        "name": string;
+    }
     interface IvyImage {
         "alt": string;
         "fit": string;
@@ -460,6 +463,12 @@ declare global {
         prototype: HTMLIvyGridItemElement;
         new (): HTMLIvyGridItemElement;
     };
+    interface HTMLIvyIconElement extends Components.IvyIcon, HTMLStencilElement {
+    }
+    var HTMLIvyIconElement: {
+        prototype: HTMLIvyIconElement;
+        new (): HTMLIvyIconElement;
+    };
     interface HTMLIvyImageElement extends Components.IvyImage, HTMLStencilElement {
     }
     var HTMLIvyImageElement: {
@@ -643,6 +652,7 @@ declare global {
         "ivy-empty": HTMLIvyEmptyElement;
         "ivy-grid": HTMLIvyGridElement;
         "ivy-grid-item": HTMLIvyGridItemElement;
+        "ivy-icon": HTMLIvyIconElement;
         "ivy-image": HTMLIvyImageElement;
         "ivy-input": HTMLIvyInputElement;
         "ivy-loading": HTMLIvyLoadingElement;
@@ -783,6 +793,9 @@ declare namespace LocalJSX {
     }
     interface IvyGridItem {
         "col"?: string;
+    }
+    interface IvyIcon {
+        "name"?: string;
     }
     interface IvyImage {
         "alt"?: string;
@@ -942,6 +955,7 @@ declare namespace LocalJSX {
         "ivy-empty": IvyEmpty;
         "ivy-grid": IvyGrid;
         "ivy-grid-item": IvyGridItem;
+        "ivy-icon": IvyIcon;
         "ivy-image": IvyImage;
         "ivy-input": IvyInput;
         "ivy-loading": IvyLoading;
@@ -1000,6 +1014,7 @@ declare module "@stencil/core" {
             "ivy-empty": LocalJSX.IvyEmpty & JSXBase.HTMLAttributes<HTMLIvyEmptyElement>;
             "ivy-grid": LocalJSX.IvyGrid & JSXBase.HTMLAttributes<HTMLIvyGridElement>;
             "ivy-grid-item": LocalJSX.IvyGridItem & JSXBase.HTMLAttributes<HTMLIvyGridItemElement>;
+            "ivy-icon": LocalJSX.IvyIcon & JSXBase.HTMLAttributes<HTMLIvyIconElement>;
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-input": LocalJSX.IvyInput & JSXBase.HTMLAttributes<HTMLIvyInputElement>;
             "ivy-loading": LocalJSX.IvyLoading & JSXBase.HTMLAttributes<HTMLIvyLoadingElement>;

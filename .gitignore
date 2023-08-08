@@ -1,4 +1,6 @@
 node_modules
-/docs/src/.vitepress/cache
+docs/src/.vitepress/cache
+docs/src/.vitepress/.temp
 .vscode
 .idea
+docs/dist

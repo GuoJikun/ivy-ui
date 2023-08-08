@@ -28,6 +28,8 @@ registerBackComponent()
 <ivy-icon-edit class="margin-left"></ivy-icon-edit>
 <ivy-icon-reading class="margin-left"></ivy-icon-reading>
 
+<ivy-icon name="shopping-trolley"></ivy-icon>
+
 ```html
 <ivy-icon-download></ivy-icon-download>
 <ivy-icon-edit class="margin-left"></ivy-icon-edit>

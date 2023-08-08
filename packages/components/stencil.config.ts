@@ -9,6 +9,7 @@ export const config: Config = {
       type: 'dist-custom-elements',
       generateTypeDeclarations: true,
       customElementsExportBehavior: 'bundle',
+      copy: [{ src: 'components/ivy-icon/assets/iconfont.svg', dest: 'dist/components/assets/iconfont.svg', warn: true }],
     },
   ],
 };
