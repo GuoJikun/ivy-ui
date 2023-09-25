@@ -4,3 +4,4 @@ docs/src/.vitepress/.temp
 .vscode
 .idea
 docs/dist
+/packages/components/src/components/**/readme.md
