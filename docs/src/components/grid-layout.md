@@ -79,6 +79,14 @@
 </ivy-grid>
 ```
 
+# Props 
+
+| 属性     | 描述       | 类型      | 可选值 | 默认值 |
+|--------|----------|---------|-----|-----|
+| border | 边框       | boolean | -   | -   |
+| square | 子元素宽高一致  | boolean | -   | -   |
+| col    | 一行子元素的数量 | string  | -   | `3` |
+
 <style scoped>
 .grid-item {
     line-height: 32px;
