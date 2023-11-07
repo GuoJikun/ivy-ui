@@ -355,13 +355,35 @@ declare global {
         prototype: HTMLIvyCarouselItemElement;
         new (): HTMLIvyCarouselItemElement;
     };
+    interface HTMLIvyCheckboxElementEventMap {
+        "changed": boolean;
+    }
     interface HTMLIvyCheckboxElement extends Components.IvyCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyCheckboxElementEventMap>(type: K, listener: (this: HTMLIvyCheckboxElement, ev: IvyCheckboxCustomEvent<HTMLIvyCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyCheckboxElementEventMap>(type: K, listener: (this: HTMLIvyCheckboxElement, ev: IvyCheckboxCustomEvent<HTMLIvyCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyCheckboxElement: {
         prototype: HTMLIvyCheckboxElement;
         new (): HTMLIvyCheckboxElement;
     };
+    interface HTMLIvyCheckboxGroupElementEventMap {
+        "change": Array<string>;
+    }
     interface HTMLIvyCheckboxGroupElement extends Components.IvyCheckboxGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLIvyCheckboxGroupElement, ev: IvyCheckboxGroupCustomEvent<HTMLIvyCheckboxGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyCheckboxGroupElementEventMap>(type: K, listener: (this: HTMLIvyCheckboxGroupElement, ev: IvyCheckboxGroupCustomEvent<HTMLIvyCheckboxGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyCheckboxGroupElement: {
         prototype: HTMLIvyCheckboxGroupElement;
@@ -385,7 +407,18 @@ declare global {
         prototype: HTMLIvyCollapseItemElement;
         new (): HTMLIvyCollapseItemElement;
     };
+    interface HTMLIvyContextmenuElementEventMap {
+        "command": string;
+    }
     interface HTMLIvyContextmenuElement extends Components.IvyContextmenu, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyContextmenuElementEventMap>(type: K, listener: (this: HTMLIvyContextmenuElement, ev: IvyContextmenuCustomEvent<HTMLIvyContextmenuElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyContextmenuElementEventMap>(type: K, listener: (this: HTMLIvyContextmenuElement, ev: IvyContextmenuCustomEvent<HTMLIvyContextmenuElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyContextmenuElement: {
         prototype: HTMLIvyContextmenuElement;
@@ -415,7 +448,19 @@ declare global {
         prototype: HTMLIvyDetailsElement;
         new (): HTMLIvyDetailsElement;
     };
+    interface HTMLIvyDialogElementEventMap {
+        "closed": string;
+        "sure": string;
+    }
     interface HTMLIvyDialogElement extends Components.IvyDialog, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyDialogElementEventMap>(type: K, listener: (this: HTMLIvyDialogElement, ev: IvyDialogCustomEvent<HTMLIvyDialogElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyDialogElementEventMap>(type: K, listener: (this: HTMLIvyDialogElement, ev: IvyDialogCustomEvent<HTMLIvyDialogElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyDialogElement: {
         prototype: HTMLIvyDialogElement;
@@ -427,13 +472,35 @@ declare global {
         prototype: HTMLIvyDividerElement;
         new (): HTMLIvyDividerElement;
     };
+    interface HTMLIvyDrawerElementEventMap {
+        "closed": any;
+    }
     interface HTMLIvyDrawerElement extends Components.IvyDrawer, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyDrawerElementEventMap>(type: K, listener: (this: HTMLIvyDrawerElement, ev: IvyDrawerCustomEvent<HTMLIvyDrawerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyDrawerElementEventMap>(type: K, listener: (this: HTMLIvyDrawerElement, ev: IvyDrawerCustomEvent<HTMLIvyDrawerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyDrawerElement: {
         prototype: HTMLIvyDrawerElement;
         new (): HTMLIvyDrawerElement;
     };
+    interface HTMLIvyDropdownElementEventMap {
+        "command": string;
+    }
     interface HTMLIvyDropdownElement extends Components.IvyDropdown, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyDropdownElementEventMap>(type: K, listener: (this: HTMLIvyDropdownElement, ev: IvyDropdownCustomEvent<HTMLIvyDropdownElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyDropdownElementEventMap>(type: K, listener: (this: HTMLIvyDropdownElement, ev: IvyDropdownCustomEvent<HTMLIvyDropdownElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyDropdownElement: {
         prototype: HTMLIvyDropdownElement;
@@ -475,7 +542,20 @@ declare global {
         prototype: HTMLIvyImageElement;
         new (): HTMLIvyImageElement;
     };
+    interface HTMLIvyInputElementEventMap {
+        "changed": string | number | boolean;
+        "focus": any;
+        "blur": any;
+    }
     interface HTMLIvyInputElement extends Components.IvyInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyInputElementEventMap>(type: K, listener: (this: HTMLIvyInputElement, ev: IvyInputCustomEvent<HTMLIvyInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyInputElementEventMap>(type: K, listener: (this: HTMLIvyInputElement, ev: IvyInputCustomEvent<HTMLIvyInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyInputElement: {
         prototype: HTMLIvyInputElement;
@@ -505,7 +585,18 @@ declare global {
         prototype: HTMLIvyOptionElement;
         new (): HTMLIvyOptionElement;
     };
+    interface HTMLIvyPagerElementEventMap {
+        "current-change": number;
+    }
     interface HTMLIvyPagerElement extends Components.IvyPager, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyPagerElementEventMap>(type: K, listener: (this: HTMLIvyPagerElement, ev: IvyPagerCustomEvent<HTMLIvyPagerElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyPagerElementEventMap>(type: K, listener: (this: HTMLIvyPagerElement, ev: IvyPagerCustomEvent<HTMLIvyPagerElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyPagerElement: {
         prototype: HTMLIvyPagerElement;
@@ -517,13 +608,35 @@ declare global {
         prototype: HTMLIvyProgressElement;
         new (): HTMLIvyProgressElement;
     };
+    interface HTMLIvyRadioElementEventMap {
+        "changed": boolean;
+    }
     interface HTMLIvyRadioElement extends Components.IvyRadio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyRadioElementEventMap>(type: K, listener: (this: HTMLIvyRadioElement, ev: IvyRadioCustomEvent<HTMLIvyRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyRadioElementEventMap>(type: K, listener: (this: HTMLIvyRadioElement, ev: IvyRadioCustomEvent<HTMLIvyRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyRadioElement: {
         prototype: HTMLIvyRadioElement;
         new (): HTMLIvyRadioElement;
     };
+    interface HTMLIvyRadioGroupElementEventMap {
+        "changed": string;
+    }
     interface HTMLIvyRadioGroupElement extends Components.IvyRadioGroup, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyRadioGroupElementEventMap>(type: K, listener: (this: HTMLIvyRadioGroupElement, ev: IvyRadioGroupCustomEvent<HTMLIvyRadioGroupElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyRadioGroupElementEventMap>(type: K, listener: (this: HTMLIvyRadioGroupElement, ev: IvyRadioGroupCustomEvent<HTMLIvyRadioGroupElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyRadioGroupElement: {
         prototype: HTMLIvyRadioGroupElement;
@@ -547,7 +660,18 @@ declare global {
         prototype: HTMLIvyScrollbarElement;
         new (): HTMLIvyScrollbarElement;
     };
+    interface HTMLIvySelectElementEventMap {
+        "changed": string;
+    }
     interface HTMLIvySelectElement extends Components.IvySelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvySelectElementEventMap>(type: K, listener: (this: HTMLIvySelectElement, ev: IvySelectCustomEvent<HTMLIvySelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvySelectElementEventMap>(type: K, listener: (this: HTMLIvySelectElement, ev: IvySelectCustomEvent<HTMLIvySelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvySelectElement: {
         prototype: HTMLIvySelectElement;
@@ -571,7 +695,18 @@ declare global {
         prototype: HTMLIvyStepsElement;
         new (): HTMLIvyStepsElement;
     };
+    interface HTMLIvySwitchElementEventMap {
+        "changed": boolean;
+    }
     interface HTMLIvySwitchElement extends Components.IvySwitch, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvySwitchElementEventMap>(type: K, listener: (this: HTMLIvySwitchElement, ev: IvySwitchCustomEvent<HTMLIvySwitchElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvySwitchElementEventMap>(type: K, listener: (this: HTMLIvySwitchElement, ev: IvySwitchCustomEvent<HTMLIvySwitchElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvySwitchElement: {
         prototype: HTMLIvySwitchElement;
@@ -589,7 +724,18 @@ declare global {
         prototype: HTMLIvyTableElement;
         new (): HTMLIvyTableElement;
     };
+    interface HTMLIvyTabsElementEventMap {
+        "tab-click": string;
+    }
     interface HTMLIvyTabsElement extends Components.IvyTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLIvyTabsElementEventMap>(type: K, listener: (this: HTMLIvyTabsElement, ev: IvyTabsCustomEvent<HTMLIvyTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLIvyTabsElementEventMap>(type: K, listener: (this: HTMLIvyTabsElement, ev: IvyTabsCustomEvent<HTMLIvyTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLIvyTabsElement: {
         prototype: HTMLIvyTabsElement;

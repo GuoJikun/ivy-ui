@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vitepress": "1.0.0-beta.5"
+    "vitepress": "1.0.0-rc.25"
   },
   "dependencies": {
     "ivy-icon": "workspace:*",
