@@ -2,6 +2,7 @@ import DefaultTheme from "vitepress/theme";
 import { defineCustomElements } from "ivy-ui";
 import { registerComponent } from 'ivy-icon'
 import "./index.css";
+import 'ivy-ui/dist/index.css'
 
 export default {
     ...DefaultTheme,

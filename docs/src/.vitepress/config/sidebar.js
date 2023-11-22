@@ -54,6 +54,14 @@ const components = [
         text: "Divider 分割线",
         link: "/components/divider",
       },
+      {
+        text: "Link 链接",
+        link: "/components/link",
+      },
+      {
+        text: "Text 文字",
+        link: "/components/text",
+      },
     ],
   },
   {

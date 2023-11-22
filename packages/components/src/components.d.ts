@@ -139,6 +139,12 @@ export namespace Components {
         "type": string;
         "value": string;
     }
+    interface IvyLink {
+        "disabled": boolean;
+        "href": string;
+        "type": string;
+        "underline": boolean;
+    }
     interface IvyLoading {
         "loading": boolean;
         "text": string;
@@ -233,6 +239,11 @@ export namespace Components {
     interface IvyTag {
         "size": string;
         "theme": string;
+        "type": string;
+    }
+    interface IvyText {
+        "lineClamp": string;
+        "truncated": boolean;
         "type": string;
     }
     interface IvyTimeline {
@@ -561,6 +572,12 @@ declare global {
         prototype: HTMLIvyInputElement;
         new (): HTMLIvyInputElement;
     };
+    interface HTMLIvyLinkElement extends Components.IvyLink, HTMLStencilElement {
+    }
+    var HTMLIvyLinkElement: {
+        prototype: HTMLIvyLinkElement;
+        new (): HTMLIvyLinkElement;
+    };
     interface HTMLIvyLoadingElement extends Components.IvyLoading, HTMLStencilElement {
     }
     var HTMLIvyLoadingElement: {
@@ -747,6 +764,12 @@ declare global {
         prototype: HTMLIvyTagElement;
         new (): HTMLIvyTagElement;
     };
+    interface HTMLIvyTextElement extends Components.IvyText, HTMLStencilElement {
+    }
+    var HTMLIvyTextElement: {
+        prototype: HTMLIvyTextElement;
+        new (): HTMLIvyTextElement;
+    };
     interface HTMLIvyTimelineElement extends Components.IvyTimeline, HTMLStencilElement {
     }
     var HTMLIvyTimelineElement: {
@@ -801,6 +824,7 @@ declare global {
         "ivy-icon": HTMLIvyIconElement;
         "ivy-image": HTMLIvyImageElement;
         "ivy-input": HTMLIvyInputElement;
+        "ivy-link": HTMLIvyLinkElement;
         "ivy-loading": HTMLIvyLoadingElement;
         "ivy-message": HTMLIvyMessageElement;
         "ivy-notification": HTMLIvyNotificationElement;
@@ -821,6 +845,7 @@ declare global {
         "ivy-table": HTMLIvyTableElement;
         "ivy-tabs": HTMLIvyTabsElement;
         "ivy-tag": HTMLIvyTagElement;
+        "ivy-text": HTMLIvyTextElement;
         "ivy-timeline": HTMLIvyTimelineElement;
         "ivy-timeline-item": HTMLIvyTimelineItemElement;
         "ivy-tip": HTMLIvyTipElement;
@@ -960,6 +985,12 @@ declare namespace LocalJSX {
         "type"?: string;
         "value"?: string;
     }
+    interface IvyLink {
+        "disabled"?: boolean;
+        "href"?: string;
+        "type"?: string;
+        "underline"?: boolean;
+    }
     interface IvyLoading {
         "loading"?: boolean;
         "text"?: string;
@@ -1056,6 +1087,11 @@ declare namespace LocalJSX {
         "theme"?: string;
         "type"?: string;
     }
+    interface IvyText {
+        "lineClamp"?: string;
+        "truncated"?: boolean;
+        "type"?: string;
+    }
     interface IvyTimeline {
         "reverse"?: boolean;
     }
@@ -1104,6 +1140,7 @@ declare namespace LocalJSX {
         "ivy-icon": IvyIcon;
         "ivy-image": IvyImage;
         "ivy-input": IvyInput;
+        "ivy-link": IvyLink;
         "ivy-loading": IvyLoading;
         "ivy-message": IvyMessage;
         "ivy-notification": IvyNotification;
@@ -1124,6 +1161,7 @@ declare namespace LocalJSX {
         "ivy-table": IvyTable;
         "ivy-tabs": IvyTabs;
         "ivy-tag": IvyTag;
+        "ivy-text": IvyText;
         "ivy-timeline": IvyTimeline;
         "ivy-timeline-item": IvyTimelineItem;
         "ivy-tip": IvyTip;
@@ -1163,6 +1201,7 @@ declare module "@stencil/core" {
             "ivy-icon": LocalJSX.IvyIcon & JSXBase.HTMLAttributes<HTMLIvyIconElement>;
             "ivy-image": LocalJSX.IvyImage & JSXBase.HTMLAttributes<HTMLIvyImageElement>;
             "ivy-input": LocalJSX.IvyInput & JSXBase.HTMLAttributes<HTMLIvyInputElement>;
+            "ivy-link": LocalJSX.IvyLink & JSXBase.HTMLAttributes<HTMLIvyLinkElement>;
             "ivy-loading": LocalJSX.IvyLoading & JSXBase.HTMLAttributes<HTMLIvyLoadingElement>;
             "ivy-message": LocalJSX.IvyMessage & JSXBase.HTMLAttributes<HTMLIvyMessageElement>;
             "ivy-notification": LocalJSX.IvyNotification & JSXBase.HTMLAttributes<HTMLIvyNotificationElement>;
@@ -1183,6 +1222,7 @@ declare module "@stencil/core" {
             "ivy-table": LocalJSX.IvyTable & JSXBase.HTMLAttributes<HTMLIvyTableElement>;
             "ivy-tabs": LocalJSX.IvyTabs & JSXBase.HTMLAttributes<HTMLIvyTabsElement>;
             "ivy-tag": LocalJSX.IvyTag & JSXBase.HTMLAttributes<HTMLIvyTagElement>;
+            "ivy-text": LocalJSX.IvyText & JSXBase.HTMLAttributes<HTMLIvyTextElement>;
             "ivy-timeline": LocalJSX.IvyTimeline & JSXBase.HTMLAttributes<HTMLIvyTimelineElement>;
             "ivy-timeline-item": LocalJSX.IvyTimelineItem & JSXBase.HTMLAttributes<HTMLIvyTimelineItemElement>;
             "ivy-tip": LocalJSX.IvyTip & JSXBase.HTMLAttributes<HTMLIvyTipElement>;
