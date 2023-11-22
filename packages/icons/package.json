@@ -27,9 +27,9 @@
     "gen": "node scripts/transfer.mjs"
   },
   "devDependencies": {
-    "svgo": "^3.0.2",
-    "terser": "^5.18.2",
-    "vite": "^4.2.3"
+    "svgo": "^3.0.4",
+    "terser": "^5.24.0",
+    "vite": "^5.0.2"
   },
   "license": "MIT",
   "private": false

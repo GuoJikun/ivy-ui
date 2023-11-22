@@ -22,6 +22,6 @@
     "@changesets/cli": "^2.26.2"
   },
   "dependencies": {
-    "taze": "^0.11.2"
+    "taze": "^0.12.0"
   }
 }
