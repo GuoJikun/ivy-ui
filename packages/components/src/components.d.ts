@@ -86,8 +86,9 @@ export namespace Components {
         "span": string;
     }
     interface IvyDetails {
-        "header": string;
         "open": boolean;
+        "removeTransition": boolean;
+        "summary": string;
     }
     interface IvyDialog {
         "close": () => Promise<void>;
@@ -929,8 +930,9 @@ declare namespace LocalJSX {
         "span"?: string;
     }
     interface IvyDetails {
-        "header"?: string;
         "open"?: boolean;
+        "removeTransition"?: boolean;
+        "summary"?: string;
     }
     interface IvyDialog {
         "header"?: string;
