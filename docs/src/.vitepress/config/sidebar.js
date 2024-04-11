@@ -200,14 +200,9 @@ const components = [
     text: "其它",
     collapsible: true,
     items: [
-      {
-        text: "Clipboard 复制到剪切板",
-        link: "/components/clipboard",
-      },
-      {
-        text: "ContextMenu 右键菜单",
-        link: "/components/contentmenu",
-      },
+      { text: "Clipboard 复制到剪切板", link: "/components/clipboard" },
+      { text: "ContextMenu 右键菜单", link: "/components/contextmenu" },
+      { text: "Details 详情", link: "/components/details" },
     ],
   },
 ];
