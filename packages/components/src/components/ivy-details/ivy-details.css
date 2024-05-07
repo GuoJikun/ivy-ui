@@ -37,6 +37,14 @@
 .details-summary + .details-content > .details-content-inner {
   padding-top: 16px;
 }
+.details-content {
+  overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.details-content.has-transition {
+  transition: 0.3s height ease-in-out;
+}
 .details-content-inner {
   box-sizing: border-box;
   font-size: 13px;

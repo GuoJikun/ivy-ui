@@ -1,21 +1,21 @@
 {
-  "name": "docs",
-  "version": "1.0.1",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vitepress dev src",
-    "build": "vitepress build src",
-    "serve": "vitepress serve src"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "vitepress": "1.0.0-rc.29"
-  },
-  "dependencies": {
-    "ivy-icon": "workspace:*",
-    "ivy-ui": "workspace:*"
-  }
+    "name": "docs",
+    "version": "1.0.1",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "vitepress dev src",
+        "build": "vitepress build src",
+        "serve": "vitepress serve src"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "vitepress": "1.1.4"
+    },
+    "dependencies": {
+        "ivy-icon": "workspace:*",
+        "ivy-ui": "workspace:*"
+    }
 }

@@ -10,7 +10,7 @@
 
 ```html
 <ivy-details>
-  十八年来坠世间，吹花嚼蕊弄冰弦，多情情寄阿谁边？紫玉钗斜灯影背，红绵粉冷枕函边。相看好处却无言。
+    十八年来坠世间，吹花嚼蕊弄冰弦，多情情寄阿谁边？紫玉钗斜灯影背，红绵粉冷枕函边。相看好处却无言。
 </ivy-details>
 ```
 
@@ -24,11 +24,11 @@
 
 ```html
 <ivy-details summary="浣溪沙">
-  十八年来坠世间，吹花嚼蕊弄冰弦，多情情寄阿谁边？紫玉钗斜灯影背，红绵粉冷枕函边。相看好处却无言。
+    十八年来坠世间，吹花嚼蕊弄冰弦，多情情寄阿谁边？紫玉钗斜灯影背，红绵粉冷枕函边。相看好处却无言。
 </ivy-details>
 ```
 
-<!-- ## 不显示动画
+## 不显示动画
 
 通过设置 `remove-transition` 为 `true` 来移除动画效果
 
@@ -38,9 +38,9 @@
 
 ```html
 <ivy-details summary="浣溪沙" remove-transition>
-  十八年来坠世间，吹花嚼蕊弄冰弦，多情情寄阿谁边？紫玉钗斜灯影背，红绵粉冷枕函边。相看好处却无言。
+    十八年来坠世间，吹花嚼蕊弄冰弦，多情情寄阿谁边？紫玉钗斜灯影背，红绵粉冷枕函边。相看好处却无言。
 </ivy-details>
-``` -->
+```
 
 ## 可用的 CSS 变量
 
@@ -50,12 +50,12 @@
 
 ```css
 :host {
-  --ivy-details-border-radius: 8px;
-  --ivy-background-color: #f7f7f7;
-  --ivy-details-summary-color: #666;
-  --ivy-details-color: #515a6e;
-  --ivy-details-font-size: 13px;
-  --ivy-details-summary-font-size: 14px;
+    --ivy-details-border-radius: 8px;
+    --ivy-background-color: #f7f7f7;
+    --ivy-details-summary-color: #666;
+    --ivy-details-color: #515a6e;
+    --ivy-details-font-size: 13px;
+    --ivy-details-summary-font-size: 14px;
 }
 ```
 
@@ -63,7 +63,8 @@
 
 ## Props
 
-| Prop      | 描述     | 类型      | 可选值 | 默认值     |
-| --------- | -------- | --------- | ------ | ---------- |
-| `summary` | 标题     | `string`  | -      | `详细信息` |
-| `open`    | 展开组件 | `boolean` | -      | `false`    |
+| Prop                | 描述     | 类型      | 可选值 | 默认值     |
+| ------------------- | -------- | --------- | ------ | ---------- |
+| `summary`           | 标题     | `string`  | -      | `详细信息` |
+| `open`              | 展开组件 | `boolean` | -      | `-`        |
+| `remove-transition` | 移除动画 | `boolean` | -      | `-`        |
