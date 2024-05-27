@@ -1,13 +1,13 @@
 import { Component, Host, h, Prop, Event, EventEmitter, State, Watch, Method } from '@stencil/core';
 
-type Pager = {
+interface Pager {
   current: number;
   size: number;
   sizes: number[];
   total: number;
   layout: string[];
   maxPage: number;
-};
+}
 @Component({
   tag: 'ivy-pager',
   styleUrl: 'ivy-pager.css',
